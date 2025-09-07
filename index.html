@@ -1,0 +1,88 @@
+
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>KPOP 아이돌 케미 이름 생성기</title>
+  <meta name="description" content="내 이름과 좋아하는 아이돌을 입력하면 어울리는 절친/애인/파트너 이름을 만들어 드려요. KPOP idol chemistry name generator." />
+  <link rel="stylesheet" href="./css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎤 KPOP 아이돌 케미 이름 생성기</h1>
+      <p class="lead">좋아하는 아이돌과 어울리는 이름을 만들어 보세요. (정적 웹만으로 작동)</p>
+    </header>
+
+    <div class="grid cols-2">
+      <!-- 입력 카드 -->
+      <div class="card">
+        <form id="form" autocomplete="off">
+          <div class="grid">
+            <div>
+              <label for="myName">내 이름</label>
+              <input id="myName" type="text" placeholder="예: Sophia" required />
+            </div>
+            <div>
+              <label for="idol">좋아하는 아이돌</label>
+              <input id="idol" list="idolList" placeholder="예: 정국, 민지, 제니..." required />
+              <datalist id="idolList"></datalist>
+            </div>
+          </div>
+
+          <hr />
+
+          <label>성별 선택</label>
+          <div class="radio-row" role="group" aria-label="성별 선택">
+            <label class="radio"><input type="radio" name="gender" value="male"> 남자</label>
+            <label class="radio"><input type="radio" name="gender" value="female"> 여자</label>
+            <label class="radio"><input type="radio" name="gender" value="auto" checked> 자동</label>
+          </div>
+
+          <label style="margin-top:12px;">관계 타입</label>
+          <div class="radio-row" role="group" aria-label="관계 타입">
+            <label class="radio"><input type="radio" name="relation" value="friend"> 절친</label>
+            <label class="radio"><input type="radio" name="relation" value="partner"> 무대 파트너</label>
+            <label class="radio"><input type="radio" name="relation" value="classmate"> 같은 반 친구</label>
+            <label class="radio"><input type="radio" name="relation" value="drama"> 드라마 주인공</label>
+            <label class="radio"><input type="radio" name="relation" value="lover" checked> 애인</label>
+          </div>
+
+          <div style="display:flex;gap:8px;margin-top:16px;">
+            <button class="btn" type="submit">케미 이름 만들기</button>
+            <button class="btn secondary" type="reset">초기화</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- 결과 카드 -->
+      <div class="card" aria-live="polite">
+        <div id="header" class="result"></div>
+        <div id="results" class="result"></div>
+      </div>
+    </div>
+
+    <div class="ad" style="margin-top:16px;">(광고 영역: 결과 하단)</div>
+
+    <section class="card" style="margin-top:16px;">
+      <h2 style="margin-top:0">FAQ</h2>
+      <p class="lead">검색엔진 최적화를 위해 기본 설명을 정적으로 제공합니다.</p>
+      <ul>
+        <li>이름 생성은 브라우저에서만 처리되며, 서버에 저장되지 않습니다.</li>
+        <li>성별은 남/여/자동 중 선택할 수 있으며, 자동은 이름이나 아이돌 정보를 참고합니다.</li>
+        <li>관계 타입은 절친/무대 파트너/같은 반 친구/드라마 주인공/애인 중에서 선택할 수 있습니다.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>© 2025 Idol Chemistry · 정적 웹사이트 데모</p>
+      <noscript>이 페이지를 사용하려면 JavaScript가 필요합니다.</noscript>
+      <div id="live" style="height:1px;overflow:hidden" aria-live="polite"></div>
+    </footer>
+  </div>
+
+  <script type="module" src="./js/app.js"></script>
+</body>
+</html>

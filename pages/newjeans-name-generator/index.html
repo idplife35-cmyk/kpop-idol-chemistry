@@ -1,0 +1,98 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>NewJeans 이름 생성기 — KPOP Idol Chemistry</title>
+  <meta name="description" content="뉴진스(NewJeans) 멤버 기반으로 어울리는 한국식 이름을 만들어 보세요. 민지·하니·다니엘·해린·혜인과의 케미 지수 확인!" />
+  <link rel="canonical" href="https://example.com/pages/newjeans-name-generator/" />
+  <link rel="stylesheet" href="../../css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🐰 NewJeans 전용 이름 생성기</h1>
+      <p class="lead">민지 · 하니 · 다니엘 · 해린 · 혜인과 찰떡 케미 이름을 만들어 보세요.</p>
+    </header>
+
+    <div class="grid cols-2">
+      <!-- 입력 카드 -->
+      <div class="card">
+        <form id="form" autocomplete="off">
+          <div class="grid">
+            <div>
+              <label for="myName">내 이름</label>
+              <input id="myName" type="text" placeholder="예: Sophia" required />
+            </div>
+            <div>
+              <label for="idol">좋아하는 NewJeans 멤버</label>
+              <input id="idol" list="idolList" placeholder="예: 민지, 하니, 다니엘, 해린, 혜인" required />
+              <datalist id="idolList"></datalist>
+              <small class="meta">* 이 페이지는 NewJeans 멤버만 자동완성에 노출됩니다.</small>
+            </div>
+          </div>
+
+          <hr />
+
+          <label>성별 선택</label>
+          <div class="radio-row" role="group" aria-label="성별 선택">
+            <label class="radio"><input type="radio" name="gender" value="male"> 남자</label>
+            <label class="radio"><input type="radio" name="gender" value="female"> 여자</label>
+            <label class="radio"><input type="radio" name="gender" value="auto" checked> 자동</label>
+          </div>
+
+          <label style="margin-top:12px;">관계 타입</label>
+          <div class="radio-row" role="group" aria-label="관계 타입">
+            <label class="radio"><input type="radio" name="relation" value="friend"> 절친</label>
+            <label class="radio"><input type="radio" name="relation" value="partner"> 무대 파트너</label>
+            <label class="radio"><input type="radio" name="relation" value="classmate"> 같은 반 친구</label>
+            <label class="radio"><input type="radio" name="relation" value="drama"> 드라마 주인공</label>
+            <label class="radio"><input type="radio" name="relation" value="lover" checked> 애인</label>
+          </div>
+
+          <div style="display:flex;gap:8px;margin-top:16px;">
+            <button class="btn" type="submit">케미 이름 만들기</button>
+            <button class="btn secondary" type="reset">초기화</button>
+          </div>
+        </form>
+      </div>
+
+      <!-- 결과 카드 -->
+      <div class="card" aria-live="polite">
+        <div id="header" class="result"></div>
+        <div id="results" class="result"></div>
+      </div>
+    </div>
+
+    <div class="ad" style="margin-top:16px;">(광고 영역: 결과 하단)</div>
+
+    <section class="card" style="margin-top:16px;">
+      <h2 style="margin-top:0">NewJeans 전용 FAQ</h2>
+      <ul>
+        <li>자동완성은 <strong>NewJeans 멤버</strong>만 표시됩니다.</li>
+        <li>이름 생성은 브라우저에서만 처리되어 서버에 저장되지 않습니다.</li>
+      </ul>
+    </section>
+
+    <footer>
+      <p>© 2025 Idol Chemistry · 정적 웹사이트 데모</p>
+      <div id="live" style="height:1px;overflow:hidden" aria-live="polite"></div>
+    </footer>
+  </div>
+
+  <!-- 공통 앱 로직 로드 -->
+  <script type="module" src="../../js/app.js"></script>
+
+  <!-- 이 페이지 전용: 자동완성에 NewJeans만 남기기 -->
+  <script type="module">
+    import { getIdols } from '../../js/data/idols.js';
+    import { q, setHTML } from '../../js/ui/dom.js';
+    (async function filterToNJ(){
+      const list = q('#idolList');
+      const idols = (await getIdols()).filter(i => i.group === 'NewJeans');
+      setHTML(list, idols.map(i => `<option value="${i.name_kr}">${i.group}</option>`).join(''));
+    })();
+  </script>
+</body>
+</html>

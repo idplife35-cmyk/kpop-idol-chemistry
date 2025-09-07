@@ -1,0 +1,105 @@
+
+
+/* =========================
+   KPOP Idol Chemistry — Base Styles
+   Static site friendly, lightweight, responsive
+   ========================= */
+
+:root{
+  --bg:#0b0d10;          /* page background */
+  --surface:#141820;     /* card background */
+  --text:#e8eef6;        /* primary text */
+  --muted:#9aa4b2;       /* secondary text */
+  --border:#222737;      /* hairline borders */
+  --accent:#67d2ff;      /* primary accent */
+  --accent-2:#44a6ff;    /* gradient end */
+}
+
+*{ box-sizing:border-box; }
+html,body{ margin:0; padding:0; }
+body{
+  font-family: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.5;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* Layout */
+.container{ max-width:980px; margin:0 auto; padding:24px; }
+header{ text-align:center; padding:24px 0; }
+h1{ margin:0 0 8px; font-size:28px; letter-spacing:.2px; }
+.lead{ margin:0; color:var(--muted); }
+
+/* Cards & blocks */
+.card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:16px;
+}
+
+hr{ border:none; border-top:1px solid var(--border); margin:16px 0; }
+
+.grid{ display:grid; gap:16px; }
+.grid.cols-2{ grid-template-columns:repeat(2,minmax(0,1fr)); }
+
+/* Form */
+label{ display:block; font-size:14px; color:var(--muted); margin:0 0 6px; }
+input[type="text"],
+select{
+  width:100%;
+  padding:12px;
+  border-radius:10px;
+  border:1px solid var(--border);
+  background:#0f131a;
+  color:var(--text);
+  outline:none;
+}
+input[type="text"]:focus,
+select:focus{ box-shadow:0 0 0 3px rgba(103,210,255,.15); border-color:#2a6ea0; }
+
+.radio-row{ display:flex; gap:8px; flex-wrap:wrap; }
+.radio{
+  display:flex; gap:8px; align-items:center;
+  background:#10141b; border:1px solid var(--border);
+  padding:8px 10px; border-radius:999px;
+}
+.radio input{ accent-color:#49f; }
+
+/* Buttons */
+.btn{
+  background:linear-gradient(180deg,var(--accent),var(--accent-2));
+  color:#04131f; border:0; border-radius:12px;
+  padding:12px 16px; font-weight:700; cursor:pointer;
+}
+.btn.secondary{ background:#0f131a; border:1px solid var(--border); color:var(--text); }
+.btn:active{ transform:translateY(1px); }
+
+/* Results */
+.result{ display:flex; flex-direction:column; gap:16px; }
+.result .item{ padding:16px; border-radius:12px; background:#0f131a; border:1px solid var(--border); }
+.kv{ display:flex; gap:10px; align-items:center; }
+.kv .key{ min-width:180px; color:var(--muted); }
+.name{ font-size:20px; font-weight:800; }
+small.meta{ color:var(--muted); }
+
+/* Ad placeholder */
+.ad{
+  min-height:120px; border:1px dashed #2a3140; border-radius:12px;
+  display:flex; align-items:center; justify-content:center; color:#5c6a80;
+}
+
+/* Footer */
+footer{ margin:32px 0; color:var(--muted); text-align:center; }
+
+/* Accessibility helpers */
+[aria-live="polite"]:empty::after{ content:"결과가 여기에 표시됩니다"; color:var(--muted); font-size:14px; }
+
+/* Responsive */
+@media (max-width:760px){
+  .grid.cols-2{ grid-template-columns:1fr; }
+  .kv{ align-items:flex-start; }
+  .kv .key{ min-width:120px; }
+}

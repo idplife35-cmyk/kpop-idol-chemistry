@@ -1,0 +1,38 @@
+
+[
+  { "group": "BTS", "name_kr": "정국", "name_en": "Jungkook", "gender": "male" },
+  { "group": "BTS", "name_kr": "지민", "name_en": "Jimin", "gender": "male" },
+  { "group": "BTS", "name_kr": "뷔", "name_en": "V", "gender": "male" },
+  { "group": "BTS", "name_kr": "진", "name_en": "Jin", "gender": "male" },
+
+  { "group": "BLACKPINK", "name_kr": "지수", "name_en": "Jisoo", "gender": "female" },
+  { "group": "BLACKPINK", "name_kr": "제니", "name_en": "Jennie", "gender": "female" },
+  { "group": "BLACKPINK", "name_kr": "로제", "name_en": "Rosé", "gender": "female" },
+  { "group": "BLACKPINK", "name_kr": "리사", "name_en": "Lisa", "gender": "female" },
+
+  { "group": "NewJeans", "name_kr": "민지", "name_en": "Minji", "gender": "female" },
+  { "group": "NewJeans", "name_kr": "하니", "name_en": "Hanni", "gender": "female" },
+  { "group": "NewJeans", "name_kr": "다니엘", "name_en": "Danielle", "gender": "female" },
+  { "group": "NewJeans", "name_kr": "해린", "name_en": "Haerin", "gender": "female" },
+  { "group": "NewJeans", "name_kr": "혜인", "name_en": "Hyein", "gender": "female" },
+
+  { "group": "IVE", "name_kr": "안유진", "name_en": "Yujin", "gender": "female" },
+  { "group": "IVE", "name_kr": "장원영", "name_en": "Wonyoung", "gender": "female" },
+  { "group": "IVE", "name_kr": "가을", "name_en": "Gaeul", "gender": "female" },
+  { "group": "IVE", "name_kr": "레이", "name_en": "Rei", "gender": "female" },
+  { "group": "IVE", "name_kr": "리즈", "name_en": "Liz", "gender": "female" },
+  { "group": "IVE", "name_kr": "이서", "name_en": "Leeseo", "gender": "female" },
+
+  { "group": "SEVENTEEN", "name_kr": "정한", "name_en": "Jeonghan", "gender": "male" },
+  { "group": "SEVENTEEN", "name_kr": "조슈아", "name_en": "Joshua", "gender": "male" },
+  { "group": "SEVENTEEN", "name_kr": "준", "name_en": "Jun", "gender": "male" },
+  { "group": "SEVENTEEN", "name_kr": "호시", "name_en": "Hoshi", "gender": "male" },
+  { "group": "SEVENTEEN", "name_kr": "원우", "name_en": "Wonwoo", "gender": "male" },
+  { "group": "SEVENTEEN", "name_kr": "우지", "name_en": "Woozi", "gender": "male" },
+  { "group": "SEVENTEEN", "name_kr": "디에잇", "name_en": "The8", "gender": "male" },
+  { "group": "SEVENTEEN", "name_kr": "민규", "name_en": "Mingyu", "gender": "male" },
+  { "group": "SEVENTEEN", "name_kr": "도겸", "name_en": "DK", "gender": "male" },
+  { "group": "SEVENTEEN", "name_kr": "승관", "name_en": "Seungkwan", "gender": "male" },
+  { "group": "SEVENTEEN", "name_kr": "버논", "name_en": "Vernon", "gender": "male" },
+  { "group": "SEVENTEEN", "name_kr": "디노", "name_en": "Dino", "gender": "male" }
+]
