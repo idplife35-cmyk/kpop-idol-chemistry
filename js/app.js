@@ -1,9 +1,9 @@
 
 
-import { q, on, setHTML } from '../js/ui/dom.js';
-import { RELATION_UI, renderHeader, renderResultCard } from '../js/ui/templates.js';
-import { getIdols, resolveIdol } from '../js/data/idols.js';
-import { generate } from '../js/generator/engine.js';
+import { q, on, setHTML } from './ui/dom.js';
+import { RELATION_UI, renderHeader, renderResultCard } from './ui/templates.js';
+import { getIdols, resolveIdol } from './data/idols.js';
+import { generate } from './generator/engine.js';
 
 function relationValue(){ return q('input[name="relation"]:checked').value; }
 function genderValue(){ return q('input[name="gender"]:checked').value; }
