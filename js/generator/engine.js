@@ -1,10 +1,10 @@
 
 
-import { makeSeed, rnd } from '../generator/seed.js';
-import { romanize } from '../generator/romanize.js';
-import { RELATION_PRESET } from '../generator/style-presets.js';
-import { getSurnames } from './surnames.js';
-import { getSyllables } from '../generator/syllable-pool.js';
+import { makeSeed, rnd } from './seed.js';
+import { romanize } from './romanize.js';
+import { RELATION_PRESET } from './style-presets.js';
+import { getSurnames } from '../data/surnames.js';
+import { getSyllables } from './syllable-pool.js';
 
 export function inferGender(myName){
   if(!myName) return null;
