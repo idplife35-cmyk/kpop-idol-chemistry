@@ -1,7 +1,10 @@
 <!doctype html>
 <html lang="ko">
-<!--#include virtual="components/header.html" -->
+<head>
+  <div data-include="/components/head.html"></div>
+</head>
 <body>
+  <div id="site-header" data-include="/components/header.html"></div>
   <div class="container">
     <header>
       <h1>🎤 KPOP 아이돌 케미 이름 생성기</h1>
@@ -76,5 +79,7 @@
   </div>
 
   <script type="module" src="./js/app.js"></script>
+  <div id="site-footer" data-include="/components/footer.html"></div>
+  <script type="module" src="/js/ui/include.js"></script>
 </body>
 </html>

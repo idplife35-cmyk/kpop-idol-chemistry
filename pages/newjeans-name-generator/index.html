@@ -1,13 +1,11 @@
-
 <!doctype html>
 <html lang="ko">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <div data-include="/components/head.html"></div>
   <title>NewJeans 이름 생성기 — KPOP Idol Chemistry</title>
   <meta name="description" content="뉴진스(NewJeans) 멤버 기반으로 어울리는 한국식 이름을 만들어 보세요. 민지·하니·다니엘·해린·혜인과의 케미 지수 확인!" />
   <link rel="canonical" href="https://kpopnamegenerator.com/pages/newjeans-name-generator/" />
-  <link rel="stylesheet" href="../../css/style.css" />
+  <link rel="stylesheet" href="/css/style.css" />
 </head>
 <body>
   <div id="site-header" data-include="/components/header.html"></div>
@@ -95,7 +93,7 @@
       setHTML(list, idols.map(i => `<option value="${i.name_kr}">${i.group}</option>`).join(''));
     })();
   </script>
-</body>
   <div id="site-footer" data-include="/components/footer.html"></div>
   <script type="module" src="/js/ui/include.js"></script>
+</body>
 </html>
