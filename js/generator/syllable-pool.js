@@ -39,7 +39,7 @@ function normalizePool(pool) {
  */
 export async function getSyllables() {
   if (_cache) return _cache;
-  const raw = await loadJSON('./data/syllables.json');
+  const raw = await loadJSON('/data/syllables.json');
   _cache = normalizePool(raw || {});
   return _cache;
 }

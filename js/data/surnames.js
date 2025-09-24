@@ -15,7 +15,7 @@ let _cache = null;
  */
 export async function getSurnames() {
   if (_cache) return _cache;
-  const arr = await loadJSON('./data/surnames.json');
+  const arr = await loadJSON('/data/surnames.json');
   _cache = Array.isArray(arr) ? arr : [];
   return _cache;
 }

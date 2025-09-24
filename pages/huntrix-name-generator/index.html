@@ -1,17 +1,17 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HUNTR/X Name Generator — KPOP Idol Chemistry</title>
+  <meta name="description" content="Create a Korean-style name that matches with HUNTR/X (K‑Pop Demon Hunters)." />
   <meta name="google-adsense-account" content="ca-pub-9514930752765161">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9514930752765161" crossorigin="anonymous"></script>
+  <link rel="canonical" href="https://kpopnamegenerator.com/pages/huntrix-name-generator/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css" />
-  <title data-i18n="meta.title">KPOP Idol Chemistry Name Generator</title>
 </head>
-<body>
+<body class="theme-huntrix">
   <div id="site-header" data-include="/components/header.html"></div>
   <div class="container">
     <div style="display:flex;justify-content:flex-end;align-items:center;gap:8px;margin-top:8px;">
@@ -21,26 +21,15 @@
         <option value="ko">한국어</option>
       </select>
     </div>
-
     <header>
-      <h1 class="title-cute" data-i18n="main.h1">🎀💖 K‑Pop Idol Chemistry Name Generator ✨</h1>
-      <p class="lead" data-i18n="main.lead">Create a perfect chemistry name with your favorite idol.</p>
+      <h1 class="title-cute" data-i18n="page.huntrix.h1">🎀💚 HUNTR/X Name Generator ✨</h1>
+      <p class="lead" data-i18n="page.huntrix.lead">Forge a cute Korean-style name that matches with HUNTR/X (K‑Pop Demon Hunters).</p>
       <div class="cute-emoji-row" aria-hidden="true" style="margin-top:10px;">
-        <span>💖</span><span>✨</span><span>🎀</span><span>🌸</span><span>🫧</span><span>💫</span>
+        <span>💚</span><span>✨</span><span>🗡️</span><span>🌸</span><span>👾</span><span>💫</span>
       </div>
     </header>
 
-    <nav class="quick-links" data-i18n-aria-label="nav.aria" aria-label="Quick links by group" style="margin:12px 0 20px;display:flex;flex-wrap:wrap;gap:8px;">
-      <a class="btn secondary" href="/pages/blackpink-name-generator/">BLACKPINK</a>
-      <a class="btn secondary" href="/pages/ive-name-generator/">IVE</a>
-      <a class="btn secondary" href="/pages/bts-name-generator/">BTS</a>
-      <a class="btn secondary" href="/pages/newjeans-name-generator/">NewJeans</a>
-      <a class="btn secondary" href="/pages/huntrix-name-generator/">HUNTR/X</a>
-      <a class="btn secondary" href="/pages/sajaboys-name-generator/">SajaBoys</a>
-    </nav>
-
     <div class="grid cols-2">
-      <!-- 입력 카드 -->
       <div class="card">
         <form id="form" autocomplete="off">
           <div class="grid">
@@ -50,8 +39,9 @@
             </div>
             <div>
               <label for="idol" data-i18n="form.idol.label">Favorite Idol</label>
-              <input id="idol" list="idolList" data-i18n-placeholder="form.idol.placeholder" placeholder="e.g., Jungkook, Minji, Jennie..." required />
+              <input id="idol" list="idolList" data-i18n-placeholder="form.idol.placeholder" placeholder="Type a member name…" required />
               <datalist id="idolList"></datalist>
+              <small class="meta" data-i18n="page.onlyGroup">* Autocomplete shows this group only.</small>
             </div>
           </div>
 
@@ -80,88 +70,85 @@
         </form>
       </div>
 
-      <!-- 결과 카드 -->
       <div class="card" aria-live="polite">
         <div id="header" class="result"></div>
         <div id="results" class="result"></div>
       </div>
     </div>
 
+    <div class="ad" style="margin-top:16px;">&nbsp;</div>
+
     <section class="card" style="margin-top:16px;">
       <h2 style="margin-top:0" data-i18n="faq.title">FAQ</h2>
       <p class="lead" data-i18n="faq.lead">Answers to common questions about how it works.</p>
-
       <details>
         <summary><span data-i18n="faq.q1">How are the names generated?</span></summary>
-        <p data-i18n="faq.a1.p1">The generator creates two names using the idol you pick and a style preset.</p>
+        <p data-i18n="faq.a1.p1"></p>
         <ul>
-          <li data-i18n="faq.a1.li1">Same-name: a random Korean surname + the idol's Korean name (e.g., Kim + Jungkook).</li>
-          <li data-i18n="faq.a1.li2">Styled-name: builds a new given name using syllable pools tuned per relationship type.</li>
+          <li data-i18n="faq.a1.li1"></li>
+          <li data-i18n="faq.a1.li2"></li>
         </ul>
-        <p data-i18n="faq.a1.p2">Results are deterministic: the same inputs produce the same outputs.</p>
+        <p data-i18n="faq.a1.p2"></p>
       </details>
-
       <details>
         <summary><span data-i18n="faq.q2">What is the chemistry score?</span></summary>
-        <p data-i18n="faq.a2.p1">A fun, seeded score between 70–100 based on your inputs. It's not a real compatibility measure.</p>
+        <p data-i18n="faq.a2.p1"></p>
       </details>
-
       <details>
         <summary><span data-i18n="faq.q3">How does the Gender option work?</span></summary>
-        <p data-i18n="faq.a3.p1">Male/Female use different syllable pools for styling. Auto tries to infer from your name or the idol.</p>
+        <p data-i18n="faq.a3.p1"></p>
         <ul>
-          <li data-i18n="faq.a3.li1">English names: simple lists (e.g., Sophia/Liam) guide the guess.</li>
-          <li data-i18n="faq.a3.li2">Korean names: the last character heuristic helps choose likely gender.</li>
-          <li data-i18n="faq.a3.li3">If unknown, the idol's gender is used as a fallback.</li>
+          <li data-i18n="faq.a3.li1"></li>
+          <li data-i18n="faq.a3.li2"></li>
+          <li data-i18n="faq.a3.li3"></li>
         </ul>
       </details>
-
       <details>
         <summary><span data-i18n="faq.q4">How do I search idols? What’s included?</span></summary>
-        <p data-i18n="faq.a4.p1">Type in Korean or English. Suggestions appear, and fuzzy matching helps with small typos.</p>
-        <p data-i18n="faq.a4.p2">The list covers popular groups only. To expand it, edit the data file below.</p>
-        <ul>
-          <li><code>data/idols.json</code></li>
-        </ul>
+        <p data-i18n="faq.a4.p1"></p>
+        <p data-i18n="faq.a4.p2"></p>
+        <ul><li><code>data/idols.json</code></li></ul>
       </details>
-
       <details>
         <summary><span data-i18n="faq.q5">Privacy: is anything stored or sent?</span></summary>
-        <p data-i18n="faq.a5.p1">Everything runs in your browser. We don't upload your inputs to a server.</p>
-        <ul>
-          <li data-i18n="faq.a5.li1">Only your language preference is saved in localStorage.</li>
-        </ul>
+        <p data-i18n="faq.a5.p1"></p>
+        <ul><li data-i18n="faq.a5.li1"></li></ul>
       </details>
-
       <details>
         <summary><span data-i18n="faq.q6">Why show both Korean and English names?</span></summary>
-        <p data-i18n="faq.a6.p1">This site supports international users. English names are romanized using a simplified mapping.</p>
+        <p data-i18n="faq.a6.p1"></p>
       </details>
-
       <details>
         <summary><span data-i18n="faq.q7">Can I use this offline? Any requirements?</span></summary>
-        <p data-i18n="faq.a7.p1">Use a local or web server; opening the file directly won't work for modules or data fetches.</p>
-        <ul>
-          <li data-i18n="faq.a7.li1">Examples: VS Code Live Server, or <code>python3 -m http.server</code></li>
-        </ul>
-        <p data-i18n="faq.a7.p2">Full offline mode isn't supported because the site fetches data files dynamically.</p>
+        <p data-i18n="faq.a7.p1"></p>
+        <ul><li data-i18n="faq.a7.li1"></li></ul>
+        <p data-i18n="faq.a7.p2"></p>
       </details>
-
       <details>
         <summary><span data-i18n="faq.q8">How do I change language?</span></summary>
-        <p data-i18n="faq.a8.p1">Use the language selector at the top-right. The page updates instantly and remembers your choice.</p>
+        <p data-i18n="faq.a8.p1"></p>
       </details>
     </section>
 
     <footer>
-      <p>© 2025 Idol Chemistry</p>
-      <noscript data-i18n="footer.noscript">JavaScript is required to use this page.</noscript>
+      <p>© 2025 Idol Chemistry · 정적 웹사이트 데모</p>
       <div id="live" style="height:1px;overflow:hidden" aria-live="polite"></div>
     </footer>
   </div>
 
   <script type="module" src="/js/i18n.js"></script>
-  <script type="module" src="./js/app.js"></script>
+  <script type="module" src="../../js/app.js"></script>
+
+  <!-- Page filter: HUNTR/X only (if defined in data/idols.json) -->
+  <script type="module">
+    import { getIdols } from '../../js/data/idols.js';
+    import { q, setHTML } from '../../js/ui/dom.js';
+    (async function filterToHuntrix(){
+      const list = q('#idolList');
+      const idols = (await getIdols() || []).filter(i => i.group === 'HUNTR/X');
+      setHTML(list, idols.map(i => `<option value="${i.name_kr}">${i.group}</option>`).join(''));
+    })();
+  </script>
   <div id="site-footer" data-include="/components/footer.html"></div>
   <script type="module" src="/js/ui/include.js"></script>
 </body>

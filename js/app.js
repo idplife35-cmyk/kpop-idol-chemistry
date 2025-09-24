@@ -1,7 +1,7 @@
 
-
 import { q, on, setHTML } from './ui/dom.js';
-import { RELATION_UI, renderHeader, renderResultCard } from './ui/templates.js';
+import { renderHeader, renderResultCard } from './ui/templates.js';
+import { relationUI, t, getLang } from './i18n.js';
 import { getIdols, resolveIdol } from './data/idols.js';
 import { generate } from './generator/engine.js';
 
@@ -21,7 +21,7 @@ async function init(){
     const myName = q('#myName').value.trim();
     const idolInput = q('#idol').value.trim();
     const idol = await resolveIdol(idolInput);
-    if(!idol){ alert('아이돌 이름을 정확히 선택해주세요.'); return; }
+    if(!idol){ alert(t('alert.selectIdol')); return; }
 
     const relation = relationValue();
     const genderPref = genderValue();
@@ -29,13 +29,13 @@ async function init(){
     const { chemistry, sameName, styled } = await generate({ myName, idol, genderPref, relation });
 
     const header = renderHeader(myName, idol);
-    const relUI = RELATION_UI[relation];
+    const relUI = relationUI()[relation];
 
-    const sameCard = renderResultCard(relUI.label, relUI.icon, sameName.full_kr, sameName.full_en, chemistry,
-      makeCopyKR(relation, chemistry, idol, myName, sameName.full_kr));
+    const sameCopy = makeCopy(relation, chemistry, idol, myName, sameName.full_kr, sameName.full_en);
+    const styledCopy = makeCopy(relation, chemistry, idol, myName, styled.full_kr, styled.full_en);
 
-    const styledCard = renderResultCard(relUI.label, relUI.icon, styled.full_kr, styled.full_en, chemistry,
-      makeCopyKR(relation, chemistry, idol, myName, styled.full_kr));
+    const sameCard = renderResultCard(relUI.label, relUI.icon, sameName.full_kr, sameName.full_en, chemistry, sameCopy);
+    const styledCard = renderResultCard(relUI.label, relUI.icon, styled.full_kr, styled.full_en, chemistry, styledCopy);
 
     setHTML(q('#header'), header);
     setHTML(q('#results'), sameCard + styledCard);
@@ -45,10 +45,14 @@ async function init(){
 
 function friendGiven(fullKr){ return fullKr.slice(1); }
 
-function makeCopyKR(relation, chem, idol, myName, friendFullKr){
-  const rel = RELATION_UI[relation];
+function makeCopy(relation, chem, idol, myName, friendFullKr, friendFullEn){
+  const rel = relationUI()[relation];
   const phrase = rel.copies[chem % rel.copies.length];
-  return `👉 '${idol.name_kr} & ${friendGiven(friendFullKr)}', ${phrase} ${myName}와도 환상의 조합이에요.`;
+  const lang = getLang();
+  if(lang === 'ko'){
+    return `👉 '${idol.name_kr} & ${friendGiven(friendFullKr)}', ${phrase} ${myName}와도 환상의 조합이에요.`;
+  }
+  return `👉 '${idol.name_en} & ${friendFullEn}', ${phrase} Also a perfect match with ${myName}.`;
 }
 
 init();

@@ -1,19 +1,32 @@
 <!doctype html>
-<html lang="ko">
+<html lang="en">
 <head>
-  <title>NewJeans 이름 생성기 — KPOP Idol Chemistry</title>
+  <title>NewJeans Name Generator — KPOP Idol Chemistry</title>
   <meta name="description" content="뉴진스(NewJeans) 멤버 기반으로 어울리는 한국식 이름을 만들어 보세요. 민지·하니·다니엘·해린·혜인과의 케미 지수 확인!" />
   <meta name="google-adsense-account" content="ca-pub-9514930752765161">
   <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9514930752765161" crossorigin="anonymous"></script>
   <link rel="canonical" href="https://kpopnamegenerator.com/pages/newjeans-name-generator/" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css" />
 </head>
-<body>
+<body class="theme-newjeans">
   <div id="site-header" data-include="/components/header.html"></div>
   <div class="container">
+    <div style="display:flex;justify-content:flex-end;align-items:center;gap:8px;margin-top:8px;">
+      <label for="lang-select" class="visually-hidden" data-i18n="ui.language">Language</label>
+      <select id="lang-select" aria-label="Language" style="padding:6px 10px;">
+        <option value="en">English</option>
+        <option value="ko">한국어</option>
+      </select>
+    </div>
     <header>
-      <h1>🐰 NewJeans 전용 이름 생성기</h1>
-      <p class="lead">민지 · 하니 · 다니엘 · 해린 · 혜인과 찰떡 케미 이름을 만들어 보세요.</p>
+      <h1 class="title-cute" data-i18n="page.newjeans.h1">🎀🩵 NewJeans Name Generator ✨</h1>
+      <p class="lead" data-i18n="page.newjeans.lead">Create an adorable Korean-style name that matches with NewJeans members.</p>
+      <div class="cute-emoji-row" aria-hidden="true" style="margin-top:10px;">
+        <span>🩵</span><span>✨</span><span>🎀</span><span>🌸</span><span>🫧</span><span>💖</span>
+      </div>
     </header>
 
     <div class="grid cols-2">
@@ -22,38 +35,38 @@
         <form id="form" autocomplete="off">
           <div class="grid">
             <div>
-              <label for="myName">내 이름</label>
-              <input id="myName" type="text" placeholder="예: Sophia" required />
+              <label for="myName" data-i18n="form.myName.label">My Name</label>
+              <input id="myName" type="text" data-i18n-placeholder="form.myName.placeholder" placeholder="e.g., Sophia" required />
             </div>
             <div>
-              <label for="idol">좋아하는 NewJeans 멤버</label>
-              <input id="idol" list="idolList" placeholder="예: 민지, 하니, 다니엘, 해린, 혜인" required />
+              <label for="idol" data-i18n="form.idol.label">Favorite Idol</label>
+              <input id="idol" list="idolList" data-i18n-placeholder="form.idol.placeholder" placeholder="e.g., Minji, Hanni, Danielle, Haerin, Hyein" required />
               <datalist id="idolList"></datalist>
-              <small class="meta">* 이 페이지는 NewJeans 멤버만 자동완성에 노출됩니다.</small>
+              <small class="meta" data-i18n="page.onlyGroup">* Autocomplete shows this group only.</small>
             </div>
           </div>
 
           <hr />
 
-          <label>성별 선택</label>
-          <div class="radio-row" role="group" aria-label="성별 선택">
-            <label class="radio"><input type="radio" name="gender" value="male"> 남자</label>
-            <label class="radio"><input type="radio" name="gender" value="female"> 여자</label>
-            <label class="radio"><input type="radio" name="gender" value="auto" checked> 자동</label>
+          <label data-i18n="form.gender.label">Gender</label>
+          <div class="radio-row" role="group" data-i18n-aria-label="form.gender.label" aria-label="Gender">
+            <label class="radio"><input type="radio" name="gender" value="male"> <span data-i18n="form.gender.male">Male</span></label>
+            <label class="radio"><input type="radio" name="gender" value="female"> <span data-i18n="form.gender.female">Female</span></label>
+            <label class="radio"><input type="radio" name="gender" value="auto" checked> <span data-i18n="form.gender.auto">Auto</span></label>
           </div>
 
-          <label style="margin-top:12px;">관계 타입</label>
-          <div class="radio-row" role="group" aria-label="관계 타입">
-            <label class="radio"><input type="radio" name="relation" value="friend"> 절친</label>
-            <label class="radio"><input type="radio" name="relation" value="partner"> 무대 파트너</label>
-            <label class="radio"><input type="radio" name="relation" value="classmate"> 같은 반 친구</label>
-            <label class="radio"><input type="radio" name="relation" value="drama"> 드라마 주인공</label>
-            <label class="radio"><input type="radio" name="relation" value="lover" checked> 애인</label>
+          <label style="margin-top:12px;" data-i18n="form.relation.label">Relationship Type</label>
+          <div class="radio-row" role="group" data-i18n-aria-label="form.relation.label" aria-label="Relationship Type">
+            <label class="radio"><input type="radio" name="relation" value="friend"> <span data-i18n="form.relation.friend">Best Friend</span></label>
+            <label class="radio"><input type="radio" name="relation" value="partner"> <span data-i18n="form.relation.partner">Stage Partner</span></label>
+            <label class="radio"><input type="radio" name="relation" value="classmate"> <span data-i18n="form.relation.classmate">Classmate</span></label>
+            <label class="radio"><input type="radio" name="relation" value="drama"> <span data-i18n="form.relation.drama">Drama Lead</span></label>
+            <label class="radio"><input type="radio" name="relation" value="lover" checked> <span data-i18n="form.relation.lover">Lover</span></label>
           </div>
 
           <div style="display:flex;gap:8px;margin-top:16px;">
-            <button class="btn" type="submit">케미 이름 만들기</button>
-            <button class="btn secondary" type="reset">초기화</button>
+            <button class="btn" type="submit" data-i18n="form.submit">Generate Chemistry Name</button>
+            <button class="btn secondary" type="reset" data-i18n="form.reset">Reset</button>
           </div>
         </form>
       </div>
@@ -65,14 +78,58 @@
       </div>
     </div>
 
-    <div class="ad" style="margin-top:16px;">(광고 영역: 결과 하단)</div>
+    <div class="ad" style="margin-top:16px;">&nbsp;</div>
 
     <section class="card" style="margin-top:16px;">
-      <h2 style="margin-top:0">NewJeans 전용 FAQ</h2>
-      <ul>
-        <li>자동완성은 <strong>NewJeans 멤버</strong>만 표시됩니다.</li>
-        <li>이름 생성은 브라우저에서만 처리되어 서버에 저장되지 않습니다.</li>
-      </ul>
+      <h2 style="margin-top:0" data-i18n="faq.title">FAQ</h2>
+      <p class="lead" data-i18n="faq.lead">Answers to common questions about how it works.</p>
+      <details>
+        <summary><span data-i18n="faq.q1">How are the names generated?</span></summary>
+        <p data-i18n="faq.a1.p1"></p>
+        <ul>
+          <li data-i18n="faq.a1.li1"></li>
+          <li data-i18n="faq.a1.li2"></li>
+        </ul>
+        <p data-i18n="faq.a1.p2"></p>
+      </details>
+      <details>
+        <summary><span data-i18n="faq.q2">What is the chemistry score?</span></summary>
+        <p data-i18n="faq.a2.p1"></p>
+      </details>
+      <details>
+        <summary><span data-i18n="faq.q3">How does the Gender option work?</span></summary>
+        <p data-i18n="faq.a3.p1"></p>
+        <ul>
+          <li data-i18n="faq.a3.li1"></li>
+          <li data-i18n="faq.a3.li2"></li>
+          <li data-i18n="faq.a3.li3"></li>
+        </ul>
+      </details>
+      <details>
+        <summary><span data-i18n="faq.q4">How do I search idols? What’s included?</span></summary>
+        <p data-i18n="faq.a4.p1"></p>
+        <p data-i18n="faq.a4.p2"></p>
+        <ul><li><code>data/idols.json</code></li></ul>
+      </details>
+      <details>
+        <summary><span data-i18n="faq.q5">Privacy: is anything stored or sent?</span></summary>
+        <p data-i18n="faq.a5.p1"></p>
+        <ul><li data-i18n="faq.a5.li1"></li></ul>
+      </details>
+      <details>
+        <summary><span data-i18n="faq.q6">Why show both Korean and English names?</span></summary>
+        <p data-i18n="faq.a6.p1"></p>
+      </details>
+      <details>
+        <summary><span data-i18n="faq.q7">Can I use this offline? Any requirements?</span></summary>
+        <p data-i18n="faq.a7.p1"></p>
+        <ul><li data-i18n="faq.a7.li1"></li></ul>
+        <p data-i18n="faq.a7.p2"></p>
+      </details>
+      <details>
+        <summary><span data-i18n="faq.q8">How do I change language?</span></summary>
+        <p data-i18n="faq.a8.p1"></p>
+      </details>
     </section>
 
     <footer>
@@ -81,6 +138,7 @@
     </footer>
   </div>
 
+  <script type="module" src="/js/i18n.js"></script>
   <!-- 공통 앱 로직 로드 -->
   <script type="module" src="../../js/app.js"></script>
 

@@ -18,7 +18,7 @@ let _cache = null;
  */
 export async function getIdols(){
   if(_cache) return _cache;
-  _cache = await loadJSON('./data/idols.json');
+  _cache = await loadJSON('/data/idols.json');
   return _cache;
 }
 

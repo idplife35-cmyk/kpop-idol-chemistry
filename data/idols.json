@@ -23,16 +23,13 @@
   { "group": "IVE", "name_kr": "리즈", "name_en": "Liz", "gender": "female" },
   { "group": "IVE", "name_kr": "이서", "name_en": "Leeseo", "gender": "female" },
 
-  { "group": "SEVENTEEN", "name_kr": "정한", "name_en": "Jeonghan", "gender": "male" },
-  { "group": "SEVENTEEN", "name_kr": "조슈아", "name_en": "Joshua", "gender": "male" },
-  { "group": "SEVENTEEN", "name_kr": "준", "name_en": "Jun", "gender": "male" },
-  { "group": "SEVENTEEN", "name_kr": "호시", "name_en": "Hoshi", "gender": "male" },
-  { "group": "SEVENTEEN", "name_kr": "원우", "name_en": "Wonwoo", "gender": "male" },
-  { "group": "SEVENTEEN", "name_kr": "우지", "name_en": "Woozi", "gender": "male" },
-  { "group": "SEVENTEEN", "name_kr": "디에잇", "name_en": "The8", "gender": "male" },
-  { "group": "SEVENTEEN", "name_kr": "민규", "name_en": "Mingyu", "gender": "male" },
-  { "group": "SEVENTEEN", "name_kr": "도겸", "name_en": "DK", "gender": "male" },
-  { "group": "SEVENTEEN", "name_kr": "승관", "name_en": "Seungkwan", "gender": "male" },
-  { "group": "SEVENTEEN", "name_kr": "버논", "name_en": "Vernon", "gender": "male" },
-  { "group": "SEVENTEEN", "name_kr": "디노", "name_en": "Dino", "gender": "male" }
+  { "group": "HUNTR/X", "name_kr": "루미", "name_en": "Rumi", "gender": "female" },
+  { "group": "HUNTR/X", "name_kr": "미라", "name_en": "Mira", "gender": "female" },
+  { "group": "HUNTR/X", "name_kr": "조이", "name_en": "Zoey", "gender": "female" },
+
+  { "group": "Saja Boys", "name_kr": "진우", "name_en": "Jinu", "gender": "male" },
+  { "group": "Saja Boys", "name_kr": "애비", "name_en": "Abby", "gender": "male" },
+  { "group": "Saja Boys", "name_kr": "미스테리", "name_en": "Mystery", "gender": "male" },
+  { "group": "Saja Boys", "name_kr": "로맨스", "name_en": "Romance", "gender": "male" },
+  { "group": "Saja Boys", "name_kr": "베이비", "name_en": "Baby", "gender": "male" }
 ]
