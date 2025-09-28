@@ -25,12 +25,15 @@
 <body class="theme-blackpink">
   <div id="site-header" data-include="/components/header.html"></div>
   <div class="container">
-    <div style="display:flex;justify-content:flex-end;align-items:center;gap:8px;margin-top:8px;">
-      <label for="lang-select" class="visually-hidden" data-i18n="ui.language">Language</label>
-      <select id="lang-select" aria-label="Language" style="padding:6px 10px;">
-        <option value="en">English</option>
-        <option value="ko">한국어</option>
-      </select>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px;">
+      <a class="btn secondary" href="/" data-i18n="ui.backToMain">← Back to Main</a>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <label for="lang-select" class="visually-hidden" data-i18n="ui.language">Language</label>
+        <select id="lang-select" aria-label="Language" style="padding:6px 10px;">
+          <option value="en">English</option>
+          <option value="ko">한국어</option>
+        </select>
+      </div>
     </div>
     <header>
       <h1 class="title-cute" data-i18n="page.blackpink.h1">🎀🩷 BLACKPINK Name Generator ✨</h1>
@@ -51,9 +54,8 @@
             </div>
             <div>
               <label for="idol" data-i18n="form.idol.label">Favorite Idol</label>
-              <input id="idol" list="idolList" data-i18n-placeholder="form.idol.placeholder" placeholder="e.g., Jisoo, Jennie, Rosé, Lisa" required />
-              <datalist id="idolList"></datalist>
-              <small class="meta" data-i18n="page.onlyGroup">* Autocomplete shows this group only.</small>
+              <select id="idol" required aria-describedby="idol-help" data-skip-global="true"></select>
+              <small id="idol-help" class="meta" data-i18n="page.onlyGroupSelect">* Select from this group only.</small>
             </div>
           </div>
 
@@ -153,14 +155,29 @@
   <!-- 공통 앱 로직 로드 -->
   <script type="module" src="../../js/app.js"></script>
 
-  <!-- 이 페이지 전용: 자동완성에 BLACKPINK만 남기기 -->
+  <!-- 이 페이지 전용: 선택지에 BLACKPINK만 남기기 -->
   <script type="module">
     import { getIdols } from '../../js/data/idols.js';
     import { q, setHTML } from '../../js/ui/dom.js';
+    import { t } from '../../js/i18n.js';
+
     (async function filterToBP(){
-      const list = q('#idolList');
-      const idols = (await getIdols()).filter(i => i.group === 'BLACKPINK');
-      setHTML(list, idols.map(i => `<option value="${i.name_kr}">${i.group}</option>`).join(''));
+      const select = q('#idol');
+      if(!select) return;
+      const idols = (await getIdols() || []).filter(i => i.group === 'BLACKPINK');
+
+      function render(){
+        const current = select.value;
+        const placeholder = `<option value="" disabled selected data-i18n="form.idol.selectPrompt">${t('form.idol.selectPrompt')}</option>`;
+        const options = idols.map(i => `<option value="${i.name_kr}">${i.name_kr} (${i.name_en})</option>`).join('');
+        setHTML(select, placeholder + options);
+        if(current && idols.some(i => i.name_kr === current)){
+          select.value = current;
+        }
+      }
+
+      render();
+      window.addEventListener('langchange', render);
     })();
   </script>
   <div id="site-footer" data-include="/components/footer.html"></div>

@@ -8,13 +8,27 @@ import { generate } from './generator/engine.js';
 function relationValue(){ return q('input[name="relation"]:checked').value; }
 function genderValue(){ return q('input[name="gender"]:checked').value; }
 
-function populateIdolDatalist(list, idols){
-  setHTML(list, idols.map(i => `<option value="${i.name_kr}">${i.group}</option>`).join(''));
+function populateIdolControls(idols){
+  const datalist = q('#idolList');
+  if(datalist){
+    setHTML(datalist, idols.map(i => `<option value="${i.name_kr}">${i.group}</option>`).join(''));
+  }
+
+  const select = q('#idol');
+  if(select && select.tagName === 'SELECT' && !select.hasAttribute('data-skip-global')){
+    const current = select.value;
+    const placeholder = `<option value="" disabled selected data-i18n="form.idol.selectPrompt">${t('form.idol.selectPrompt')}</option>`;
+    const options = idols.map(i => `<option value="${i.name_kr}">${i.name_kr} (${i.name_en})</option>`).join('');
+    setHTML(select, placeholder + options);
+    if(current && idols.some(i => i.name_kr === current)){
+      select.value = current;
+    }
+  }
 }
 
 async function init(){
   const idols = await getIdols();
-  populateIdolDatalist(q('#idolList'), idols);
+  populateIdolControls(idols);
 
   on(q('#form'), 'submit', async (e)=>{
     e.preventDefault();

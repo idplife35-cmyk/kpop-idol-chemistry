@@ -4,6 +4,7 @@ const MESSAGES = {
   en: {
     'meta.title': 'KPOP Idol Chemistry Name Generator',
     'ui.language': 'Language',
+    'ui.backToMain': '← Back to Main',
     'main.h1': '🎀💖 K‑Pop Idol Chemistry Name Generator ✨',
     'main.lead': 'Create a perfect chemistry name with your favorite idol.',
     'nav.aria': 'Quick links by group',
@@ -12,6 +13,7 @@ const MESSAGES = {
     'form.myName.placeholder': 'e.g., Sophia',
     'form.idol.label': 'Favorite Idol',
     'form.idol.placeholder': 'e.g., Jungkook, Minji, Jennie...',
+    'form.idol.selectPrompt': 'Select a member',
     'form.gender.label': 'Gender',
     'form.gender.male': 'Male',
     'form.gender.female': 'Female',
@@ -77,6 +79,7 @@ const MESSAGES = {
 
     // Page-specific headings/leads
     'page.onlyGroup': '* Autocomplete shows this group only.',
+    'page.onlyGroupSelect': '* Choose from this group only.',
     'page.bts.h1': '🎀💜 BTS Name Generator ✨',
     'page.bts.lead': 'Create an adorable Korean-style name that matches with BTS members.',
     'page.blackpink.h1': '🎀🩷 BLACKPINK Name Generator ✨',
@@ -93,6 +96,7 @@ const MESSAGES = {
   ko: {
     'meta.title': 'KPOP 아이돌 케미 이름 생성기',
     'ui.language': '언어',
+    'ui.backToMain': '← 메인으로 돌아가기',
     'main.h1': '🎀💖 KPOP 아이돌 케미 이름 생성기 ✨',
     'main.lead': '좋아하는 아이돌과 어울리는 이름을 만들어 보세요.',
     'nav.aria': '그룹별 바로가기',
@@ -101,6 +105,7 @@ const MESSAGES = {
     'form.myName.placeholder': '예: Sophia',
     'form.idol.label': '좋아하는 아이돌',
     'form.idol.placeholder': '예: 정국, 민지, 제니...',
+    'form.idol.selectPrompt': '멤버를 선택하세요',
     'form.gender.label': '성별 선택',
     'form.gender.male': '남자',
     'form.gender.female': '여자',
@@ -165,6 +170,7 @@ const MESSAGES = {
 
     // Page-specific headings/leads
     'page.onlyGroup': '* 이 페이지는 해당 그룹 멤버만 자동완성에 노출됩니다.',
+    'page.onlyGroupSelect': '* 이 페이지는 해당 그룹 멤버만 선택할 수 있습니다.',
     'page.bts.h1': '🎀💜 BTS 전용 이름 생성기 ✨',
     'page.bts.lead': 'BTS 멤버와 잘 어울리는 한국식 이름을 만들어 보세요.',
     'page.blackpink.h1': '🎀🩷 BLACKPINK 전용 이름 생성기 ✨',
