@@ -63,6 +63,17 @@ const MESSAGES = {
     'result.chemistry': 'Chemistry',
     'result.comment': 'Comment',
 
+    'share.title': 'Share your result',
+    'share.subtitle': 'Let friends know about your new chemistry name!',
+    'share.native': 'Share',
+    'share.twitter': 'Share on X',
+    'share.instagram': 'Share on Instagram',
+    'share.copy': 'Copy share text',
+    'share.copied': 'Copied to clipboard!',
+    'share.error': 'Sharing failed. Please try again.',
+    'share.cta': 'Try it here!',
+    'share.instagramHint': 'Copied! Paste into Instagram when you post.',
+
     'alert.selectIdol': 'Please select a valid idol name.',
 
     // Relation UI
@@ -154,6 +165,17 @@ const MESSAGES = {
     'result.englishLabel': '영문 표기',
     'result.chemistry': '케미 지수',
     'result.comment': '코멘트',
+
+    'share.title': '결과 공유하기',
+    'share.subtitle': '친구들과 케미 이름을 나눠보세요!',
+    'share.native': '공유하기',
+    'share.twitter': 'X(트위터)에 공유',
+    'share.instagram': '인스타그램에 공유',
+    'share.copy': '공유 문구 복사',
+    'share.copied': '클립보드에 복사했어요!',
+    'share.error': '공유에 실패했어요. 다시 시도해 주세요.',
+    'share.cta': '여기에서 직접 해보세요!',
+    'share.instagramHint': '복사 완료! 인스타그램에 붙여넣어 보세요.',
 
     'alert.selectIdol': '아이돌 이름을 정확히 선택해주세요.',
 

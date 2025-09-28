@@ -33,6 +33,22 @@ export function renderResultCard(title, icon, fullKr, fullEn, chemistry, copy){
   `;
 }
 
+export function renderShareBlock(){
+  return `
+    <section class="share-block" data-share-root>
+      <h3>${t('share.title')}</h3>
+      <p>${t('share.subtitle')}</p>
+      <div class="share-actions">
+        <button type="button" class="btn share-btn" data-share="native">${t('share.native')}</button>
+        <button type="button" class="btn secondary share-btn" data-share="twitter">${t('share.twitter')}</button>
+        <button type="button" class="btn secondary share-btn" data-share="instagram">${t('share.instagram')}</button>
+        <button type="button" class="btn secondary share-btn" data-share="copy">${t('share.copy')}</button>
+      </div>
+      <p class="share-status" data-share-status aria-live="polite"></p>
+    </section>
+  `;
+}
+
 /**
  * Basic HTML escaping
  */

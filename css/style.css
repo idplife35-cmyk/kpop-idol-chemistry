@@ -128,6 +128,24 @@ select:focus{ box-shadow:0 0 0 4px rgba(255,138,214,.18); border-color:#f3b7e2; 
 .name{ font-size:22px; font-weight:800; letter-spacing:.2px; }
 small.meta{ color:var(--muted); }
 
+.share-block{
+  padding:16px;
+  border-radius:14px;
+  background:var(--surface);
+  border:1px dashed var(--border);
+  box-shadow: var(--shadow);
+}
+.share-block h3{ margin:0 0 8px; font-size:18px; }
+.share-block p{ margin:0; color:var(--muted); }
+.share-block .share-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  margin:12px 0 0;
+}
+.share-block .share-status{ margin-top:10px; font-size:14px; }
+.hidden{ display:none !important; }
+
 /* Ad placeholder */
 .ad{
   min-height:120px; border:1px dashed var(--border); border-radius:16px;
