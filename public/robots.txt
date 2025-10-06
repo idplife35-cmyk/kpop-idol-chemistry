@@ -2,4 +2,8 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://example.com/sitemap.xml
+# Sitemap location
+Sitemap: https://kpopnamegenerator.com/sitemap.xml
+
+# Additional directives for better SEO
+Crawl-delay: 1
