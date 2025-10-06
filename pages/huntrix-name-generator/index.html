@@ -11,7 +11,11 @@
     gtag('config', 'G-K3G6XK3SXW');
   </script>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#ff8ad6">
   <title>HUNTR/X Name Generator — KPOP Idol Chemistry</title>
   <meta name="description" content="Create perfect chemistry names with HUNTR/X members! Generate Korean-style names with K-Pop Demon Hunters. Get chemistry scores and relationship-based names instantly." />
   <meta name="keywords" content="huntrix name generator, huntrix chemistry name, huntrix korean name, huntrix idol name, huntrix name maker, huntrix fan name, kpop demon hunters" />
@@ -65,7 +69,7 @@
           <div class="grid">
             <div>
               <label for="myName" data-i18n="form.myName.label">My Name</label>
-              <input id="myName" type="text" data-i18n-placeholder="form.myName.placeholder" placeholder="e.g., Sophia" required />
+              <input id="myName" type="text" data-i18n-placeholder="form.myName.placeholder" placeholder="e.g., Sophia" required inputmode="text" autocapitalize="words" autocomplete="name" />
             </div>
             <div>
               <label for="idol" data-i18n="form.idol.label">Favorite Idol</label>
@@ -92,7 +96,7 @@
             <label class="radio"><input type="radio" name="relation" value="lover" checked> <span data-i18n="form.relation.lover">Lover</span></label>
           </div>
 
-          <div style="display:flex;gap:8px;margin-top:16px;">
+          <div class="btn-row" style="display:flex;gap:8px;margin-top:16px;">
             <button class="btn" type="submit" data-i18n="form.submit">Generate Chemistry Name</button>
             <button class="btn secondary" type="reset" data-i18n="form.reset">Reset</button>
           </div>

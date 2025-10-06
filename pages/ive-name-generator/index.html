@@ -11,7 +11,11 @@
     gtag('config', 'G-K3G6XK3SXW');
   </script>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="theme-color" content="#ff8ad6">
   <title>IVE Name Generator — KPOP Idol Chemistry</title>
   <meta name="description" content="Create perfect chemistry names with IVE members! Generate Korean-style names with An Yujin, Jang Wonyoung, Gaeul, Rei, Liz, and Leeseo. Get chemistry scores and relationship-based names instantly." />
   <meta name="keywords" content="ive name generator, ive chemistry name, ive korean name, ive idol name, ive name maker, ive fan name, wonyoung name generator" />
@@ -66,7 +70,7 @@
           <div class="grid">
             <div>
               <label for="myName" data-i18n="form.myName.label">My Name</label>
-              <input id="myName" type="text" data-i18n-placeholder="form.myName.placeholder" placeholder="e.g., Sophia" required />
+              <input id="myName" type="text" data-i18n-placeholder="form.myName.placeholder" placeholder="e.g., Sophia" required inputmode="text" autocapitalize="words" autocomplete="name" />
             </div>
             <div>
               <label for="idol" data-i18n="form.idol.label">Favorite Idol</label>
@@ -93,7 +97,7 @@
             <label class="radio"><input type="radio" name="relation" value="lover" checked> <span data-i18n="form.relation.lover">Lover</span></label>
           </div>
 
-          <div style="display:flex;gap:8px;margin-top:16px;">
+          <div class="btn-row" style="display:flex;gap:8px;margin-top:16px;">
             <button class="btn" type="submit" data-i18n="form.submit">Generate Chemistry Name</button>
             <button class="btn secondary" type="reset" data-i18n="form.reset">Reset</button>
           </div>
@@ -106,6 +110,19 @@
         <div id="results" class="result"></div>
       </div>
     </div>
+
+    <section class="card" style="margin-top:16px;">
+      <h2>Try Other K-Pop Groups</h2>
+      <p>Explore name generators for other popular K-Pop groups:</p>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;">
+        <a class="btn secondary" href="/pages/bts-name-generator/">BTS Name Generator</a>
+        <a class="btn secondary" href="/pages/blackpink-name-generator/">BLACKPINK Name Generator</a>
+        <a class="btn secondary" href="/pages/newjeans-name-generator/">NewJeans Name Generator</a>
+        <a class="btn secondary" href="/pages/huntrix-name-generator/">HUNTR/X Name Generator</a>
+        <a class="btn secondary" href="/pages/sajaboys-name-generator/">SajaBoys Name Generator</a>
+        <a class="btn secondary" href="/">All Groups Generator</a>
+      </div>
+    </section>
 
     <div class="ad" style="margin-top:16px;">&nbsp;</div>
 

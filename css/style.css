@@ -210,7 +210,51 @@ footer{ margin:32px 0; color:var(--muted); text-align:center; }
 
 /* Responsive */
 @media (max-width:760px){
+  .container{ padding:16px; }
   .grid.cols-2{ grid-template-columns:1fr; }
   .kv{ align-items:flex-start; }
   .kv .key{ min-width:120px; }
+  
+  /* Mobile typography */
+  h1{ font-size:26px; }
+  .title-cute{ font-size:28px; }
+  .lead{ font-size:14px; }
+  
+  /* Mobile form improvements */
+  input[type="text"], select{ padding:14px 16px; font-size:16px; }
+  .btn{ padding:14px 20px; font-size:16px; }
+  
+  /* Mobile card spacing */
+  .card{ padding:16px; margin-bottom:12px; }
+  
+  /* Mobile button layout */
+  .btn-row{ flex-direction:column; gap:8px; }
+  .btn-row .btn{ width:100%; }
+  
+  /* Mobile navigation */
+  .cute-emoji-row{ gap:6px; }
+  .cute-emoji-row span{ font-size:16px; }
+  
+  /* Mobile result display */
+  .result{ font-size:14px; }
+  .kv{ flex-direction:column; gap:8px; }
+  .kv .key{ min-width:auto; }
+}
+
+/* Small mobile devices */
+@media (max-width:480px){
+  .container{ padding:12px; }
+  h1{ font-size:24px; }
+  .title-cute{ font-size:26px; }
+  .card{ padding:14px; }
+  .btn{ padding:12px 16px; font-size:15px; }
+  input[type="text"], select{ padding:12px 14px; font-size:15px; }
+}
+
+/* Touch-friendly improvements */
+@media (hover: none) and (pointer: coarse) {
+  .btn{ min-height:44px; }
+  input[type="text"], select{ min-height:44px; }
+  .radio{ padding:8px 0; }
+  .radio input[type="radio"]{ transform:scale(1.2); }
 }
