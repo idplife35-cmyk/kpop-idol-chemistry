@@ -244,15 +244,57 @@
       <button id="theme-toggle" class="btn secondary" style="padding:6px 10px;">Kitsch: Light</button>
     </div>
 
-    <header>
-      <h1 class="title-cute" data-i18n="main.h1">🎀💖 K‑Pop Idol Chemistry Name Generator ✨</h1>
-      <p class="lead" data-i18n="main.lead">Create a perfect chemistry name with your favorite idol.</p>
-      <div class="cute-emoji-row" aria-hidden="true" style="margin-top:10px;">
-        <span>💖</span><span>✨</span><span>🎀</span><span>🌸</span><span>🫧</span><span>💫</span>
+    <!-- Kitsch Hero Section -->
+    <section class="hero">
+      <div class="kitsch-hero">
+        <div class="hero-stickers">
+          <span>💖</span>
+          <span>✨</span>
+          <span>🎀</span>
+          <span>🌸</span>
+        </div>
+        <div class="hero-sparkles">
+          <span></span>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div class="hero-inner">
+          <div class="hero-copy">
+            <div class="hero-eyebrow">
+              <span>✨</span>
+              <span>K-Pop Alter Ego</span>
+            </div>
+            <h1 class="title-neon sparkle-word">Your K-Pop alter ego</h1>
+            <p class="hero-sub">Tap once. Sparkle twice. Your chemistry name is ready.</p>
+            <div class="hero-buttons">
+              <button class="btn jelly" onclick="document.getElementById('form').querySelector('button[type=submit]').click();" data-i18n="form.submit">Make it sparkle</button>
+              <div class="hero-meta">
+                <span>Bias-worthy</span>
+                <span>Stage-ready</span>
+                <span>Main character energy</span>
+              </div>
+            </div>
+            <ul class="hero-checklist">
+              <li>K-Pop ready</li>
+              <li>Stage perfect</li>
+              <li>Idol vibes</li>
+            </ul>
+          </div>
+        </div>
       </div>
-    </header>
+    </section>
 
-    <h2>Popular K-Pop Groups</h2>
+    <!-- Jelly Navigation -->
+    <nav class="kitsch-nav" role="navigation" aria-label="Main navigation">
+      <a href="#generator" class="tab" data-active="true" onclick="scrollToSection('generator')">Generator</a>
+      <a href="#groups" class="tab" onclick="scrollToSection('groups')">Groups</a>
+      <a href="#guide" class="tab" onclick="scrollToSection('guide')">Guide</a>
+    </nav>
+
+    <!-- Divider Ribbon -->
+    <div class="divider-ribbon">Popular K-Pop Groups</div>
+
     <p>Create unique Korean names with your favorite K-Pop idols! Our name generator supports multiple groups including BTS, BLACKPINK, NewJeans, IVE, and more. Perfect for fanfiction, roleplay, and creative writing.</p>
     <nav class="quick-links" data-i18n-aria-label="nav.aria" aria-label="Quick links by group" style="margin:12px 0 20px;display:flex;flex-wrap:wrap;gap:8px;">
       <a class="btn secondary" href="/pages/blackpink-name-generator/">BLACKPINK</a>
@@ -263,10 +305,11 @@
       <a class="btn secondary" href="/pages/sajaboys-name-generator/">SajaBoys</a>
     </nav>
 
-    <h2>Create Your Chemistry Name</h2>
+    <div class="divider-ribbon">Create Your Chemistry Name</div>
     <div class="grid cols-2">
       <!-- 입력 카드 -->
-      <div class="card">
+      <div class="card polaroid">
+        <div class="card-tape">Name Generator</div>
         <h3>Name Generator Form</h3>
         <form id="form" autocomplete="off">
           <div class="grid">
@@ -299,14 +342,14 @@
           </div>
 
           <div class="btn-row" style="display:flex;gap:8px;margin-top:16px;">
-            <button class="btn jelly" type="submit" data-i18n="form.submit">Generate Chemistry Name</button>
+            <button class="btn jelly" type="submit" data-i18n="form.submit" onclick="scrollToResultsAfterSubmit(event)">Generate Chemistry Name</button>
             <button class="btn secondary" type="reset" data-i18n="form.reset">Reset</button>
           </div>
         </form>
       </div>
 
       <!-- 결과 카드 -->
-      <div class="card" aria-live="polite">
+      <div class="card holo" aria-live="polite">
         <h3>Your Chemistry Results</h3>
         <div id="header" class="result"></div>
         <div id="results" class="result"></div>
@@ -461,6 +504,102 @@
         });
       }
     })();
+
+    // Scroll to results function
+    function scrollToResults() {
+      // Directly target the results card
+      const resultsCard = document.querySelector('.card.holo');
+      
+      if (resultsCard) {
+        // Get the card's position
+        const rect = resultsCard.getBoundingClientRect();
+        const navHeight = document.querySelector('.kitsch-nav').offsetHeight + 20;
+        const targetPosition = window.pageYOffset + rect.top - navHeight;
+        
+        // Scroll to the position
+        window.scrollTo({
+          top: Math.max(0, targetPosition),
+          behavior: 'smooth'
+        });
+        
+        // Trigger form submission if form is filled
+        const form = document.getElementById('form');
+        if (form && form.checkValidity()) {
+          form.dispatchEvent(new Event('submit'));
+        }
+      }
+    }
+
+    // Scroll to results after form submission
+    function scrollToResultsAfterSubmit(event) {
+      // Allow form to submit first
+      setTimeout(() => {
+        const resultsCard = document.querySelector('.card.holo');
+        
+        if (resultsCard) {
+          // Get the card's position
+          const rect = resultsCard.getBoundingClientRect();
+          const navHeight = document.querySelector('.kitsch-nav').offsetHeight + 20;
+          const targetPosition = window.pageYOffset + rect.top - navHeight;
+          
+          // Scroll to the position
+          window.scrollTo({
+            top: Math.max(0, targetPosition),
+            behavior: 'smooth'
+          });
+        }
+      }, 100);
+    }
+
+    // Navigation scroll function
+    function scrollToSection(sectionId) {
+      let target;
+      
+      if (sectionId === 'generator') {
+        // Find "Create Your Chemistry Name" divider
+        const dividers = document.querySelectorAll('.divider-ribbon');
+        target = Array.from(dividers).find(d => d.textContent.includes('Create Your Chemistry Name'));
+        if (!target) target = document.querySelector('#form');
+      } else if (sectionId === 'groups') {
+        // Find "Popular K-Pop Groups" divider
+        const dividers = document.querySelectorAll('.divider-ribbon');
+        target = Array.from(dividers).find(d => d.textContent.includes('Popular K-Pop Groups'));
+        if (!target) target = document.querySelector('.quick-links');
+      } else if (sectionId === 'guide') {
+        // Find the section containing "How to Use Our K-Pop Name Generator"
+        const headings = document.querySelectorAll('h2');
+        const guideHeading = Array.from(headings).find(h => h.textContent.includes('How to Use Our K-Pop Name Generator'));
+        if (guideHeading) {
+          // Find the parent section
+          target = guideHeading.closest('section');
+        }
+        if (!target) {
+          // Fallback to the heading itself
+          target = guideHeading;
+        }
+        if (!target) {
+          // Final fallback to FAQ section
+          target = document.querySelector('h2[data-i18n="faq.title"]');
+        }
+      }
+      
+      if (target) {
+        // Add offset for sticky navigation
+        const navHeight = document.querySelector('.kitsch-nav').offsetHeight + 20;
+        const targetPosition = target.offsetTop - navHeight;
+        
+        window.scrollTo({
+          top: targetPosition,
+          behavior: 'smooth'
+        });
+        
+        // Update active tab
+        document.querySelectorAll('.kitsch-nav .tab').forEach(tab => {
+          tab.removeAttribute('data-active');
+        });
+        event.target.setAttribute('data-active', 'true');
+      }
+    }
   </script>
 </body>
 </html>
