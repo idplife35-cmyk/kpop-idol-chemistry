@@ -7,7 +7,89 @@ const MESSAGES = {
     'ui.backToMain': '← Back to Main',
     'main.h1': '🎀💖 K‑Pop Idol Chemistry Name Generator ✨',
     'main.lead': 'Create a perfect chemistry name with your favorite idol.',
+    'main.description': 'Create unique Korean names with your favorite K-Pop idols! Our name generator supports multiple groups including BTS, BLACKPINK, NewJeans, IVE, and more. Perfect for fanfiction, roleplay, and creative writing.',
     'nav.aria': 'Quick links by group',
+    
+    // Hero section
+    'hero.eyebrow': 'K-Pop Alter Ego',
+    'hero.meta1': 'Bias-worthy',
+    'hero.meta2': 'Stage-ready',
+    'hero.meta3': 'Main character energy',
+    'hero.checklist1': 'K-Pop ready',
+    'hero.checklist2': 'Stage perfect',
+    'hero.checklist3': 'Idol vibes',
+    
+    // Navigation
+    'nav.generator': 'Generator',
+    'nav.groups': 'Groups',
+    'nav.guide': 'Guide',
+    
+    // Dividers
+    'divider.groups': 'Popular K-Pop Groups',
+    'divider.create': 'Create Your Chemistry Name',
+    
+    // Cards
+    'card.tape': 'Name Generator',
+    'card.title': 'Name Generator Form',
+    'results.title': 'Your Chemistry Results',
+    
+    // Guide section
+    'guide.title': 'How to Use Our K-Pop Name Generator',
+    'guide.lead': 'Follow these simple steps to create your perfect K-Pop chemistry name:',
+    'guide.step1.title': 'Enter Your Name',
+    'guide.step1.desc': 'Type your real name in the input field above',
+    'guide.step2.title': 'Choose Your Group',
+    'guide.step2.desc': 'Select from BTS, BLACKPINK, NewJeans, IVE, HUNTR/X, or SajaBoys',
+    'guide.step3.title': 'Generate Names',
+    'guide.step3.desc': 'Click the "Generate Name" button to create your chemistry name',
+    'guide.step4.title': 'Try Different Options',
+    'guide.step4.desc': 'Generate multiple times to find your favorite combination',
+    'guide.step5.title': 'Share Your Results',
+    'guide.step5.desc': 'Copy and share your new K-Pop name with friends!',
+    
+    // Tips section
+    'tips.title': 'Tips for Better Results',
+    'tips.lead': 'Get the most out of your K-Pop name generation experience:',
+    'tips.tip1.title': 'Use Your Full Name',
+    'tips.tip1.desc': 'Enter your complete name for more authentic results',
+    'tips.tip2.title': 'Try Different Groups',
+    'tips.tip2.desc': 'Each group has a unique naming style and energy',
+    'tips.tip3.title': 'Generate Multiple Times',
+    'tips.tip3.desc': 'Our algorithm creates different combinations each time',
+    'tips.tip4.title': 'Consider Your Personality',
+    'tips.tip4.desc': 'Choose the group that best matches your vibe',
+    'tips.tip5.title': 'Have Fun!',
+    'tips.tip5.desc': 'The best names come when you\'re enjoying the process',
+    
+    // Why section
+    'why.title': 'Why Use Our K-Pop Name Generator?',
+    'why.lead': 'Our advanced Korean name generator creates authentic-sounding names that match your favorite K-Pop idols\' style. Whether you\'re writing fanfiction, creating roleplay characters, or just having fun, our generator provides:',
+    'why.feature1.title': 'Authentic Korean Names:',
+    'why.feature1.desc': 'Real Korean surname and given name combinations',
+    'why.feature2.title': 'Chemistry Scores:',
+    'why.feature2.desc': 'Fun compatibility ratings between you and your chosen idol',
+    'why.feature3.title': 'Multiple Relationship Types:',
+    'why.feature3.desc': 'Best friend, stage partner, lover, and more',
+    'why.feature4.title': 'Gender-Specific Generation:',
+    'why.feature4.desc': 'Names tailored to your preferred gender style',
+    'why.feature5.title': 'Popular K-Pop Groups:',
+    'why.feature5.desc': 'Support for BTS, BLACKPINK, NewJeans, IVE, and more',
+    'why.explore.title': 'Explore More Name Generators',
+    'why.explore.lead': 'Try our specialized generators for different K-Pop groups:',
+    
+    // About section
+    'about.title': 'About K-Pop Name Chemistry',
+    'about.lead': 'K-Pop names often follow specific patterns and cultural significance. Our generator understands these nuances:',
+    'about.point1.title': 'Korean Naming Traditions:',
+    'about.point1.desc': 'Surnames like Kim, Lee, Park are most common',
+    'about.point2.title': 'Stage Name Patterns:',
+    'about.point2.desc': 'Many idols use stage names that reflect their personality',
+    'about.point3.title': 'Cultural Meanings:',
+    'about.point3.desc': 'Korean names often have beautiful meanings related to nature, virtues, or aspirations',
+    'about.point4.title': 'Group Chemistry:',
+    'about.point4.desc': 'Names that work well together in K-Pop groups often share similar sounds or meanings',
+    'about.point5.title': 'International Appeal:',
+    'about.point5.desc': 'Modern K-Pop names blend Korean tradition with global appeal',
 
     'form.myName.label': 'My Name',
     'form.myName.placeholder': 'e.g., Sophia',
@@ -118,7 +200,89 @@ const MESSAGES = {
     'ui.backToMain': '← 메인으로 돌아가기',
     'main.h1': '🎀💖 KPOP 아이돌 케미 이름 생성기 ✨',
     'main.lead': '좋아하는 아이돌과 어울리는 이름을 만들어 보세요.',
+    'main.description': '좋아하는 K-Pop 아이돌과 함께 독특한 한국식 이름을 만들어보세요! BTS, BLACKPINK, NewJeans, IVE 등 다양한 그룹을 지원합니다. 팬픽션, 롤플레이, 창작에 완벽합니다.',
     'nav.aria': '그룹별 바로가기',
+    
+    // Hero section
+    'hero.eyebrow': 'K-Pop 알터 에고',
+    'hero.meta1': '바이어스급',
+    'hero.meta2': '무대 완성',
+    'hero.meta3': '주인공 에너지',
+    'hero.checklist1': 'K-Pop 준비완료',
+    'hero.checklist2': '무대 완벽',
+    'hero.checklist3': '아이돌 바이브',
+    
+    // Navigation
+    'nav.generator': '생성기',
+    'nav.groups': '그룹',
+    'nav.guide': '가이드',
+    
+    // Dividers
+    'divider.groups': '인기 K-Pop 그룹',
+    'divider.create': '케미 이름 만들기',
+    
+    // Cards
+    'card.tape': '이름 생성기',
+    'card.title': '이름 생성기 폼',
+    'results.title': '케미 결과',
+    
+    // Guide section
+    'guide.title': 'K-Pop 이름 생성기 사용법',
+    'guide.lead': '완벽한 K-Pop 케미 이름을 만들기 위한 간단한 단계를 따라해보세요:',
+    'guide.step1.title': '이름 입력',
+    'guide.step1.desc': '위 입력 필드에 실제 이름을 입력하세요',
+    'guide.step2.title': '그룹 선택',
+    'guide.step2.desc': 'BTS, BLACKPINK, NewJeans, IVE, HUNTR/X, SajaBoys 중에서 선택하세요',
+    'guide.step3.title': '이름 생성',
+    'guide.step3.desc': '"이름 생성" 버튼을 클릭하여 케미 이름을 만드세요',
+    'guide.step4.title': '다양한 옵션 시도',
+    'guide.step4.desc': '여러 번 생성하여 마음에 드는 조합을 찾아보세요',
+    'guide.step5.title': '결과 공유',
+    'guide.step5.desc': '새로운 K-Pop 이름을 복사하여 친구들과 공유하세요!',
+    
+    // Tips section
+    'tips.title': '더 나은 결과를 위한 팁',
+    'tips.lead': 'K-Pop 이름 생성 경험을 최대한 활용하세요:',
+    'tips.tip1.title': '전체 이름 사용',
+    'tips.tip1.desc': '더 진정성 있는 결과를 위해 완전한 이름을 입력하세요',
+    'tips.tip2.title': '다양한 그룹 시도',
+    'tips.tip2.desc': '각 그룹마다 고유한 네이밍 스타일과 에너지가 있습니다',
+    'tips.tip3.title': '여러 번 생성',
+    'tips.tip3.desc': '우리 알고리즘은 매번 다른 조합을 만듭니다',
+    'tips.tip4.title': '성격 고려',
+    'tips.tip4.desc': '당신의 바이브와 가장 잘 맞는 그룹을 선택하세요',
+    'tips.tip5.title': '즐기세요!',
+    'tips.tip5.desc': '과정을 즐길 때 가장 좋은 이름이 나옵니다',
+    
+    // Why section
+    'why.title': 'K-Pop 이름 생성기를 사용하는 이유',
+    'why.lead': '우리의 고급 한국어 이름 생성기는 좋아하는 K-Pop 아이돌의 스타일에 맞는 진정성 있는 이름을 만듭니다. 팬픽션을 쓰거나, 롤플레이 캐릭터를 만들거나, 단순히 재미를 위해 사용하든, 우리 생성기는 다음을 제공합니다:',
+    'why.feature1.title': '진정성 있는 한국 이름:',
+    'why.feature1.desc': '실제 한국 성씨와 이름의 조합',
+    'why.feature2.title': '케미 지수:',
+    'why.feature2.desc': '당신과 선택한 아이돌 간의 재미있는 호환성 점수',
+    'why.feature3.title': '다양한 관계 유형:',
+    'why.feature3.desc': '절친, 무대 파트너, 애인 등 다양한 관계',
+    'why.feature4.title': '성별별 맞춤 생성:',
+    'why.feature4.desc': '선호하는 성별 스타일에 맞춘 이름',
+    'why.feature5.title': '인기 K-Pop 그룹:',
+    'why.feature5.desc': 'BTS, BLACKPINK, NewJeans, IVE 등 다양한 그룹 지원',
+    'why.explore.title': '더 많은 이름 생성기 탐색',
+    'why.explore.lead': '다양한 K-Pop 그룹을 위한 전문 생성기를 시도해보세요:',
+    
+    // About section
+    'about.title': 'K-Pop 이름 케미에 대해',
+    'about.lead': 'K-Pop 이름은 종종 특정 패턴과 문화적 의미를 따릅니다. 우리 생성기는 이러한 뉘앙스를 이해합니다:',
+    'about.point1.title': '한국 명명 전통:',
+    'about.point1.desc': '김, 이, 박과 같은 성씨가 가장 일반적입니다',
+    'about.point2.title': '무대명 패턴:',
+    'about.point2.desc': '많은 아이돌들이 자신의 성격을 반영하는 무대명을 사용합니다',
+    'about.point3.title': '문화적 의미:',
+    'about.point3.desc': '한국 이름은 종종 자연, 덕목, 포부와 관련된 아름다운 의미를 가집니다',
+    'about.point4.title': '그룹 케미:',
+    'about.point4.desc': 'K-Pop 그룹에서 잘 어울리는 이름들은 종종 비슷한 소리나 의미를 공유합니다',
+    'about.point5.title': '국제적 매력:',
+    'about.point5.desc': '현대 K-Pop 이름은 한국 전통과 글로벌 매력을 조화시킵니다',
 
     'form.myName.label': '내 이름',
     'form.myName.placeholder': '예: Sophia',
@@ -224,7 +388,17 @@ const MESSAGES = {
   }
 };
 
-let currentLang = (typeof localStorage !== 'undefined' && localStorage.getItem('lang')) || 'en';
+// Browser language detection
+function detectBrowserLanguage() {
+  if (typeof navigator !== 'undefined' && navigator.language) {
+    const lang = navigator.language.toLowerCase();
+    if (lang.startsWith('ko')) return 'ko';
+    if (lang.startsWith('en')) return 'en';
+  }
+  return 'en'; // default fallback
+}
+
+let currentLang = (typeof localStorage !== 'undefined' && localStorage.getItem('lang')) || detectBrowserLanguage();
 
 export function getLang(){ return currentLang; }
 
@@ -264,13 +438,67 @@ export function setLang(lang){
   try { localStorage.setItem('lang', currentLang); } catch {}
   document.documentElement.setAttribute('lang', currentLang);
   setAttrTranslations();
+  updateMetaTags();
   window.dispatchEvent(new CustomEvent('langchange', { detail: { lang: currentLang } }));
+}
+
+function updateMetaTags(){
+  const isKorean = currentLang === 'ko';
+  
+  // Update title
+  const titleEl = document.querySelector('title');
+  if(titleEl) {
+    titleEl.textContent = isKorean ? 'KPOP 아이돌 케미 이름 생성기' : 'KPOP Idol Chemistry Name Generator';
+  }
+  
+  // Update meta description
+  const descEl = document.querySelector('meta[name="description"]');
+  if(descEl) {
+    descEl.setAttribute('content', isKorean 
+      ? '좋아하는 K-Pop 아이돌과 어울리는 완벽한 케미 이름을 만들어보세요! BTS, BLACKPINK, NewJeans, IVE 등과 함께 한국식 이름을 생성하고 케미 지수를 확인하세요.'
+      : 'Create perfect chemistry names with your favorite K-Pop idols! Generate Korean-style names with BTS, BLACKPINK, NewJeans, IVE, and more. Get chemistry scores and relationship-based names instantly.'
+    );
+  }
+  
+  // Update Open Graph tags
+  const ogTitle = document.querySelector('meta[property="og:title"]');
+  if(ogTitle) {
+    ogTitle.setAttribute('content', isKorean ? 'KPOP 아이돌 케미 이름 생성기' : 'KPOP Idol Chemistry Name Generator');
+  }
+  
+  const ogDesc = document.querySelector('meta[property="og:description"]');
+  if(ogDesc) {
+    ogDesc.setAttribute('content', isKorean 
+      ? '좋아하는 K-Pop 아이돌과 어울리는 완벽한 케미 이름을 만들어보세요! BTS, BLACKPINK, NewJeans, IVE 등과 함께 한국식 이름을 생성하세요.'
+      : 'Create perfect chemistry names with your favorite K-Pop idols! Generate Korean-style names with BTS, BLACKPINK, NewJeans, IVE, and more.'
+    );
+  }
+  
+  const ogLocale = document.querySelector('meta[property="og:locale"]');
+  if(ogLocale) {
+    ogLocale.setAttribute('content', isKorean ? 'ko_KR' : 'en_US');
+  }
+  
+  // Update Twitter tags
+  const twitterTitle = document.querySelector('meta[name="twitter:title"]');
+  if(twitterTitle) {
+    twitterTitle.setAttribute('content', isKorean ? 'KPOP 아이돌 케미 이름 생성기' : 'KPOP Idol Chemistry Name Generator');
+  }
+  
+  const twitterDesc = document.querySelector('meta[name="twitter:description"]');
+  if(twitterDesc) {
+    twitterDesc.setAttribute('content', isKorean 
+      ? '좋아하는 K-Pop 아이돌과 어울리는 완벽한 케미 이름을 만들어보세요! 케미 지수와 관계 기반 이름을 즉시 확인하세요.'
+      : 'Create perfect chemistry names with your favorite K-Pop idols! Get chemistry scores and relationship-based names instantly.'
+    );
+  }
 }
 
 function initLang(){
   // Default to English unless user has stored preference
   document.documentElement.setAttribute('lang', currentLang);
   setAttrTranslations();
+  updateMetaTags();
 
   const sel = document.getElementById('lang-select');
   if(sel){
