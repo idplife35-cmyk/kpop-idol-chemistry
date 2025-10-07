@@ -39,10 +39,19 @@
   <link rel="canonical" href="https://kpopnamegenerator.com/pages/ive-name-generator/" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    .kitsch-light{ --bg:#fff6fe; --surface:#ffffff; --text:#0E0E10; --muted:#6b6079; --border:#ffd6ec; --accent:#FF2E8B; --accent-2:#B490FF; --chip:#fff0f7; --input:#fff9fe; --bg-t1: rgba(255,46,139,.12); --bg-t2: rgba(180,144,255,.12); }
+    .kitsch-dark{ --bg:#0E0E10; --surface:#15151a; --text:#f5f6ff; --muted:#b9b7c6; --border:#2a2a34; --accent:#FF2E8B; --accent-2:#4DFFDF; --chip:#1e1e26; --input:#121217; --bg-t1: rgba(255,46,139,.18); --bg-t2: rgba(77,255,223,.16); }
+    .container{ font-family: 'Rubik', system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; }
+    .btn.jelly{ position:relative; overflow:hidden; }
+    .btn.jelly::before{ content:""; position:absolute; inset:0 0 50% 0; background: linear-gradient(180deg, rgba(255,255,255,.40), rgba(255,255,255,0)); border-radius:999px; pointer-events:none; }
+    .btn.jelly::after{ content:""; position:absolute; top:0; left:-40%; width:40%; height:100%; background: linear-gradient(110deg, transparent, rgba(255,255,255,.35), transparent); transform: skewX(-20deg); transition:left .35s ease; }
+    .btn.jelly:hover::after{ left:110%; }
+  </style>
 </head>
-<body class="theme-ive">
+<body class="theme-ive kitsch-light">
   <div id="site-header" data-include="/components/header.html"></div>
   <div class="container">
     <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px;">
@@ -53,6 +62,7 @@
           <option value="en">English</option>
           <option value="ko">한국어</option>
         </select>
+        <button id="theme-toggle" class="btn secondary" style="padding:6px 10px;">Kitsch: Light</button>
       </div>
     </div>
     <header>
@@ -98,7 +108,7 @@
           </div>
 
           <div class="btn-row" style="display:flex;gap:8px;margin-top:16px;">
-            <button class="btn" type="submit" data-i18n="form.submit">Generate Chemistry Name</button>
+            <button class="btn jelly" type="submit" data-i18n="form.submit">Generate Chemistry Name</button>
             <button class="btn secondary" type="reset" data-i18n="form.reset">Reset</button>
           </div>
         </form>
@@ -185,6 +195,22 @@
   <script type="module" src="/js/i18n.js"></script>
   <!-- 공통 앱 로직 로드 -->
   <script type="module" src="../../js/app.js"></script>
+  <script>
+    (function(){
+      const key = 'kitsch-theme';
+      const body = document.body;
+      const toggle = document.getElementById('theme-toggle');
+      const apply = (mode)=>{
+        body.classList.remove('kitsch-light','kitsch-dark');
+        body.classList.add(mode === 'dark' ? 'kitsch-dark' : 'kitsch-light');
+        localStorage.setItem(key, mode);
+        if(toggle){ toggle.textContent = 'Kitsch: ' + (mode === 'dark' ? 'Dark' : 'Light'); }
+      };
+      const saved = localStorage.getItem(key) || 'light';
+      apply(saved);
+      if(toggle){ toggle.addEventListener('click', ()=> apply(body.classList.contains('kitsch-dark') ? 'light' : 'dark')); }
+    })();
+  </script>
 
   <!-- 이 페이지 전용: 선택지에 IVE만 남기기 -->
   <script type="module">
