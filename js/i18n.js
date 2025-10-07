@@ -406,12 +406,12 @@ const MESSAGES = {
 
 // Browser language detection
 function detectBrowserLanguage() {
+  // Always default to English, only switch to Korean if explicitly Korean browser
   if (typeof navigator !== 'undefined' && navigator.language) {
     const lang = navigator.language.toLowerCase();
     if (lang.startsWith('ko')) return 'ko';
-    if (lang.startsWith('en')) return 'en';
   }
-  return 'en'; // default fallback
+  return 'en'; // default to English
 }
 
 let currentLang = (typeof localStorage !== 'undefined' && localStorage.getItem('lang')) || detectBrowserLanguage();
@@ -511,7 +511,7 @@ function updateMetaTags(){
 }
 
 function initLang(){
-  // Default to English unless user has stored preference
+  // Default to English unless user has stored preference or browser is Korean
   document.documentElement.setAttribute('lang', currentLang);
   setAttrTranslations();
   updateMetaTags();

@@ -1049,15 +1049,13 @@
     function copyShareText() {
       const shareText = generateShareText();
       navigator.clipboard.writeText(shareText).then(() => {
-        // Show success message
-        const button = event.target;
-        const originalText = button.textContent;
-        button.textContent = t('share.copied');
-        setTimeout(() => {
-          button.textContent = originalText;
-        }, 2000);
+        const currentLang = (typeof localStorage !== 'undefined' && localStorage.getItem('lang')) || 'en';
+        const message = currentLang === 'ko' ? '클립보드에 복사했어요!' : 'Copied to clipboard!';
+        showToast(message);
       }).catch(() => {
-        showToast(t('share.error'));
+        const currentLang = (typeof localStorage !== 'undefined' && localStorage.getItem('lang')) || 'en';
+        const message = currentLang === 'ko' ? '공유에 실패했어요. 다시 시도해 주세요.' : 'Sharing failed. Please try again.';
+        showToast(message);
       });
     }
 
@@ -1112,7 +1110,9 @@
     function generateShareText() {
       const myName = document.getElementById('myName')?.value || 'Someone';
       const idol = document.getElementById('idol')?.selectedOptions[0]?.text || 'my favorite idol';
-      const currentLang = getLang();
+      
+      // Get current language from localStorage or default to English
+      const currentLang = (typeof localStorage !== 'undefined' && localStorage.getItem('lang')) || 'en';
       
       if (currentLang === 'ko') {
         return `🎀💖 ${idol}와의 완벽한 케미 이름을 발견했어요! 나만의 K-Pop 아이돌 케미 이름도 만들어보세요: ${window.location.href} #KPop #아이돌케미 #이름생성기`;
