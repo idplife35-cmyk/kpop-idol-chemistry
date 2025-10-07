@@ -229,6 +229,47 @@
     .container ol li::marker{ color: var(--accent-2); font-weight:700; }
     .card strong{ color: var(--text); }
     .card p, .card li{ color: var(--muted); }
+    
+    /* Social sharing styles */
+    .share-section {
+      background: linear-gradient(135deg, rgba(255,46,139,.05), rgba(180,144,255,.05));
+      border-radius: 12px;
+      padding: 16px;
+      margin-top: 16px;
+    }
+    
+    .share-buttons {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 8px;
+      margin-top: 12px;
+    }
+    
+    .share-buttons .btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 12px;
+      font-size: 0.9em;
+      font-weight: 600;
+      transition: all 0.2s ease;
+    }
+    
+    .share-buttons .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(255,46,139,.2);
+    }
+    
+    .share-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent-2));
+      color: white;
+      font-weight: 700;
+    }
+    
+    .share-hint {
+      text-align: center;
+      font-style: italic;
+    }
   </style>
   <title data-i18n="meta.title">KPOP Idol Chemistry Name Generator</title>
 </head>
@@ -353,6 +394,73 @@
         <h3 data-i18n="results.title">Your Chemistry Results</h3>
         <div id="header" class="result"></div>
         <div id="results" class="result"></div>
+        
+        <!-- 소셜 공유 섹션 -->
+        <div id="share-section" class="share-section" style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); display: none;">
+          <h4 data-i18n="share.title">Share your result</h4>
+          <p data-i18n="share.subtitle">Let friends know about your new chemistry name!</p>
+          <div class="share-buttons" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; margin-top: 12px;">
+            <!-- Primary share button -->
+            <button class="btn jelly share-primary" onclick="shareToInstagram()" data-i18n="share.instagram">
+              <span style="margin-right: 6px;">📸</span>Instagram
+            </button>
+            
+            <!-- TikTok for Gen Z -->
+            <button class="btn secondary" onclick="shareToTikTok()" data-i18n="share.tiktok">
+              <span style="margin-right: 6px;">🎵</span>TikTok
+            </button>
+            
+            <!-- Twitter/X -->
+            <button class="btn secondary" onclick="shareToTwitter()" data-i18n="share.twitter">
+              <span style="margin-right: 6px;">🐦</span>X (Twitter)
+            </button>
+            
+            <!-- Snapchat for younger users -->
+            <button class="btn secondary" onclick="shareToSnapchat()" data-i18n="share.snapchat">
+              <span style="margin-right: 6px;">👻</span>Snapchat
+            </button>
+            
+            <!-- Facebook -->
+            <button class="btn secondary" onclick="shareToFacebook()" data-i18n="share.facebook">
+              <span style="margin-right: 6px;">📘</span>Facebook
+            </button>
+            
+            <!-- Discord for gaming community -->
+            <button class="btn secondary" onclick="shareToDiscord()" data-i18n="share.discord">
+              <span style="margin-right: 6px;">💬</span>Discord
+            </button>
+            
+            <!-- WhatsApp for international users -->
+            <button class="btn secondary" onclick="shareToWhatsApp()" data-i18n="share.whatsapp">
+              <span style="margin-right: 6px;">💚</span>WhatsApp
+            </button>
+            
+            <!-- Telegram for privacy-focused users -->
+            <button class="btn secondary" onclick="shareToTelegram()" data-i18n="share.telegram">
+              <span style="margin-right: 6px;">✈️</span>Telegram
+            </button>
+            
+            <!-- Pinterest for visual content -->
+            <button class="btn secondary" onclick="shareToPinterest()" data-i18n="share.pinterest">
+              <span style="margin-right: 6px;">📌</span>Pinterest
+            </button>
+            
+            <!-- Reddit for community sharing -->
+            <button class="btn secondary" onclick="shareToReddit()" data-i18n="share.reddit">
+              <span style="margin-right: 6px;">🤖</span>Reddit
+            </button>
+            
+            <!-- Copy text -->
+            <button class="btn secondary" onclick="copyShareText()" data-i18n="share.copy">
+              <span style="margin-right: 6px;">📋</span>Copy Text
+            </button>
+          </div>
+          
+          <!-- Share hint -->
+          <p class="share-hint" style="margin-top: 12px; font-size: 0.9em; color: var(--muted);" data-i18n="share.hint">
+            💡 Perfect for your social media bio or K-Pop fan content!
+          </p>
+        </div>
       </div>
     </div>
 
@@ -549,6 +657,476 @@
           });
         }
       }, 100);
+    }
+
+    // Social sharing functions
+    function shareToInstagram() {
+      const shareText = generateShareText();
+      const url = window.location.href;
+      
+      // Try native sharing first
+      if (navigator.share) {
+        navigator.share({
+          title: 'My K-Pop Chemistry Name',
+          text: shareText,
+          url: url
+        }).catch(() => {
+          // Try Instagram app URL scheme
+          const instagramAppUrl = `instagram://story-camera`;
+          const instagramWebUrl = `https://www.instagram.com/`;
+          
+          // Try to open Instagram app
+          const iframe = document.createElement('iframe');
+          iframe.style.display = 'none';
+          iframe.src = instagramAppUrl;
+          document.body.appendChild(iframe);
+          
+          setTimeout(() => {
+            document.body.removeChild(iframe);
+            // If app didn't open, copy to clipboard
+            copyShareText();
+            showToast('📸 Copied! Open Instagram and paste in your story or post!');
+          }, 1000);
+        });
+      } else {
+        // Try Instagram app URL scheme for desktop
+        const instagramAppUrl = `instagram://story-camera`;
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = instagramAppUrl;
+        document.body.appendChild(iframe);
+        
+        setTimeout(() => {
+          document.body.removeChild(iframe);
+          // Fallback to clipboard
+          copyShareText();
+          showToast('📸 Copied! Open Instagram and paste in your story or post!');
+        }, 1000);
+      }
+    }
+
+    function shareToTikTok() {
+      const shareText = generateShareText();
+      const url = window.location.href;
+      
+      // Try native sharing first
+      if (navigator.share) {
+        navigator.share({
+          title: 'My K-Pop Chemistry Name',
+          text: shareText,
+          url: url
+        }).catch(() => {
+          // Try TikTok app URL scheme
+          const tiktokAppUrl = `snssdk1233://aweme/detail/`;
+          const tiktokWebUrl = `https://www.tiktok.com/`;
+          
+          // Try to open TikTok app
+          const iframe = document.createElement('iframe');
+          iframe.style.display = 'none';
+          iframe.src = tiktokAppUrl;
+          document.body.appendChild(iframe);
+          
+          setTimeout(() => {
+            document.body.removeChild(iframe);
+            // If app didn't open, copy to clipboard
+            copyShareText();
+            showToast('🎵 Copied! Open TikTok and paste in your video description!');
+          }, 1000);
+        });
+      } else {
+        // Try TikTok app URL scheme
+        const tiktokAppUrl = `snssdk1233://aweme/detail/`;
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = tiktokAppUrl;
+        document.body.appendChild(iframe);
+        
+        setTimeout(() => {
+          document.body.removeChild(iframe);
+          // Fallback to clipboard
+          copyShareText();
+          showToast('🎵 Copied! Open TikTok and paste in your video description!');
+        }, 1000);
+      }
+    }
+
+    function shareToTwitter() {
+      const shareText = generateShareText();
+      const url = encodeURIComponent(window.location.href);
+      const text = encodeURIComponent(shareText);
+      
+      // Try native sharing first (mobile)
+      if (navigator.share) {
+        navigator.share({
+          title: 'My K-Pop Chemistry Name',
+          text: shareText,
+          url: window.location.href
+        }).catch(() => {
+          // Try Twitter app URL scheme first (mobile)
+          const twitterAppUrl = `twitter://post?message=${encodeURIComponent(shareText + ' ' + window.location.href)}`;
+          const twitterWebUrl = `https://twitter.com/intent/tweet?text=${text}&url=${url}`;
+          
+          // Try to open Twitter app
+          const iframe = document.createElement('iframe');
+          iframe.style.display = 'none';
+          iframe.src = twitterAppUrl;
+          document.body.appendChild(iframe);
+          
+          setTimeout(() => {
+            document.body.removeChild(iframe);
+            // If app didn't open, fallback to web
+            window.open(twitterWebUrl, '_blank', 'width=600,height=400');
+          }, 1000);
+        });
+      } else {
+        // Desktop fallback
+        window.open(`https://twitter.com/intent/tweet?text=${text}&url=${url}`, '_blank', 'width=600,height=400');
+      }
+    }
+
+    function shareToSnapchat() {
+      const shareText = generateShareText();
+      const url = window.location.href;
+      
+      // Try native sharing first
+      if (navigator.share) {
+        navigator.share({
+          title: 'My K-Pop Chemistry Name',
+          text: shareText,
+          url: url
+        }).catch(() => {
+          // Try Snapchat app URL scheme
+          const snapchatAppUrl = `snapchat://camera`;
+          const snapchatWebUrl = `https://www.snapchat.com/`;
+          
+          // Try to open Snapchat app
+          const iframe = document.createElement('iframe');
+          iframe.style.display = 'none';
+          iframe.src = snapchatAppUrl;
+          document.body.appendChild(iframe);
+          
+          setTimeout(() => {
+            document.body.removeChild(iframe);
+            // If app didn't open, copy to clipboard
+            copyShareText();
+            showToast('👻 Copied! Open Snapchat and paste in your snap!');
+          }, 1000);
+        });
+      } else {
+        // Try Snapchat app URL scheme
+        const snapchatAppUrl = `snapchat://camera`;
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = snapchatAppUrl;
+        document.body.appendChild(iframe);
+        
+        setTimeout(() => {
+          document.body.removeChild(iframe);
+          // Fallback to clipboard
+          copyShareText();
+          showToast('👻 Copied! Open Snapchat and paste in your snap!');
+        }, 1000);
+      }
+    }
+
+    function shareToFacebook() {
+      const url = encodeURIComponent(window.location.href);
+      
+      // Try native sharing first (mobile)
+      if (navigator.share) {
+        navigator.share({
+          title: 'My K-Pop Chemistry Name',
+          text: generateShareText(),
+          url: window.location.href
+        }).catch(() => {
+          // Fallback to web intent
+          window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+        });
+      } else {
+        // Desktop fallback
+        window.open(`https://www.facebook.com/sharer/sharer.php?u=${url}`, '_blank', 'width=600,height=400');
+      }
+    }
+
+    function shareToDiscord() {
+      const shareText = generateShareText();
+      const url = window.location.href;
+      
+      // Try native sharing first
+      if (navigator.share) {
+        navigator.share({
+          title: 'My K-Pop Chemistry Name',
+          text: shareText,
+          url: url
+        }).catch(() => {
+          // Fallback to clipboard
+          copyShareText();
+          showToast('💬 Copied! Open Discord and paste in your server!');
+        });
+      } else {
+        // Fallback to clipboard
+        copyShareText();
+        showToast('💬 Copied! Open Discord and paste in your server!');
+      }
+    }
+
+    function shareToWhatsApp() {
+      const shareText = generateShareText();
+      const url = encodeURIComponent(window.location.href);
+      const text = encodeURIComponent(shareText);
+      
+      // Try native sharing first
+      if (navigator.share) {
+        navigator.share({
+          title: 'My K-Pop Chemistry Name',
+          text: shareText,
+          url: window.location.href
+        }).catch(() => {
+          // Try WhatsApp app URL scheme
+          const whatsappAppUrl = `whatsapp://send?text=${text}%20${url}`;
+          const whatsappWebUrl = `https://web.whatsapp.com/send?text=${text}%20${url}`;
+          
+          // Try to open WhatsApp app
+          const iframe = document.createElement('iframe');
+          iframe.style.display = 'none';
+          iframe.src = whatsappAppUrl;
+          document.body.appendChild(iframe);
+          
+          setTimeout(() => {
+            document.body.removeChild(iframe);
+            // If app didn't open, fallback to web
+            window.open(whatsappWebUrl, '_blank');
+          }, 1000);
+        });
+      } else {
+        // Try WhatsApp app URL scheme
+        const whatsappAppUrl = `whatsapp://send?text=${text}%20${url}`;
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = whatsappAppUrl;
+        document.body.appendChild(iframe);
+        
+        setTimeout(() => {
+          document.body.removeChild(iframe);
+          // Fallback to web
+          window.open(`https://web.whatsapp.com/send?text=${text}%20${url}`, '_blank');
+        }, 1000);
+      }
+    }
+
+    function shareToTelegram() {
+      const shareText = generateShareText();
+      const url = encodeURIComponent(window.location.href);
+      const text = encodeURIComponent(shareText);
+      
+      // Try native sharing first
+      if (navigator.share) {
+        navigator.share({
+          title: 'My K-Pop Chemistry Name',
+          text: shareText,
+          url: window.location.href
+        }).catch(() => {
+          // Try Telegram app URL scheme
+          const telegramAppUrl = `tg://msg?text=${text}%20${url}`;
+          const telegramWebUrl = `https://t.me/share/url?url=${url}&text=${text}`;
+          
+          // Try to open Telegram app
+          const iframe = document.createElement('iframe');
+          iframe.style.display = 'none';
+          iframe.src = telegramAppUrl;
+          document.body.appendChild(iframe);
+          
+          setTimeout(() => {
+            document.body.removeChild(iframe);
+            // If app didn't open, fallback to web
+            window.open(telegramWebUrl, '_blank');
+          }, 1000);
+        });
+      } else {
+        // Try Telegram app URL scheme
+        const telegramAppUrl = `tg://msg?text=${text}%20${url}`;
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = telegramAppUrl;
+        document.body.appendChild(iframe);
+        
+        setTimeout(() => {
+          document.body.removeChild(iframe);
+          // Fallback to web
+          window.open(`https://t.me/share/url?url=${url}&text=${text}`, '_blank');
+        }, 1000);
+      }
+    }
+
+    function shareToPinterest() {
+      const shareText = generateShareText();
+      const url = encodeURIComponent(window.location.href);
+      const text = encodeURIComponent(shareText);
+      
+      // Try native sharing first
+      if (navigator.share) {
+        navigator.share({
+          title: 'My K-Pop Chemistry Name',
+          text: shareText,
+          url: window.location.href
+        }).catch(() => {
+          // Try Pinterest app URL scheme
+          const pinterestAppUrl = `pinterest://pin/create/button/?url=${url}&description=${text}`;
+          const pinterestWebUrl = `https://pinterest.com/pin/create/button/?url=${url}&description=${text}`;
+          
+          // Try to open Pinterest app
+          const iframe = document.createElement('iframe');
+          iframe.style.display = 'none';
+          iframe.src = pinterestAppUrl;
+          document.body.appendChild(iframe);
+          
+          setTimeout(() => {
+            document.body.removeChild(iframe);
+            // If app didn't open, fallback to web
+            window.open(pinterestWebUrl, '_blank');
+          }, 1000);
+        });
+      } else {
+        // Try Pinterest app URL scheme
+        const pinterestAppUrl = `pinterest://pin/create/button/?url=${url}&description=${text}`;
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = pinterestAppUrl;
+        document.body.appendChild(iframe);
+        
+        setTimeout(() => {
+          document.body.removeChild(iframe);
+          // Fallback to web
+          window.open(`https://pinterest.com/pin/create/button/?url=${url}&description=${text}`, '_blank');
+        }, 1000);
+      }
+    }
+
+    function shareToReddit() {
+      const shareText = generateShareText();
+      const url = encodeURIComponent(window.location.href);
+      const text = encodeURIComponent(shareText);
+      
+      // Try native sharing first
+      if (navigator.share) {
+        navigator.share({
+          title: 'My K-Pop Chemistry Name',
+          text: shareText,
+          url: window.location.href
+        }).catch(() => {
+          // Try Reddit app URL scheme
+          const redditAppUrl = `reddit://submit?url=${url}&title=${text}`;
+          const redditWebUrl = `https://reddit.com/submit?url=${url}&title=${text}`;
+          
+          // Try to open Reddit app
+          const iframe = document.createElement('iframe');
+          iframe.style.display = 'none';
+          iframe.src = redditAppUrl;
+          document.body.appendChild(iframe);
+          
+          setTimeout(() => {
+            document.body.removeChild(iframe);
+            // If app didn't open, fallback to web
+            window.open(redditWebUrl, '_blank');
+          }, 1000);
+        });
+      } else {
+        // Try Reddit app URL scheme
+        const redditAppUrl = `reddit://submit?url=${url}&title=${text}`;
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = redditAppUrl;
+        document.body.appendChild(iframe);
+        
+        setTimeout(() => {
+          document.body.removeChild(iframe);
+          // Fallback to web
+          window.open(`https://reddit.com/submit?url=${url}&title=${text}`, '_blank');
+        }, 1000);
+      }
+    }
+
+    function copyShareText() {
+      const shareText = generateShareText();
+      navigator.clipboard.writeText(shareText).then(() => {
+        // Show success message
+        const button = event.target;
+        const originalText = button.textContent;
+        button.textContent = t('share.copied');
+        setTimeout(() => {
+          button.textContent = originalText;
+        }, 2000);
+      }).catch(() => {
+        showToast(t('share.error'));
+      });
+    }
+
+    // Toast notification function
+    function showToast(message) {
+      // Create toast element
+      const toast = document.createElement('div');
+      toast.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: linear-gradient(135deg, var(--accent), var(--accent-2));
+        color: white;
+        padding: 12px 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(255,46,139,.3);
+        z-index: 10000;
+        font-weight: 600;
+        font-size: 0.9em;
+        max-width: 300px;
+        animation: slideIn 0.3s ease;
+      `;
+      toast.textContent = message;
+      
+      // Add animation styles
+      const style = document.createElement('style');
+      style.textContent = `
+        @keyframes slideIn {
+          from { transform: translateX(100%); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideOut {
+          from { transform: translateX(0); opacity: 1; }
+          to { transform: translateX(100%); opacity: 0; }
+        }
+      `;
+      document.head.appendChild(style);
+      
+      document.body.appendChild(toast);
+      
+      // Auto remove after 3 seconds
+      setTimeout(() => {
+        toast.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => {
+          if (toast.parentNode) {
+            toast.parentNode.removeChild(toast);
+          }
+        }, 300);
+      }, 3000);
+    }
+
+    function generateShareText() {
+      const myName = document.getElementById('myName')?.value || 'Someone';
+      const idol = document.getElementById('idol')?.selectedOptions[0]?.text || 'my favorite idol';
+      const currentLang = getLang();
+      
+      if (currentLang === 'ko') {
+        return `🎀💖 ${idol}와의 완벽한 케미 이름을 발견했어요! 나만의 K-Pop 아이돌 케미 이름도 만들어보세요: ${window.location.href} #KPop #아이돌케미 #이름생성기`;
+      } else {
+        return `🎀💖 Just discovered my perfect chemistry name with ${idol}! Find your K-Pop alter ego too: ${window.location.href} #KPop #IdolChemistry #NameGenerator`;
+      }
+    }
+
+    // Show share section when results are generated
+    function showShareSection() {
+      const shareSection = document.getElementById('share-section');
+      if (shareSection) {
+        shareSection.style.display = 'block';
+      }
     }
 
     // Navigation scroll function

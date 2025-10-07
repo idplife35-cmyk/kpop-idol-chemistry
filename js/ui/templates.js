@@ -38,12 +38,68 @@ export function renderShareBlock(){
     <section class="share-block" data-share-root>
       <h3>${t('share.title')}</h3>
       <p>${t('share.subtitle')}</p>
-      <div class="share-actions">
-        <button type="button" class="btn share-btn" data-share="native">${t('share.native')}</button>
-        <button type="button" class="btn secondary share-btn" data-share="twitter">${t('share.twitter')}</button>
-        <button type="button" class="btn secondary share-btn" data-share="instagram">${t('share.instagram')}</button>
-        <button type="button" class="btn secondary share-btn" data-share="copy">${t('share.copy')}</button>
+      <div class="share-actions" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; margin-top: 12px;">
+        <!-- Primary share button -->
+        <button type="button" class="btn jelly share-primary" onclick="shareToInstagram()">
+          <span style="margin-right: 6px;">📸</span>${t('share.instagram')}
+        </button>
+        
+        <!-- TikTok for Gen Z -->
+        <button type="button" class="btn secondary" onclick="shareToTikTok()">
+          <span style="margin-right: 6px;">🎵</span>${t('share.tiktok')}
+        </button>
+        
+        <!-- Twitter/X -->
+        <button type="button" class="btn secondary" onclick="shareToTwitter()">
+          <span style="margin-right: 6px;">🐦</span>${t('share.twitter')}
+        </button>
+        
+        <!-- Snapchat for younger users -->
+        <button type="button" class="btn secondary" onclick="shareToSnapchat()">
+          <span style="margin-right: 6px;">👻</span>${t('share.snapchat')}
+        </button>
+        
+        <!-- Facebook -->
+        <button type="button" class="btn secondary" onclick="shareToFacebook()">
+          <span style="margin-right: 6px;">📘</span>${t('share.facebook')}
+        </button>
+        
+        <!-- Discord for gaming community -->
+        <button type="button" class="btn secondary" onclick="shareToDiscord()">
+          <span style="margin-right: 6px;">💬</span>${t('share.discord')}
+        </button>
+        
+        <!-- WhatsApp for international users -->
+        <button type="button" class="btn secondary" onclick="shareToWhatsApp()">
+          <span style="margin-right: 6px;">💚</span>${t('share.whatsapp')}
+        </button>
+        
+        <!-- Telegram for privacy-focused users -->
+        <button type="button" class="btn secondary" onclick="shareToTelegram()">
+          <span style="margin-right: 6px;">✈️</span>${t('share.telegram')}
+        </button>
+        
+        <!-- Pinterest for visual content -->
+        <button type="button" class="btn secondary" onclick="shareToPinterest()">
+          <span style="margin-right: 6px;">📌</span>${t('share.pinterest')}
+        </button>
+        
+        <!-- Reddit for community sharing -->
+        <button type="button" class="btn secondary" onclick="shareToReddit()">
+          <span style="margin-right: 6px;">🤖</span>${t('share.reddit')}
+        </button>
+        
+        <!-- Copy text -->
+        <button type="button" class="btn secondary" onclick="copyShareText()">
+          <span style="margin-right: 6px;">📋</span>${t('share.copy')}
+        </button>
       </div>
+      
+      <!-- Share hint -->
+      <p class="share-hint" style="margin-top: 12px; font-size: 0.9em; color: var(--muted);">
+        💡 ${t('share.hint')}
+      </p>
+      
       <p class="share-status" data-share-status aria-live="polite"></p>
     </section>
   `;
