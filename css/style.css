@@ -98,7 +98,7 @@ body{
   line-height:1.55;
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
-  scroll-behavior:smooth;
+  /* scroll-behavior:smooth; */
 }
 
 body::before{
@@ -699,7 +699,7 @@ footer{ margin:32px 0; color:var(--muted); text-align:center; }
     animation-duration:.001ms !important;
     animation-iteration-count:1 !important;
     transition-duration:.001ms !important;
-    scroll-behavior:auto !important;
+    /* scroll-behavior:auto !important; */
   }
   .hero-stickers span,
   .hero-sparkles span,
@@ -1045,5 +1045,212 @@ footer{ margin:32px 0; color:var(--muted); text-align:center; }
   
   .step-tips {
     padding: 0.8rem;
+  }
+}
+
+/* Social Media Optimization Styles */
+.viral-content-generator,
+.ugc-features {
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+}
+
+.viral-content-generator:hover,
+.ugc-features:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+.viral-btn,
+.ugc-btn {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.viral-btn:hover,
+.ugc-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+.viral-btn::before,
+.ugc-btn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: left 0.5s;
+}
+
+.viral-btn:hover::before,
+.ugc-btn:hover::before {
+  left: 100%;
+}
+
+.viral-preview,
+.ugc-preview {
+  animation: slideIn 0.3s ease-out;
+  border-left: 3px solid var(--accent);
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.viral-preview pre,
+.ugc-preview pre {
+  background: var(--surface);
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  font-size: 0.9rem;
+  line-height: 1.4;
+  max-height: 200px;
+  overflow-y: auto;
+}
+
+.viral-actions,
+.ugc-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.viral-actions .btn,
+.ugc-actions .btn {
+  flex: 1;
+  font-size: 0.85rem;
+  padding: 6px 12px;
+}
+
+/* Social sharing buttons enhancement */
+.share-actions .btn {
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.share-actions .btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.share-actions .btn::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transition: left 0.5s;
+}
+
+.share-actions .btn:hover::after {
+  left: 100%;
+}
+
+/* TikTok specific styling */
+.share-actions .btn[onclick*="TikTok"] {
+  background: linear-gradient(45deg, #ff0050, #00f2ea);
+  color: white;
+  border: none;
+}
+
+.share-actions .btn[onclick*="TikTok"]:hover {
+  background: linear-gradient(45deg, #ff1a66, #00e6d6);
+}
+
+/* Instagram specific styling */
+.share-actions .btn[onclick*="Instagram"] {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  color: white;
+  border: none;
+}
+
+.share-actions .btn[onclick*="Instagram"]:hover {
+  background: linear-gradient(45deg, #f2a041, #e8754a, #e03a4f, #d42d72, #c42494);
+}
+
+/* Twitter specific styling */
+.share-actions .btn[onclick*="Twitter"] {
+  background: #1da1f2;
+  color: white;
+  border: none;
+}
+
+.share-actions .btn[onclick*="Twitter"]:hover {
+  background: #0d8bd9;
+}
+
+/* Facebook specific styling */
+.share-actions .btn[onclick*="Facebook"] {
+  background: #1877f2;
+  color: white;
+  border: none;
+}
+
+.share-actions .btn[onclick*="Facebook"]:hover {
+  background: #166fe5;
+}
+
+/* Mobile optimizations for social features */
+@media (max-width: 768px) {
+  .viral-options,
+  .ugc-actions {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 6px;
+  }
+  
+  .viral-btn,
+  .ugc-btn {
+    font-size: 0.8rem;
+    padding: 8px 6px;
+  }
+  
+  .share-actions {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  
+  .share-actions .btn {
+    font-size: 0.85rem;
+    padding: 10px 12px;
+  }
+  
+  .viral-preview,
+  .ugc-preview {
+    margin-top: 8px;
+    padding: 8px;
+  }
+  
+  .viral-preview pre,
+  .ugc-preview pre {
+    font-size: 0.8rem;
+    padding: 8px;
+    max-height: 150px;
+  }
+  
+  .viral-actions,
+  .ugc-actions {
+    flex-direction: column;
+    gap: 6px;
+  }
+  
+  .viral-actions .btn,
+  .ugc-actions .btn {
+    font-size: 0.8rem;
+    padding: 8px 12px;
   }
 }

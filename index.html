@@ -622,6 +622,33 @@
         <div id="share-section" class="share-section" style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--border); display: none;">
           <h4 data-i18n="share.title">Share your result</h4>
           <p data-i18n="share.subtitle">Let friends know about your new chemistry name!</p>
+          
+          <!-- Viral Content Generator -->
+          <div class="viral-content-generator" style="margin: 16px 0; padding: 16px; background: var(--chip); border-radius: 8px;">
+            <h4 style="margin: 0 0 12px 0; font-size: 1.1rem;">🎨 Create Viral Content</h4>
+            <div class="viral-options" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: 8px; margin-bottom: 12px;">
+              <button type="button" class="btn secondary viral-btn" data-type="story" onclick="generateViralContent('story')">
+                📱 Story
+              </button>
+              <button type="button" class="btn secondary viral-btn" data-type="post" onclick="generateViralContent('post')">
+                📝 Post
+              </button>
+              <button type="button" class="btn secondary viral-btn" data-type="meme" onclick="generateViralContent('meme')">
+                😂 Meme
+              </button>
+              <button type="button" class="btn secondary viral-btn" data-type="challenge" onclick="generateViralContent('challenge')">
+                🎯 Challenge
+              </button>
+            </div>
+            <div id="viral-content-preview" class="viral-preview" style="display: none; padding: 12px; background: var(--surface); border-radius: 6px; border: 1px solid var(--border);">
+              <div id="viral-content-text"></div>
+              <div class="viral-actions" style="margin-top: 8px; display: flex; gap: 8px;">
+                <button type="button" class="btn secondary" onclick="copyViralContent()">📋 Copy</button>
+                <button type="button" class="btn secondary" onclick="shareViralContent()">🚀 Share</button>
+              </div>
+            </div>
+          </div>
+          
           <div class="share-buttons" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px; margin-top: 12px;">
             <!-- Primary share button -->
             <button class="btn jelly share-primary" onclick="shareToInstagram()" data-i18n="share.instagram">
@@ -677,12 +704,45 @@
             <button class="btn secondary" onclick="copyShareText()" data-i18n="share.copy">
               <span style="margin-right: 6px;">📋</span>Copy Text
             </button>
+            
+            <!-- Save to favorites -->
+            <button type="button" class="btn secondary" id="favoriteBtn">
+              <span style="margin-right: 6px;">❤️</span>Save to Favorites
+            </button>
+          </div>
+          
+          <!-- UGC Features -->
+          <div class="ugc-features" style="margin: 16px 0; padding: 16px; background: var(--chip); border-radius: 8px;">
+            <h4 style="margin: 0 0 12px 0; font-size: 1.1rem;">🌟 User Generated Content</h4>
+            <div class="ugc-actions" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 8px;">
+              <button type="button" class="btn secondary ugc-btn" onclick="createNameCard()">
+                🎨 Name Card
+              </button>
+              <button type="button" class="btn secondary ugc-btn" onclick="generateHashtags()">
+                #️⃣ Hashtags
+              </button>
+              <button type="button" class="btn secondary ugc-btn" onclick="createBio()">
+                📝 Bio
+              </button>
+              <button type="button" class="btn secondary ugc-btn" onclick="generateUsername()">
+                👤 Username
+              </button>
+            </div>
+            <div id="ugc-preview" class="ugc-preview" style="display: none; margin-top: 12px; padding: 12px; background: var(--surface); border-radius: 6px; border: 1px solid var(--border);">
+              <div id="ugc-content"></div>
+              <div class="ugc-actions" style="margin-top: 8px; display: flex; gap: 8px;">
+                <button type="button" class="btn secondary" onclick="copyUGCContent()">📋 Copy</button>
+                <button type="button" class="btn secondary" onclick="shareUGCContent()">🚀 Share</button>
+              </div>
+            </div>
           </div>
           
           <!-- Share hint -->
           <p class="share-hint" style="margin-top: 12px; font-size: 0.9em; color: var(--muted);" data-i18n="share.hint">
             💡 Perfect for your social media bio or K-Pop fan content!
           </p>
+          
+          <p class="share-status" data-share-status aria-live="polite"></p>
         </div>
       </div>
     </div>

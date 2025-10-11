@@ -5,6 +5,9 @@ import { relationUI, t, getLang } from './i18n.js';
 import { getIdols, resolveIdol } from './data/idols.js';
 import { generate } from './generator/engine.js';
 
+// Global variable to store current result data
+let currentResultData = null;
+
 function relationValue(){ return q('input[name="relation"]:checked').value; }
 function genderValue(){ return q('input[name="gender"]:checked').value; }
 
@@ -64,9 +67,44 @@ async function init(){
     const sameCard = renderResultCard(relUI.label, relUI.icon, sameName.full_kr, sameName.full_en, chemistry, sameCopy);
     const styledCard = renderResultCard(relUI.label, relUI.icon, styled.full_kr, styled.full_en, chemistry, styledCopy);
     const shareBlock = renderShareBlock();
+    
+    console.log('Share block content:', shareBlock);
+
+    // Store current result data globally
+    console.log('idol object:', idol);
+    currentResultData = {
+      myName: myName,
+      idol: idol.name || idol.name_kr || idol.name_en || 'Unknown',
+      group: idol.group,
+      gender: genderPref,
+      relation: relation,
+      koreanName: sameName.full_kr,
+      englishName: sameName.full_en,
+      chemistry: chemistry
+    };
+    
+    console.log('Current result data stored:', currentResultData);
 
     setHTML(q('#header'), header);
     setHTML(q('#results'), sameCard + styledCard + shareBlock);
+    
+    // Debug: Check if viral content generator is in DOM
+    setTimeout(() => {
+      const viralGenerator = q('.viral-content-generator');
+      console.log('Viral content generator found:', viralGenerator);
+      if (viralGenerator) {
+        console.log('Viral content generator HTML:', viralGenerator.outerHTML);
+      } else {
+        console.log('Viral content generator NOT found!');
+        // Check what's actually in the results div
+        const resultsDiv = q('#results');
+        console.log('Results div content:', resultsDiv ? resultsDiv.innerHTML.substring(0, 500) : 'Results div not found');
+      }
+    }, 100);
+    
+    // Re-initialize event listeners after rendering
+    initFavoriteButton();
+    initViralContentButtons();
 
   // Track successful name generation
   if (typeof gtag !== 'undefined') {
@@ -83,10 +121,10 @@ async function init(){
     myName: myName,
     idol: idol.name,
     group: idol.group,
-    gender: gender,
+    gender: genderPref,
     relation: relation,
-    koreanName: koreanName,
-    englishName: englishName,
+    koreanName: sameName.full_kr,
+    englishName: sameName.full_en,
     chemistry: chemistry
   });
 
@@ -477,5 +515,620 @@ function initHistoryFavorites() {
   updateFavoritesUI();
 }
 
+// Viral Content Generation
+function generateViralContent(type) {
+  const currentResult = getCurrentResult();
+  if (!currentResult) {
+    showStatus('❌ No result found. Please generate a name first.');
+    console.log('No current result found for viral content generation');
+    return;
+  }
+  
+  console.log('Generating viral content:', type, currentResult);
+  
+  const { myName, idol, koreanName, englishName, chemistry, relation } = currentResult;
+  const safeIdol = idol || 'Unknown';
+  const idolTag = safeIdol.replace(/\s+/g, '');
+  let content = '';
+  
+  switch(type) {
+    case 'story':
+      content = `✨ Just discovered my K-Pop chemistry name! ✨
+      
+💜 My name: ${myName}
+🎤 With: ${safeIdol}
+🌟 My Korean name: ${koreanName} (${englishName})
+💕 Chemistry: ${chemistry}%
+🎭 Relationship: ${relation}
+
+Who else wants to find their K-Pop name? 🎵
+#KPopNameGenerator #${idolTag} #KoreanName #KPopChemistry`;
+      break;
+      
+    case 'post':
+      content = `🎵 K-Pop Name Generator Results! 🎵
+
+I just tried the K-Pop Idol Chemistry Name Generator and I'm obsessed! 
+
+My Results:
+👤 Name: ${myName}
+💫 Idol: ${safeIdol}
+🌟 Korean Name: ${koreanName} (${englishName})
+💖 Chemistry Score: ${chemistry}%
+💕 Relationship: ${relation}
+
+This is so accurate! The generator created the perfect Korean name that matches my vibe with ${safeIdol}. 
+
+Try it yourself and share your results! 
+Link in bio 🔗
+
+#KPopNameGenerator #${idolTag} #KoreanName #KPopChemistry #KPopFans`;
+      break;
+      
+    case 'meme':
+      content = `When you find out your K-Pop chemistry name is ${koreanName} and you have ${chemistry}% chemistry with ${safeIdol}:
+
+😭 "This is literally me"
+💜 "I'm literally ${koreanName} now"
+🎵 "I can't believe this is so accurate"
+🤯 "How did they know??"
+
+Try the K-Pop Name Generator and see if you relate! 
+#KPopMeme #KPopNameGenerator #${idolTag} #Relatable #KPopFans`;
+      break;
+      
+    case 'challenge':
+      content = `🎯 K-Pop Name Challenge! 🎯
+
+I challenge you to:
+1. Go to the K-Pop Name Generator
+2. Find your chemistry name with your bias
+3. Share your results with this template
+4. Tag 3 friends to do the same!
+
+My Results:
+👤 ${myName} + ${safeIdol} = ${koreanName} (${englishName})
+💖 Chemistry: ${chemistry}%
+🎭 Relationship: ${relation}
+
+I challenge: @friend1 @friend2 @friend3
+Your turn! 🎵
+
+#KPopNameChallenge #KPopNameGenerator #${idolTag} #KPopChallenge #KPopFans`;
+      break;
+  }
+  
+  showViralContent(content);
+  
+  // Track viral content generation
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'viral_content_generated', {
+      'event_category': 'social',
+      'event_label': type,
+      'value': 1
+    });
+  }
+}
+
+function showViralContent(content) {
+  const preview = q('#viral-content-preview');
+  const text = q('#viral-content-text');
+  if (preview && text) {
+    text.innerHTML = `<pre style="white-space: pre-wrap; font-family: inherit; margin: 0;">${content}</pre>`;
+    preview.style.display = 'block';
+    // Remove auto-scroll to prevent hiding top area
+    // preview.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+function copyViralContent() {
+  const text = q('#viral-content-text');
+  if (text) {
+    const content = text.textContent;
+    navigator.clipboard.writeText(content).then(() => {
+      showStatus('✅ Viral content copied to clipboard!');
+    });
+  }
+}
+
+function shareViralContent() {
+  const text = q('#viral-content-text');
+  if (text) {
+    const content = text.textContent;
+    const url = window.location.href;
+    const shareText = `${content}\n\nTry it yourself: ${url}`;
+    
+    if (navigator.share) {
+      navigator.share({
+        title: 'My K-Pop Chemistry Name',
+        text: shareText,
+        url: url
+      });
+    } else {
+      navigator.clipboard.writeText(shareText).then(() => {
+        showStatus('✅ Content copied! Share it on your favorite platform!');
+      });
+    }
+  }
+}
+
+// UGC Features
+function createNameCard() {
+  const currentResult = getCurrentResult();
+  if (!currentResult) {
+    showStatus('❌ No result found. Please generate a name first.');
+    console.log('No current result found for name card creation');
+    return;
+  }
+  
+  console.log('Creating name card:', currentResult);
+  
+  const { myName, idol, koreanName, englishName, chemistry, relation } = currentResult;
+  
+  const cardContent = `
+┌─────────────────────────┐
+│     💜 K-Pop Name Card 💜    │
+├─────────────────────────┤
+│  👤 My Name: ${myName.padEnd(15)} │
+│  🎤 With: ${idol.padEnd(16)} │
+│  🌟 Korean: ${koreanName.padEnd(12)} │
+│  📝 English: ${englishName.padEnd(11)} │
+│  💖 Chemistry: ${chemistry}%${' '.repeat(8)} │
+│  🎭 Type: ${relation.padEnd(12)} │
+└─────────────────────────┘
+
+Generated by K-Pop Idol Chemistry Name Generator
+  `;
+  
+  showUGCContent(cardContent);
+}
+
+function generateHashtags() {
+  const currentResult = getCurrentResult();
+  if (!currentResult) {
+    showStatus('❌ No result found. Please generate a name first.');
+    return;
+  }
+  
+  const { idol, koreanName, chemistry } = currentResult;
+  const safeIdol = idol || 'Unknown';
+  const idolTag = safeIdol.replace(/\s+/g, '');
+  const nameTag = koreanName.replace(/\s+/g, '');
+  
+  const hashtags = `#KPopNameGenerator #${idolTag} #${nameTag} #KoreanName #KPopChemistry #KPopFans #KPop #KoreanCulture #NameGenerator #Chemistry #${chemistry}Percent #KPopBias #KPopIdol #KoreanLanguage #KPopCommunity #KPopTrend #KPopViral #KPopChallenge #KPopFun #KPopLove`;
+  
+  showUGCContent(hashtags);
+}
+
+function createBio() {
+  const currentResult = getCurrentResult();
+  if (!currentResult) {
+    showStatus('❌ No result found. Please generate a name first.');
+    return;
+  }
+  
+  const { myName, idol, koreanName, englishName, chemistry } = currentResult;
+  const safeIdol = idol || 'Unknown';
+  
+  const bioOptions = [
+    `💜 ${koreanName} (${englishName}) | ${chemistry}% chemistry with ${safeIdol} ✨
+K-Pop enthusiast | Korean name twin | ${safeIdol} stan
+DM for K-Pop name generator link! 🎵`,
+    
+    `🌟 ${koreanName} | ${myName} in Korean ✨
+${chemistry}% chemistry with ${safeIdol} 💕
+K-Pop name generator made this possible! 🎤`,
+    
+    `🎵 K-Pop Name: ${koreanName} (${englishName})
+💖 ${chemistry}% chemistry with ${safeIdol}
+✨ Living my best K-Pop life
+🔗 Link in bio for name generator!`,
+    
+    `💫 ${koreanName} | ${safeIdol} chemistry: ${chemistry}%
+🎤 K-Pop enthusiast | Korean culture lover
+✨ Found my Korean name through K-Pop Name Generator
+🎵 DM for the link!`
+  ];
+  
+  const randomBio = bioOptions[Math.floor(Math.random() * bioOptions.length)];
+  showUGCContent(randomBio);
+}
+
+function generateUsername() {
+  const currentResult = getCurrentResult();
+  if (!currentResult) {
+    showStatus('❌ No result found. Please generate a name first.');
+    return;
+  }
+  
+  const { myName, idol, koreanName, englishName, chemistry } = currentResult;
+  const safeIdol = idol || 'Unknown';
+  const idolShort = safeIdol.replace(/\s+/g, '').toLowerCase();
+  const nameShort = koreanName.replace(/\s+/g, '').toLowerCase();
+  const nameEng = englishName.replace(/\s+/g, '').toLowerCase();
+  
+  const usernameOptions = [
+    `${nameShort}_${idolShort}`,
+    `${nameEng}_${chemistry}percent`,
+    `${nameShort}_kpop`,
+    `${idolShort}_${nameShort}`,
+    `kpop_${nameShort}`,
+    `${nameShort}_chemistry`,
+    `${nameEng}_${idolShort}`,
+    `${nameShort}_stan`,
+    `korean_${nameShort}`,
+    `${nameShort}_${chemistry}`
+  ];
+  
+  const usernames = usernameOptions.join('\n');
+  showUGCContent(usernames);
+}
+
+function showUGCContent(content) {
+  const preview = q('#ugc-preview');
+  const text = q('#ugc-content');
+  if (preview && text) {
+    text.innerHTML = `<pre style="white-space: pre-wrap; font-family: inherit; margin: 0;">${content}</pre>`;
+    preview.style.display = 'block';
+    // Remove auto-scroll to prevent hiding top area
+    // preview.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+
+function copyUGCContent() {
+  const text = q('#ugc-content');
+  if (text) {
+    const content = text.textContent;
+    navigator.clipboard.writeText(content).then(() => {
+      showStatus('✅ UGC content copied to clipboard!');
+    });
+  }
+}
+
+function shareUGCContent() {
+  const text = q('#ugc-content');
+  if (text) {
+    const content = text.textContent;
+    const url = window.location.href;
+    const shareText = `${content}\n\nGenerated by K-Pop Name Generator: ${url}`;
+    
+    if (navigator.share) {
+      navigator.share({
+        title: 'My K-Pop UGC Content',
+        text: shareText,
+        url: url
+      });
+    } else {
+      navigator.clipboard.writeText(shareText).then(() => {
+        showStatus('✅ UGC content copied! Share it on your favorite platform!');
+      });
+    }
+  }
+}
+
+function getCurrentResult() {
+  console.log('getCurrentResult called, currentResultData:', currentResultData);
+  return currentResultData;
+}
+
+function showStatus(message) {
+  const status = q('[data-share-status]');
+  if (status) {
+    status.textContent = message;
+    setTimeout(() => {
+      status.textContent = '';
+    }, 3000);
+  }
+}
+
+function shareToInstagram() {
+  const url = window.location.href;
+  const text = `✨ Just discovered my K-Pop chemistry name! ✨\n\nTry the K-Pop Idol Chemistry Name Generator and find your perfect Korean name! 🎵\n\n${url}`;
+  
+  // Track Instagram share
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'share', {
+      'method': 'instagram',
+      'content_type': 'name_generator',
+      'item_id': 'kpop_name_generator'
+    });
+  }
+  
+  if (navigator.share) {
+    navigator.share({
+      title: 'My K-Pop Chemistry Name',
+      text: text,
+      url: url
+    });
+  } else {
+    navigator.clipboard.writeText(text).then(() => {
+      showStatus('✅ Content copied! Share it on Instagram!');
+    });
+  }
+}
+
+function shareToFacebook() {
+  const url = window.location.href;
+  const text = `🎵 K-Pop Name Generator Results! 🎵\n\nI just tried the K-Pop Idol Chemistry Name Generator and I'm obsessed!\n\nTry it yourself: ${url}`;
+  
+  // Track Facebook share
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'share', {
+      'method': 'facebook',
+      'content_type': 'name_generator',
+      'item_id': 'kpop_name_generator'
+    });
+  }
+  
+  if (navigator.share) {
+    navigator.share({
+      title: 'K-Pop Name Generator',
+      text: text,
+      url: url
+    });
+  } else {
+    navigator.clipboard.writeText(text).then(() => {
+      showStatus('✅ Content copied! Share it on Facebook!');
+    });
+  }
+}
+
+function shareToTwitter() {
+  const url = window.location.href;
+  const text = `🎵 Just found my K-Pop chemistry name! ✨\n\nTry the K-Pop Name Generator: ${url}\n\n#KPopNameGenerator #KPopFans #KoreanName`;
+  
+  // Track Twitter share
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'share', {
+      'method': 'twitter',
+      'content_type': 'name_generator',
+      'item_id': 'kpop_name_generator'
+    });
+  }
+  
+  if (navigator.share) {
+    navigator.share({
+      title: 'K-Pop Name Generator',
+      text: text,
+      url: url
+    });
+  } else {
+    navigator.clipboard.writeText(text).then(() => {
+      showStatus('✅ Content copied! Share it on Twitter!');
+    });
+  }
+}
+
+function copyShareText() {
+  const currentResult = getCurrentResult();
+  if (!currentResult) {
+    showStatus('❌ No result found. Please generate a name first.');
+    return;
+  }
+  
+  const { myName, idol, koreanName, englishName, chemistry } = currentResult;
+  const text = `✨ My K-Pop Chemistry Name ✨\n\n👤 Name: ${myName}\n🎤 With: ${idol}\n🌟 Korean Name: ${koreanName} (${englishName})\n💖 Chemistry: ${chemistry}%\n\nTry it yourself: ${window.location.href}`;
+  
+  navigator.clipboard.writeText(text).then(() => {
+    showStatus('✅ Share text copied to clipboard!');
+  });
+}
+
+function shareToSnapchat() {
+  const url = window.location.href;
+  const text = `🎵 K-Pop Name Generator! ✨\n\nFind your Korean name: ${url}`;
+  
+  if (navigator.share) {
+    navigator.share({
+      title: 'K-Pop Name Generator',
+      text: text,
+      url: url
+    });
+  } else {
+    navigator.clipboard.writeText(text).then(() => {
+      showStatus('✅ Content copied! Share it on Snapchat!');
+    });
+  }
+}
+
+function shareToDiscord() {
+  const url = window.location.href;
+  const text = `🎵 **K-Pop Name Generator** 🎵\n\nJust found my Korean chemistry name! ✨\n\nTry it yourself: ${url}`;
+  
+  if (navigator.share) {
+    navigator.share({
+      title: 'K-Pop Name Generator',
+      text: text,
+      url: url
+    });
+  } else {
+    navigator.clipboard.writeText(text).then(() => {
+      showStatus('✅ Content copied! Share it on Discord!');
+    });
+  }
+}
+
+function shareToWhatsApp() {
+  const url = window.location.href;
+  const text = `🎵 K-Pop Name Generator! ✨\n\nFind your Korean chemistry name: ${url}`;
+  
+  if (navigator.share) {
+    navigator.share({
+      title: 'K-Pop Name Generator',
+      text: text,
+      url: url
+    });
+  } else {
+    navigator.clipboard.writeText(text).then(() => {
+      showStatus('✅ Content copied! Share it on WhatsApp!');
+    });
+  }
+}
+
+function shareToTelegram() {
+  const url = window.location.href;
+  const text = `🎵 K-Pop Name Generator! ✨\n\nFind your Korean chemistry name: ${url}`;
+  
+  if (navigator.share) {
+    navigator.share({
+      title: 'K-Pop Name Generator',
+      text: text,
+      url: url
+    });
+  } else {
+    navigator.clipboard.writeText(text).then(() => {
+      showStatus('✅ Content copied! Share it on Telegram!');
+    });
+  }
+}
+
+function shareToPinterest() {
+  const url = window.location.href;
+  const text = `🎵 K-Pop Name Generator - Find Your Korean Chemistry Name! ✨\n\n${url}`;
+  
+  if (navigator.share) {
+    navigator.share({
+      title: 'K-Pop Name Generator',
+      text: text,
+      url: url
+    });
+  } else {
+    navigator.clipboard.writeText(text).then(() => {
+      showStatus('✅ Content copied! Share it on Pinterest!');
+    });
+  }
+}
+
+function shareToReddit() {
+  const url = window.location.href;
+  const text = `🎵 K-Pop Name Generator Results! 🎵\n\nI just tried the K-Pop Idol Chemistry Name Generator and it's amazing!\n\nTry it yourself: ${url}`;
+  
+  if (navigator.share) {
+    navigator.share({
+      title: 'K-Pop Name Generator',
+      text: text,
+      url: url
+    });
+  } else {
+    navigator.clipboard.writeText(text).then(() => {
+      showStatus('✅ Content copied! Share it on Reddit!');
+    });
+  }
+}
+
+function shareToTikTok() {
+  const url = window.location.href;
+  const text = `🎵 K-Pop Name Generator Challenge! 🎵\n\nI just found my K-Pop chemistry name and it's PERFECT! ✨\n\nTry it yourself and share your results! \n\n${url}\n\n#KPopNameGenerator #KPopChallenge #KoreanName #KPopFans #KPopViral`;
+  
+  // Track TikTok share
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'share', {
+      'method': 'tiktok',
+      'content_type': 'name_generator',
+      'item_id': 'kpop_name_generator'
+    });
+  }
+  
+  if (navigator.share) {
+    navigator.share({
+      title: 'K-Pop Name Generator Challenge',
+      text: text,
+      url: url
+    });
+  } else {
+    navigator.clipboard.writeText(text).then(() => {
+      showStatus('✅ Content copied! Share it on TikTok!');
+    });
+  }
+}
+
+// Add event listener for favorite button
+function initFavoriteButton() {
+  const favoriteBtn = q('#favoriteBtn');
+  if (favoriteBtn && !favoriteBtn.hasAttribute('data-listener-added')) {
+    favoriteBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const currentResult = getCurrentResult();
+      if (currentResult) {
+        saveToFavorites(currentResult);
+        showStatus('✅ Added to favorites!');
+      } else {
+        showStatus('❌ No result to save. Please generate a name first.');
+      }
+    });
+    favoriteBtn.setAttribute('data-listener-added', 'true');
+  }
+}
+
+function initViralContentButtons() {
+  // Viral content buttons
+  const viralButtons = document.querySelectorAll('.viral-content-generator .viral-btn');
+  viralButtons.forEach(btn => {
+    if (!btn.hasAttribute('data-listener-added')) {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const type = btn.getAttribute('data-type');
+        if (type) {
+          generateViralContent(type);
+        }
+      });
+      btn.setAttribute('data-listener-added', 'true');
+    }
+  });
+  
+  // UGC buttons
+  const ugcButtons = document.querySelectorAll('.ugc-features .ugc-btn');
+  ugcButtons.forEach(btn => {
+    if (!btn.hasAttribute('data-listener-added')) {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const type = btn.getAttribute('data-type');
+        if (type) {
+          switch(type) {
+            case 'namecard':
+              createNameCard();
+              break;
+            case 'hashtags':
+              generateHashtags();
+              break;
+            case 'bio':
+              createBio();
+              break;
+            case 'username':
+              generateUsername();
+              break;
+          }
+        }
+      });
+      btn.setAttribute('data-listener-added', 'true');
+    }
+  });
+}
+
+// Make functions globally accessible
+window.generateViralContent = generateViralContent;
+window.copyViralContent = copyViralContent;
+window.shareViralContent = shareViralContent;
+window.createNameCard = createNameCard;
+window.generateHashtags = generateHashtags;
+window.createBio = createBio;
+window.generateUsername = generateUsername;
+window.copyUGCContent = copyUGCContent;
+window.shareUGCContent = shareUGCContent;
+window.shareToInstagram = shareToInstagram;
+window.shareToFacebook = shareToFacebook;
+window.shareToTwitter = shareToTwitter;
+window.copyShareText = copyShareText;
+window.shareToSnapchat = shareToSnapchat;
+window.shareToDiscord = shareToDiscord;
+window.shareToWhatsApp = shareToWhatsApp;
+window.shareToTelegram = shareToTelegram;
+window.shareToPinterest = shareToPinterest;
+window.shareToReddit = shareToReddit;
+window.shareToTikTok = shareToTikTok;
+
 init();
 initHistoryFavorites();
+initFavoriteButton();
