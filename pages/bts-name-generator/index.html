@@ -49,6 +49,60 @@
     .btn.jelly::before{ content:""; position:absolute; inset:0 0 50% 0; background: linear-gradient(180deg, rgba(255,255,255,.40), rgba(255,255,255,0)); border-radius:999px; pointer-events:none; }
     .btn.jelly::after{ content:""; position:absolute; top:0; left:-40%; width:40%; height:100%; background: linear-gradient(110deg, transparent, rgba(255,255,255,.35), transparent); transform: skewX(-20deg); transition:left .35s ease; }
     .btn.jelly:hover::after{ left:110%; }
+    
+    /* Member Cards */
+    .member-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+      margin-top: 12px;
+    }
+    
+    .member-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 12px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+    
+    .member-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    
+    .member-card h5 {
+      margin: 0 0 4px 0;
+      color: var(--accent);
+      font-size: 1rem;
+    }
+    
+    .member-card p {
+      margin: 0;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+      .member-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 8px;
+      }
+      
+      .member-card {
+        padding: 8px;
+      }
+      
+      .member-card h5 {
+        font-size: 0.9rem;
+      }
+      
+      .member-card p {
+        font-size: 0.8rem;
+      }
+    }
   </style>
 </head>
 <body class="theme-bts kitsch-light">
@@ -131,6 +185,97 @@
         <a class="btn secondary" href="/pages/huntrix-name-generator/">HUNTR/X Name Generator</a>
         <a class="btn secondary" href="/pages/sajaboys-name-generator/">SajaBoys Name Generator</a>
         <a class="btn secondary" href="/">All Groups Generator</a>
+      </div>
+    </section>
+
+    <!-- BTS Group Information Section -->
+    <section class="card" style="margin-top:16px;">
+      <h2 style="margin-top:0">💜 About BTS</h2>
+      <p class="lead">Learn about the global superstars and their unique naming style</p>
+      
+      <div class="row">
+        <div class="col-md-6">
+          <h3>🌟 Group Overview</h3>
+          <p><strong>BTS (방탄소년단)</strong> is a South Korean boy band that has become a global phenomenon. The name "Bangtan Sonyeondan" translates to "Bulletproof Boy Scouts" and represents their message of protecting youth from societal pressures.</p>
+          
+          <h4>🎵 Musical Style</h4>
+          <ul>
+            <li><strong>Hip-hop & R&B:</strong> Strong influence from urban music</li>
+            <li><strong>Meaningful lyrics:</strong> Songs about youth, dreams, and social issues</li>
+            <li><strong>Genre diversity:</strong> From hard-hitting rap to emotional ballads</li>
+            <li><strong>Global appeal:</strong> Music that transcends language barriers</li>
+          </ul>
+        </div>
+        
+        <div class="col-md-6">
+          <h3>👥 Members</h3>
+          <div class="member-grid">
+            <div class="member-card">
+              <h5>RM (김남준)</h5>
+              <p>Leader, Main Rapper</p>
+            </div>
+            <div class="member-card">
+              <h5>Jin (김석진)</h5>
+              <p>Vocalist, Visual</p>
+            </div>
+            <div class="member-card">
+              <h5>SUGA (민윤기)</h5>
+              <p>Rapper, Producer</p>
+            </div>
+            <div class="member-card">
+              <h5>j-hope (정호석)</h5>
+              <p>Rapper, Main Dancer</p>
+            </div>
+            <div class="member-card">
+              <h5>Jimin (박지민)</h5>
+              <p>Vocalist, Dancer</p>
+            </div>
+            <div class="member-card">
+              <h5>V (김태형)</h5>
+              <p>Vocalist, Visual</p>
+            </div>
+            <div class="member-card">
+              <h5>Jungkook (전정국)</h5>
+              <p>Main Vocalist, Dancer</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="row mt-4">
+        <div class="col-12">
+          <h3>🎭 BTS Naming Style</h3>
+          <p>BTS members have distinctive names that reflect their artistic identities:</p>
+          <div class="row">
+            <div class="col-md-4">
+              <h5>Stage Names</h5>
+              <ul>
+                <li><strong>RM:</strong> Rap Monster → Real Me</li>
+                <li><strong>SUGA:</strong> Derived from "sugar" (sweet voice)</li>
+                <li><strong>j-hope:</strong> Hope for the group</li>
+                <li><strong>V:</strong> Victory, representing the group's success</li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h5>Name Characteristics</h5>
+              <ul>
+                <li><strong>Strong consonants:</strong> Names with powerful sounds</li>
+                <li><strong>Memorable:</strong> Easy to remember globally</li>
+                <li><strong>Meaningful:</strong> Each name has significance</li>
+                <li><strong>Versatile:</strong> Work in multiple languages</li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h5>Cultural Impact</h5>
+              <ul>
+                <li><strong>Global recognition:</strong> Names known worldwide</li>
+                <li><strong>Fan culture:</strong> ARMY (Adorable Representative MC for Youth)</li>
+                <li><strong>Fashion influence:</strong> Style trends and aesthetics</li>
+                <li><strong>Social messages:</strong> Love Yourself campaign</li>
+              </ul>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
