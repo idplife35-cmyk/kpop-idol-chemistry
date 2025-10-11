@@ -44,6 +44,15 @@ async function init(){
     const relation = relationValue();
     const genderPref = genderValue();
 
+    // Track name generation event
+    if (typeof gtag !== 'undefined') {
+      gtag('event', 'name_generation_started', {
+        'event_category': 'engagement',
+        'event_label': `${idol.group} - ${relation}`,
+        'value': 1
+      });
+    }
+
     const { chemistry, sameName, styled } = await generate({ myName, idol, genderPref, relation });
 
     const header = renderHeader(myName, idol);
@@ -58,6 +67,28 @@ async function init(){
 
     setHTML(q('#header'), header);
     setHTML(q('#results'), sameCard + styledCard + shareBlock);
+
+  // Track successful name generation
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'name_generation_completed', {
+      'event_category': 'conversion',
+      'event_label': `${idol.group} - ${relation} - ${chemistry}%`,
+      'value': chemistry
+    });
+  }
+
+  // Save to history
+  saveToHistory({
+    timestamp: new Date().toISOString(),
+    myName: myName,
+    idol: idol.name,
+    group: idol.group,
+    gender: gender,
+    relation: relation,
+    koreanName: koreanName,
+    englishName: englishName,
+    chemistry: chemistry
+  });
 
     // Check if mobile and scroll to results
     const isMobile = window.innerWidth <= 760;
@@ -153,6 +184,16 @@ function setupShare({ myName, idol, chemistry, styled, same }){
     on(twitterBtn, 'click', (e)=>{
       e.preventDefault();
       const shareUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`;
+      
+      // Track share event
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'share', {
+          'event_category': 'social',
+          'event_label': 'twitter',
+          'method': 'twitter'
+        });
+      }
+      
       window.open(shareUrl, '_blank', 'noopener');
     });
   }
@@ -163,6 +204,16 @@ function setupShare({ myName, idol, chemistry, styled, same }){
       const payload = `${text}\n${url}`;
       try {
         const ok = await copyToClipboard(payload);
+        
+        // Track copy event
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'share', {
+            'event_category': 'social',
+            'event_label': 'copy',
+            'method': 'copy'
+          });
+        }
+        
         status(ok ? t('share.copied') : t('share.error'));
       } catch {
         status(t('share.error'));
@@ -176,6 +227,16 @@ function setupShare({ myName, idol, chemistry, styled, same }){
       const payload = `${text}\n${url}`;
       try {
         const ok = await copyToClipboard(payload);
+        
+        // Track Instagram share event
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'share', {
+            'event_category': 'social',
+            'event_label': 'instagram',
+            'method': 'instagram'
+          });
+        }
+        
         status(ok ? t('share.instagramHint') : t('share.error'));
       } catch {
         status(t('share.error'));
@@ -246,4 +307,175 @@ function scrollToResults() {
   }
 }
 
+// History and Favorites functionality
+function saveToHistory(result) {
+  try {
+    const history = JSON.parse(localStorage.getItem('kpopNameHistory') || '[]');
+    history.unshift(result); // Add to beginning
+    // Keep only last 50 entries
+    if (history.length > 50) {
+      history.splice(50);
+    }
+    localStorage.setItem('kpopNameHistory', JSON.stringify(history));
+    updateHistoryUI();
+  } catch (e) {
+    console.warn('Failed to save to history:', e);
+  }
+}
+
+function getHistory() {
+  try {
+    return JSON.parse(localStorage.getItem('kpopNameHistory') || '[]');
+  } catch (e) {
+    return [];
+  }
+}
+
+function saveToFavorites(result) {
+  try {
+    const favorites = JSON.parse(localStorage.getItem('kpopNameFavorites') || '[]');
+    const exists = favorites.some(fav => 
+      fav.myName === result.myName && 
+      fav.idol === result.idol && 
+      fav.relation === result.relation
+    );
+    if (!exists) {
+      favorites.unshift(result);
+      localStorage.setItem('kpopNameFavorites', JSON.stringify(favorites));
+      updateFavoritesUI();
+    }
+  } catch (e) {
+    console.warn('Failed to save to favorites:', e);
+  }
+}
+
+function getFavorites() {
+  try {
+    return JSON.parse(localStorage.getItem('kpopNameFavorites') || '[]');
+  } catch (e) {
+    return [];
+  }
+}
+
+function removeFromFavorites(result) {
+  try {
+    const favorites = getFavorites();
+    const filtered = favorites.filter(fav => 
+      !(fav.myName === result.myName && 
+        fav.idol === result.idol && 
+        fav.relation === result.relation)
+    );
+    localStorage.setItem('kpopNameFavorites', JSON.stringify(filtered));
+    updateFavoritesUI();
+  } catch (e) {
+    console.warn('Failed to remove from favorites:', e);
+  }
+}
+
+function updateHistoryUI() {
+  const history = getHistory();
+  const historyContainer = q('#history-container');
+  if (!historyContainer) return;
+
+  if (history.length === 0) {
+    historyContainer.innerHTML = '<p class="text-center text-muted">No history yet. Generate some names to see them here!</p>';
+    return;
+  }
+
+  const historyHTML = history.slice(0, 10).map(item => `
+    <div class="history-item">
+      <div class="history-content">
+        <div class="history-names">
+          <strong>${item.koreanName}</strong> (${item.englishName})
+        </div>
+        <div class="history-details">
+          ${item.myName} + ${item.idol} (${item.group}) • ${item.relation} • ${item.chemistry}%
+        </div>
+        <div class="history-time">
+          ${new Date(item.timestamp).toLocaleString()}
+        </div>
+      </div>
+      <div class="history-actions">
+        <button class="btn btn-sm btn-outline-primary" onclick="regenerateFromHistory('${item.myName}', '${item.idol}', '${item.gender}', '${item.relation}')">
+          <i class="fas fa-redo"></i> Regenerate
+        </button>
+        <button class="btn btn-sm btn-outline-success" onclick="saveToFavorites(${JSON.stringify(item).replace(/"/g, '&quot;')})">
+          <i class="fas fa-heart"></i> Save
+        </button>
+      </div>
+    </div>
+  `).join('');
+
+  historyContainer.innerHTML = historyHTML;
+}
+
+function updateFavoritesUI() {
+  const favorites = getFavorites();
+  const favoritesContainer = q('#favorites-container');
+  if (!favoritesContainer) return;
+
+  if (favorites.length === 0) {
+    favoritesContainer.innerHTML = '<p class="text-center text-muted">No favorites yet. Save some names to see them here!</p>';
+    return;
+  }
+
+  const favoritesHTML = favorites.map(item => `
+    <div class="favorite-item">
+      <div class="favorite-content">
+        <div class="favorite-names">
+          <strong>${item.koreanName}</strong> (${item.englishName})
+        </div>
+        <div class="favorite-details">
+          ${item.myName} + ${item.idol} (${item.group}) • ${item.relation} • ${item.chemistry}%
+        </div>
+        <div class="favorite-time">
+          Saved ${new Date(item.timestamp).toLocaleString()}
+        </div>
+      </div>
+      <div class="favorite-actions">
+        <button class="btn btn-sm btn-outline-primary" onclick="regenerateFromHistory('${item.myName}', '${item.idol}', '${item.gender}', '${item.relation}')">
+          <i class="fas fa-redo"></i> Regenerate
+        </button>
+        <button class="btn btn-sm btn-outline-danger" onclick="removeFromFavorites(${JSON.stringify(item).replace(/"/g, '&quot;')})">
+          <i class="fas fa-trash"></i> Remove
+        </button>
+      </div>
+    </div>
+  `).join('');
+
+  favoritesContainer.innerHTML = favoritesHTML;
+}
+
+function regenerateFromHistory(myName, idol, gender, relation) {
+  // Fill the form with historical data
+  q('#myName').value = myName;
+  q('#idol').value = idol;
+  q('#gender').value = gender;
+  q('#relation').value = relation;
+  
+  // Trigger generation
+  generateName();
+}
+
+function clearHistory() {
+  if (confirm('Are you sure you want to clear all history?')) {
+    localStorage.removeItem('kpopNameHistory');
+    updateHistoryUI();
+  }
+}
+
+function clearFavorites() {
+  if (confirm('Are you sure you want to clear all favorites?')) {
+    localStorage.removeItem('kpopNameFavorites');
+    updateFavoritesUI();
+  }
+}
+
+// Initialize history and favorites UI on page load
+function initHistoryFavorites() {
+  updateHistoryUI();
+  updateFavoritesUI();
+}
+
 init();
+initHistoryFavorites();

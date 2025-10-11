@@ -58,6 +58,11 @@ export function renderShareBlock(){
         <button type="button" class="btn secondary" onclick="copyShareText()">
           <span style="margin-right: 6px;">📋</span>${t('share.copy')}
         </button>
+        
+        <!-- Save to favorites -->
+        <button type="button" class="btn secondary" id="favoriteBtn">
+          <span style="margin-right: 6px;">❤️</span>Save to Favorites
+        </button>
       </div>
       
       <!-- Share hint -->
