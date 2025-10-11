@@ -309,7 +309,7 @@
             <h1 class="title-neon sparkle-word" data-i18n="main.h1">🎀💖 K‑Pop Idol Chemistry Name Generator ✨</h1>
             <p class="hero-sub" data-i18n="main.lead">Create a perfect chemistry name with your favorite idol.</p>
             <div class="hero-buttons">
-              <button class="btn jelly" onclick="document.getElementById('form').querySelector('button[type=submit]').click();" data-i18n="form.submit">Make it sparkle</button>
+              <button class="btn jelly" onclick="scrollToForm()" data-i18n="form.submit">Make it sparkle</button>
               <div class="hero-meta">
                 <span data-i18n="hero.meta1">Bias-worthy</span>
                 <span data-i18n="hero.meta2">Stage-ready</span>
@@ -326,12 +326,6 @@
       </div>
     </section>
 
-    <!-- Jelly Navigation -->
-    <nav class="kitsch-nav" role="navigation" aria-label="Main navigation">
-      <a href="#generator" class="tab" data-active="true" onclick="scrollToSection('generator')" data-i18n="nav.generator">Generator</a>
-      <a href="#groups" class="tab" onclick="scrollToSection('groups')" data-i18n="nav.groups">Groups</a>
-      <a href="#guide" class="tab" onclick="scrollToSection('guide')" data-i18n="nav.guide">Guide</a>
-    </nav>
 
     <!-- Divider Ribbon -->
     <div class="divider-ribbon" data-i18n="divider.groups">Popular K-Pop Groups</div>
@@ -383,7 +377,7 @@
           </div>
 
           <div class="btn-row" style="display:flex;gap:8px;margin-top:16px;">
-            <button class="btn jelly" type="submit" data-i18n="form.submit" onclick="scrollToResultsAfterSubmit(event)">Generate Chemistry Name</button>
+            <button class="btn jelly" type="submit" data-i18n="form.submit">Generate Chemistry Name</button>
             <button class="btn secondary" type="reset" data-i18n="form.reset">Reset</button>
           </div>
         </form>
@@ -613,51 +607,37 @@
       }
     })();
 
-    // Scroll to results function
-    function scrollToResults() {
-      // Directly target the results card
-      const resultsCard = document.querySelector('.card.holo');
+    // Scroll to form function
+    function scrollToForm() {
+      // Find "Create Your Chemistry Name" divider (language independent)
+      const dividers = document.querySelectorAll('.divider-ribbon');
+      const target = Array.from(dividers).find(d => 
+        d.textContent.includes('Create Your Chemistry Name') ||
+        d.textContent.includes('케미 이름 만들기') ||
+        d.textContent.includes('Chemistry Name') ||
+        d.textContent.includes('이름 생성')
+      );
       
-      if (resultsCard) {
-        // Get the card's position
-        const rect = resultsCard.getBoundingClientRect();
-        const navHeight = document.querySelector('.kitsch-nav').offsetHeight + 20;
-        const targetPosition = window.pageYOffset + rect.top - navHeight;
-        
-        // Scroll to the position
+      if (target) {
+        // Scroll to the divider with some offset
+        const targetPosition = target.offsetTop - 20;
         window.scrollTo({
-          top: Math.max(0, targetPosition),
+          top: targetPosition,
           behavior: 'smooth'
         });
-        
-        // Trigger form submission if form is filled
+      } else {
+        // Fallback to form element
         const form = document.getElementById('form');
-        if (form && form.checkValidity()) {
-          form.dispatchEvent(new Event('submit'));
+        if (form) {
+          const targetPosition = form.offsetTop - 20;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
         }
       }
     }
 
-    // Scroll to results after form submission
-    function scrollToResultsAfterSubmit(event) {
-      // Allow form to submit first
-      setTimeout(() => {
-        const resultsCard = document.querySelector('.card.holo');
-        
-        if (resultsCard) {
-          // Get the card's position
-          const rect = resultsCard.getBoundingClientRect();
-          const navHeight = document.querySelector('.kitsch-nav').offsetHeight + 20;
-          const targetPosition = window.pageYOffset + rect.top - navHeight;
-          
-          // Scroll to the position
-          window.scrollTo({
-            top: Math.max(0, targetPosition),
-            behavior: 'smooth'
-          });
-        }
-      }, 100);
-    }
 
     // Social sharing functions
     function shareToInstagram() {
@@ -1129,55 +1109,6 @@
       }
     }
 
-    // Navigation scroll function
-    function scrollToSection(sectionId) {
-      let target;
-      
-      if (sectionId === 'generator') {
-        // Find "Create Your Chemistry Name" divider
-        const dividers = document.querySelectorAll('.divider-ribbon');
-        target = Array.from(dividers).find(d => d.textContent.includes('Create Your Chemistry Name'));
-        if (!target) target = document.querySelector('#form');
-      } else if (sectionId === 'groups') {
-        // Find "Popular K-Pop Groups" divider
-        const dividers = document.querySelectorAll('.divider-ribbon');
-        target = Array.from(dividers).find(d => d.textContent.includes('Popular K-Pop Groups'));
-        if (!target) target = document.querySelector('.quick-links');
-      } else if (sectionId === 'guide') {
-        // Find the section containing "How to Use Our K-Pop Name Generator"
-        const headings = document.querySelectorAll('h2');
-        const guideHeading = Array.from(headings).find(h => h.textContent.includes('How to Use Our K-Pop Name Generator'));
-        if (guideHeading) {
-          // Find the parent section
-          target = guideHeading.closest('section');
-        }
-        if (!target) {
-          // Fallback to the heading itself
-          target = guideHeading;
-        }
-        if (!target) {
-          // Final fallback to FAQ section
-          target = document.querySelector('h2[data-i18n="faq.title"]');
-        }
-      }
-      
-      if (target) {
-        // Add offset for sticky navigation
-        const navHeight = document.querySelector('.kitsch-nav').offsetHeight + 20;
-        const targetPosition = target.offsetTop - navHeight;
-        
-        window.scrollTo({
-          top: targetPosition,
-          behavior: 'smooth'
-        });
-        
-        // Update active tab
-        document.querySelectorAll('.kitsch-nav .tab').forEach(tab => {
-          tab.removeAttribute('data-active');
-        });
-        event.target.setAttribute('data-active', 'true');
-      }
-    }
   </script>
 </body>
 </html>
