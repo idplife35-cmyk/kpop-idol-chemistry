@@ -49,6 +49,275 @@
     .btn.jelly::before{ content:""; position:absolute; inset:0 0 50% 0; background: linear-gradient(180deg, rgba(255,255,255,.40), rgba(255,255,255,0)); border-radius:999px; pointer-events:none; }
     .btn.jelly::after{ content:""; position:absolute; top:0; left:-40%; width:40%; height:100%; background: linear-gradient(110deg, transparent, rgba(255,255,255,.35), transparent); transform: skewX(-20deg); transition:left .35s ease; }
     .btn.jelly:hover::after{ left:110%; }
+    
+    /* HUNTR/X Theme Colors */
+    .theme-huntrix {
+      --huntrix-primary: #00ff88;
+      --huntrix-secondary: #00d4ff;
+      --huntrix-accent: #ff0080;
+      --huntrix-dark: #0a0a0a;
+      --huntrix-glow: rgba(0, 255, 136, 0.3);
+    }
+    
+    /* Group Banner Styles */
+    .group-banner {
+      background: linear-gradient(135deg, var(--huntrix-dark) 0%, #1a1a2e 50%, #16213e 100%);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 20px 0;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid var(--huntrix-primary);
+      box-shadow: 0 0 30px var(--huntrix-glow);
+    }
+    
+    .group-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent 30%, rgba(0, 255, 136, 0.1) 50%, transparent 70%);
+      animation: scan 3s linear infinite;
+    }
+    
+    @keyframes scan {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+    
+    .banner-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .huntrix-logo {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .logo-image {
+      width: 250px;
+      height: auto;
+      max-width: 100%;
+      filter: drop-shadow(0 0 20px var(--huntrix-glow));
+      animation: logoGlow 3s ease-in-out infinite alternate;
+    }
+    
+    .logo-subtitle {
+      color: var(--huntrix-secondary);
+      font-size: 0.9rem;
+      margin-top: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px var(--huntrix-glow);
+    }
+    
+    /* Animation for the logo */
+    @keyframes logoGlow {
+      0% { 
+        filter: drop-shadow(0 0 10px var(--huntrix-glow)) brightness(1);
+        transform: scale(1);
+      }
+      100% { 
+        filter: drop-shadow(0 0 25px var(--huntrix-glow)) brightness(1.1);
+        transform: scale(1.02);
+      }
+    }
+    
+    .banner-stats {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-number {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--huntrix-primary);
+      text-shadow: 0 0 10px var(--huntrix-glow);
+    }
+    
+    .stat-label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--huntrix-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+    
+    /* Member Cards */
+    .member-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    
+    .member-card {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .member-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .member-card:hover::before {
+      left: 100%;
+    }
+    
+    .member-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0, 255, 136, 0.2);
+      border-color: var(--huntrix-primary);
+    }
+    
+    .member-card.active {
+      border-color: var(--huntrix-primary);
+      background: linear-gradient(135deg, rgba(0, 255, 136, 0.1), rgba(0, 212, 255, 0.1));
+      box-shadow: 0 0 20px var(--huntrix-glow);
+      transform: translateY(-2px);
+    }
+    
+    .member-card.active .huntrix-photo {
+      box-shadow: 0 0 30px var(--huntrix-glow);
+      border-color: var(--huntrix-accent);
+    }
+    
+    .member-photo {
+      margin-bottom: 12px;
+    }
+    
+    .photo-placeholder {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .huntrix-photo {
+      background: linear-gradient(135deg, var(--huntrix-primary), var(--huntrix-secondary));
+      border: 3px solid var(--huntrix-accent);
+      box-shadow: 0 0 20px var(--huntrix-glow);
+    }
+    
+    .member-avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .avatar-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--huntrix-primary);
+      text-shadow: 0 0 10px var(--huntrix-glow);
+    }
+    
+    .member-info h5 {
+      margin: 0 0 4px 0;
+      color: var(--text);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    
+    .member-info p {
+      margin: 0 0 8px 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    
+    .member-traits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: center;
+    }
+    
+    .trait {
+      background: linear-gradient(135deg, var(--huntrix-primary), var(--huntrix-secondary));
+      color: var(--huntrix-dark);
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .banner-content {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+      
+      .banner-stats {
+        justify-content: center;
+      }
+      
+      .logo-image {
+        width: 180px;
+        height: auto;
+      }
+      
+      .logo-subtitle {
+        font-size: 0.8rem;
+        margin-top: 6px;
+      }
+      
+      .member-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 12px;
+      }
+      
+      .photo-placeholder {
+        width: 60px;
+        height: 60px;
+      }
+      
+      .avatar-text {
+        font-size: 1.2rem;
+      }
+    }
   </style>
 </head>
 <body class="theme-huntrix kitsch-light">
@@ -66,6 +335,33 @@
       </div>
     </div>
     <header>
+      <!-- HUNTR/X Group Banner -->
+      <div class="group-banner huntrix-banner">
+        <div class="banner-content">
+          <div class="group-logo">
+            <div class="logo-container">
+              <div class="huntrix-logo">
+                <img src="/images/huntrix_group_logo.png" alt="HUNTR/X Logo" class="logo-image" />
+              </div>
+            </div>
+          </div>
+          <div class="banner-stats">
+            <div class="stat-item">
+              <span class="stat-number">3</span>
+              <span class="stat-label">Members</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">2024</span>
+              <span class="stat-label">Debut</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">Futuristic</span>
+              <span class="stat-label">Concept</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <h1 class="title-cute" data-i18n="page.huntrix.h1">🎀💚 HUNTR/X Name Generator ✨</h1>
       <p class="lead" data-i18n="page.huntrix.lead">Forge a cute Korean-style name that matches with HUNTR/X (K‑Pop Demon Hunters).</p>
       <div class="cute-emoji-row" aria-hidden="true" style="margin-top:10px;">
@@ -156,21 +452,56 @@
         <div class="col-md-6">
           <h3>👥 Members</h3>
           <div class="member-grid">
-            <div class="member-card">
-              <h5>LEE (이)</h5>
-              <p>Leader, Vocalist</p>
+            <div class="member-card huntrix-member" data-member="루미">
+              <div class="member-photo">
+                <div class="photo-placeholder huntrix-photo">
+                  <div class="member-avatar">
+                    <span class="avatar-text">루</span>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h5>루미 (Rumi)</h5>
+                <p>Leader, Main Vocalist</p>
+                <div class="member-traits">
+                  <span class="trait">🌟 Leader</span>
+                  <span class="trait">🎤 Vocal</span>
+                </div>
+              </div>
             </div>
-            <div class="member-card">
-              <h5>KIM (김)</h5>
-              <p>Rapper, Producer</p>
+            <div class="member-card huntrix-member" data-member="미라">
+              <div class="member-photo">
+                <div class="photo-placeholder huntrix-photo">
+                  <div class="member-avatar">
+                    <span class="avatar-text">미</span>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h5>미라 (Mira)</h5>
+                <p>Rapper, Dancer</p>
+                <div class="member-traits">
+                  <span class="trait">🎤 Rapper</span>
+                  <span class="trait">💃 Dancer</span>
+                </div>
+              </div>
             </div>
-            <div class="member-card">
-              <h5>PARK (박)</h5>
-              <p>Vocalist, Dancer</p>
-            </div>
-            <div class="member-card">
-              <h5>CHOI (최)</h5>
-              <p>Main Vocalist</p>
+            <div class="member-card huntrix-member" data-member="조이">
+              <div class="member-photo">
+                <div class="photo-placeholder huntrix-photo">
+                  <div class="member-avatar">
+                    <span class="avatar-text">조</span>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h5>조이 (Zoey)</h5>
+                <p>Vocalist, Visual</p>
+                <div class="member-traits">
+                  <span class="trait">🎵 Vocal</span>
+                  <span class="trait">✨ Visual</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -314,6 +645,39 @@
       render();
       window.addEventListener('langchange', render);
     })();
+
+    // Member card click functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const memberCards = document.querySelectorAll('.huntrix-member');
+      const idolSelect = document.getElementById('idol');
+      
+      memberCards.forEach(card => {
+        card.addEventListener('click', function() {
+          const memberName = this.getAttribute('data-member');
+          
+          // Remove active class from all cards
+          memberCards.forEach(c => c.classList.remove('active'));
+          
+          // Add active class to clicked card
+          this.classList.add('active');
+          
+          // Set the select value
+          if (idolSelect) {
+            idolSelect.value = memberName;
+            
+            // Trigger change event
+            const event = new Event('change', { bubbles: true });
+            idolSelect.dispatchEvent(event);
+          }
+          
+          // Add visual feedback
+          this.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            this.style.transform = '';
+          }, 150);
+        });
+      });
+    });
   </script>
   <div id="site-footer" data-include="/components/footer.html"></div>
   <script type="module" src="/js/ui/include.js"></script>

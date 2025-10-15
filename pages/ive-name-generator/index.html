@@ -49,6 +49,257 @@
     .btn.jelly::before{ content:""; position:absolute; inset:0 0 50% 0; background: linear-gradient(180deg, rgba(255,255,255,.40), rgba(255,255,255,0)); border-radius:999px; pointer-events:none; }
     .btn.jelly::after{ content:""; position:absolute; top:0; left:-40%; width:40%; height:100%; background: linear-gradient(110deg, transparent, rgba(255,255,255,.35), transparent); transform: skewX(-20deg); transition:left .35s ease; }
     .btn.jelly:hover::after{ left:110%; }
+
+    /* IVE Theme */
+    .theme-ive {
+      --ive-primary: #00D4FF;
+      --ive-secondary: #FF6B9D;
+      --ive-accent: #FFE066;
+      --ive-glow: rgba(0, 212, 255, 0.5);
+      --ive-dark: #1a1a1a;
+      --ive-light: #f8f9fa;
+    }
+
+    /* Group Banner Styles */
+    .group-banner {
+      background: linear-gradient(135deg, #1a1a1a, #2d2d2d, #1a1a1a);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 20px 0;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid var(--ive-primary);
+      box-shadow: 0 0 30px var(--ive-glow);
+    }
+    
+    .group-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent 30%, rgba(0, 212, 255, 0.1) 50%, transparent 70%);
+      animation: iveFlow 3s linear infinite;
+    }
+    
+    @keyframes iveFlow {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    .banner-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+
+    .ive-logo {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .logo-image {
+      height: 80px;
+      width: auto;
+      filter: brightness(0) invert(1);
+      filter: drop-shadow(0 0 20px var(--ive-glow));
+      animation: logoGlow 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes logoGlow {
+      0% { filter: brightness(0) invert(1) drop-shadow(0 0 20px var(--ive-glow)); }
+      100% { filter: brightness(0) invert(1) drop-shadow(0 0 30px var(--ive-glow)) drop-shadow(0 0 40px var(--ive-glow)); }
+    }
+
+    .banner-stats {
+      display: flex;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+
+    .stat-item {
+      text-align: center;
+    }
+
+    .stat-number {
+      display: block;
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--ive-primary);
+      text-shadow: 0 0 10px var(--ive-glow);
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      display: block;
+      font-size: 12px;
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Member Grid Styles */
+    .member-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+
+    .member-card {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 16px;
+      padding: 16px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .member-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+      border-color: var(--ive-primary);
+    }
+    
+    .member-card.active {
+      border-color: var(--ive-primary);
+      background: linear-gradient(135deg, rgba(0, 212, 255, 0.1), rgba(255, 107, 157, 0.1));
+      box-shadow: 0 0 20px var(--ive-glow);
+      transform: translateY(-2px);
+    }
+    
+    .member-card.active .ive-photo {
+      box-shadow: 0 0 30px var(--ive-glow);
+      border-color: var(--ive-accent);
+    }
+
+    .member-photo {
+      margin-bottom: 12px;
+    }
+
+    .photo-placeholder {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .ive-photo {
+      background: linear-gradient(135deg, var(--ive-primary), var(--ive-secondary));
+      border: 3px solid var(--ive-accent);
+      box-shadow: 0 0 20px var(--ive-glow);
+    }
+
+    .member-avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .avatar-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: white;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+
+    .member-info h5 {
+      margin: 0 0 4px 0;
+      color: var(--text);
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .member-info p {
+      margin: 0 0 8px 0;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .member-traits {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .trait {
+      background: var(--ive-primary);
+      color: white;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-size: 11px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .banner-content {
+        flex-direction: column;
+        text-align: center;
+        gap: 20px;
+      }
+
+      .banner-stats {
+        justify-content: center;
+      }
+
+      .logo-image {
+        height: 60px;
+      }
+      
+      .member-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 12px;
+      }
+      
+      .photo-placeholder {
+        width: 60px;
+        height: 60px;
+      }
+      
+      .avatar-text {
+        font-size: 1.2rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .group-banner {
+        padding: 20px;
+        margin: 16px 0;
+      }
+
+      .banner-stats {
+        gap: 12px;
+      }
+
+      .logo-image {
+        height: 50px;
+      }
+      
+      .stat-number {
+        font-size: 20px;
+      }
+    }
   </style>
 </head>
 <body class="theme-ive kitsch-light">
@@ -66,6 +317,33 @@
       </div>
     </div>
     <header>
+      <!-- IVE Group Banner -->
+      <div class="group-banner ive-banner">
+        <div class="banner-content">
+          <div class="group-logo">
+            <div class="logo-container">
+              <div class="ive-logo">
+                <img src="/images/Ive_logo_(Black).svg" alt="IVE Logo" class="logo-image" />
+              </div>
+            </div>
+          </div>
+          <div class="banner-stats">
+            <div class="stat-item">
+              <span class="stat-number">6</span>
+              <span class="stat-label">Members</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">2021</span>
+              <span class="stat-label">Debut</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">New Gen</span>
+              <span class="stat-label">Girl Group</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <h1 class="title-cute" data-i18n="page.ive.h1">🎀💖 IVE Name Generator ✨</h1>
       <p class="lead" data-i18n="page.ive.lead">Create an adorable Korean-style name that matches with IVE members.</p>
       <div class="cute-emoji-row" aria-hidden="true" style="margin-top:10px;">
@@ -158,29 +436,107 @@
         <div class="col-md-6">
           <h3>👥 Members</h3>
           <div class="member-grid">
-            <div class="member-card">
-              <h5>YUJIN (안유진)</h5>
-              <p>Leader, Vocalist, Dancer</p>
+            <div class="member-card ive-member" data-member="안유진">
+              <div class="member-photo">
+                <div class="photo-placeholder ive-photo">
+                  <div class="member-avatar">
+                    <span class="avatar-text">유</span>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h5>YUJIN (안유진)</h5>
+                <p>Leader, Vocalist, Dancer</p>
+                <div class="member-traits">
+                  <span class="trait">👑 Leader</span>
+                  <span class="trait">🎤 Vocal</span>
+                </div>
+              </div>
             </div>
-            <div class="member-card">
-              <h5>GAEUL (김가을)</h5>
-              <p>Vocalist, Dancer</p>
+            <div class="member-card ive-member" data-member="가을">
+              <div class="member-photo">
+                <div class="photo-placeholder ive-photo">
+                  <div class="member-avatar">
+                    <span class="avatar-text">가</span>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h5>GAEUL (김가을)</h5>
+                <p>Vocalist, Dancer</p>
+                <div class="member-traits">
+                  <span class="trait">🎤 Vocal</span>
+                  <span class="trait">💃 Dancer</span>
+                </div>
+              </div>
             </div>
-            <div class="member-card">
-              <h5>REI (레이)</h5>
-              <p>Rapper, Vocalist</p>
+            <div class="member-card ive-member" data-member="레이">
+              <div class="member-photo">
+                <div class="photo-placeholder ive-photo">
+                  <div class="member-avatar">
+                    <span class="avatar-text">레</span>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h5>REI (레이)</h5>
+                <p>Rapper, Vocalist</p>
+                <div class="member-traits">
+                  <span class="trait">🎤 Rapper</span>
+                  <span class="trait">🎵 Vocal</span>
+                </div>
+              </div>
             </div>
-            <div class="member-card">
-              <h5>WONYOUNG (장원영)</h5>
-              <p>Vocalist, Visual</p>
+            <div class="member-card ive-member" data-member="장원영">
+              <div class="member-photo">
+                <div class="photo-placeholder ive-photo">
+                  <div class="member-avatar">
+                    <span class="avatar-text">원</span>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h5>WONYOUNG (장원영)</h5>
+                <p>Vocalist, Visual</p>
+                <div class="member-traits">
+                  <span class="trait">🎤 Vocal</span>
+                  <span class="trait">✨ Visual</span>
+                </div>
+              </div>
             </div>
-            <div class="member-card">
-              <h5>LIZ (리즈)</h5>
-              <p>Main Vocalist</p>
+            <div class="member-card ive-member" data-member="리즈">
+              <div class="member-photo">
+                <div class="photo-placeholder ive-photo">
+                  <div class="member-avatar">
+                    <span class="avatar-text">리</span>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h5>LIZ (리즈)</h5>
+                <p>Main Vocalist</p>
+                <div class="member-traits">
+                  <span class="trait">🎤 Vocal</span>
+                  <span class="trait">🎵 Main</span>
+                </div>
+              </div>
             </div>
-            <div class="member-card">
-              <h5>LEESEO (이서)</h5>
-              <p>Vocalist, Maknae</p>
+            <div class="member-card ive-member" data-member="이서">
+              <div class="member-photo">
+                <div class="photo-placeholder ive-photo">
+                  <div class="member-avatar">
+                    <span class="avatar-text">이</span>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h5>LEESEO (이서)</h5>
+                <p>Vocalist, Maknae</p>
+                <div class="member-traits">
+                  <span class="trait">🎤 Vocal</span>
+                  <span class="trait">👶 Maknae</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -327,6 +683,51 @@
       render();
       window.addEventListener('langchange', render);
     })();
+  </script>
+
+  <!-- IVE Member Card Interaction -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const memberCards = document.querySelectorAll('.ive-member');
+      const idolSelect = document.getElementById('idol');
+
+      memberCards.forEach(card => {
+        card.addEventListener('click', function() {
+          const memberName = this.getAttribute('data-member');
+          
+          // Remove active class from all cards
+          memberCards.forEach(c => c.classList.remove('active'));
+          
+          // Add active class to clicked card
+          this.classList.add('active');
+          
+          // Set the select value
+          if (idolSelect) {
+            idolSelect.value = memberName;
+            
+            // Trigger change event to update any dependent logic
+            const changeEvent = new Event('change', { bubbles: true });
+            idolSelect.dispatchEvent(changeEvent);
+          }
+        });
+      });
+
+      // Update active state when select changes
+      if (idolSelect) {
+        idolSelect.addEventListener('change', function() {
+          const selectedValue = this.value;
+          
+          // Remove active class from all cards
+          memberCards.forEach(c => c.classList.remove('active'));
+          
+          // Add active class to matching card
+          const matchingCard = document.querySelector(`[data-member="${selectedValue}"]`);
+          if (matchingCard) {
+            matchingCard.classList.add('active');
+          }
+        });
+      }
+    });
   </script>
   <div id="site-footer" data-include="/components/footer.html"></div>
   <script type="module" src="/js/ui/include.js"></script>

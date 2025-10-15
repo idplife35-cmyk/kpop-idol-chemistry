@@ -49,6 +49,276 @@
     .btn.jelly::before{ content:""; position:absolute; inset:0 0 50% 0; background: linear-gradient(180deg, rgba(255,255,255,.40), rgba(255,255,255,0)); border-radius:999px; pointer-events:none; }
     .btn.jelly::after{ content:""; position:absolute; top:0; left:-40%; width:40%; height:100%; background: linear-gradient(110deg, transparent, rgba(255,255,255,.35), transparent); transform: skewX(-20deg); transition:left .35s ease; }
     .btn.jelly:hover::after{ left:110%; }
+    
+    /* SajaBoys Theme Colors */
+    .theme-sajaboys {
+      --sajaboys-primary: #ff6b35;
+      --sajaboys-secondary: #f7931e;
+      --sajaboys-accent: #ffd23f;
+      --sajaboys-dark: #2c1810;
+      --sajaboys-glow: rgba(255, 107, 53, 0.3);
+    }
+    
+    /* Group Banner Styles */
+    .group-banner {
+      background: linear-gradient(135deg, var(--sajaboys-dark) 0%, #4a2c1a 50%, #6b3e2a 100%);
+      border-radius: 16px;
+      padding: 24px;
+      margin: 20px 0;
+      position: relative;
+      overflow: hidden;
+      border: 2px solid var(--sajaboys-primary);
+      box-shadow: 0 0 30px var(--sajaboys-glow);
+    }
+    
+    .group-banner::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(45deg, transparent 30%, rgba(255, 107, 53, 0.1) 50%, transparent 70%);
+      animation: lionRoar 4s ease-in-out infinite;
+    }
+    
+    @keyframes lionRoar {
+      0%, 100% { transform: translateX(-100%); opacity: 0.3; }
+      50% { transform: translateX(100%); opacity: 0.6; }
+    }
+    
+    .banner-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: relative;
+      z-index: 2;
+    }
+    
+    .sajaboys-logo {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .logo-image {
+      width: 200px;
+      height: auto;
+      max-width: 100%;
+      border-radius: 12px;
+      filter: drop-shadow(0 0 20px var(--sajaboys-glow));
+      animation: logoGlow 3s ease-in-out infinite alternate;
+    }
+    
+    .logo-subtitle {
+      color: var(--sajaboys-secondary);
+      font-size: 0.9rem;
+      margin-top: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      text-shadow: 0 0 10px var(--sajaboys-glow);
+    }
+    
+    /* Animation for the logo */
+    @keyframes logoGlow {
+      0% { 
+        filter: drop-shadow(0 0 10px var(--sajaboys-glow)) brightness(1);
+        transform: scale(1);
+      }
+      100% { 
+        filter: drop-shadow(0 0 25px var(--sajaboys-glow)) brightness(1.1);
+        transform: scale(1.02);
+      }
+    }
+    
+    .banner-stats {
+      display: flex;
+      gap: 24px;
+    }
+    
+    .stat-item {
+      text-align: center;
+    }
+    
+    .stat-number {
+      display: block;
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--sajaboys-primary);
+      text-shadow: 0 0 10px var(--sajaboys-glow);
+    }
+    
+    .stat-label {
+      display: block;
+      font-size: 0.8rem;
+      color: var(--sajaboys-secondary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-top: 2px;
+    }
+    
+    /* Member Cards */
+    .member-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 16px;
+      margin-top: 16px;
+    }
+    
+    .member-card {
+      background: var(--surface);
+      border: 2px solid var(--border);
+      border-radius: 12px;
+      padding: 16px;
+      text-align: center;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .member-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 107, 53, 0.1), transparent);
+      transition: left 0.5s ease;
+    }
+    
+    .member-card:hover::before {
+      left: 100%;
+    }
+    
+    .member-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 25px rgba(255, 107, 53, 0.2);
+      border-color: var(--sajaboys-primary);
+    }
+    
+    .member-card.active {
+      border-color: var(--sajaboys-primary);
+      background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(247, 147, 30, 0.1));
+      box-shadow: 0 0 20px var(--sajaboys-glow);
+      transform: translateY(-2px);
+    }
+    
+    .member-card.active .sajaboys-photo {
+      box-shadow: 0 0 30px var(--sajaboys-glow);
+      border-color: var(--sajaboys-accent);
+    }
+    
+    .member-photo {
+      margin-bottom: 12px;
+    }
+    
+    .photo-placeholder {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .sajaboys-photo {
+      background: linear-gradient(135deg, var(--sajaboys-primary), var(--sajaboys-secondary));
+      border: 3px solid var(--sajaboys-accent);
+      box-shadow: 0 0 20px var(--sajaboys-glow);
+    }
+    
+    .member-avatar {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.6));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .avatar-text {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--sajaboys-primary);
+      text-shadow: 0 0 10px var(--sajaboys-glow);
+    }
+    
+    .member-info h5 {
+      margin: 0 0 4px 0;
+      color: var(--text);
+      font-size: 1.1rem;
+      font-weight: 700;
+    }
+    
+    .member-info p {
+      margin: 0 0 8px 0;
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+    
+    .member-traits {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+      justify-content: center;
+    }
+    
+    .trait {
+      background: linear-gradient(135deg, var(--sajaboys-primary), var(--sajaboys-secondary));
+      color: white;
+      padding: 2px 8px;
+      border-radius: 12px;
+      font-size: 0.7rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .banner-content {
+        flex-direction: column;
+        gap: 16px;
+        text-align: center;
+      }
+      
+      .banner-stats {
+        justify-content: center;
+      }
+      
+      .logo-image {
+        width: 150px;
+        height: auto;
+      }
+      
+      .logo-subtitle {
+        font-size: 0.8rem;
+        margin-top: 6px;
+      }
+      
+      .member-grid {
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        gap: 12px;
+      }
+      
+      .photo-placeholder {
+        width: 60px;
+        height: 60px;
+      }
+      
+      .avatar-text {
+        font-size: 1.2rem;
+      }
+    }
   </style>
 </head>
 <body class="theme-sajaboys kitsch-light">
@@ -66,6 +336,33 @@
       </div>
     </div>
     <header>
+      <!-- SajaBoys Group Banner -->
+      <div class="group-banner sajaboys-banner">
+        <div class="banner-content">
+          <div class="group-logo">
+            <div class="logo-container">
+              <div class="sajaboys-logo">
+                <img src="/images/Saja_Boys_Logo.webp" alt="SajaBoys Logo" class="logo-image" />
+              </div>
+            </div>
+          </div>
+          <div class="banner-stats">
+            <div class="stat-item">
+              <span class="stat-number">5</span>
+              <span class="stat-label">Members</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">2024</span>
+              <span class="stat-label">Debut</span>
+            </div>
+            <div class="stat-item">
+              <span class="stat-number">Romance</span>
+              <span class="stat-label">Concept</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
       <h1 class="title-cute" data-i18n="page.sajaboys.h1">🎀🦁 SajaBoys Name Generator ✨</h1>
       <p class="lead" data-i18n="page.sajaboys.lead">Create a roaringly cute Korean-style name that matches with SajaBoys.</p>
       <div class="cute-emoji-row" aria-hidden="true" style="margin-top:10px;">
@@ -136,45 +433,110 @@
 
     <!-- SajaBoys Group Information Section -->
     <section class="card" style="margin-top:16px;">
-      <h2 style="margin-top:0">🦁 About SajaBoys</h2>
-      <p class="lead">Discover the powerful and charismatic group and their strong naming style</p>
+      <h2 style="margin-top:0">💕 About SajaBoys</h2>
+      <p class="lead">Discover the romantic and elegant group and their charming naming style</p>
       
       <div class="row">
         <div class="col-md-6">
           <h3>🌟 Group Overview</h3>
-          <p><strong>SajaBoys (사자보이즈)</strong> is a South Korean group known for their powerful and charismatic concept. The name "Saja" means "lion" in Korean, symbolizing strength, courage, and leadership, representing their bold and confident approach to music and performance.</p>
+          <p><strong>SajaBoys (사자보이즈)</strong> is a South Korean group known for their romantic and elegant concept. The name "Saja" represents sophistication and charm, symbolizing their refined and captivating approach to music and performance.</p>
           
           <h4>🎵 Musical Style</h4>
           <ul>
-            <li><strong>Powerful vocals:</strong> Strong and commanding performances</li>
-            <li><strong>Charismatic concepts:</strong> Bold and confident themes</li>
-            <li><strong>Leadership energy:</strong> Inspiring and motivating messages</li>
-            <li><strong>Strong presence:</strong> Commanding stage performances</li>
+            <li><strong>Romantic ballads:</strong> Emotional and heartfelt performances</li>
+            <li><strong>Elegant concepts:</strong> Sophisticated and refined themes</li>
+            <li><strong>Charming energy:</strong> Captivating and alluring messages</li>
+            <li><strong>Graceful presence:</strong> Elegant and polished stage performances</li>
           </ul>
         </div>
         
         <div class="col-md-6">
           <h3>👥 Members</h3>
           <div class="member-grid">
-            <div class="member-card">
-              <h5>LEADER (리더)</h5>
-              <p>Leader, Main Vocalist</p>
+            <div class="member-card sajaboys-member" data-member="진우">
+              <div class="member-photo">
+                <div class="photo-placeholder sajaboys-photo">
+                  <div class="member-avatar">
+                    <span class="avatar-text">진</span>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h5>진우 (Jinu)</h5>
+                <p>Leader, Main Vocalist</p>
+                <div class="member-traits">
+                  <span class="trait">🦁 Leader</span>
+                  <span class="trait">🎤 Vocal</span>
+                </div>
+              </div>
             </div>
-            <div class="member-card">
-              <h5>RAPPER (래퍼)</h5>
-              <p>Main Rapper, Producer</p>
+            <div class="member-card sajaboys-member" data-member="애비">
+              <div class="member-photo">
+                <div class="photo-placeholder sajaboys-photo">
+                  <div class="member-avatar">
+                    <span class="avatar-text">애</span>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h5>애비 (Abby)</h5>
+                <p>Main Rapper, Producer</p>
+                <div class="member-traits">
+                  <span class="trait">🎤 Rapper</span>
+                  <span class="trait">🎵 Producer</span>
+                </div>
+              </div>
             </div>
-            <div class="member-card">
-              <h5>DANCER (댄서)</h5>
-              <p>Main Dancer, Vocalist</p>
+            <div class="member-card sajaboys-member" data-member="미스테리">
+              <div class="member-photo">
+                <div class="photo-placeholder sajaboys-photo">
+                  <div class="member-avatar">
+                    <span class="avatar-text">미</span>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h5>미스테리 (Mystery)</h5>
+                <p>Main Dancer, Vocalist</p>
+                <div class="member-traits">
+                  <span class="trait">💃 Dancer</span>
+                  <span class="trait">🎵 Vocal</span>
+                </div>
+              </div>
             </div>
-            <div class="member-card">
-              <h5>VISUAL (비주얼)</h5>
-              <p>Vocalist, Visual</p>
+            <div class="member-card sajaboys-member" data-member="로맨스">
+              <div class="member-photo">
+                <div class="photo-placeholder sajaboys-photo">
+                  <div class="member-avatar">
+                    <span class="avatar-text">로</span>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h5>로맨스 (Romance)</h5>
+                <p>Vocalist, Visual</p>
+                <div class="member-traits">
+                  <span class="trait">🎵 Vocal</span>
+                  <span class="trait">✨ Visual</span>
+                </div>
+              </div>
             </div>
-            <div class="member-card">
-              <h5>MAKNAE (막내)</h5>
-              <p>Vocalist, Dancer</p>
+            <div class="member-card sajaboys-member" data-member="베이비">
+              <div class="member-photo">
+                <div class="photo-placeholder sajaboys-photo">
+                  <div class="member-avatar">
+                    <span class="avatar-text">베</span>
+                  </div>
+                </div>
+              </div>
+              <div class="member-info">
+                <h5>베이비 (Baby)</h5>
+                <p>Vocalist, Maknae</p>
+                <div class="member-traits">
+                  <span class="trait">🎵 Vocal</span>
+                  <span class="trait">👶 Maknae</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -183,34 +545,34 @@
       <div class="row mt-4">
         <div class="col-12">
           <h3>🎭 SajaBoys Naming Style</h3>
-          <p>SajaBoys members have names that reflect their powerful, charismatic, and strong image:</p>
+          <p>SajaBoys members have names that reflect their romantic, elegant, and charming image:</p>
           <div class="row">
             <div class="col-md-4">
               <h5>Name Characteristics</h5>
               <ul>
-                <li><strong>Powerful sounds:</strong> Strong and commanding</li>
-                <li><strong>Charismatic:</strong> Magnetic and appealing</li>
-                <li><strong>Leadership:</strong> Inspiring and motivating</li>
-                <li><strong>Bold:</strong> Confident and fearless</li>
+                <li><strong>Romantic sounds:</strong> Sweet and charming</li>
+                <li><strong>Elegant:</strong> Sophisticated and refined</li>
+                <li><strong>Mysterious:</strong> Intriguing and captivating</li>
+                <li><strong>Graceful:</strong> Gentle and alluring</li>
               </ul>
             </div>
             <div class="col-md-4">
               <h5>Cultural Impact</h5>
               <ul>
-                <li><strong>Strength themes:</strong> Promoting courage and power</li>
-                <li><strong>Leadership:</strong> Inspiring young people</li>
-                <li><strong>Confidence:</strong> Empowering messages</li>
-                <li><strong>PRIDE fandom:</strong> Dedicated and passionate fans</li>
+                <li><strong>Romance themes:</strong> Promoting love and elegance</li>
+                <li><strong>Sophistication:</strong> Inspiring refined tastes</li>
+                <li><strong>Charm:</strong> Captivating messages</li>
+                <li><strong>LOVE fandom:</strong> Dedicated and romantic fans</li>
               </ul>
             </div>
             <div class="col-md-4">
               <h5>Individual Styles</h5>
               <ul>
-                <li><strong>LEADER:</strong> Commanding and inspiring</li>
-                <li><strong>RAPPER:</strong> Powerful and creative</li>
-                <li><strong>DANCER:</strong> Dynamic and energetic</li>
-                <li><strong>VISUAL:</strong> Striking and memorable</li>
-                <li><strong>MAKNAE:</strong> Youthful and promising</li>
+                <li><strong>진우:</strong> Charming and sophisticated</li>
+                <li><strong>애비:</strong> Creative and mysterious</li>
+                <li><strong>미스테리:</strong> Intriguing and captivating</li>
+                <li><strong>로맨스:</strong> Romantic and elegant</li>
+                <li><strong>베이비:</strong> Sweet and endearing</li>
               </ul>
             </div>
           </div>
@@ -319,6 +681,39 @@
       render();
       window.addEventListener('langchange', render);
     })();
+
+    // Member card click functionality
+    document.addEventListener('DOMContentLoaded', function() {
+      const memberCards = document.querySelectorAll('.sajaboys-member');
+      const idolSelect = document.getElementById('idol');
+      
+      memberCards.forEach(card => {
+        card.addEventListener('click', function() {
+          const memberName = this.getAttribute('data-member');
+          
+          // Remove active class from all cards
+          memberCards.forEach(c => c.classList.remove('active'));
+          
+          // Add active class to clicked card
+          this.classList.add('active');
+          
+          // Set the select value
+          if (idolSelect) {
+            idolSelect.value = memberName;
+            
+            // Trigger change event
+            const event = new Event('change', { bubbles: true });
+            idolSelect.dispatchEvent(event);
+          }
+          
+          // Add visual feedback
+          this.style.transform = 'scale(0.95)';
+          setTimeout(() => {
+            this.style.transform = '';
+          }, 150);
+        });
+      });
+    });
   </script>
   <div id="site-footer" data-include="/components/footer.html"></div>
   <script type="module" src="/js/ui/include.js"></script>
