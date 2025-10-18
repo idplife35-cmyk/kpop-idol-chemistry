@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3G6XK3SXW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-K3G6XK3SXW');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Korean Romanized Name Generator — Hangul to Romanization</title>
+  <meta name="description" content="Convert Korean names to romanized English using our generator. Perfect for bios and international use.">
+  <meta name="keywords" content="korean romanized name generator, hangul to romanization, korean romanization generator, korean name romanize">
+  <meta property="og:title" content="Korean Romanized Name Generator — Hangul to Romanization">
+  <meta property="og:description" content="Convert Korean names to romanized English using our generator.">
+  <meta property="og:url" content="https://kpopnamegenerator.com/pages/korean-romanized-name-generator/">
+  <link rel="canonical" href="https://kpopnamegenerator.com/pages/korean-romanized-name-generator/" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    .kitsch-light{ --bg:#fff6fe; --surface:#ffffff; --text:#0E0E10; --muted:#6b6079; --border:#ffd6ec; --accent:#FF2E8B; --accent-2:#B490FF; --chip:#fff0f7; --input:#fff9fe; }
+    .kitsch-dark{ --bg:#0E0E10; --surface:#15151a; --text:#f5f6ff; --muted:#b9b7c6; --border:#2a2a34; --accent:#FF2E8B; --accent-2:#4DFFDF; --chip:#1e1e26; --input:#121217; }
+    .container{ font-family: 'Rubik', system-ui, sans-serif; }
+    .title-neon{ font-family: 'Cherry Bomb One', system-ui, sans-serif; background: linear-gradient(92deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  </style>
+</head>
+<body class="kitsch-light">
+  <div id="site-header" data-include="/components/header.html"></div>
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px;">
+      <a class="btn secondary" href="/">← Back to Main</a>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <select id="lang-select" style="padding:6px 10px;border:1px solid var(--border);border-radius:6px;">
+          <option value="en">🇺🇸 English</option>
+          <option value="ko">🇰🇷 한국어</option>
+        </select>
+        <button id="theme-toggle" class="btn secondary" style="padding:6px 10px;">Kitsch: Light</button>
+      </div>
+    </div>
+
+    <header>
+      <h1 class="title-neon">🔤 Korean Romanized Name Generator ✨</h1>
+      <p class="lead">Convert Hangul names to romanized English</p>
+    </header>
+
+    <section class="card" style="margin-top:16px;">
+      <h2>ℹ️ About Romanization</h2>
+      <p>This tool uses consistent romanization patterns to convert authentic Korean names for international use in bios, resumes, and profiles.</p>
+    </section>
+
+    <section class="card" style="margin-top:16px;">
+      <h2>🔗 Related Generators</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;">
+        <a class="btn secondary" href="/">🎀 Main Generator</a>
+        <a class="btn secondary" href="/pages/korean-name-generator/">🇰🇷 Korean Name Generator</a>
+        <a class="btn secondary" href="/pages/kpop-name-generator/">🎵 K‑Pop Name Generator</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 Idol Chemistry</p>
+    </footer>
+  </div>
+
+  <script type="module" src="/js/i18n.js" defer></script>
+  <div id="site-footer" data-include="/components/footer.html"></div>
+  <script type="module" src="/js/ui/include.js" defer></script>
+  <script>
+    (function(){
+      const key = 'kitsch-theme';
+      const body = document.body;
+      const toggle = document.getElementById('theme-toggle');
+      const apply = (mode)=>{
+        body.classList.remove('kitsch-light','kitsch-dark');
+        body.classList.add(mode === 'dark' ? 'kitsch-dark' : 'kitsch-light');
+        localStorage.setItem(key, mode);
+        if(toggle){ toggle.textContent = 'Kitsch: ' + (mode === 'dark' ? 'Dark' : 'Light'); }
+      };
+      const saved = localStorage.getItem(key) || 'light';
+      apply(saved);
+      if(toggle){
+        toggle.addEventListener('click', function(){
+          const next = body.classList.contains('kitsch-dark') ? 'light' : 'dark';
+          apply(next);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
+
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3G6XK3SXW"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-K3G6XK3SXW');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Korean Romanized Name Generator — Hangul to Romanization</title>
+  <meta name="description" content="Turn Hangul into Romanized Korean names. Uses our romanization to display English name variants alongside Korean results." />
+  <meta property="og:title" content="Korean Romanized Name Generator — Hangul to Romanization">
+  <meta property="og:url" content="https://kpopnamegenerator.com/pages/korean-romanized-name-generator/">
+  <link rel="canonical" href="https://kpopnamegenerator.com/pages/korean-romanized-name-generator/" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>.kitsch-light{--bg:#fff6fe;--surface:#ffffff;--text:#0E0E10;--muted:#6b6079;--border:#ffd6ec;--accent:#FF2E8B;--accent-2:#B490FF;--chip:#fff0f7;--input:#fff9fe}.kitsch-dark{--bg:#0E0E10;--surface:#15151a;--text:#f5f6ff;--muted:#b9b7c6;--border:#2a2a34;--accent:#FF2E8B;--accent-2:#4DFFDF;--chip:#1e1e26;--input:#121217}.container{font-family:'Rubik',system-ui,sans-serif}.title-neon{font-family:'Cherry Bomb One',system-ui,sans-serif;background:linear-gradient(92deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}</style>
+</head>
+<body class="kitsch-light">
+  <div id="site-header" data-include="/components/header.html"></div>
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px;">
+      <a class="btn secondary" href="/">← Back to Main</a>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <select id="lang-select" style="padding:6px 10px;border:1px solid var(--border);border-radius:6px;">
+          <option value="en">🇺🇸 English</option>
+          <option value="ko">🇰🇷 한국어</option>
+        </select>
+        <button id="theme-toggle" class="btn secondary" style="padding:6px 10px;">Kitsch: Light</button>
+      </div>
+    </div>
+
+    <header>
+      <h1 class="title-neon">🔤 Korean Romanized Name Generator</h1>
+      <p class="lead">Enter your name and idol to see Korean + Romanized results.</p>
+    </header>
+
+    <div class="grid cols-2">
+      <div class="card">
+        <form id="form" autocomplete="off">
+          <div class="grid">
+            <div>
+              <label for="myName">My Name</label>
+              <input id="myName" type="text" placeholder="e.g., Minji" required />
+            </div>
+            <div>
+              <label for="idol">Favorite Idol</label>
+              <select id="idol" required></select>
+            </div>
+          </div>
+
+          <hr />
+
+          <label>Gender</label>
+          <div class="radio-row" role="group" aria-label="Gender">
+            <label class="radio"><input type="radio" name="gender" value="male"> <span>Male</span></label>
+            <label class="radio"><input type="radio" name="gender" value="female"> <span>Female</span></label>
+            <label class="radio"><input type="radio" name="gender" value="auto" checked> <span>Auto</span></label>
+          </div>
+
+          <label style="margin-top:12px;">Relationship Type</label>
+          <div class="radio-row" role="group" aria-label="Relationship Type">
+            <label class="radio"><input type="radio" name="relation" value="friend"> <span>Best Friend</span></label>
+            <label class="radio"><input type="radio" name="relation" value="partner"> <span>Stage Partner</span></label>
+            <label class="radio"><input type="radio" name="relation" value="classmate"> <span>Classmate</span></label>
+            <label class="radio"><input type="radio" name="relation" value="drama"> <span>Drama Lead</span></label>
+            <label class="radio"><input type="radio" name="relation" value="lover" checked> <span>Lover</span></label>
+          </div>
+
+          <div style="display:flex;gap:8px;margin-top:16px;">
+            <button class="btn jelly" type="submit">Generate Romanized Name</button>
+            <button class="btn secondary" type="reset">Reset</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" aria-live="polite">
+        <div id="header" class="result"></div>
+        <div id="results" class="result"></div>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2025 Idol Chemistry</p>
+    </footer>
+  </div>
+
+  <script type="module" src="/js/i18n.js"></script>
+  <div id="site-footer" data-include="/components/footer.html"></div>
+  <script type="module" src="/js/ui/include.js"></script>
+  <script type="module" src="../../js/app.js"></script>
+  <script>(function(){const k='kitsch-theme',b=document.body,t=document.getElementById('theme-toggle'),a=m=>{b.classList.remove('kitsch-light','kitsch-dark');b.classList.add(m==='dark'?'kitsch-dark':'kitsch-light');localStorage.setItem(k,m);if(t){t.textContent='Kitsch: '+(m==='dark'?'Dark':'Light');}};a(localStorage.getItem(k)||'light');if(t){t.addEventListener('click',()=>a(b.classList.contains('kitsch-dark')?'light':'dark'));}})();</script>
+</body>
+</html>
+
+

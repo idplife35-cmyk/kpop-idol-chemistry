@@ -1,0 +1,196 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3G6XK3SXW"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-K3G6XK3SXW');
+  </script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K‑Pop Aesthetic Name Generator — Soft, Dark, Dreamy</title>
+  <meta name="description" content="Generate aesthetic K‑Pop names in soft, dark, and dreamy styles. Great for socials, bios, and creative branding.">
+  <meta name="keywords" content="kpop aesthetic name generator, kpop aesthetic names, soft kpop names, dark kpop names, dreamy kpop names">
+  <meta property="og:title" content="K‑Pop Aesthetic Name Generator — Soft, Dark, Dreamy">
+  <meta property="og:description" content="Generate aesthetic K‑Pop names in soft, dark, and dreamy styles.">
+  <meta property="og:url" content="https://kpopnamegenerator.com/pages/kpop-aesthetic-name-generator/">
+  <link rel="canonical" href="https://kpopnamegenerator.com/pages/kpop-aesthetic-name-generator/" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>
+    .kitsch-light{ --bg:#fff6fe; --surface:#ffffff; --text:#0E0E10; --muted:#6b6079; --border:#ffd6ec; --accent:#FF2E8B; --accent-2:#B490FF; --chip:#fff0f7; --input:#fff9fe; }
+    .kitsch-dark{ --bg:#0E0E10; --surface:#15151a; --text:#f5f6ff; --muted:#b9b7c6; --border:#2a2a34; --accent:#FF2E8B; --accent-2:#4DFFDF; --chip:#1e1e26; --input:#121217; }
+    .container{ font-family: 'Rubik', system-ui, sans-serif; }
+    .title-neon{ font-family: 'Cherry Bomb One', system-ui, sans-serif; background: linear-gradient(92deg, var(--accent), var(--accent-2)); -webkit-background-clip: text; background-clip: text; color: transparent; }
+  </style>
+</head>
+<body class="kitsch-light">
+  <div id="site-header" data-include="/components/header.html"></div>
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px;">
+      <a class="btn secondary" href="/">← Back to Main</a>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <select id="lang-select" style="padding:6px 10px;border:1px solid var(--border);border-radius:6px;">
+          <option value="en">🇺🇸 English</option>
+          <option value="ko">🇰🇷 한국어</option>
+        </select>
+        <button id="theme-toggle" class="btn secondary" style="padding:6px 10px;">Kitsch: Light</button>
+      </div>
+    </div>
+
+    <header>
+      <h1 class="title-neon">🌸 K‑Pop Aesthetic Name Generator ✨</h1>
+      <p class="lead">Soft, dark, and dreamy K‑Pop name aesthetics</p>
+    </header>
+
+    <section class="card" style="margin-top:16px;">
+      <h2>🎨 Choose Your Aesthetic</h2>
+      <div class="grid cols-3" style="gap:20px; margin-top:20px;">
+        <div>
+          <h4>🌷 Soft</h4>
+          <p>Gentle, pastel-toned names with warm vowels</p>
+        </div>
+        <div>
+          <h4>🌑 Dark</h4>
+          <p>Bold, moody names with strong consonants</p>
+        </div>
+        <div>
+          <h4>💭 Dreamy</h4>
+          <p>Ethereal names with elegant endings</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="card" style="margin-top:16px;">
+      <h2>🔗 Related Generators</h2>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;margin:12px 0;">
+        <a class="btn secondary" href="/">🎀 Main Generator</a>
+        <a class="btn secondary" href="/pages/kpop-cute-name-generator/">💗 Cute Names</a>
+        <a class="btn secondary" href="/pages/kpop-badass-name-generator/">🖤 Badass Names</a>
+      </div>
+    </section>
+
+    <footer>
+      <p>© 2025 Idol Chemistry</p>
+    </footer>
+  </div>
+
+  <script type="module" src="/js/i18n.js" defer></script>
+  <div id="site-footer" data-include="/components/footer.html"></div>
+  <script type="module" src="/js/ui/include.js" defer></script>
+  <script>
+    (function(){
+      const key = 'kitsch-theme';
+      const body = document.body;
+      const toggle = document.getElementById('theme-toggle');
+      const apply = (mode)=>{
+        body.classList.remove('kitsch-light','kitsch-dark');
+        body.classList.add(mode === 'dark' ? 'kitsch-dark' : 'kitsch-light');
+        localStorage.setItem(key, mode);
+        if(toggle){ toggle.textContent = 'Kitsch: ' + (mode === 'dark' ? 'Dark' : 'Light'); }
+      };
+      const saved = localStorage.getItem(key) || 'light';
+      apply(saved);
+      if(toggle){
+        toggle.addEventListener('click', function(){
+          const next = body.classList.contains('kitsch-dark') ? 'light' : 'dark';
+          apply(next);
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
+
+<!doctype html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3G6XK3SXW"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-K3G6XK3SXW');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>K‑Pop Aesthetic Name Generator — Soft, Dark, Dreamy</title>
+  <meta name="description" content="Generate aesthetic K‑Pop names: soft, dark, dreamy styles. Authentic Korean‑style names with chemistry scores." />
+  <meta property="og:title" content="K‑Pop Aesthetic Name Generator — Soft, Dark, Dreamy">
+  <meta property="og:url" content="https://kpopnamegenerator.com/pages/kpop-aesthetic-name-generator/">
+  <link rel="canonical" href="https://kpopnamegenerator.com/pages/kpop-aesthetic-name-generator/" />
+  <link rel="stylesheet" href="/css/style.css" />
+  <style>.kitsch-light{--bg:#fff6fe;--surface:#ffffff;--text:#0E0E10;--muted:#6b6079;--border:#ffd6ec;--accent:#FF2E8B;--accent-2:#B490FF;--chip:#fff0f7;--input:#fff9fe}.kitsch-dark{--bg:#0E0E10;--surface:#15151a;--text:#f5f6ff;--muted:#b9b7c6;--border:#2a2a34;--accent:#FF2E8B;--accent-2:#4DFFDF;--chip:#1e1e26;--input:#121217}.container{font-family:'Rubik',system-ui,sans-serif}.title-neon{font-family:'Cherry Bomb One',system-ui,sans-serif;background:linear-gradient(92deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}</style>
+</head>
+<body class="kitsch-light">
+  <div id="site-header" data-include="/components/header.html"></div>
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px;">
+      <a class="btn secondary" href="/">← Back to Main</a>
+      <div style="display:flex;align-items:center;gap:8px;">
+        <select id="lang-select" style="padding:6px 10px;border:1px solid var(--border);border-radius:6px;">
+          <option value="en">🇺🇸 English</option>
+          <option value="ko">🇰🇷 한국어</option>
+        </select>
+        <button id="theme-toggle" class="btn secondary" style="padding:6px 10px;">Kitsch: Light</button>
+      </div>
+    </div>
+
+    <header>
+      <h1 class="title-neon">🌙 K‑Pop Aesthetic Name Generator</h1>
+      <p class="lead">Soft, dark, dreamy styles inspired by K‑Pop aesthetics.</p>
+    </header>
+
+    <div class="grid cols-2">
+      <div class="card">
+        <form id="form" autocomplete="off">
+          <div class="grid">
+            <div>
+              <label for="myName">My Name</label>
+              <input id="myName" type="text" placeholder="e.g., Hana" required />
+            </div>
+            <div>
+              <label for="idol">Favorite Idol</label>
+              <select id="idol" required></select>
+            </div>
+          </div>
+
+          <hr />
+
+          <label>Gender</label>
+          <div class="radio-row" role="group" aria-label="Gender">
+            <label class="radio"><input type="radio" name="gender" value="male"> <span>Male</span></label>
+            <label class="radio"><input type="radio" name="gender" value="female"> <span>Female</span></label>
+            <label class="radio"><input type="radio" name="gender" value="auto" checked> <span>Auto</span></label>
+          </div>
+
+          <label style="margin-top:12px;">Relationship Type</label>
+          <div class="radio-row" role="group" aria-label="Relationship Type">
+            <label class="radio"><input type="radio" name="relation" value="friend"> <span>Best Friend</span></label>
+            <label class="radio"><input type="radio" name="relation" value="partner"> <span>Stage Partner</span></label>
+            <label class="radio"><input type="radio" name="relation" value="classmate"> <span>Classmate</span></label>
+            <label class="radio"><input type="radio" name="relation" value="drama"> <span>Drama Lead</span></label>
+            <label class="radio"><input type="radio" name="relation" value="lover" checked> <span>Lover</span></label>
+          </div>
+
+          <div style="display:flex;gap:8px;margin-top:16px;">
+            <button class="btn jelly" type="submit">Generate Aesthetic Name</button>
+            <button class="btn secondary" type="reset">Reset</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="card" aria-live="polite">
+        <div id="header" class="result"></div>
+        <div id="results" class="result"></div>
+      </div>
+    </div>
+
+    <footer>
+      <p>© 2025 Idol Chemistry</p>
+    </footer>
+  </div>
+
+  <script type="module" src="/js/i18n.js"></script>
+  <div id="site-footer" data-include="/components/footer.html"></div>
+  <script type="module" src="/js/ui/include.js"></script>
+  <script type="module" src="../../js/app.js"></script>
+  <script>(function(){const k='kitsch-theme',b=document.body,t=document.getElementById('theme-toggle'),a=m=>{b.classList.remove('kitsch-light','kitsch-dark');b.classList.add(m==='dark'?'kitsch-dark':'kitsch-light');localStorage.setItem(k,m);if(t){t.textContent='Kitsch: '+(m==='dark'?'Dark':'Light');}};a(localStorage.getItem(k)||'light');if(t){t.addEventListener('click',()=>a(b.classList.contains('kitsch-dark')?'light':'dark'));}})();</script>
+</body>
+</html>
+
+
