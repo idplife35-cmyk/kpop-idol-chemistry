@@ -56,6 +56,63 @@
       </div>
     </section>
 
+    <section class="card" style="margin-top:16px;">
+      <h2>🧪 Romanization Examples (Sample)</h2>
+      <div class="grid cols-2" style="gap:16px; margin-top:12px;">
+        <div>
+          <h4>Common Family Names</h4>
+          <ul>
+            <li>김 → Kim</li>
+            <li>이 → Lee</li>
+            <li>박 → Park</li>
+            <li>최 → Choi</li>
+            <li>정 → Jung</li>
+            <li>강 → Kang</li>
+            <li>윤 → Yoon</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Given Names</h4>
+          <ul>
+            <li>서연 → Seoyeon</li>
+            <li>민준 → Minjun</li>
+            <li>하린 → Harin</li>
+            <li>유진 → Yujin</li>
+            <li>도영 → Doyoung</li>
+            <li>해린 → Haerin</li>
+          </ul>
+        </div>
+      </div>
+      <details style="margin-top:8px;">
+        <summary>Edge cases</summary>
+        <ul class="grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 8px; list-style: disc inside; margin-top:8px;">
+          <li>의 → Ui/Eui (context dependent)</li>
+          <li>ㄹ at start → r/l handling</li>
+          <li>받침 batchim → next vowel linking</li>
+        </ul>
+      </details>
+    </section>
+
+    <section class="card" style="margin-top:16px;">
+      <h2>❓ Frequently Asked Questions</h2>
+      <details>
+        <summary>Which romanization is used?</summary>
+        <p>A simplified, consistent style similar to Revised Romanization for readability and global use.</p>
+      </details>
+      <details>
+        <summary>Why do spellings vary?</summary>
+        <p>Different systems (RR, MR) and stage preferences exist. We keep forms readable and searchable.</p>
+      </details>
+      <details>
+        <summary>Do you support hyphenation?</summary>
+        <p>We output compact forms by default (e.g., Seo‑yeon → Seoyeon) for handle friendliness.</p>
+      </details>
+      <details>
+        <summary>Can I convert back to Hangul?</summary>
+        <p>Back‑conversion is lossy; use original Hangul where precision matters.</p>
+      </details>
+    </section>
+
     <footer>
       <p>© 2025 Idol Chemistry</p>
     </footer>
