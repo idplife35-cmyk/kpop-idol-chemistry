@@ -5,14 +5,45 @@
     </h1>
     <nav class="nav">
       <ul>
-        <li><a href="/">홈</a></li>
-        <li><a href="/pages/bts-name-generator/">BTS</a></li>
-        <li><a href="/pages/blackpink-name-generator/">BLACKPINK</a></li>
-        <li><a href="/pages/newjeans-name-generator/">NewJeans</a></li>
-        <li><a href="/pages/ive-name-generator/">IVE</a></li>
-        <li><a href="/pages/seventeen-name-generator/">SEVENTEEN</a></li>
-        <li><a href="/legal/privacy.html">개인정보 처리방침</a></li>
-        <li><a href="/legal/terms.html">이용 약관</a></li>
+        <li><a href="/">Home</a></li>
+        <li class="dropdown">
+          <button class="dropbtn">Groups ▾</button>
+          <div class="dropdown-content">
+            <a href="/pages/bts-name-generator/">BTS</a>
+            <a href="/pages/blackpink-name-generator/">BLACKPINK</a>
+            <a href="/pages/newjeans-name-generator/">NewJeans</a>
+            <a href="/pages/ive-name-generator/">IVE</a>
+            <a href="/pages/seventeen-name-generator/">SEVENTEEN</a>
+            <a href="/pages/stray-kids-name-generator/">Stray Kids</a>
+            <a href="/pages/sajaboys-name-generator/">SajaBoys</a>
+            <a href="/pages/huntrix-name-generator/">HUNTR/X</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <button class="dropbtn">Generators ▾</button>
+          <div class="dropdown-content">
+            <a href="/pages/kpop-name-generator/">K‑Pop Name</a>
+            <a href="/pages/kpop-stage-name-generator/">Stage Name</a>
+            <a href="/pages/kpop-stage-name-generator-female/">Stage (Female)</a>
+            <a href="/pages/kpop-stage-name-generator-male/">Stage (Male)</a>
+            <a href="/pages/kpop-username-generator/">Username</a>
+            <a href="/pages/kpop-username-generator-female/">Username (Female)</a>
+            <a href="/pages/kpop-username-generator-male/">Username (Male)</a>
+            <a href="/pages/kpop-cute-name-generator/">Cute</a>
+            <a href="/pages/kpop-aesthetic-name-generator/">Aesthetic</a>
+            <a href="/pages/kpop-badass-name-generator/">Badass</a>
+            <a href="/pages/kpop-ship-name-generator/">Ship/Combiner</a>
+            <a href="/pages/kpop-couple-name-combiner/">Couple Combiner</a>
+            <a href="/pages/korean-romanized-name-generator/">Romanized</a>
+          </div>
+        </li>
+        <li class="dropdown">
+          <button class="dropbtn">Legal ▾</button>
+          <div class="dropdown-content">
+            <a href="/legal/privacy.html">Privacy</a>
+            <a href="/legal/terms.html">Terms</a>
+          </div>
+        </li>
       </ul>
     </nav>
   </div>
@@ -45,6 +76,7 @@
   margin: 0;
   padding: 0;
 }
+.site-header .nav li { position: relative; }
 .site-header .nav a {
   color: #9aa4b2;
   text-decoration: none;
@@ -53,4 +85,30 @@
 .site-header .nav a:hover {
   color: #67d2ff;
 }
+.dropbtn {
+  background: transparent;
+  color: #9aa4b2;
+  border: 1px solid #2a3142;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  cursor: pointer;
+}
+.dropbtn:hover { color: #67d2ff; border-color: #3a4257; }
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 32px;
+  left: 0;
+  background: #0f131a;
+  border: 1px solid #222737;
+  border-radius: 8px;
+  min-width: 220px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
+  padding: 8px;
+  z-index: 10;
+}
+.dropdown-content a { display: block; padding: 8px 10px; border-radius: 6px; }
+.dropdown-content a:hover { background: #121826; }
+.dropdown:hover .dropdown-content { display: block; }
 </style>

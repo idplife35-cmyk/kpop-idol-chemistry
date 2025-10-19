@@ -87,7 +87,7 @@
   </url>
   <url>
     <loc>https://kpopnamegenerator.com/pages/kpop-stage-name-generator/</loc>
-    <lastmod>2025-10-17</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.75</priority>
   </url>
@@ -105,7 +105,7 @@
   </url>
   <url>
     <loc>https://kpopnamegenerator.com/pages/kpop-cute-name-generator/</loc>
-    <lastmod>2025-10-17</lastmod>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -118,6 +118,18 @@
   <url>
     <loc>https://kpopnamegenerator.com/pages/kpop-username-generator/</loc>
     <lastmod>2025-10-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://kpopnamegenerator.com/pages/kpop-username-generator-female/</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.65</priority>
+  </url>
+  <url>
+    <loc>https://kpopnamegenerator.com/pages/kpop-username-generator-male/</loc>
+    <lastmod>2025-10-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.65</priority>
   </url>
@@ -138,6 +150,58 @@
     <lastmod>2025-10-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.6</priority>
+  </url>
+
+  <!-- New group-specific stage pages -->
+  <url>
+    <loc>https://kpopnamegenerator.com/pages/bts-stage-name-generator/</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kpopnamegenerator.com/pages/blackpink-stage-name-generator/</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kpopnamegenerator.com/pages/seventeen-stage-name-generator/</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kpopnamegenerator.com/pages/stray-kids-stage-name-generator/</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kpopnamegenerator.com/pages/newjeans-stage-name-generator/</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://kpopnamegenerator.com/pages/ive-stage-name-generator/</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Gender variants -->
+  <url>
+    <loc>https://kpopnamegenerator.com/pages/kpop-stage-name-generator-female/</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.68</priority>
+  </url>
+  <url>
+    <loc>https://kpopnamegenerator.com/pages/kpop-stage-name-generator-male/</loc>
+    <lastmod>2025-10-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.68</priority>
   </url>
 
   <!-- Legal pages -->
