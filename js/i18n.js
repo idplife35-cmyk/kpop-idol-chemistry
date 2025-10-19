@@ -341,6 +341,30 @@ const MESSAGES = {
     'page.sajaboys.overviewP3.middle': ' or our ',
     'page.sajaboys.overviewP3.newjeans': 'NewJeans Name Generator',
     'page.sajaboys.overviewP3.afterNJ': ' for even more idol chemistry combos.',
+
+    // New long-tail pages (teen-friendly copy)
+    'section.why': 'Why you’ll love this',
+    'section.how': 'How it works',
+    'page.ship.h1': '💞 K‑Pop Ship Name Generator ✨',
+    'page.ship.lead': 'Make cute OTP names for your fave idol pairings — perfect for fanfic & edits.',
+    'page.stage.h1': '🎤 K‑Pop Stage Name Generator ✨',
+    'page.stage.lead': 'Powerful, stage‑ready names with idol energy.',
+    'page.nickname.h1': '👑 K‑Pop Nickname Generator ✨',
+    'page.nickname.lead': 'Short, cute or aesthetic nicknames for socials and games.',
+    'page.aesthetic.h1': '🌸 K‑Pop Aesthetic Name Generator ✨',
+    'page.aesthetic.lead': 'Soft, dark and dreamy vibes for your display name.',
+    'page.cute.h1': '💗 K‑Pop Cute Name Generator ✨',
+    'page.cute.lead': 'Sweet, adorable names with soft vibes.',
+    'page.badass.h1': '🖤 K‑Pop Badass Name Generator ✨',
+    'page.badass.lead': 'Dark, powerful names with main‑character energy.',
+    'page.username.h1': '👤 K‑Pop Username Generator ✨',
+    'page.username.lead': 'Unique handles for TikTok, Instagram and X.',
+    'page.bio.h1': '#️⃣ K‑Pop Bio & Hashtag Generator ✨',
+    'page.bio.lead': 'Viral‑ready bios and hashtag bundles for your posts.',
+    'page.romanized.h1': '🔤 Korean Romanized Name Generator ✨',
+    'page.romanized.lead': 'Turn Hangul names into clean, readable English.',
+    'page.combiner.h1': '🔗 K‑Pop Couple Name Combiner ✨',
+    'page.combiner.lead': 'Mash two idol names into a single ship name.',
   },
   ko: {
     'meta.title': 'KPOP 아이돌 케미 이름 생성기',
@@ -681,6 +705,30 @@ const MESSAGES = {
     'page.sajaboys.overviewP3.middle': ' 또는 ',
     'page.sajaboys.overviewP3.newjeans': 'NewJeans 이름 생성기',
     'page.sajaboys.overviewP3.afterNJ': '를 이용해 더 많은 아이돌 케미 조합을 만나보세요.',
+
+    // New long-tail pages (teen-friendly copy)
+    'section.why': '왜 좋아하나요',
+    'section.how': '사용 방법',
+    'page.ship.h1': '💞 K‑Pop 커플/쉽 이름 생성기 ✨',
+    'page.ship.lead': '최애 페어링을 위한 귀엽고 기억나는 OTP 이름을 만들어보세요. 팬픽/편집에 딱!',
+    'page.stage.h1': '🎤 K‑Pop 무대명 생성기 ✨',
+    'page.stage.lead': '무대에서 빛나는 파워풀한 아이돌식 무대명.',
+    'page.nickname.h1': '👑 K‑Pop 닉네임 생성기 ✨',
+    'page.nickname.lead': 'SNS/게임에 잘 맞는 짧고 귀엽거나 미학적인 닉네임.',
+    'page.aesthetic.h1': '🌸 K‑Pop 에스테틱 이름 생성기 ✨',
+    'page.aesthetic.lead': '소프트/다크/드리미 무드로 예쁜 표시명을 만들어보세요.',
+    'page.cute.h1': '💗 K‑Pop 큐트 이름 생성기 ✨',
+    'page.cute.lead': '부드럽고 사랑스러운 바이브의 귀여운 이름.',
+    'page.badass.h1': '🖤 K‑Pop 배드애스 이름 생성기 ✨',
+    'page.badass.lead': '다크하고 임팩트 있는 MCE(Main Character Energy) 네이밍.',
+    'page.username.h1': '👤 K‑Pop 유저네임 생성기 ✨',
+    'page.username.lead': '틱톡/인스타/X에서 눈에 띄는 핸들 아이디어.',
+    'page.bio.h1': '#️⃣ K‑Pop 바이오 & 해시태그 생성기 ✨',
+    'page.bio.lead': '바이럴을 겨냥한 바이오 문구와 해시태그 번들.',
+    'page.romanized.h1': '🔤 한국어 로마자 이름 생성기 ✨',
+    'page.romanized.lead': '한글 이름을 깔끔하고 읽기 쉬운 영어 표기로 변환.',
+    'page.combiner.h1': '🔗 K‑Pop 커플 이름 결합기 ✨',
+    'page.combiner.lead': '두 이름을 하나의 쉽/커플 네임으로 합쳐보세요.',
   }
 };
 
@@ -743,13 +791,14 @@ function updateMetaTags(){
   
   // Update title
   const titleEl = document.querySelector('title');
-  if(titleEl) {
+  // Respect page-specific i18n title if provided
+  if(titleEl && !titleEl.hasAttribute('data-i18n')) {
     titleEl.textContent = isKorean ? 'KPOP 아이돌 케미 이름 생성기' : 'KPOP Idol Chemistry Name Generator';
   }
   
   // Update meta description
   const descEl = document.querySelector('meta[name="description"]');
-  if(descEl) {
+  if(descEl && descEl.hasAttribute('data-i18n')) {
     descEl.setAttribute('content', isKorean 
       ? '좋아하는 K-Pop 아이돌과 어울리는 완벽한 케미 이름을 만들어보세요! BTS, BLACKPINK, NewJeans, IVE 등과 함께 한국식 이름을 생성하고 케미 지수를 확인하세요.'
       : 'Create perfect chemistry names with your favorite K-Pop idols! Generate Korean-style names with BTS, BLACKPINK, NewJeans, IVE, and more. Get chemistry scores and relationship-based names instantly.'
@@ -758,12 +807,12 @@ function updateMetaTags(){
   
   // Update Open Graph tags
   const ogTitle = document.querySelector('meta[property="og:title"]');
-  if(ogTitle) {
+  if(ogTitle && ogTitle.hasAttribute('data-i18n')) {
     ogTitle.setAttribute('content', isKorean ? 'KPOP 아이돌 케미 이름 생성기' : 'KPOP Idol Chemistry Name Generator');
   }
   
   const ogDesc = document.querySelector('meta[property="og:description"]');
-  if(ogDesc) {
+  if(ogDesc && ogDesc.hasAttribute('data-i18n')) {
     ogDesc.setAttribute('content', isKorean 
       ? '좋아하는 K-Pop 아이돌과 어울리는 완벽한 케미 이름을 만들어보세요! BTS, BLACKPINK, NewJeans, IVE 등과 함께 한국식 이름을 생성하세요.'
       : 'Create perfect chemistry names with your favorite K-Pop idols! Generate Korean-style names with BTS, BLACKPINK, NewJeans, IVE, and more.'
@@ -777,12 +826,12 @@ function updateMetaTags(){
   
   // Update Twitter tags
   const twitterTitle = document.querySelector('meta[name="twitter:title"]');
-  if(twitterTitle) {
+  if(twitterTitle && twitterTitle.hasAttribute('data-i18n')) {
     twitterTitle.setAttribute('content', isKorean ? 'KPOP 아이돌 케미 이름 생성기' : 'KPOP Idol Chemistry Name Generator');
   }
   
   const twitterDesc = document.querySelector('meta[name="twitter:description"]');
-  if(twitterDesc) {
+  if(twitterDesc && twitterDesc.hasAttribute('data-i18n')) {
     twitterDesc.setAttribute('content', isKorean 
       ? '좋아하는 K-Pop 아이돌과 어울리는 완벽한 케미 이름을 만들어보세요! 케미 지수와 관계 기반 이름을 즉시 확인하세요.'
       : 'Create perfect chemistry names with your favorite K-Pop idols! Get chemistry scores and relationship-based names instantly.'

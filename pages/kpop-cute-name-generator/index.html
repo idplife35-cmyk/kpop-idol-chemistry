@@ -8,7 +8,7 @@
   </script>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>K‑Pop Cute Name Generator — Sweet, Adorable Idol Names</title>
+  <title data-i18n="page.cute.h1">K‑Pop Cute Name Generator — Sweet, Adorable Idol Names</title>
   <meta name="description" content="Generate sweet and adorable K‑Pop names with soft sounds and cute vibes. Perfect for bios and social profiles.">
   <meta name="keywords" content="kpop cute name generator, cute kpop names, adorable kpop names, soft kpop names">
   <meta property="og:title" content="K‑Pop Cute Name Generator — Sweet, Adorable Idol Names">
@@ -27,7 +27,7 @@
   <div id="site-header" data-include="/components/header.html"></div>
   <div class="container">
     <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px;">
-      <a class="btn secondary" href="/">← Back to Main</a>
+      <a class="btn secondary" href="/" data-i18n="ui.backToMain">← Back to Main</a>
       <div style="display:flex;align-items:center;gap:8px;">
         <select id="lang-select" style="padding:6px 10px;border:1px solid var(--border);border-radius:6px;">
           <option value="en">🇺🇸 English</option>
@@ -38,9 +38,31 @@
     </div>
 
     <header>
-      <h1 class="title-neon">💗 K‑Pop Cute Name Generator ✨</h1>
-      <p class="lead">Create sweet, adorable K‑Pop names with soft vibes</p>
+      <h1 class="title-neon" data-i18n="page.cute.h1">💗 K‑Pop Cute Name Generator ✨</h1>
+      <p class="lead" data-i18n="page.cute.lead">Create sweet, adorable K‑Pop names with soft vibes</p>
     </header>
+
+    <section class="card" style="margin-top:16px;">
+      <div class="grid cols-2" style="gap:16px;">
+        <div>
+          <h2 data-i18n="section.why">Why use this</h2>
+          <ul>
+            <li>Find soft, lovable names for bios, UGC, and edits</li>
+            <li>2–3 syllable patterns tuned for cute aesthetics</li>
+            <li>Great with pastel themes and emoji headers</li>
+          </ul>
+        </div>
+        <div>
+          <h2 data-i18n="section.how">How it works</h2>
+          <ol>
+            <li>Favor vowels like a/e/i and gentle endings (‑a/‑i/‑rin)</li>
+            <li>Try repeating sounds (Mimi, Riri) for playful tone</li>
+            <li>Keep it short and pronounceable</li>
+          </ol>
+          <p style="margin-top:8px;">Tip: Add a matching emoji to your display name for extra charm.</p>
+        </div>
+      </div>
+    </section>
 
     <section class="card" style="margin-top:16px;">
       <h2>🍬 Cute Name Essentials</h2>
@@ -159,99 +181,7 @@
       }
     })();
   </script>
-</body>
-</html>
-
-<!doctype html>
-<html lang="en">
-<head>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3G6XK3SXW"></script>
-  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-K3G6XK3SXW');</script>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>K‑Pop Cute Name Generator — Sweet, Adorable Idol Names</title>
-  <meta name="description" content="Generate cute K‑Pop names with authentic Korean style. Sweet, adorable names for profiles and fan content. Chemistry scores included." />
-  <meta property="og:title" content="K‑Pop Cute Name Generator — Sweet, Adorable Idol Names">
-  <meta property="og:url" content="https://kpopnamegenerator.com/pages/kpop-cute-name-generator/">
-  <link rel="canonical" href="https://kpopnamegenerator.com/pages/kpop-cute-name-generator/" />
-  <link rel="stylesheet" href="/css/style.css" />
-  <style>.kitsch-light{--bg:#fff6fe;--surface:#ffffff;--text:#0E0E10;--muted:#6b6079;--border:#ffd6ec;--accent:#FF2E8B;--accent-2:#B490FF;--chip:#fff0f7;--input:#fff9fe}.kitsch-dark{--bg:#0E0E10;--surface:#15151a;--text:#f5f6ff;--muted:#b9b7c6;--border:#2a2a34;--accent:#FF2E8B;--accent-2:#4DFFDF;--chip:#1e1e26;--input:#121217}.container{font-family:'Rubik',system-ui,sans-serif}.title-neon{font-family:'Cherry Bomb One',system-ui,sans-serif;background:linear-gradient(92deg,var(--accent),var(--accent-2));-webkit-background-clip:text;background-clip:text;color:transparent}</style>
-</head>
-<body class="kitsch-light">
-  <div id="site-header" data-include="/components/header.html"></div>
-  <div class="container">
-    <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px;">
-      <a class="btn secondary" href="/">← Back to Main</a>
-      <div style="display:flex;align-items:center;gap:8px;">
-        <select id="lang-select" style="padding:6px 10px;border:1px solid var(--border);border-radius:6px;">
-          <option value="en">🇺🇸 English</option>
-          <option value="ko">🇰🇷 한국어</option>
-        </select>
-        <button id="theme-toggle" class="btn secondary" style="padding:6px 10px;">Kitsch: Light</button>
-      </div>
-    </div>
-
-    <header>
-      <h1 class="title-neon">🎀 K‑Pop Cute Name Generator</h1>
-      <p class="lead">Sweet, adorable idol‑style names with Korean authenticity.</p>
-    </header>
-
-    <div class="grid cols-2">
-      <div class="card">
-        <form id="form" autocomplete="off">
-          <div class="grid">
-            <div>
-              <label for="myName">My Name</label>
-              <input id="myName" type="text" placeholder="e.g., Yuna" required />
-            </div>
-            <div>
-              <label for="idol">Favorite Idol</label>
-              <select id="idol" required></select>
-            </div>
-          </div>
-
-          <hr />
-
-          <label>Gender</label>
-          <div class="radio-row" role="group" aria-label="Gender">
-            <label class="radio"><input type="radio" name="gender" value="male"> <span>Male</span></label>
-            <label class="radio"><input type="radio" name="gender" value="female"> <span>Female</span></label>
-            <label class="radio"><input type="radio" name="gender" value="auto" checked> <span>Auto</span></label>
-          </div>
-
-          <label style="margin-top:12px;">Relationship Type</label>
-          <div class="radio-row" role="group" aria-label="Relationship Type">
-            <label class="radio"><input type="radio" name="relation" value="friend"> <span>Best Friend</span></label>
-            <label class="radio"><input type="radio" name="relation" value="partner"> <span>Stage Partner</span></label>
-            <label class="radio"><input type="radio" name="relation" value="classmate"> <span>Classmate</span></label>
-            <label class="radio"><input type="radio" name="relation" value="drama"> <span>Drama Lead</span></label>
-            <label class="radio"><input type="radio" name="relation" value="lover" checked> <span>Lover</span></label>
-          </div>
-
-          <div style="display:flex;gap:8px;margin-top:16px;">
-            <button class="btn jelly" type="submit">Generate Cute Name</button>
-            <button class="btn secondary" type="reset">Reset</button>
-          </div>
-        </form>
-      </div>
-
-      <div class="card" aria-live="polite">
-        <div id="header" class="result"></div>
-        <div id="results" class="result"></div>
-      </div>
-    </div>
-
-    <footer>
-      <p>© 2025 Idol Chemistry</p>
-    </footer>
-  </div>
-
-  <script type="module" src="/js/i18n.js"></script>
-  <div id="site-footer" data-include="/components/footer.html"></div>
-  <script type="module" src="/js/ui/include.js"></script>
-  <script type="module" src="../../js/app.js"></script>
-  <script>(function(){const k='kitsch-theme',b=document.body,t=document.getElementById('theme-toggle'),a=m=>{b.classList.remove('kitsch-light','kitsch-dark');b.classList.add(m==='dark'?'kitsch-dark':'kitsch-light');localStorage.setItem(k,m);if(t){t.textContent='Kitsch: '+(m==='dark'?'Dark':'Light');}};a(localStorage.getItem(k)||'light');if(t){t.addEventListener('click',()=>a(b.classList.contains('kitsch-dark')?'light':'dark'));}})();</script>
-</body>
-</html>
+ </body>
+ </html>
 
 
