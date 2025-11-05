@@ -218,27 +218,7 @@
   <script type="module" src="/js/i18n.js" defer></script>
   <div id="site-footer" data-include="/components/footer.html"></div>
   <script type="module" src="/js/ui/include.js" defer></script>
-  <script>
-    (function(){
-      const key = 'kitsch-theme';
-      const body = document.body;
-      const toggle = document.getElementById('theme-toggle');
-      const apply = (mode)=>{
-        body.classList.remove('kitsch-light','kitsch-dark');
-        body.classList.add(mode === 'dark' ? 'kitsch-dark' : 'kitsch-light');
-        localStorage.setItem(key, mode);
-        if(toggle){ toggle.textContent = 'Kitsch: ' + (mode === 'dark' ? 'Dark' : 'Light'); }
-      };
-      const saved = localStorage.getItem(key) || 'light';
-      apply(saved);
-      if(toggle){
-        toggle.addEventListener('click', function(){
-          const next = body.classList.contains('kitsch-dark') ? 'light' : 'dark';
-          apply(next);
-        });
-      }
-    })();
-  </script>
+  
 </body>
 </html>
 

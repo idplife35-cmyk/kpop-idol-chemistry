@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Social Media Image Generator</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Arial', sans-serif;
+            background: #f0f0f0;
+        }
+        
+        .image-container {
+            display: inline-block;
+            margin: 20px;
+            border: 2px solid #ddd;
+            background: white;
+        }
+        
+        /* Open Graph Image (1200x630) */
+        .og-image {
+            width: 1200px;
+            height: 630px;
+            background: linear-gradient(135deg, #FF2E8B 0%, #B490FF 48%, rgba(255,255,255,0.12) 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+        
+        .og-image::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.15' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.26'/%3E%3C/svg%3E");
+            mix-blend-mode: soft-light;
+            opacity: 0.14;
+        }
+        
+        .og-content {
+            text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+        
+        .og-title {
+            font-size: 72px;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            text-shadow: 0 2px 0 rgba(255,255,255,0.58), 0 10px 28px rgba(180,144,255,0.32);
+            background: linear-gradient(92deg, #FF2E8B, #B490FF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .og-subtitle {
+            font-size: 36px;
+            margin: 0 0 30px 0;
+            opacity: 0.9;
+            font-weight: 600;
+        }
+        
+        .og-features {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            font-size: 24px;
+            font-weight: 600;
+        }
+        
+        .og-feature {
+            background: rgba(255,255,255,0.32);
+            padding: 12px 24px;
+            border-radius: 999px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+        }
+        
+        /* Twitter Card Image (1200x600) */
+        .twitter-image {
+            width: 1200px;
+            height: 600px;
+            background: linear-gradient(135deg, #0E0E10 0%, #15151a 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #f5f6ff;
+        }
+        
+        .twitter-image::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(1200px 600px at 8% -10%, rgba(255,46,139,0.2), transparent 62%),
+                        radial-gradient(880px 520px at 110% 8%, rgba(77,255,223,0.18), transparent 56%);
+        }
+        
+        .twitter-content {
+            text-align: center;
+            z-index: 1;
+            position: relative;
+        }
+        
+        .twitter-title {
+            font-size: 64px;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            background: linear-gradient(92deg, #FF2E8B, #4DFFDF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            text-shadow: 0 0 20px rgba(255,46,139,0.32), 0 0 34px rgba(77,255,223,0.24);
+        }
+        
+        .twitter-subtitle {
+            font-size: 32px;
+            margin: 0 0 30px 0;
+            opacity: 0.9;
+            font-weight: 600;
+        }
+        
+        .twitter-features {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            font-size: 20px;
+            font-weight: 600;
+        }
+        
+        .twitter-feature {
+            background: rgba(0,0,0,0.35);
+            padding: 10px 20px;
+            border-radius: 999px;
+            box-shadow: 0 14px 28px rgba(0,0,0,0.55);
+        }
+        
+        /* Instagram Story Image (1080x1920) */
+        .instagram-image {
+            width: 1080px;
+            height: 1920px;
+            background: linear-gradient(135deg, #FF2E8B 0%, #B490FF 48%, rgba(255,255,255,0.12) 100%);
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+        
+        .instagram-image::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160' viewBox='0 0 160 160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='1.15' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='.26'/%3E%3C/svg%3E");
+            mix-blend-mode: soft-light;
+            opacity: 0.14;
+        }
+        
+        .instagram-content {
+            z-index: 1;
+            position: relative;
+            padding: 0 60px;
+        }
+        
+        .instagram-title {
+            font-size: 80px;
+            font-weight: 700;
+            margin: 0 0 40px 0;
+            text-shadow: 0 2px 0 rgba(255,255,255,0.58), 0 10px 28px rgba(180,144,255,0.32);
+            background: linear-gradient(92deg, #FF2E8B, #B490FF);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            line-height: 1.1;
+        }
+        
+        .instagram-subtitle {
+            font-size: 48px;
+            margin: 0 0 60px 0;
+            opacity: 0.9;
+            font-weight: 600;
+        }
+        
+        .instagram-features {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            font-size: 36px;
+            font-weight: 600;
+        }
+        
+        .instagram-feature {
+            background: rgba(255,255,255,0.32);
+            padding: 20px 40px;
+            border-radius: 999px;
+            box-shadow: 0 12px 28px rgba(0,0,0,0.18);
+        }
+        
+        .download-btn {
+            margin: 20px;
+            padding: 15px 30px;
+            background: #FF2E8B;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+        
+        .download-btn:hover {
+            background: #e0267a;
+        }
+    </style>
+</head>
+<body>
+    <h1>Social Media Image Generator</h1>
+    <p>Right-click on each image and "Save image as..." to download.</p>
+    
+    <!-- Open Graph Image -->
+    <div class="image-container">
+        <div class="og-image" id="og-image">
+            <div class="og-content">
+                <h1 class="og-title">🎀💖 K-Pop Idol Chemistry Name Generator ✨</h1>
+                <p class="og-subtitle">Create perfect chemistry names with your favorite idols!</p>
+                <div class="og-features">
+                    <span class="og-feature">BTS</span>
+                    <span class="og-feature">BLACKPINK</span>
+                    <span class="og-feature">NewJeans</span>
+                    <span class="og-feature">IVE</span>
+                </div>
+            </div>
+        </div>
+        <button class="download-btn" onclick="downloadImage('og-image', 'kpop-name-generator-og.png')">Download OG Image</button>
+    </div>
+    
+    <!-- Twitter Card Image -->
+    <div class="image-container">
+        <div class="twitter-image" id="twitter-image">
+            <div class="twitter-content">
+                <h1 class="twitter-title">🎀💖 K-Pop Idol Chemistry Name Generator ✨</h1>
+                <p class="twitter-subtitle">Create perfect chemistry names with your favorite idols!</p>
+                <div class="twitter-features">
+                    <span class="twitter-feature">BTS</span>
+                    <span class="twitter-feature">BLACKPINK</span>
+                    <span class="twitter-feature">NewJeans</span>
+                    <span class="twitter-feature">IVE</span>
+                </div>
+            </div>
+        </div>
+        <button class="download-btn" onclick="downloadImage('twitter-image', 'kpop-name-generator-twitter.png')">Download Twitter Image</button>
+    </div>
+    
+    <!-- Instagram Story Image -->
+    <div class="image-container">
+        <div class="instagram-image" id="instagram-image">
+            <div class="instagram-content">
+                <h1 class="instagram-title">🎀💖 K-Pop Idol Chemistry Name Generator ✨</h1>
+                <p class="instagram-subtitle">Create perfect chemistry names with your favorite idols!</p>
+                <div class="instagram-features">
+                    <span class="instagram-feature">BTS</span>
+                    <span class="instagram-feature">BLACKPINK</span>
+                    <span class="instagram-feature">NewJeans</span>
+                    <span class="instagram-feature">IVE</span>
+                </div>
+            </div>
+        </div>
+        <button class="download-btn" onclick="downloadImage('instagram-image', 'kpop-name-generator-instagram.png')">Download Instagram Image</button>
+    </div>
+
+    <script>
+        function downloadImage(elementId, filename) {
+            const element = document.getElementById(elementId);
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Set canvas size to match the element
+            canvas.width = element.offsetWidth;
+            canvas.height = element.offsetHeight;
+            
+            // Use html2canvas library if available, otherwise use basic method
+            if (typeof html2canvas !== 'undefined') {
+                html2canvas(element).then(canvas => {
+                    const link = document.createElement('a');
+                    link.download = filename;
+                    link.href = canvas.toDataURL();
+                    link.click();
+                });
+            } else {
+                // Basic method - create a simple colored rectangle
+                ctx.fillStyle = element.style.background || '#FF2E8B';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                
+                // Add text
+                ctx.fillStyle = 'white';
+                ctx.font = 'bold 48px Arial';
+                ctx.textAlign = 'center';
+                ctx.fillText('K-Pop Idol Chemistry', canvas.width/2, canvas.height/2);
+                ctx.fillText('Name Generator', canvas.width/2, canvas.height/2 + 60);
+                
+                const link = document.createElement('a');
+                link.download = filename;
+                link.href = canvas.toDataURL();
+                link.click();
+            }
+        }
+    </script>
+    
+    <!-- Include html2canvas for better image generation -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</body>
+</html>
