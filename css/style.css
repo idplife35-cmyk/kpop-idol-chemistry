@@ -688,10 +688,94 @@ footer{ margin:32px 0; color:var(--muted); text-align:center; }
   input[type="text"], select{ padding:12px 14px; font-size:15px; }
 }
 
+/* Phase 1: Quick Start & VS Mode 반응형 */
+@media (max-width:768px){
+  /* Quick Start Grid - 모바일에서 2컬럼 */
+  .quick-start-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  
+  /* VS Mode 입력 영역 - 모바일에서 세로 스택 */
+  .vs-input-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  
+  .vs-divider-desktop {
+    display: none !important;
+  }
+  
+  .vs-divider-mobile {
+    display: block !important;
+  }
+  
+  /* VS Results - 모바일에서 세로 스택 */
+  .vs-results-grid {
+    grid-template-columns: 1fr !important;
+    gap: 12px !important;
+  }
+  
+  .vs-results-divider {
+    display: none !important;
+  }
+  
+  .vs-results-divider-mobile {
+    display: flex !important;
+  }
+}
+
+@media (max-width:480px){
+  /* Quick Start - 1컬럼 */
+  .quick-start-grid {
+    grid-template-columns: 1fr !important;
+  }
+  
+  .quick-combo {
+    padding: 12px !important;
+  }
+  
+  /* VS Mode 버튼 */
+  .vs-button-row {
+    flex-direction: column !important;
+    gap: 8px !important;
+  }
+  
+  .vs-button-row button {
+    width: 100% !important;
+  }
+  
+  /* History & Favorites 헤더 */
+  .history-header {
+    flex-direction: column !important;
+    align-items: flex-start !important;
+  }
+  
+  .history-tabs {
+    width: 100%;
+  }
+  
+  .history-tabs button {
+    flex: 1;
+  }
+  
+  /* Share buttons */
+  .share-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 8px !important;
+  }
+  
+  .share-grid .btn {
+    font-size: 0.8rem !important;
+    padding: 8px !important;
+  }
+}
+
 /* Animations */
 @keyframes shimmer{ 0%{ transform:translateX(-100%); } 100%{ transform:translateX(100%); } }
 @keyframes popCard{ 0%{ transform:translateY(14px) scale(.94); opacity:0; } 100%{ transform:translateY(0) scale(1); opacity:1; } }
 @keyframes confetti-pop{ 0%{ opacity:0; transform:translateY(0) scale(.6) rotate(0deg); } 20%{ opacity:1; } 100%{ opacity:0; transform:translateY(-46px) scale(1.1) rotate(160deg); } }
+@keyframes fadeInScale{ 0%{ opacity:0; transform:scale(0.95); } 100%{ opacity:1; transform:scale(1); } }
 
 /* Reduced motion */
 @media (prefers-reduced-motion: reduce){

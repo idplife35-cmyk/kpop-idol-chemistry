@@ -16,6 +16,12 @@
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="default">
   <meta name="theme-color" content="#ff8ad6">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/public/favicon.ico">
+  <link rel="icon" type="image/svg+xml" href="/public/logo.svg">
+  <link rel="apple-touch-icon" href="/public/logo.svg">
+  
   <meta name="description" content="Create perfect chemistry names with your favorite K-Pop idols! Generate Korean-style names with BTS, BLACKPINK, NewJeans, IVE, SEVENTEEN, Stray Kids, and more. Get chemistry scores and relationship-based names instantly. Perfect for fanfiction, roleplay, and creative writing." />
   <meta name="keywords" content="kpop name generator, idol chemistry name, korean name generator, bts name generator, blackpink name generator, newjeans name generator, ive name generator, seventeen name generator, stray kids name generator, kpop chemistry, idol name maker, kpop fan name, korean name maker, idol stage name, kpop couple name, kpop ship name, kpop fanfiction name, kpop roleplay name, kpop aesthetic name, kpop cute name, kpop unique name, kpop creative name, kpop fantasy name, kpop dream name, kpop alter ego, kpop fan name generator, korean idol name, kpop bias name, kpop ship name generator, kpop couple name generator, kpop fanfiction name generator, kpop roleplay name generator, kpop aesthetic name generator, kpop cute name generator, kpop unique name generator, kpop creative name generator, kpop fantasy name generator, kpop dream name generator, kpop alter ego generator, kpop fan name maker, korean idol name generator, kpop bias name generator, kpop ship name maker, kpop couple name maker, kpop fanfiction name maker, kpop roleplay name maker, kpop aesthetic name maker, kpop cute name maker, kpop unique name maker, kpop creative name maker, kpop fantasy name maker, kpop dream name maker, kpop alter ego maker, kpop fan name creator, korean idol name creator, kpop bias name creator, kpop ship name creator, kpop couple name creator, kpop fanfiction name creator, kpop roleplay name creator, kpop aesthetic name creator, kpop cute name creator, kpop unique name creator, kpop creative name creator, kpop fantasy name creator, kpop dream name creator, kpop alter ego creator" />
   <meta property="og:type" content="website">
@@ -655,15 +661,35 @@
     <!-- 🚀 Phase 1: 원클릭 생성 버튼 섹션 -->
     <section class="card" style="margin-bottom: 20px; background: linear-gradient(135deg, rgba(255,46,139,.05), rgba(180,144,255,.05));">
       <h3 style="margin-top: 0;">🎲 Quick Start - Try These!</h3>
-      <p style="color: var(--muted); margin-bottom: 16px;">Just enter your name and click to try popular combinations instantly!</p>
       
-      <div class="quick-start-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;">
+      <!-- 빠른 이름 입력 -->
+      <div style="margin-bottom: 20px;">
+        <label for="quick-name-input" style="font-weight: 600; margin-bottom: 8px; display: block;">
+          ✨ Your Name <span style="color: var(--accent); font-weight: 700;">*</span>
+        </label>
+        <input 
+          id="quick-name-input" 
+          type="text" 
+          placeholder="e.g., Sophia or 소피아" 
+          style="width: 100%; max-width: 400px; padding: 12px 16px; border: 2px solid var(--border); border-radius: 8px; background: var(--input); font-size: 1rem; transition: border-color 0.2s;"
+          onfocus="this.style.borderColor='var(--accent)'"
+          onblur="this.style.borderColor='var(--border)'"
+          onkeyup="syncNameToMainForm(this.value)"
+        />
+        <p style="font-size: 0.85rem; color: var(--muted); margin-top: 6px; margin-bottom: 0;">
+          💡 Enter your name here, then click any "Try Now" button below!
+        </p>
+      </div>
+      
+      <p style="color: var(--muted); margin-bottom: 16px; font-weight: 500;">Choose a popular combination to try:</p>
+      
+      <div class="quick-start-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px; margin: 0;">
         <!-- 인기 조합 -->
         <div class="quick-combo" style="padding: 16px; background: var(--surface); border-radius: 8px; border: 2px solid var(--border); text-align: center;">
           <div style="font-size: 2rem; margin-bottom: 8px;">🔥</div>
           <h4 style="margin: 0 0 8px 0; font-size: 1rem;">Most Popular</h4>
           <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 12px;">정국 × Lover</p>
-          <button type="button" class="btn jelly" onclick="quickGenerate('정국', 'lover')" style="width: 100%; padding: 8px;">
+          <button type="button" class="btn jelly" onclick="quickGenerate('정국', 'lover', this)" style="width: 100%; padding: 8px;">
             Try Now
           </button>
         </div>
@@ -673,7 +699,7 @@
           <div style="font-size: 2rem; margin-bottom: 8px;">✨</div>
           <h4 style="margin: 0 0 8px 0; font-size: 1rem;">Today's Lucky</h4>
           <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 12px;" id="today-combo-text">Loading...</p>
-          <button type="button" class="btn jelly" onclick="quickGenerateToday()" style="width: 100%; padding: 8px;">
+          <button type="button" class="btn jelly" onclick="quickGenerateToday(this)" style="width: 100%; padding: 8px;">
             Try Now
           </button>
         </div>
@@ -683,7 +709,7 @@
           <div style="font-size: 2rem; margin-bottom: 8px;">🎯</div>
           <h4 style="margin: 0 0 8px 0; font-size: 1rem;">Hot Trend</h4>
           <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 12px;">지민 × Best Friend</p>
-          <button type="button" class="btn jelly" onclick="quickGenerate('지민', 'friend')" style="width: 100%; padding: 8px;">
+          <button type="button" class="btn jelly" onclick="quickGenerate('지민', 'friend', this)" style="width: 100%; padding: 8px;">
             Try Now
           </button>
         </div>
@@ -693,7 +719,7 @@
           <div style="font-size: 2rem; margin-bottom: 8px;">🎰</div>
           <h4 style="margin: 0 0 8px 0; font-size: 1rem;">Random Draw</h4>
           <p style="font-size: 0.85rem; color: var(--muted); margin-bottom: 12px;">Surprise me!</p>
-          <button type="button" class="btn secondary" onclick="quickGenerateRandom()" style="width: 100%; padding: 8px;">
+          <button type="button" class="btn secondary" onclick="quickGenerateRandom(this)" style="width: 100%; padding: 8px;">
             Try Now
           </button>
         </div>
@@ -711,16 +737,21 @@
       <h3 style="margin-top: 0;">⚔️ VS Mode - Chemistry Battle!</h3>
       <p style="color: var(--muted); margin-bottom: 16px;">Compare chemistry scores with your friend! Who has better chemistry with the same idol?</p>
       
-      <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center;">
+      <div class="vs-input-grid" style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center;">
         <!-- Player 1 -->
         <div style="padding: 16px; background: var(--surface); border-radius: 8px; border: 2px solid var(--border);">
           <label for="vs-name1" style="font-weight: 600; margin-bottom: 8px; display: block;">👤 Your Name</label>
           <input id="vs-name1" type="text" placeholder="e.g., Sophia" style="width: 100%; padding: 8px; border: 1px solid var(--border); border-radius: 6px; background: var(--input);" />
         </div>
         
-        <!-- VS -->
-        <div style="font-size: 2rem; font-weight: 900; color: var(--accent); text-shadow: 2px 2px 0 var(--accent-2);">
+        <!-- VS (Desktop) -->
+        <div class="vs-divider-desktop" style="font-size: 2rem; font-weight: 900; color: var(--accent); text-shadow: 2px 2px 0 var(--accent-2);">
           VS
+        </div>
+        
+        <!-- VS (Mobile) -->
+        <div class="vs-divider-mobile" style="display: none; text-align: center; margin: 8px 0;">
+          <span style="font-size: 1.5rem; font-weight: 900; color: var(--accent); text-shadow: 2px 2px 0 var(--accent-2);">VS</span>
         </div>
         
         <!-- Player 2 -->
@@ -928,9 +959,9 @@
 
     <!-- 🚀 Phase 1-3: 히스토리 & 즐겨찾기 UI 개선 -->
     <section class="card" style="margin-top: 20px;">
-      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+      <div class="history-header" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; flex-wrap: wrap; gap: 12px;">
         <h3 style="margin: 0;">📚 Your History & Favorites</h3>
-        <div style="display: flex; gap: 8px;">
+        <div class="history-tabs" style="display: flex; gap: 8px;">
           <button type="button" class="btn secondary" onclick="toggleHistoryView()" style="padding: 6px 12px; font-size: 0.9rem;">
             📝 History
           </button>
@@ -1688,28 +1719,8 @@
   <script type="module" src="./js/app.js" defer></script>
   <div id="site-footer" data-include="/components/footer.html"></div>
   <script type="module" src="/js/ui/include.js" defer></script>
+  <!-- Theme toggle is now handled by app.js -->
   <script>
-    (function(){
-      const key = 'kitsch-theme';
-      const body = document.body;
-      const toggle = document.getElementById('theme-toggle');
-      const apply = (mode)=>{
-        body.classList.remove('kitsch-light','kitsch-dark');
-        body.classList.add(mode === 'dark' ? 'kitsch-dark' : 'kitsch-light');
-        localStorage.setItem(key, mode);
-        if(toggle){ toggle.textContent = 'Kitsch: ' + (mode === 'dark' ? 'Dark' : 'Light'); }
-        const meta = document.querySelector('meta[name="theme-color"]');
-        if(meta){ meta.setAttribute('content', mode === 'dark' ? '#0E0E10' : '#FF2E8B'); }
-      };
-      const saved = localStorage.getItem(key) || 'light';
-      apply(saved);
-      if(toggle){
-        toggle.addEventListener('click', function(){
-          const next = body.classList.contains('kitsch-dark') ? 'light' : 'dark';
-          apply(next);
-        });
-      }
-    })();
 
     // Scroll to form function
     function scrollToForm() {

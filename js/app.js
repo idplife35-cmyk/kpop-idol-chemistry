@@ -41,6 +41,9 @@ async function init(){
     const currentScrollY = window.scrollY;
     
     const myName = q('#myName').value.trim();
+    
+    // 메인 폼에서 입력 시 Quick Start로도 동기화
+    syncNameToQuickStart(myName);
     const idolInput = q('#idol').value.trim();
     const idol = await resolveIdol(idolInput);
     if(!idol){ alert(t('alert.selectIdol')); return; }
@@ -1199,13 +1202,52 @@ function initViralContentButtons() {
 }
 
 // 🚀 Phase 1: Quick Generate Functions (원클릭 생성)
-async function quickGenerate(idolName, relation) {
-  const myName = q('#myName').value.trim();
+
+// Quick Start와 메인 폼 이름 동기화
+function syncNameToMainForm(name) {
+  const mainInput = q('#myName');
+  if (mainInput) {
+    mainInput.value = name;
+  }
+}
+
+function syncNameToQuickStart(name) {
+  const quickInput = q('#quick-name-input');
+  if (quickInput) {
+    quickInput.value = name;
+  }
+}
+
+async function quickGenerate(idolName, relation, buttonElement) {
+  // Quick Start 입력란에서 이름 가져오기
+  const quickNameInput = q('#quick-name-input');
+  let myName = quickNameInput ? quickNameInput.value.trim() : '';
+  
+  // Quick Start에 없으면 메인 폼에서 가져오기
+  if (!myName) {
+    myName = q('#myName').value.trim();
+  }
+  
   if (!myName) {
     alert('Please enter your name first! 이름을 먼저 입력해주세요!');
-    q('#myName').focus();
+    if (quickNameInput) {
+      quickNameInput.focus();
+    } else {
+      q('#myName').focus();
+    }
     return;
   }
+  
+  // 버튼 로딩 상태로 변경
+  const btn = buttonElement || event.target;
+  const originalText = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = '⏳ Generating...';
+  btn.style.opacity = '0.7';
+  
+  // 양쪽 입력란 모두 동기화
+  syncNameToMainForm(myName);
+  syncNameToQuickStart(myName);
   
   // Set form values
   q('#idol').value = idolName;
@@ -1223,15 +1265,53 @@ async function quickGenerate(idolName, relation) {
   
   // Trigger form submission
   q('#form').dispatchEvent(new Event('submit'));
+  
+  // 결과 영역으로 스크롤 (약간의 딜레이 후)
+  setTimeout(() => {
+    const resultCard = q('#result-card');
+    if (resultCard && resultCard.style.display !== 'none') {
+      resultCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // 결과 카드 강조 애니메이션
+      resultCard.style.animation = 'fadeInScale 0.5s ease-out';
+    }
+    
+    // 버튼 원래 상태로 복구
+    btn.disabled = false;
+    btn.innerHTML = originalText;
+    btn.style.opacity = '1';
+  }, 800);
 }
 
-async function quickGenerateToday() {
-  const myName = q('#myName').value.trim();
+async function quickGenerateToday(buttonElement) {
+  // Quick Start 입력란에서 이름 가져오기
+  const quickNameInput = q('#quick-name-input');
+  let myName = quickNameInput ? quickNameInput.value.trim() : '';
+  
+  // Quick Start에 없으면 메인 폼에서 가져오기
+  if (!myName) {
+    myName = q('#myName').value.trim();
+  }
+  
   if (!myName) {
     alert('Please enter your name first! 이름을 먼저 입력해주세요!');
-    q('#myName').focus();
+    if (quickNameInput) {
+      quickNameInput.focus();
+    } else {
+      q('#myName').focus();
+    }
     return;
   }
+  
+  // 버튼 로딩 상태로 변경
+  const btn = buttonElement || event.target;
+  const originalText = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = '⏳ Generating...';
+  btn.style.opacity = '0.7';
+  
+  // 양쪽 입력란 모두 동기화
+  syncNameToMainForm(myName);
+  syncNameToQuickStart(myName);
   
   // Get today's lucky combo (changes daily)
   const todayCombo = getTodayLuckyCombo();
@@ -1252,15 +1332,53 @@ async function quickGenerateToday() {
   
   // Trigger form submission
   q('#form').dispatchEvent(new Event('submit'));
+  
+  // 결과 영역으로 스크롤 (약간의 딜레이 후)
+  setTimeout(() => {
+    const resultCard = q('#result-card');
+    if (resultCard && resultCard.style.display !== 'none') {
+      resultCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // 결과 카드 강조 애니메이션
+      resultCard.style.animation = 'fadeInScale 0.5s ease-out';
+    }
+    
+    // 버튼 원래 상태로 복구
+    btn.disabled = false;
+    btn.innerHTML = originalText;
+    btn.style.opacity = '1';
+  }, 800);
 }
 
-async function quickGenerateRandom() {
-  const myName = q('#myName').value.trim();
+async function quickGenerateRandom(buttonElement) {
+  // Quick Start 입력란에서 이름 가져오기
+  const quickNameInput = q('#quick-name-input');
+  let myName = quickNameInput ? quickNameInput.value.trim() : '';
+  
+  // Quick Start에 없으면 메인 폼에서 가져오기
+  if (!myName) {
+    myName = q('#myName').value.trim();
+  }
+  
   if (!myName) {
     alert('Please enter your name first! 이름을 먼저 입력해주세요!');
-    q('#myName').focus();
+    if (quickNameInput) {
+      quickNameInput.focus();
+    } else {
+      q('#myName').focus();
+    }
     return;
   }
+  
+  // 버튼 로딩 상태로 변경
+  const btn = buttonElement || event.target;
+  const originalText = btn.innerHTML;
+  btn.disabled = true;
+  btn.innerHTML = '🎲 Rolling...';
+  btn.style.opacity = '0.7';
+  
+  // 양쪽 입력란 모두 동기화
+  syncNameToMainForm(myName);
+  syncNameToQuickStart(myName);
   
   // Get random combo
   const idols = await getIdols();
@@ -1284,6 +1402,21 @@ async function quickGenerateRandom() {
   
   // Trigger form submission
   q('#form').dispatchEvent(new Event('submit'));
+  
+  // 결과 영역으로 스크롤 (약간의 딜레이 후)
+  setTimeout(() => {
+    const resultCard = q('#result-card');
+    if (resultCard && resultCard.style.display !== 'none') {
+      resultCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      // 결과 카드 강조 애니메이션
+      resultCard.style.animation = 'fadeInScale 0.5s ease-out';
+    }
+    
+    // 버튼 원래 상태로 복구
+    btn.disabled = false;
+    btn.innerHTML = originalText;
+    btn.style.opacity = '1';
+  }, 800);
 }
 
 function getTodayLuckyCombo() {
@@ -1423,7 +1556,7 @@ function displayVSResults(name1, result1, name2, result2, idol) {
       </p>
     </div>
     
-    <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: stretch;">
+    <div class="vs-results-grid" style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: stretch;">
       <!-- Player 1 Results -->
       <div style="padding: 20px; background: ${chem1 > chem2 ? 'linear-gradient(135deg, rgba(255,215,0,.2), rgba(255,46,139,.1))' : 'var(--chip)'}; border-radius: 12px; border: 2px solid ${chem1 > chem2 ? 'gold' : 'var(--border)'}; position: relative;">
         ${chem1 > chem2 ? '<div style="position: absolute; top: -12px; left: 50%; transform: translateX(-50%); background: gold; color: #000; padding: 4px 12px; border-radius: 999px; font-weight: 700; font-size: 0.8rem;">🏆 WINNER</div>' : ''}
@@ -1441,11 +1574,16 @@ function displayVSResults(name1, result1, name2, result2, idol) {
         </div>
       </div>
       
-      <!-- VS Divider -->
-      <div style="display: flex; align-items: center; justify-content: center;">
+      <!-- VS Divider (Desktop) -->
+      <div class="vs-results-divider" style="display: flex; align-items: center; justify-content: center;">
         <div style="font-size: 2rem; font-weight: 900; color: var(--accent); text-shadow: 2px 2px 0 var(--accent-2); transform: rotate(10deg);">
           VS
         </div>
+      </div>
+      
+      <!-- VS Divider (Mobile) -->
+      <div class="vs-results-divider-mobile" style="display: none; justify-content: center; margin: 12px 0;">
+        <span style="font-size: 1.5rem; font-weight: 900; color: var(--accent); text-shadow: 2px 2px 0 var(--accent-2); transform: rotate(10deg);">VS</span>
       </div>
       
       <!-- Player 2 Results -->
@@ -1472,7 +1610,7 @@ function displayVSResults(name1, result1, name2, result2, idol) {
       </p>
     </div>
     
-    <div style="margin-top: 16px; display: flex; gap: 8px; justify-content: center;">
+    <div class="vs-button-row" style="margin-top: 16px; display: flex; gap: 8px; justify-content: center;">
       <button type="button" class="btn secondary" onclick="shareVSResult('${escapeHtml(name1)}', ${chem1}, '${escapeHtml(name2)}', ${chem2}, '${escapeHtml(idol.name_kr)}')">
         🚀 Share Result
       </button>
@@ -1557,6 +1695,9 @@ window.quickGenerate = quickGenerate;
 window.quickGenerateToday = quickGenerateToday;
 window.quickGenerateRandom = quickGenerateRandom;
 window.scrollToForm = scrollToForm;
+window.syncNameToMainForm = syncNameToMainForm;
+window.syncNameToQuickStart = syncNameToQuickStart;
+
 
 // 🚀 Phase 1-2: VS Mode functions
 window.startVSBattle = startVSBattle;
@@ -1572,7 +1713,107 @@ window.regenerateFromHistory = regenerateFromHistory;
 window.clearHistory = clearHistory;
 window.clearFavorites = clearFavorites;
 
+// ========== 🍔 Mobile Menu Functions ==========
+function toggleMobileMenu() {
+  const mobileNav = document.querySelector('.mobile-nav');
+  const overlay = document.querySelector('.mobile-menu-overlay');
+  const toggle = document.querySelector('.mobile-menu-toggle');
+  const body = document.body;
+  
+  if (!mobileNav || !overlay || !toggle) return;
+  
+  mobileNav.classList.toggle('active');
+  overlay.classList.toggle('active');
+  toggle.classList.toggle('active');
+  body.classList.toggle('mobile-menu-open');
+}
+
+function closeMobileMenu() {
+  const mobileNav = document.querySelector('.mobile-nav');
+  const overlay = document.querySelector('.mobile-menu-overlay');
+  const toggle = document.querySelector('.mobile-menu-toggle');
+  const body = document.body;
+  
+  if (!mobileNav || !overlay || !toggle) return;
+  
+  mobileNav.classList.remove('active');
+  overlay.classList.remove('active');
+  toggle.classList.remove('active');
+  body.classList.remove('mobile-menu-open');
+}
+
+// ESC 키로 메뉴 닫기
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') {
+    closeMobileMenu();
+  }
+});
+
+// Expose mobile menu functions globally
+window.toggleMobileMenu = toggleMobileMenu;
+window.closeMobileMenu = closeMobileMenu;
+
+// ========== 🎨 Theme Toggle ==========
+const THEME_KEY = 'kitsch-theme';
+
+// Apply theme immediately to prevent flash
+(function applyThemeImmediately() {
+  const saved = localStorage.getItem(THEME_KEY) || 'light';
+  document.body.classList.remove('kitsch-light', 'kitsch-dark');
+  document.body.classList.add(saved === 'dark' ? 'kitsch-dark' : 'kitsch-light');
+})();
+
+function applyTheme(mode) {
+  const body = document.body;
+  const toggle = document.getElementById('theme-toggle');
+  
+  body.classList.remove('kitsch-light', 'kitsch-dark');
+  body.classList.add(mode === 'dark' ? 'kitsch-dark' : 'kitsch-light');
+  localStorage.setItem(THEME_KEY, mode);
+  
+  if (toggle) {
+    toggle.textContent = 'Kitsch: ' + (mode === 'dark' ? 'Dark' : 'Light');
+  }
+  
+  // Update theme-color meta tag
+  const meta = document.querySelector('meta[name="theme-color"]');
+  if (meta) {
+    meta.setAttribute('content', mode === 'dark' ? '#0E0E10' : '#FF2E8B');
+  }
+}
+
+function initThemeToggle() {
+  const toggle = document.getElementById('theme-toggle');
+  const body = document.body;
+  
+  // Update button text
+  const saved = localStorage.getItem(THEME_KEY) || 'light';
+  if (toggle) {
+    toggle.textContent = 'Kitsch: ' + (saved === 'dark' ? 'Dark' : 'Light');
+  }
+  
+  // Add click event listener
+  if (toggle) {
+    toggle.addEventListener('click', function() {
+      const next = body.classList.contains('kitsch-dark') ? 'light' : 'dark';
+      applyTheme(next);
+    });
+  }
+}
+
+// Wait for header to be loaded before initializing theme toggle
+function waitForThemeToggle() {
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    initThemeToggle();
+  } else {
+    // Retry after a short delay if toggle button is not yet in DOM
+    setTimeout(waitForThemeToggle, 100);
+  }
+}
+
 init();
 initHistoryFavorites();
 initFavoriteButton();
 updateTodayComboText(); // Update today's lucky combo on load
+waitForThemeToggle(); // Initialize theme toggle
