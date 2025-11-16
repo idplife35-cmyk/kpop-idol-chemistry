@@ -302,6 +302,26 @@ const MESSAGES = {
 
     'alert.selectIdol': 'Please select a valid idol name.',
 
+    // Stats
+    'stats.progressTitle': '🎮 Your Progress',
+    'stats.viewButton': '📊 View Stats',
+    'stats.modalTitle': '📊 Your Statistics',
+    'stats.levelProgress': '🎮 Level Progress',
+    'stats.currentLevel': 'Current Level',
+    'stats.totalXP': 'Total XP',
+    'stats.generations': 'Generations',
+    'stats.daysActive': 'Days Active',
+    'stats.chemistryRecords': '💖 Chemistry Records',
+    'stats.averageChemistry': 'Average Chemistry',
+    'stats.bestChemistry': 'Best Chemistry',
+    'stats.bestMatch': 'Best Match',
+    'stats.yourFavorites': '⭐ Your Favorites',
+    'stats.top3Idols': 'Top 3 Idols',
+    'stats.top3Groups': 'Top 3 Groups',
+    'stats.badges': '🏆 Badges',
+    'stats.noData': 'No data yet',
+    'stats.startGenerating': 'Start generating names to unlock badges!',
+
     // Relation UI
     'relation.friend.label': 'Best Friend Name',
     'relation.partner.label': 'Stage Partner Name',
@@ -666,6 +686,26 @@ const MESSAGES = {
     'share.hint': '💡 소셜미디어 바이오나 K-Pop 팬 콘텐츠에 완벽해요!',
 
     'alert.selectIdol': '아이돌 이름을 정확히 선택해주세요.',
+
+    // Stats
+    'stats.progressTitle': '🎮 내 진행도',
+    'stats.viewButton': '📊 통계 보기',
+    'stats.modalTitle': '📊 내 통계',
+    'stats.levelProgress': '🎮 레벨 진행도',
+    'stats.currentLevel': '현재 레벨',
+    'stats.totalXP': '총 경험치',
+    'stats.generations': '생성 횟수',
+    'stats.daysActive': '활동 일수',
+    'stats.chemistryRecords': '💖 케미 기록',
+    'stats.averageChemistry': '평균 케미',
+    'stats.bestChemistry': '최고 케미',
+    'stats.bestMatch': '최고 매칭',
+    'stats.yourFavorites': '⭐ 내 선호',
+    'stats.top3Idols': 'Top 3 아이돌',
+    'stats.top3Groups': 'Top 3 그룹',
+    'stats.badges': '🏆 배지',
+    'stats.noData': '아직 데이터가 없어요',
+    'stats.startGenerating': '이름을 생성하면 배지를 획득할 수 있어요!',
 
     'relation.friend.label': '어울리는 절친 이름',
     'relation.partner.label': '어울리는 무대 파트너 이름',

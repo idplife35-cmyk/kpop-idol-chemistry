@@ -88,6 +88,40 @@ async function init(){
     };
     
     console.log('Current result data stored:', currentResultData);
+    
+    // 🎮 Gamification: Award XP and check badges
+    if (window.awardXP) {
+      let xpAmount = 1; // Base XP for generation
+      let reason = 'generate';
+      
+      // Bonus XP for high chemistry
+      if (chemistry >= 100) {
+        xpAmount = 5;
+        reason = 'perfect_chemistry';
+      } else if (chemistry >= 90) {
+        xpAmount = 2;
+        reason = 'high_chemistry';
+      }
+      
+      window.awardXP(xpAmount, reason);
+    }
+    
+    // Check badges
+    if (window.badgeSystem) {
+      window.badgeSystem.checkGenerationBadges(window.levelSystem?.data.totalGenerations || 0);
+      window.badgeSystem.checkChemistryBadges(chemistry);
+    }
+    
+    // Record stats
+    if (window.statsSystem) {
+      window.statsSystem.recordGeneration(
+        idol.name_kr,
+        idol.group,
+        relation,
+        chemistry,
+        sameName.full_kr
+      );
+    }
 
     setHTML(q('#header'), header);
     setHTML(q('#results'), sameCard + styledCard + shareBlock);
@@ -1519,6 +1553,18 @@ async function startVSBattle() {
     });
   }
   
+  // 🎮 Gamification: Award XP for VS battle
+  if (window.awardXP) {
+    window.awardXP(2, 'vs_battle');
+  }
+  
+  // Check VS badges
+  const winner = result1.chemistry > result2.chemistry ? name1 : 
+                 result2.chemistry > result1.chemistry ? name2 : null;
+  if (window.badgeSystem) {
+    window.badgeSystem.checkVSBadges(winner !== null);
+  }
+  
   // Display results
   displayVSResults(name1, result1, name2, result2, idol);
   
@@ -1812,8 +1858,486 @@ function waitForThemeToggle() {
   }
 }
 
+// ========== 🎮 Gamification System Initialization ==========
+let levelSystem, badgeSystem, statsSystem;
+
+function initGamification() {
+  // Initialize systems
+  if (typeof LevelSystem !== 'undefined') {
+    levelSystem = new LevelSystem();
+    window.levelSystem = levelSystem;
+  }
+  
+  if (typeof BadgeSystem !== 'undefined') {
+    badgeSystem = new BadgeSystem();
+    window.badgeSystem = badgeSystem;
+  }
+  
+  if (typeof StatsSystem !== 'undefined') {
+    statsSystem = new StatsSystem();
+    window.statsSystem = statsSystem;
+  }
+  
+  // Update UI
+  updateGamificationUI();
+}
+
+function updateGamificationUI() {
+  if (!levelSystem) return;
+  
+  const stats = levelSystem.getStats();
+  
+  // Update level display in header
+  const levelDisplay = q('#level-display');
+  if (levelDisplay) {
+    const levelColor = levelSystem.getLevelColor();
+    levelDisplay.innerHTML = `
+      <span class="level-badge" style="background: ${levelColor}">
+        Level ${stats.level}
+      </span>
+      <span class="level-name">${stats.levelName}</span>
+    `;
+  }
+  
+  // Update progress bar
+  const progressBar = q('#level-progress-bar');
+  if (progressBar) {
+    progressBar.style.width = `${stats.progress}%`;
+  }
+  
+  const progressText = q('#level-progress-text');
+  if (progressText) {
+    const lang = getLang();
+    const text = lang === 'ko' 
+      ? `다음 레벨까지 ${stats.xpToNext} XP`
+      : `${stats.xpToNext} XP to next level`;
+    progressText.textContent = text;
+  }
+  
+  // Update badges count
+  if (badgeSystem) {
+    const badgeProgress = badgeSystem.getProgress();
+    const badgeCount = q('#badge-count');
+    if (badgeCount) {
+      badgeCount.textContent = `${badgeProgress.unlocked}/${badgeProgress.total}`;
+    }
+  }
+}
+
+function awardXP(amount, reason = 'generate') {
+  if (!levelSystem) return;
+  
+  const result = levelSystem.addXP(amount, reason);
+  
+  // Update UI
+  updateGamificationUI();
+  
+  // Show XP gain notification
+  if (result.xpGained > 0 && !result.leveledUp) {
+    showXPNotification(result.xpGained);
+  }
+  
+  return result;
+}
+
+function showXPNotification(xp) {
+  // Simple notification (can be enhanced later)
+  const notification = document.createElement('div');
+  notification.className = 'xp-notification';
+  notification.textContent = `+${xp} XP`;
+  notification.style.cssText = `
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 12px 24px;
+    border-radius: 25px;
+    font-weight: bold;
+    z-index: 10000;
+    animation: slideInRight 0.3s ease-out, fadeOut 0.3s ease-in 2s;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+  `;
+  
+  document.body.appendChild(notification);
+  
+  setTimeout(() => {
+    notification.remove();
+  }, 2500);
+}
+
+// ========== 📊 Stats Modal ==========
+function toggleStatsModal() {
+  let modal = document.getElementById('stats-modal');
+  
+  if (!modal) {
+    modal = createStatsModal();
+    document.body.appendChild(modal);
+  }
+  
+  // Update stats data
+  updateStatsModal();
+  
+  // Apply i18n to modal
+  if (window.applyI18n) {
+    window.applyI18n();
+  }
+  
+  // Toggle display
+  if (modal.style.display === 'block') {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  } else {
+    modal.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  }
+}
+
+function createStatsModal() {
+  const modal = document.createElement('div');
+  modal.id = 'stats-modal';
+  modal.innerHTML = `
+    <div class="stats-modal-overlay" onclick="toggleStatsModal()"></div>
+    <div class="stats-modal-content">
+      <div class="stats-modal-header">
+        <h2 data-i18n="stats.modalTitle">📊 Your Statistics</h2>
+        <button class="stats-modal-close" onclick="toggleStatsModal()">✕</button>
+      </div>
+      <div class="stats-modal-body">
+        <!-- Level Section -->
+        <div class="stats-section">
+          <h3 data-i18n="stats.levelProgress">🎮 Level Progress</h3>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-label" data-i18n="stats.currentLevel">Current Level</div>
+              <div class="stat-value" id="stat-level">1</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label" data-i18n="stats.totalXP">Total XP</div>
+              <div class="stat-value" id="stat-xp">0</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label" data-i18n="stats.generations">Generations</div>
+              <div class="stat-value" id="stat-generations">0</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label" data-i18n="stats.daysActive">Days Active</div>
+              <div class="stat-value" id="stat-days">1</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Chemistry Section -->
+        <div class="stats-section">
+          <h3 data-i18n="stats.chemistryRecords">💖 Chemistry Records</h3>
+          <div class="stats-grid">
+            <div class="stat-item">
+              <div class="stat-label" data-i18n="stats.averageChemistry">Average Chemistry</div>
+              <div class="stat-value" id="stat-avg-chem">0%</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-label" data-i18n="stats.bestChemistry">Best Chemistry</div>
+              <div class="stat-value" id="stat-best-chem">0%</div>
+            </div>
+            <div class="stat-item wide">
+              <div class="stat-label" data-i18n="stats.bestMatch">Best Match</div>
+              <div class="stat-value" id="stat-best-name">-</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Favorites Section -->
+        <div class="stats-section">
+          <h3 data-i18n="stats.yourFavorites">⭐ Your Favorites</h3>
+          <div class="stats-grid">
+            <div class="stat-item wide">
+              <div class="stat-label" data-i18n="stats.top3Idols">Top 3 Idols</div>
+              <div class="stat-list" id="stat-top-idols" data-i18n="stats.noData">No data yet</div>
+            </div>
+            <div class="stat-item wide">
+              <div class="stat-label" data-i18n="stats.top3Groups">Top 3 Groups</div>
+              <div class="stat-list" id="stat-top-groups" data-i18n="stats.noData">No data yet</div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Badges Section -->
+        <div class="stats-section">
+          <h3 data-i18n="stats.badges">🏆 Badges</h3>
+          <div class="badge-grid" id="stat-badges">
+            <div class="badge-item locked">
+              <span class="badge-icon">🎯</span>
+              <span class="badge-name">First Step</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  
+  // Add styles
+  const style = document.createElement('style');
+  style.textContent = `
+    #stats-modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 10000;
+    }
+    .stats-modal-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.7);
+      backdrop-filter: blur(5px);
+    }
+    .stats-modal-content {
+      position: relative;
+      max-width: 700px;
+      max-height: 90vh;
+      margin: 5vh auto;
+      background: var(--surface, #fff);
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+    .stats-modal-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 30px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+    }
+    .stats-modal-header h2 {
+      margin: 0;
+      font-size: 24px;
+    }
+    .stats-modal-close {
+      background: rgba(255, 255, 255, 0.2);
+      border: none;
+      color: white;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.2s ease;
+    }
+    .stats-modal-close:hover {
+      background: rgba(255, 255, 255, 0.3);
+      transform: rotate(90deg);
+    }
+    .stats-modal-body {
+      padding: 30px;
+      overflow-y: auto;
+      flex: 1;
+    }
+    .stats-section {
+      margin-bottom: 30px;
+    }
+    .stats-section:last-child {
+      margin-bottom: 0;
+    }
+    .stats-section h3 {
+      margin: 0 0 16px 0;
+      font-size: 18px;
+      color: var(--text, #000);
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 16px;
+    }
+    .stat-item {
+      background: var(--chip, #f5f5f5);
+      padding: 16px;
+      border-radius: 12px;
+      text-align: center;
+    }
+    .stat-item.wide {
+      grid-column: span 2;
+    }
+    .stat-label {
+      font-size: 12px;
+      color: var(--muted, #666);
+      margin-bottom: 8px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+    .stat-value {
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--accent, #667eea);
+    }
+    .stat-list {
+      font-size: 14px;
+      color: var(--text, #000);
+      line-height: 1.8;
+    }
+    .badge-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+      gap: 12px;
+    }
+    .badge-item {
+      background: var(--chip, #f5f5f5);
+      padding: 12px;
+      border-radius: 12px;
+      text-align: center;
+      transition: all 0.2s ease;
+    }
+    .badge-item.unlocked {
+      background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+      border: 2px solid rgba(102, 126, 234, 0.3);
+    }
+    .badge-item.locked {
+      opacity: 0.4;
+      filter: grayscale(1);
+    }
+    .badge-icon {
+      font-size: 32px;
+      display: block;
+      margin-bottom: 8px;
+    }
+    .badge-name {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text, #000);
+      display: block;
+    }
+    
+    @media (max-width: 768px) {
+      .stats-modal-content {
+        max-width: 95%;
+        margin: 2.5vh auto;
+      }
+      .stats-modal-header {
+        padding: 20px;
+      }
+      .stats-modal-header h2 {
+        font-size: 20px;
+      }
+      .stats-modal-body {
+        padding: 20px;
+      }
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .stat-item.wide {
+        grid-column: span 2;
+      }
+      .stat-value {
+        font-size: 24px;
+      }
+    }
+  `;
+  document.head.appendChild(style);
+  
+  return modal;
+}
+
+function updateStatsModal() {
+  if (!levelSystem || !badgeSystem || !statsSystem) return;
+  
+  const levelStats = levelSystem.getStats();
+  const allStats = statsSystem.getAllStats();
+  const badges = badgeSystem.getAllBadges();
+  
+  // Level stats
+  const statLevel = document.getElementById('stat-level');
+  if (statLevel) statLevel.textContent = `${levelStats.level} - ${levelStats.levelName}`;
+  
+  const statXP = document.getElementById('stat-xp');
+  if (statXP) statXP.textContent = levelStats.totalXp;
+  
+  const statGenerations = document.getElementById('stat-generations');
+  if (statGenerations) statGenerations.textContent = allStats.totalGenerations;
+  
+  const statDays = document.getElementById('stat-days');
+  if (statDays) statDays.textContent = allStats.daysSinceFirst;
+  
+  // Chemistry stats
+  const statAvgChem = document.getElementById('stat-avg-chem');
+  if (statAvgChem) statAvgChem.textContent = `${allStats.averageChemistry}%`;
+  
+  const statBestChem = document.getElementById('stat-best-chem');
+  if (statBestChem) statBestChem.textContent = `${allStats.bestChemistry}%`;
+  
+  const statBestName = document.getElementById('stat-best-name');
+  if (statBestName) statBestName.textContent = allStats.bestChemistryName || '-';
+  
+  // Top idols
+  const statTopIdols = document.getElementById('stat-top-idols');
+  if (statTopIdols) {
+    const top3Idols = allStats.top3Idols;
+    if (top3Idols.length > 0) {
+      statTopIdols.innerHTML = top3Idols.map((idol, i) => 
+        `${i + 1}. ${idol.name} (${idol.count}회)`
+      ).join('<br>');
+      statTopIdols.removeAttribute('data-i18n');
+    } else {
+      statTopIdols.setAttribute('data-i18n', 'stats.noData');
+      statTopIdols.textContent = t('stats.noData');
+    }
+  }
+  
+  // Top groups
+  const statTopGroups = document.getElementById('stat-top-groups');
+  if (statTopGroups) {
+    const top3Groups = allStats.top3Groups;
+    if (top3Groups.length > 0) {
+      statTopGroups.innerHTML = top3Groups.map((group, i) => 
+        `${i + 1}. ${group.name} (${group.count}회)`
+      ).join('<br>');
+      statTopGroups.removeAttribute('data-i18n');
+    } else {
+      statTopGroups.setAttribute('data-i18n', 'stats.noData');
+      statTopGroups.textContent = t('stats.noData');
+    }
+  }
+  
+  // Badges
+  const statBadges = document.getElementById('stat-badges');
+  if (statBadges) {
+    const unlockedBadges = badges.filter(b => b.unlocked);
+    if (unlockedBadges.length > 0) {
+      statBadges.innerHTML = unlockedBadges.map(badge => `
+        <div class="badge-item unlocked">
+          <span class="badge-icon">${badge.icon}</span>
+          <span class="badge-name">${badge.name}</span>
+        </div>
+      `).join('');
+    } else {
+      statBadges.innerHTML = `<div class="stat-item wide" data-i18n="stats.startGenerating">${t('stats.startGenerating')}</div>`;
+    }
+  }
+}
+
+// Expose functions globally
+window.initGamification = initGamification;
+window.updateGamificationUI = updateGamificationUI;
+window.awardXP = awardXP;
+window.toggleStatsModal = toggleStatsModal;
+
 init();
 initHistoryFavorites();
 initFavoriteButton();
 updateTodayComboText(); // Update today's lucky combo on load
 waitForThemeToggle(); // Initialize theme toggle
+
+// Initialize gamification after a short delay to ensure scripts are loaded
+setTimeout(() => {
+  initGamification();
+}, 100);

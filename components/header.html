@@ -4,6 +4,18 @@
       <a href="/">🎤 KPOP Idol Chemistry</a>
     </h1>
     
+    <!-- 🎮 Gamification: Level & Badge Display -->
+    <div class="gamification-header">
+      <div id="level-display" class="level-display">
+        <span class="level-badge">Level 1</span>
+        <span class="level-name">신입 팬</span>
+      </div>
+      <div class="badge-display">
+        <span class="badge-icon">🏆</span>
+        <span id="badge-count" class="badge-count">0/40</span>
+      </div>
+    </div>
+    
     <!-- 햄버거 메뉴 버튼 (모바일) -->
     <button class="mobile-menu-toggle" onclick="toggleMobileMenu()" aria-label="Toggle menu">
       <span></span>
@@ -142,6 +154,53 @@
   font-size: 20px;
   font-weight: 700;
   text-decoration: none;
+}
+
+/* ========== 🎮 Gamification Header ========== */
+.gamification-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+  justify-content: center;
+}
+.level-display {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+}
+.level-badge {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 3px 8px;
+  border-radius: 12px;
+  font-weight: 700;
+  color: white;
+  font-size: 11px;
+}
+.level-name {
+  color: white;
+  font-weight: 600;
+}
+.badge-display {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #1a1f2e;
+  padding: 6px 12px;
+  border-radius: 20px;
+  border: 1px solid #2a3142;
+}
+.badge-icon {
+  font-size: 14px;
+}
+.badge-count {
+  color: #9aa4b2;
+  font-size: 12px;
+  font-weight: 600;
 }
 
 /* ========== 햄버거 메뉴 버튼 ========== */
@@ -340,6 +399,46 @@
   }
   .desktop-nav {
     display: none;
+  }
+  .site-header .container {
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 8px 16px;
+  }
+  .site-header .logo {
+    flex: 0 0 auto;
+  }
+  .site-header .logo a {
+    font-size: 16px;
+  }
+  .gamification-header {
+    order: 3;
+    width: 100%;
+    justify-content: center;
+    gap: 8px;
+  }
+  .level-display {
+    padding: 4px 10px;
+    font-size: 10px;
+  }
+  .level-badge {
+    font-size: 9px;
+    padding: 2px 6px;
+  }
+  .level-name {
+    font-size: 10px;
+  }
+  .badge-display {
+    padding: 4px 10px;
+  }
+  .badge-icon {
+    font-size: 12px;
+  }
+  .badge-count {
+    font-size: 10px;
+  }
+  .mobile-menu-toggle {
+    margin-left: auto;
   }
 }
 
