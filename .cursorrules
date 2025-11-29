@@ -1,0 +1,262 @@
+# K-Pop Idol Chemistry - Cursor Rules
+
+## 🎯 개발 프로세스
+
+### 1️⃣ 프로젝트 구조 분석
+작업을 시작하기 전에 반드시 다음을 파악:
+- 요청사항이 영향을 미치는 파일과 모듈 식별
+- 관련된 의존성과 데이터 흐름 확인
+- 기존 코드 패턴과 아키텍처 이해
+
+### 2️⃣ 질문 단계
+불명확한 부분이 있으면 개발 전에 질문:
+- 요구사항의 세부사항
+- 여러 구현 방법 중 선호하는 방식
+- 기존 기능과의 연동 방식
+- UI/UX 관련 선택사항
+
+### 3️⃣ 개발 실행
+질문에 대한 답변이 명확해진 후에만 코드 작성 시작
+
+---
+
+## 📁 프로젝트 구조
+
+### 기술 스택
+- **프론트엔드**: 100% 정적 웹사이트 (HTML/CSS/JavaScript)
+- **모듈 시스템**: ES6 Modules (import/export)
+- **데이터**: JSON 파일 기반 (idols.json, surnames.json, syllables.json)
+- **배포**: GitHub Pages / Netlify / Vercel
+
+### 주요 디렉토리
+```
+js/
+├── app.js              # 메인 진입점
+├── generator/          # 이름 생성 알고리즘
+├── gamification/       # 게임화 시스템 (badges, levels, stats)
+├── data/               # 데이터 로더
+├── ui/                 # UI 렌더링 및 다국어
+└── util/               # 유틸리티 함수
+
+data/                   # JSON 데이터 파일
+pages/                  # 그룹별/기능별 페이지
+components/             # 재사용 가능한 컴포넌트 (header, footer)
+```
+
+---
+
+## ✅ 코딩 스타일 가이드
+
+### 1. 모듈화 (Modularity)
+- **원칙**: 각 파일은 하나의 명확한 책임을 가짐
+- **예시**:
+  - `generator/engine.js`: 이름 생성 로직만
+  - `ui/dom.js`: DOM 조작 유틸만
+  - `data/idols.js`: 아이돌 데이터 로딩만
+
+```javascript
+// ✅ 좋은 예: 단일 책임 모듈
+// generator/engine.js
+export function generate(options) { /* ... */ }
+
+// ❌ 나쁜 예: 여러 책임이 혼재
+// app.js에 모든 로직을 넣지 말 것
+```
+
+### 2. 명명 규칙 (Naming Conventions)
+- **함수**: camelCase, 동사로 시작 (`generateName`, `fetchIdols`)
+- **변수**: camelCase, 명사 (`userName`, `chemistryScore`)
+- **상수**: UPPER_SNAKE_CASE (`THEME_KEY`, `MAX_HISTORY`)
+- **파일명**: kebab-case (`style-presets.js`, `badge-system.js`)
+
+```javascript
+// ✅ 좋은 예
+function calculateChemistry(name, idol) { }
+const MAX_RETRIES = 3;
+
+// ❌ 나쁜 예
+function Chemistry(n, i) { }  // 함수명이 명사, 파라미터 불명확
+```
+
+### 3. 함수 작성 원칙
+- **단일 책임**: 한 함수는 하나의 일만
+- **짧게 유지**: 20줄 이내 권장
+- **파라미터**: 3개 이하 권장, 많으면 객체로 전달
+
+```javascript
+// ✅ 좋은 예: 명확한 책임, 객체로 파라미터 전달
+export function generate({ myName, idol, genderPref, relation }) {
+  const chemistry = calculateChemistry(myName, idol);
+  const sameName = generateSameName(myName, idol);
+  return { chemistry, sameName };
+}
+
+// ❌ 나쁜 예: 너무 많은 파라미터, 복잡한 로직
+function doEverything(a, b, c, d, e, f) {
+  // 100줄의 코드...
+}
+```
+
+### 4. 에러 처리
+- 모든 비동기 작업에 try-catch 사용
+- 사용자에게 의미있는 에러 메시지 제공
+- 콘솔에 디버깅 정보 남기기
+
+```javascript
+// ✅ 좋은 예
+async function loadIdols() {
+  try {
+    const data = await fetch('/data/idols.json');
+    return await data.json();
+  } catch (error) {
+    console.error('Failed to load idols:', error);
+    alert('아이돌 데이터를 불러올 수 없습니다.');
+    return [];
+  }
+}
+
+// ❌ 나쁜 예: 에러 무시
+async function loadIdols() {
+  const data = await fetch('/data/idols.json');
+  return await data.json();  // 에러 발생 시 앱 전체 크래시
+}
+```
+
+### 5. 주석 작성
+- **함수 시작 부분**: 복잡한 로직에는 목적 설명
+- **섹션 구분**: `// ========== 섹션명 ==========`
+- **TODO 표시**: `// TODO: 향후 개선사항`
+
+```javascript
+// ✅ 좋은 예
+/**
+ * 이름과 아이돌 간의 케미 점수를 계산합니다.
+ * 시드 기반 랜덤 + 음절 매칭 알고리즘 사용
+ */
+function calculateChemistry(name, idol) {
+  // 시드 생성 (동일 입력 = 동일 결과)
+  const seed = createSeed(name + idol.name_kr);
+  
+  // TODO: 향후 더 정교한 매칭 알고리즘 추가
+  return seededRandom(seed, 70, 100);
+}
+```
+
+### 6. DOM 조작
+- `ui/dom.js`의 유틸 함수 사용 (`q`, `setHTML`, `on`)
+- 직접 `document.querySelector` 최소화
+- 이벤트 리스너는 적절히 정리
+
+```javascript
+// ✅ 좋은 예: 유틸 사용
+import { q, on } from './ui/dom.js';
+
+on(q('#form'), 'submit', handleSubmit);
+
+// ❌ 나쁜 예: 직접 조작
+document.querySelector('#form').addEventListener('submit', handleSubmit);
+```
+
+### 7. 데이터 관리
+- **로컬 스토리지**: 사용자 데이터만 (히스토리, 즐겨찾기, 레벨)
+- **JSON 파일**: 정적 데이터만 (아이돌, 성씨, 음절)
+- 데이터 변경 시 UI 즉시 업데이트
+
+```javascript
+// ✅ 좋은 예: 일관된 데이터 흐름
+function saveToFavorites(result) {
+  const favorites = getFavorites();
+  favorites.unshift(result);
+  localStorage.setItem('kpopNameFavorites', JSON.stringify(favorites));
+  updateFavoritesUI();  // UI 즉시 업데이트
+}
+
+// ❌ 나쁜 예: UI 업데이트 누락
+function saveToFavorites(result) {
+  localStorage.setItem('favorite', JSON.stringify(result));
+  // UI는 언제 업데이트? 사용자가 새로고침해야 함
+}
+```
+
+### 8. 확장성 고려
+- 새로운 아이돌/그룹 추가 시 JSON 파일만 수정하면 되도록
+- 새로운 페이지 추가 시 기존 컴포넌트 재사용
+- 다국어 추가 시 `i18n.js`만 수정
+
+```javascript
+// ✅ 좋은 예: 데이터 드리븐
+const idols = await getIdols();  // JSON에서 로드
+idols.forEach(idol => {
+  renderIdolOption(idol);  // 자동으로 모든 아이돌 표시
+});
+
+// ❌ 나쁜 예: 하드코딩
+if (idol === 'BTS') { /* ... */ }
+else if (idol === 'BLACKPINK') { /* ... */ }
+// 새 그룹 추가할 때마다 코드 수정 필요
+```
+
+### 9. 성능 최적화
+- 불필요한 DOM 조작 최소화
+- 이벤트 위임 활용
+- 무거운 연산은 debounce/throttle
+
+```javascript
+// ✅ 좋은 예: 이벤트 위임
+on(q('#idol-list'), 'click', (e) => {
+  if (e.target.matches('.idol-item')) {
+    selectIdol(e.target.dataset.idol);
+  }
+});
+
+// ❌ 나쁜 예: 각 요소에 리스너
+document.querySelectorAll('.idol-item').forEach(item => {
+  item.addEventListener('click', () => selectIdol(item));
+});
+```
+
+### 10. 다국어 (i18n)
+- 모든 사용자 대상 텍스트는 `i18n.js`에서 관리
+- HTML에서 `data-i18n` 속성 사용
+- 하드코딩된 문자열 금지
+
+```javascript
+// ✅ 좋은 예
+const message = t('alert.selectIdol');  // i18n에서 가져오기
+alert(message);
+
+// ❌ 나쁜 예
+alert('Please select an idol');  // 하드코딩
+```
+
+---
+
+## 🚫 금지 사항
+
+1. **글로벌 변수 남발** → 모듈로 캡슐화
+2. **인라인 스타일** → CSS 클래스 사용
+3. **Magic Number** → 상수로 정의
+4. **깊은 중첩** → Early return 활용
+5. **중복 코드** → 함수/모듈로 분리
+
+---
+
+## 📝 파일 수정 시 체크리스트
+
+- [ ] 기존 코드 패턴을 따르고 있는가?
+- [ ] 함수/변수명이 명확한가?
+- [ ] 에러 처리가 적절한가?
+- [ ] 다국어 대응이 되어 있는가?
+- [ ] UI 업데이트가 즉시 반영되는가?
+- [ ] 새로운 의존성이 필요한가? (최소화)
+- [ ] 모바일에서도 잘 작동하는가?
+- [ ] 기존 기능을 망가뜨리지 않았는가?
+
+---
+
+## 🎨 참고사항
+
+- **디자인 테마**: Kitsch 스타일 (밝고 과감한 색상, 재미있는 UI)
+- **타겟 사용자**: K-Pop 팬, 10-30대
+- **주요 메트릭**: 사용자 인게이지먼트, 공유율, 재방문율
+
