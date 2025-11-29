@@ -1878,9 +1878,132 @@ function initGamification() {
     window.statsSystem = statsSystem;
   }
   
+  // Setup notification system
+  setupNotificationSystem();
+  
   // Update UI
   updateGamificationUI();
 }
+
+// ========== 🔔 Notification System ==========
+function setupNotificationSystem() {
+  // Create notification container
+  let container = document.getElementById('notification-container');
+  if (!container) {
+    container = document.createElement('div');
+    container.id = 'notification-container';
+    document.body.appendChild(container);
+  }
+  
+  // Add notification styles
+  if (!document.getElementById('notification-styles')) {
+    const style = document.createElement('style');
+    style.id = 'notification-styles';
+    style.textContent = `
+      #notification-container {
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        z-index: 9999;
+        pointer-events: none;
+      }
+      
+      .notification {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 16px 24px;
+        border-radius: 12px;
+        margin-bottom: 12px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        min-width: 280px;
+        max-width: 400px;
+        pointer-events: auto;
+        animation: slideIn 0.3s ease-out;
+        font-size: 14px;
+        line-height: 1.5;
+      }
+      
+      .notification.badge {
+        background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+      }
+      
+      .notification.success {
+        background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+      }
+      
+      .notification.warning {
+        background: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+      }
+      
+      .notification.closing {
+        animation: slideOut 0.3s ease-in forwards;
+      }
+      
+      @keyframes slideIn {
+        from {
+          transform: translateX(400px);
+          opacity: 0;
+        }
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+      
+      @keyframes slideOut {
+        from {
+          transform: translateX(0);
+          opacity: 1;
+        }
+        to {
+          transform: translateX(400px);
+          opacity: 0;
+        }
+      }
+      
+      @media (max-width: 768px) {
+        #notification-container {
+          top: 60px;
+          right: 10px;
+          left: 10px;
+        }
+        
+        .notification {
+          min-width: auto;
+          max-width: none;
+        }
+      }
+    `;
+    document.head.appendChild(style);
+  }
+}
+
+function showNotification(message, type = 'default') {
+  const container = document.getElementById('notification-container');
+  if (!container) {
+    setupNotificationSystem();
+    return showNotification(message, type);
+  }
+  
+  const notification = document.createElement('div');
+  notification.className = `notification ${type}`;
+  notification.textContent = message;
+  
+  container.appendChild(notification);
+  
+  // Auto remove after 4 seconds
+  setTimeout(() => {
+    notification.classList.add('closing');
+    setTimeout(() => {
+      if (notification.parentNode) {
+        container.removeChild(notification);
+      }
+    }, 300);
+  }, 4000);
+}
+
+// Expose to window for badge/level systems
+window.showNotification = showNotification;
 
 function updateGamificationUI() {
   if (!levelSystem) return;
