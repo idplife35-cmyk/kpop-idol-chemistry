@@ -46,6 +46,11 @@
   { "group": "IVE", "name_kr": "리즈", "name_en": "Liz", "gender": "female" },
   { "group": "IVE", "name_kr": "이서", "name_en": "Leeseo", "gender": "female" },
 
+  { "group": "aespa", "name_kr": "카리나", "name_en": "Karina", "gender": "female" },
+  { "group": "aespa", "name_kr": "지젤", "name_en": "Giselle", "gender": "female" },
+  { "group": "aespa", "name_kr": "윈터", "name_en": "Winter", "gender": "female" },
+  { "group": "aespa", "name_kr": "닝닝", "name_en": "Ningning", "gender": "female" },
+
   { "group": "HUNTR/X", "name_kr": "루미", "name_en": "Rumi", "gender": "female" },
   { "group": "HUNTR/X", "name_kr": "미라", "name_en": "Mira", "gender": "female" },
   { "group": "HUNTR/X", "name_kr": "조이", "name_en": "Zoey", "gender": "female" },
