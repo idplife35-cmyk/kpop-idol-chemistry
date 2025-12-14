@@ -657,218 +657,356 @@
 
     <p data-i18n="main.description">Create unique Korean names with your favorite K-Pop idols! Our name generator supports 11 groups including BTS, BLACKPINK, aespa, NewJeans, IVE, PLAVE, RIIZE, and more. Perfect for fanfiction, roleplay, and creative writing.</p>
     
-    <!-- 🎯 Group Selection Grid Carousel -->
-    <section class="group-carousel-section" style="margin: 24px 0;">
+    <!-- 🎯 Group Selection - Instagram Stories Style -->
+    <section class="group-stories-section" style="margin: 20px 0;">
       <style>
-        .group-grid-carousel {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-          gap: 12px;
-          max-width: 100%;
+        /* Instagram Stories Style - Horizontal Scroll */
+        .group-stories-wrapper {
+          position: relative;
+          padding: 0 40px;
         }
         
-        .group-card {
+        .group-stories-container {
+          display: flex;
+          gap: 16px;
+          overflow-x: auto;
+          overflow-y: hidden;
+          padding: 12px 4px 16px;
+          scroll-snap-type: x mandatory;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+          scroll-behavior: smooth;
+        }
+        
+        .group-stories-container::-webkit-scrollbar {
+          display: none;
+        }
+        
+        /* Arrow Buttons */
+        .scroll-arrow {
+          position: absolute;
+          top: 50%;
+          transform: translateY(-60%);
+          width: 36px;
+          height: 36px;
+          border-radius: 50%;
           background: var(--surface);
           border: 2px solid var(--border);
-          border-radius: 16px;
-          padding: 16px 12px;
-          text-align: center;
-          cursor: pointer;
-          transition: all 0.3s ease;
-          text-decoration: none;
-          color: var(--text);
-          position: relative;
-          overflow: hidden;
-        }
-        
-        .group-card::before {
-          content: '';
-          position: absolute;
-          top: 0;
-          left: -100%;
-          width: 100%;
-          height: 100%;
-          background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
-          transition: left 0.5s ease;
-        }
-        
-        .group-card:hover::before {
-          left: 100%;
-        }
-        
-        .group-card:hover {
-          transform: translateY(-4px);
-          box-shadow: 0 8px 25px rgba(255, 46, 139, 0.15);
-          border-color: var(--accent);
-        }
-        
-        .group-card-icon {
-          font-size: 32px;
-          margin-bottom: 8px;
-          display: block;
-        }
-        
-        .group-card-name {
-          font-weight: 700;
-          font-size: 14px;
-          margin-bottom: 4px;
-          color: var(--text);
-        }
-        
-        .group-card-members {
-          font-size: 11px;
-          color: var(--muted);
-        }
-        
-        .group-card-badge {
-          position: absolute;
-          top: 8px;
-          right: 8px;
-          background: linear-gradient(135deg, #FF2E8B, #B490FF);
-          color: white;
-          font-size: 9px;
-          font-weight: 700;
-          padding: 2px 6px;
-          border-radius: 8px;
-          text-transform: uppercase;
-        }
-        
-        /* Theme colors for each group */
-        .group-card.bts:hover { border-color: #9333EA; box-shadow: 0 8px 25px rgba(147, 51, 234, 0.2); }
-        .group-card.blackpink:hover { border-color: #EC4899; box-shadow: 0 8px 25px rgba(236, 72, 153, 0.2); }
-        .group-card.aespa:hover { border-color: #6B4EFF; box-shadow: 0 8px 25px rgba(107, 78, 255, 0.2); }
-        .group-card.newjeans:hover { border-color: #3B82F6; box-shadow: 0 8px 25px rgba(59, 130, 246, 0.2); }
-        .group-card.ive:hover { border-color: #00D4FF; box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2); }
-        .group-card.seventeen:hover { border-color: #F97316; box-shadow: 0 8px 25px rgba(249, 115, 22, 0.2); }
-        .group-card.straykids:hover { border-color: #EF4444; box-shadow: 0 8px 25px rgba(239, 68, 68, 0.2); }
-        .group-card.plave:hover { border-color: #00E5FF; box-shadow: 0 8px 25px rgba(0, 229, 255, 0.2); }
-        .group-card.riize:hover { border-color: #FF6B35; box-shadow: 0 8px 25px rgba(255, 107, 53, 0.2); }
-        .group-card.huntrix:hover { border-color: #00FF88; box-shadow: 0 8px 25px rgba(0, 255, 136, 0.2); }
-        .group-card.sajaboys:hover { border-color: #FFD700; box-shadow: 0 8px 25px rgba(255, 215, 0, 0.2); }
-        
-        /* Carousel navigation */
-        .carousel-nav {
           display: flex;
+          align-items: center;
           justify-content: center;
-          gap: 8px;
-          margin-top: 16px;
-        }
-        
-        .carousel-dot {
-          width: 8px;
-          height: 8px;
-          border-radius: 50%;
-          background: var(--border);
           cursor: pointer;
-          transition: all 0.3s ease;
+          z-index: 10;
+          transition: all 0.2s ease;
+          font-size: 16px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.1);
         }
         
-        .carousel-dot.active {
+        .scroll-arrow:hover {
           background: var(--accent);
-          width: 24px;
-          border-radius: 4px;
+          border-color: var(--accent);
+          color: white;
+          transform: translateY(-60%) scale(1.1);
+          box-shadow: 0 4px 15px rgba(255, 46, 139, 0.3);
         }
         
-        /* Responsive: 2 columns on smaller screens */
+        .scroll-arrow:active {
+          transform: translateY(-60%) scale(0.95);
+        }
+        
+        .scroll-arrow.left {
+          left: 0;
+        }
+        
+        .scroll-arrow.right {
+          right: 0;
+        }
+        
+        .scroll-arrow.hidden {
+          opacity: 0.3;
+          pointer-events: none;
+        }
+        
         @media (max-width: 600px) {
-          .group-grid-carousel {
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
+          .group-stories-wrapper {
+            padding: 0 32px;
           }
-          .group-card {
-            padding: 12px 8px;
-          }
-          .group-card-icon {
-            font-size: 28px;
-          }
-          .group-card-name {
+          .scroll-arrow {
+            width: 28px;
+            height: 28px;
             font-size: 12px;
           }
-          .group-card-members {
-            font-size: 10px;
+        }
+        
+        .group-story {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          text-decoration: none;
+          color: var(--text);
+          flex-shrink: 0;
+          scroll-snap-align: start;
+          transition: transform 0.2s ease;
+          position: relative;
+        }
+        
+        .group-story:active {
+          transform: scale(0.95);
+        }
+        
+        .group-story-ring {
+          width: 72px;
+          height: 72px;
+          border-radius: 50%;
+          padding: 3px;
+          background: linear-gradient(135deg, var(--ring-color-1, #FF2E8B), var(--ring-color-2, #B490FF));
+          margin-bottom: 8px;
+          position: relative;
+          transition: all 0.3s ease;
+        }
+        
+        .group-story:hover .group-story-ring {
+          transform: scale(1.08);
+          box-shadow: 0 4px 20px rgba(255, 46, 139, 0.3);
+        }
+        
+        .group-story-inner {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          background: var(--surface);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 28px;
+          border: 2px solid var(--surface);
+        }
+        
+        .group-story-name {
+          font-size: 11px;
+          font-weight: 600;
+          text-align: center;
+          max-width: 72px;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+        
+        .group-story-badge {
+          position: absolute;
+          top: -4px;
+          right: -4px;
+          background: linear-gradient(135deg, #FF2E8B, #FF6B35);
+          color: white;
+          font-size: 8px;
+          font-weight: 800;
+          padding: 2px 5px;
+          border-radius: 6px;
+          text-transform: uppercase;
+          letter-spacing: 0.3px;
+          box-shadow: 0 2px 8px rgba(255, 46, 139, 0.4);
+          animation: badgePulse 2s ease-in-out infinite;
+        }
+        
+        @keyframes badgePulse {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.05); }
+        }
+        
+        /* Group-specific ring colors */
+        .group-story.huntrix .group-story-ring { --ring-color-1: #00FF88; --ring-color-2: #00D4FF; }
+        .group-story.bts .group-story-ring { --ring-color-1: #9333EA; --ring-color-2: #7C3AED; }
+        .group-story.blackpink .group-story-ring { --ring-color-1: #EC4899; --ring-color-2: #000000; }
+        .group-story.aespa .group-story-ring { --ring-color-1: #6B4EFF; --ring-color-2: #FF6BB5; }
+        .group-story.newjeans .group-story-ring { --ring-color-1: #3B82F6; --ring-color-2: #60A5FA; }
+        .group-story.ive .group-story-ring { --ring-color-1: #00D4FF; --ring-color-2: #FF6B9D; }
+        .group-story.seventeen .group-story-ring { --ring-color-1: #F97316; --ring-color-2: #FB923C; }
+        .group-story.straykids .group-story-ring { --ring-color-1: #EF4444; --ring-color-2: #000000; }
+        .group-story.plave .group-story-ring { --ring-color-1: #00E5FF; --ring-color-2: #FF4081; }
+        .group-story.riize .group-story-ring { --ring-color-1: #FF6B35; --ring-color-2: #4ECDC4; }
+        .group-story.sajaboys .group-story-ring { --ring-color-1: #FFD700; --ring-color-2: #FFA500; }
+        
+        
+        /* Responsive adjustments */
+        @media (min-width: 768px) {
+          .group-story-ring {
+            width: 84px;
+            height: 84px;
+          }
+          .group-story-inner {
+            font-size: 34px;
+          }
+          .group-story-name {
+            font-size: 13px;
+            max-width: 84px;
+          }
+          .group-stories-container {
+            gap: 24px;
+            padding: 16px 20px;
+          }
+        }
+        
+        /* Large screens - still horizontal scroll */
+        @media (min-width: 1200px) {
+          .group-story-ring {
+            width: 88px;
+            height: 88px;
+          }
+          .group-story-inner {
+            font-size: 36px;
+          }
+          .group-story-name {
+            font-size: 13px;
+            max-width: 88px;
+          }
+          .group-stories-container {
+            gap: 28px;
           }
         }
       </style>
       
-      <div class="group-grid-carousel" id="groupCarousel">
-        <!-- Row 1 -->
-        <a href="/pages/bts-name-generator/" class="group-card bts">
-          <span class="group-card-icon">💜</span>
-          <div class="group-card-name">BTS</div>
-          <div class="group-card-members">4 Members</div>
-        </a>
-        <a href="/pages/blackpink-name-generator/" class="group-card blackpink">
-          <span class="group-card-icon">🖤💗</span>
-          <div class="group-card-name">BLACKPINK</div>
-          <div class="group-card-members">4 Members</div>
-        </a>
-        <a href="/pages/aespa-name-generator/" class="group-card aespa">
-          <span class="group-card-badge">NEW</span>
-          <span class="group-card-icon">💜✨</span>
-          <div class="group-card-name">aespa</div>
-          <div class="group-card-members">4 Members</div>
+      <div class="group-stories-wrapper">
+        <!-- Left Arrow -->
+        <button class="scroll-arrow left hidden" id="scrollLeft" aria-label="Scroll left">
+          ←
+        </button>
+        
+        <div class="group-stories-container" id="groupStoriesScroll">
+        <!-- 🔥 HUNTR/X - Trending #1 (앞에 배치) -->
+        <a href="/pages/huntrix-name-generator/" class="group-story huntrix">
+          <div class="group-story-ring">
+            <span class="group-story-badge">🔥 HOT</span>
+            <div class="group-story-inner">💚⚔️</div>
+          </div>
+          <span class="group-story-name">HUNTR/X</span>
         </a>
         
-        <!-- Row 2 -->
-        <a href="/pages/newjeans-name-generator/" class="group-card newjeans">
-          <span class="group-card-icon">🐰</span>
-          <div class="group-card-name">NewJeans</div>
-          <div class="group-card-members">5 Members</div>
-        </a>
-        <a href="/pages/ive-name-generator/" class="group-card ive">
-          <span class="group-card-icon">👑</span>
-          <div class="group-card-name">IVE</div>
-          <div class="group-card-members">6 Members</div>
-        </a>
-        <a href="/pages/seventeen-name-generator/" class="group-card seventeen">
-          <span class="group-card-icon">💎</span>
-          <div class="group-card-name">SEVENTEEN</div>
-          <div class="group-card-members">13 Members</div>
+        <!-- BTS -->
+        <a href="/pages/bts-name-generator/" class="group-story bts">
+          <div class="group-story-ring">
+            <div class="group-story-inner">💜</div>
+          </div>
+          <span class="group-story-name">BTS</span>
         </a>
         
-        <!-- Row 3 -->
-        <a href="/pages/stray-kids-name-generator/" class="group-card straykids">
-          <span class="group-card-icon">🔥</span>
-          <div class="group-card-name">Stray Kids</div>
-          <div class="group-card-members">8 Members</div>
+        <!-- BLACKPINK -->
+        <a href="/pages/blackpink-name-generator/" class="group-story blackpink">
+          <div class="group-story-ring">
+            <div class="group-story-inner">🖤💗</div>
+          </div>
+          <span class="group-story-name">BLACKPINK</span>
         </a>
-        <a href="/pages/plave-name-generator/" class="group-card plave">
-          <span class="group-card-badge">NEW</span>
-          <span class="group-card-icon">🤖</span>
-          <div class="group-card-name">PLAVE</div>
-          <div class="group-card-members">5 Virtual</div>
+        
+        <!-- aespa - NEW -->
+        <a href="/pages/aespa-name-generator/" class="group-story aespa">
+          <div class="group-story-ring">
+            <span class="group-story-badge">NEW</span>
+            <div class="group-story-inner">💜✨</div>
+          </div>
+          <span class="group-story-name">aespa</span>
         </a>
-        <a href="/pages/riize-name-generator/" class="group-card riize">
-          <span class="group-card-badge">NEW</span>
-          <span class="group-card-icon">🧡</span>
-          <div class="group-card-name">RIIZE</div>
-          <div class="group-card-members">6 Members</div>
+        
+        <!-- NewJeans -->
+        <a href="/pages/newjeans-name-generator/" class="group-story newjeans">
+          <div class="group-story-ring">
+            <div class="group-story-inner">🐰</div>
+          </div>
+          <span class="group-story-name">NewJeans</span>
         </a>
-      </div>
-      
-      <!-- More Groups Button -->
-      <div style="text-align: center; margin-top: 16px;">
-        <button onclick="document.getElementById('moreGroupsGrid').classList.toggle('hidden')" class="btn secondary" style="font-size: 13px;">
-          ➕ More Groups (HUNTR/X, SajaBoys)
+        
+        <!-- IVE -->
+        <a href="/pages/ive-name-generator/" class="group-story ive">
+          <div class="group-story-ring">
+            <div class="group-story-inner">👑</div>
+          </div>
+          <span class="group-story-name">IVE</span>
+        </a>
+        
+        <!-- SEVENTEEN -->
+        <a href="/pages/seventeen-name-generator/" class="group-story seventeen">
+          <div class="group-story-ring">
+            <div class="group-story-inner">💎</div>
+          </div>
+          <span class="group-story-name">SEVENTEEN</span>
+        </a>
+        
+        <!-- Stray Kids -->
+        <a href="/pages/stray-kids-name-generator/" class="group-story straykids">
+          <div class="group-story-ring">
+            <div class="group-story-inner">🔥</div>
+          </div>
+          <span class="group-story-name">Stray Kids</span>
+        </a>
+        
+        <!-- PLAVE - NEW (Virtual) -->
+        <a href="/pages/plave-name-generator/" class="group-story plave">
+          <div class="group-story-ring">
+            <span class="group-story-badge">NEW</span>
+            <div class="group-story-inner">🤖</div>
+          </div>
+          <span class="group-story-name">PLAVE</span>
+        </a>
+        
+        <!-- RIIZE - NEW -->
+        <a href="/pages/riize-name-generator/" class="group-story riize">
+          <div class="group-story-ring">
+            <span class="group-story-badge">NEW</span>
+            <div class="group-story-inner">🧡</div>
+          </div>
+          <span class="group-story-name">RIIZE</span>
+        </a>
+        
+        <!-- SajaBoys -->
+        <a href="/pages/sajaboys-name-generator/" class="group-story sajaboys">
+          <div class="group-story-ring">
+            <div class="group-story-inner">🦁</div>
+          </div>
+          <span class="group-story-name">SajaBoys</span>
+        </a>
+        </div>
+        
+        <!-- Right Arrow -->
+        <button class="scroll-arrow right" id="scrollRight" aria-label="Scroll right">
+          →
         </button>
       </div>
       
-      <!-- Hidden additional groups -->
-      <div id="moreGroupsGrid" class="hidden" style="margin-top: 12px;">
-        <div class="group-grid-carousel" style="grid-template-columns: repeat(2, 1fr); max-width: 400px; margin: 0 auto;">
-          <a href="/pages/huntrix-name-generator/" class="group-card huntrix">
-            <span class="group-card-badge">🔥 HOT</span>
-            <span class="group-card-icon">💚⚔️</span>
-            <div class="group-card-name">HUNTR/X</div>
-            <div class="group-card-members">Demon Hunters</div>
-          </a>
-          <a href="/pages/sajaboys-name-generator/" class="group-card sajaboys">
-            <span class="group-card-icon">🦁</span>
-            <div class="group-card-name">SajaBoys</div>
-            <div class="group-card-members">5 Members</div>
-          </a>
-        </div>
-      </div>
+      
+      <!-- Scroll Arrow Script -->
+      <script>
+        (function() {
+          const container = document.getElementById('groupStoriesScroll');
+          const leftBtn = document.getElementById('scrollLeft');
+          const rightBtn = document.getElementById('scrollRight');
+          
+          if (!container || !leftBtn || !rightBtn) return;
+          
+          const scrollAmount = 200;
+          
+          function updateArrows() {
+            const isAtStart = container.scrollLeft <= 10;
+            const isAtEnd = container.scrollLeft >= container.scrollWidth - container.clientWidth - 10;
+            
+            leftBtn.classList.toggle('hidden', isAtStart);
+            rightBtn.classList.toggle('hidden', isAtEnd);
+          }
+          
+          leftBtn.addEventListener('click', function() {
+            container.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+          });
+          
+          rightBtn.addEventListener('click', function() {
+            container.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+          });
+          
+          container.addEventListener('scroll', updateArrows);
+          window.addEventListener('resize', updateArrows);
+          
+          // Initial check
+          setTimeout(updateArrows, 100);
+        })();
+      </script>
     </section>
     
     <!-- SEO Content Section -->
@@ -923,48 +1061,151 @@
         </div>
       </div>
     </section>
-    <nav class="quick-links" data-i18n-aria-label="nav.aria" aria-label="Quick links by group" style="margin:12px 0 20px;display:flex;flex-wrap:wrap;gap:8px;">
-      <a class="btn secondary" href="/pages/bts-name-generator/">BTS</a>
-      <a class="btn secondary" href="/pages/blackpink-name-generator/">BLACKPINK</a>
-      <a class="btn secondary" href="/pages/aespa-name-generator/">aespa</a>
-      <a class="btn secondary" href="/pages/newjeans-name-generator/">NewJeans</a>
-      <a class="btn secondary" href="/pages/ive-name-generator/">IVE</a>
-      <a class="btn secondary" href="/pages/seventeen-name-generator/">SEVENTEEN</a>
-      <a class="btn secondary" href="/pages/stray-kids-name-generator/">Stray Kids</a>
-      <a class="btn secondary" href="/pages/plave-name-generator/">PLAVE</a>
-      <a class="btn secondary" href="/pages/riize-name-generator/">RIIZE</a>
-      <a class="btn secondary" href="/pages/huntrix-name-generator/">HUNTR/X</a>
-      <a class="btn secondary" href="/pages/sajaboys-name-generator/">SajaBoys</a>
-    </nav>
-    
-    <!-- SEO Pages Navigation -->
-    <div class="divider-ribbon" style="margin-top:24px;">Specialized Name Generators</div>
-    <nav class="quick-links" aria-label="Specialized generators" style="margin:12px 0 20px;display:flex;flex-wrap:wrap;gap:8px;">
-      <a class="btn secondary" href="/pages/kpop-name-generator/">🎵 K-Pop Name Generator</a>
-      <a class="btn secondary" href="/pages/korean-name-generator/">🇰🇷 Korean Name Generator</a>
-      <a class="btn secondary" href="/pages/idol-chemistry-name/">💖 Idol Chemistry Names</a>
-      <a class="btn secondary" href="/pages/kpop-ship-name-generator/">💞 K-Pop Ship Names</a>
-      <a class="btn secondary" href="/pages/kpop-stage-name-generator/">🎤 K-Pop Stage Names</a>
-      <a class="btn secondary" href="/pages/kpop-nickname-generator/">👑 K-Pop Nicknames</a>
-      <a class="btn secondary" href="/pages/kpop-aesthetic-name-generator/">🌸 Aesthetic K-Pop Names</a>
-      <a class="btn secondary" href="/pages/kpop-cute-name-generator/">💗 Cute K-Pop Names</a>
-      <a class="btn secondary" href="/pages/kpop-badass-name-generator/">🖤 Badass K-Pop Names</a>
-      <a class="btn secondary" href="/pages/kpop-username-generator/">👤 K-Pop Username Generator</a>
-      <a class="btn secondary" href="/pages/kpop-bio-hashtag-generator/">#️⃣ K-Pop Bio & Hashtags</a>
-      <a class="btn secondary" href="/pages/korean-romanized-name-generator/">🔤 Korean Romanized Names</a>
-      <a class="btn secondary" href="/pages/kpop-couple-name-combiner/">🔗 Couple Name Combiner</a>
-    </nav>
 
-    <!-- Group Aesthetic Generators -->
-    <div class="divider-ribbon" style="margin-top:24px;">Group Aesthetic Name Generators</div>
-    <nav class="quick-links" aria-label="Group aesthetic generators" style="margin:12px 0 20px;display:flex;flex-wrap:wrap;gap:8px;">
-      <a class="btn secondary" href="/pages/bts-aesthetic-name-generator/">💜 BTS Aesthetic</a>
-      <a class="btn secondary" href="/pages/blackpink-aesthetic-name-generator/">🖤💗 BLACKPINK Aesthetic</a>
-      <a class="btn secondary" href="/pages/newjeans-aesthetic-name-generator/">🐰 NewJeans Aesthetic</a>
-      <a class="btn secondary" href="/pages/seventeen-aesthetic-name-generator/">💎 SEVENTEEN Aesthetic</a>
-      <a class="btn secondary" href="/pages/ive-aesthetic-name-generator/">👑 IVE Aesthetic</a>
-      <a class="btn secondary" href="/pages/stray-kids-aesthetic-name-generator/">🔥 Stray Kids Aesthetic</a>
-    </nav>
+    <!-- Specialized Name Generators - Horizontal Scroll Style -->
+    <div class="divider-ribbon" style="margin-top:24px;">Specialized Name Generators</div>
+    <div class="chip-scroll-container">
+      <button class="chip-scroll-arrow left" onclick="this.nextElementSibling.scrollBy({left: -200, behavior: 'smooth'})">←</button>
+      <nav class="chip-scroll-list" aria-label="Specialized generators">
+        <a class="chip-link" href="/pages/kpop-name-generator/">🎵 K-Pop Names</a>
+        <a class="chip-link" href="/pages/korean-name-generator/">🇰🇷 Korean Names</a>
+        <a class="chip-link" href="/pages/idol-chemistry-name/">💖 Chemistry</a>
+        <a class="chip-link" href="/pages/kpop-ship-name-generator/">💞 Ship Names</a>
+        <a class="chip-link" href="/pages/kpop-stage-name-generator/">🎤 Stage Names</a>
+        <a class="chip-link" href="/pages/kpop-nickname-generator/">👑 Nicknames</a>
+        <a class="chip-link" href="/pages/kpop-aesthetic-name-generator/">🌸 Aesthetic</a>
+        <a class="chip-link" href="/pages/kpop-cute-name-generator/">💗 Cute</a>
+        <a class="chip-link" href="/pages/kpop-badass-name-generator/">🖤 Badass</a>
+        <a class="chip-link" href="/pages/kpop-username-generator/">👤 Username</a>
+        <a class="chip-link" href="/pages/kpop-bio-hashtag-generator/">#️⃣ Bio & Tags</a>
+        <a class="chip-link" href="/pages/korean-romanized-name-generator/">🔤 Romanized</a>
+        <a class="chip-link" href="/pages/kpop-couple-name-combiner/">🔗 Couple</a>
+      </nav>
+      <button class="chip-scroll-arrow right" onclick="this.previousElementSibling.scrollBy({left: 200, behavior: 'smooth'})">→</button>
+    </div>
+
+    <!-- Group Aesthetic Generators - Horizontal Scroll Style -->
+    <div class="divider-ribbon" style="margin-top:24px;">Group Aesthetic Generators</div>
+    <div class="chip-scroll-container">
+      <button class="chip-scroll-arrow left" onclick="this.nextElementSibling.scrollBy({left: -200, behavior: 'smooth'})">←</button>
+      <nav class="chip-scroll-list" aria-label="Group aesthetic generators">
+        <a class="chip-link aesthetic bts" href="/pages/bts-aesthetic-name-generator/">💜 BTS</a>
+        <a class="chip-link aesthetic blackpink" href="/pages/blackpink-aesthetic-name-generator/">🖤💗 BLACKPINK</a>
+        <a class="chip-link aesthetic newjeans" href="/pages/newjeans-aesthetic-name-generator/">🐰 NewJeans</a>
+        <a class="chip-link aesthetic seventeen" href="/pages/seventeen-aesthetic-name-generator/">💎 SEVENTEEN</a>
+        <a class="chip-link aesthetic ive" href="/pages/ive-aesthetic-name-generator/">👑 IVE</a>
+        <a class="chip-link aesthetic straykids" href="/pages/stray-kids-aesthetic-name-generator/">🔥 Stray Kids</a>
+        <a class="chip-link aesthetic aespa" href="/pages/aespa-name-generator/">💜✨ aespa</a>
+        <a class="chip-link aesthetic plave" href="/pages/plave-name-generator/">🤖 PLAVE</a>
+        <a class="chip-link aesthetic riize" href="/pages/riize-name-generator/">🧡 RIIZE</a>
+      </nav>
+      <button class="chip-scroll-arrow right" onclick="this.previousElementSibling.scrollBy({left: 200, behavior: 'smooth'})">→</button>
+    </div>
+    
+    <!-- Chip Scroll Styles -->
+    <style>
+      .chip-scroll-container {
+        position: relative;
+        padding: 0 36px;
+        margin: 12px 0 20px;
+      }
+      
+      .chip-scroll-list {
+        display: flex;
+        gap: 10px;
+        overflow-x: auto;
+        padding: 8px 4px;
+        scroll-behavior: smooth;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+      }
+      
+      .chip-scroll-list::-webkit-scrollbar {
+        display: none;
+      }
+      
+      .chip-link {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        padding: 10px 16px;
+        background: var(--surface);
+        border: 2px solid var(--border);
+        border-radius: 24px;
+        color: var(--text);
+        text-decoration: none;
+        font-size: 13px;
+        font-weight: 600;
+        white-space: nowrap;
+        transition: all 0.2s ease;
+        flex-shrink: 0;
+      }
+      
+      .chip-link:hover {
+        border-color: var(--accent);
+        background: linear-gradient(135deg, rgba(255,46,139,0.1), rgba(180,144,255,0.1));
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(255, 46, 139, 0.15);
+      }
+      
+      .chip-link:active {
+        transform: translateY(0) scale(0.98);
+      }
+      
+      /* Aesthetic chip colors */
+      .chip-link.aesthetic.bts:hover { border-color: #9333EA; }
+      .chip-link.aesthetic.blackpink:hover { border-color: #EC4899; }
+      .chip-link.aesthetic.newjeans:hover { border-color: #3B82F6; }
+      .chip-link.aesthetic.seventeen:hover { border-color: #F97316; }
+      .chip-link.aesthetic.ive:hover { border-color: #00D4FF; }
+      .chip-link.aesthetic.straykids:hover { border-color: #EF4444; }
+      .chip-link.aesthetic.aespa:hover { border-color: #6B4EFF; }
+      .chip-link.aesthetic.plave:hover { border-color: #00E5FF; }
+      .chip-link.aesthetic.riize:hover { border-color: #FF6B35; }
+      
+      .chip-scroll-arrow {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+        background: var(--surface);
+        border: 2px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 10;
+        transition: all 0.2s ease;
+        font-size: 12px;
+        box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+      }
+      
+      .chip-scroll-arrow:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: white;
+      }
+      
+      .chip-scroll-arrow.left { left: 0; }
+      .chip-scroll-arrow.right { right: 0; }
+      
+      @media (max-width: 600px) {
+        .chip-scroll-container {
+          padding: 0 28px;
+        }
+        .chip-link {
+          padding: 8px 12px;
+          font-size: 12px;
+        }
+        .chip-scroll-arrow {
+          width: 24px;
+          height: 24px;
+          font-size: 10px;
+        }
+      }
+    </style>
 
     <div class="divider-ribbon" data-i18n="divider.create">Create Your Chemistry Name</div>
     
