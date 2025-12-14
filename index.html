@@ -601,64 +601,82 @@
 <body class="kitsch-light">
   <div id="site-header" data-include="/components/header.html"></div>
   <div class="container">
-    <div style="display:flex;justify-content:flex-end;align-items:center;gap:8px;margin-top:8px;">
-      <label for="lang-select" class="visually-hidden" data-i18n="ui.language">Language</label>
-      <select id="lang-select" aria-label="Language" style="padding:6px 10px;border:1px solid var(--border);border-radius:6px;background:var(--surface);color:var(--text);">
-        <option value="en">🇺🇸 English</option>
-        <option value="ko">🇰🇷 한국어</option>
+    <!-- Settings Row - Compact -->
+    <div class="settings-row" style="display:flex;justify-content:flex-end;align-items:center;gap:6px;padding:4px 0;">
+      <select id="lang-select" aria-label="Language" style="padding:4px 8px;border:1px solid var(--border);border-radius:4px;background:var(--surface);color:var(--text);font-size:0.8rem;">
+        <option value="en">🇺🇸 EN</option>
+        <option value="ko">🇰🇷 KO</option>
       </select>
-      <button id="theme-toggle" class="btn secondary" style="padding:6px 10px;">Kitsch: Light</button>
+      <button id="theme-toggle" style="padding:4px 8px;border:1px solid var(--border);border-radius:4px;background:var(--surface);color:var(--text);font-size:0.8rem;cursor:pointer;">🌙</button>
     </div>
 
-    <!-- Kitsch Hero Section -->
-    <section class="hero">
-      <div class="kitsch-hero">
-        <div class="hero-stickers">
-          <span>💖</span>
-          <span>✨</span>
-          <span>🎀</span>
-          <span>🌸</span>
-        </div>
-        <div class="hero-sparkles">
-          <span></span>
-          <span></span>
-          <span></span>
-          <span></span>
-        </div>
-        <div class="hero-inner">
-          <div class="hero-copy">
-            <div class="hero-eyebrow">
-              <span>✨</span>
-              <span data-i18n="hero.eyebrow">K-Pop Alter Ego</span>
-            </div>
-            <h1 class="title-neon sparkle-word" data-i18n="main.h1">🎀💖 K‑Pop Idol Chemistry Name Generator ✨</h1>
-            <p class="hero-sub" data-i18n="main.lead">Create a perfect chemistry name with your favorite idol.</p>
-            <div class="hero-buttons">
-              <button class="btn jelly" onclick="scrollToForm()" data-i18n="form.submit">Make it sparkle</button>
-              <div class="hero-meta">
-                <span data-i18n="hero.meta1">Bias-worthy</span>
-                <span data-i18n="hero.meta2">Stage-ready</span>
-                <span data-i18n="hero.meta3">Main character energy</span>
-              </div>
-            </div>
-            <ul class="hero-checklist">
-              <li data-i18n="hero.checklist1">K-Pop ready</li>
-              <li data-i18n="hero.checklist2">Stage perfect</li>
-              <li data-i18n="hero.checklist3">Idol vibes</li>
-            </ul>
-          </div>
-        </div>
+    <!-- Compact Hero Section with Inline Form -->
+    <section class="hero-compact">
+      <style>
+        .hero-compact {
+          padding: 20px 0 16px;
+          text-align: center;
+        }
+        .hero-compact h1 {
+          font-size: 1.5rem;
+          margin: 0 0 8px;
+          background: linear-gradient(135deg, var(--accent), var(--secondary));
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          background-clip: text;
+        }
+        .hero-compact .hero-sub {
+          font-size: 0.95rem;
+          color: var(--muted);
+          margin: 0 0 16px;
+        }
+        .hero-inline-form {
+          display: flex;
+          gap: 8px;
+          max-width: 400px;
+          margin: 0 auto;
+          padding: 0 16px;
+        }
+        .hero-inline-form input {
+          flex: 1;
+          padding: 12px 16px;
+          border: 2px solid var(--border);
+          border-radius: 12px;
+          font-size: 1rem;
+          background: var(--surface);
+          color: var(--text);
+          transition: border-color 0.2s;
+        }
+        .hero-inline-form input:focus {
+          outline: none;
+          border-color: var(--accent);
+        }
+        .hero-inline-form input::placeholder {
+          color: var(--muted);
+        }
+        @media (max-width: 480px) {
+          .hero-compact h1 {
+            font-size: 1.3rem;
+          }
+          .hero-inline-form {
+            flex-direction: column;
+          }
+        }
+      </style>
+      <h1>✨ K-Pop Name Generator</h1>
+      <p class="hero-sub" data-i18n="main.lead">Create a perfect chemistry name with your favorite idol.</p>
+      <div class="hero-inline-form">
+        <input type="text" id="heroNameInput" placeholder="Enter your name..." data-i18n-placeholder="form.myName.placeholder" />
       </div>
     </section>
-
-
-    <!-- Divider Ribbon -->
-    <div class="divider-ribbon" data-i18n="divider.groups">Popular K-Pop Groups</div>
-
-    <p data-i18n="main.description">Create unique Korean names with your favorite K-Pop idols! Our name generator supports 11 groups including BTS, BLACKPINK, aespa, NewJeans, IVE, PLAVE, RIIZE, and more. Perfect for fanfiction, roleplay, and creative writing.</p>
     
     <!-- 🎯 Group Selection - Instagram Stories Style -->
-    <section class="group-stories-section" style="margin: 20px 0;">
+    <section class="group-stories-section" style="margin: 16px 0;">
+      <!-- Trending Label -->
+      <div class="trending-label" style="display: flex; align-items: center; justify-content: center; gap: 6px; margin-bottom: 8px; font-size: 0.85rem; font-weight: 600; color: var(--accent);">
+        <span>🔥</span>
+        <span>Pick Your Favorite Group</span>
+      </div>
       <style>
         /* Instagram Stories Style - Horizontal Scroll */
         .group-stories-wrapper {
@@ -671,7 +689,7 @@
           gap: 16px;
           overflow-x: auto;
           overflow-y: hidden;
-          padding: 12px 4px 16px;
+          padding: 12px 12px 16px;
           scroll-snap-type: x mandatory;
           -webkit-overflow-scrolling: touch;
           scrollbar-width: none;
@@ -766,9 +784,64 @@
           transition: all 0.3s ease;
         }
         
+        /* Instagram-style rotating gradient for HOT/NEW */
+        .group-story.has-badge .group-story-ring {
+          background: transparent;
+          overflow: visible;
+        }
+        
+        .group-story.has-badge .group-story-ring::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          bottom: 0;
+          border-radius: 50%;
+          background: conic-gradient(
+            var(--ring-color-1, #FF2E8B),
+            var(--ring-color-2, #B490FF),
+            #FFD700,
+            #00FF88,
+            #00D4FF,
+            var(--ring-color-1, #FF2E8B)
+          );
+          animation: spinRing 2s linear infinite;
+          z-index: 0;
+        }
+        
+        @keyframes spinRing {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+        
+        .group-story.has-badge .group-story-inner {
+          position: relative;
+          z-index: 2;
+          background: var(--surface);
+        }
+        
+        /* Badge z-index fix */
+        .group-story.has-badge .group-story-badge {
+          z-index: 10;
+        }
+        
+        /* Glow effect for badges */
+        .group-story.has-badge {
+          filter: drop-shadow(0 0 6px var(--ring-color-1));
+        }
+        
         .group-story:hover .group-story-ring {
           transform: scale(1.08);
           box-shadow: 0 4px 20px rgba(255, 46, 139, 0.3);
+        }
+        
+        .group-story.has-badge:hover {
+          filter: drop-shadow(0 0 12px var(--ring-color-1));
+        }
+        
+        .group-story.has-badge:hover .group-story-ring::before {
+          animation-duration: 1s;
         }
         
         .group-story-inner {
@@ -874,7 +947,7 @@
         
         <div class="group-stories-container" id="groupStoriesScroll">
         <!-- 🔥 HUNTR/X - Trending #1 (앞에 배치) -->
-        <a href="/pages/huntrix-name-generator/" class="group-story huntrix">
+        <a href="/pages/huntrix-name-generator/" class="group-story huntrix has-badge">
           <div class="group-story-ring">
             <span class="group-story-badge">🔥 HOT</span>
             <div class="group-story-inner">💚⚔️</div>
@@ -899,7 +972,7 @@
         </a>
         
         <!-- aespa - NEW -->
-        <a href="/pages/aespa-name-generator/" class="group-story aespa">
+        <a href="/pages/aespa-name-generator/" class="group-story aespa has-badge">
           <div class="group-story-ring">
             <span class="group-story-badge">NEW</span>
             <div class="group-story-inner">💜✨</div>
@@ -940,7 +1013,7 @@
         </a>
         
         <!-- PLAVE - NEW (Virtual) -->
-        <a href="/pages/plave-name-generator/" class="group-story plave">
+        <a href="/pages/plave-name-generator/" class="group-story plave has-badge">
           <div class="group-story-ring">
             <span class="group-story-badge">NEW</span>
             <div class="group-story-inner">🤖</div>
@@ -949,7 +1022,7 @@
         </a>
         
         <!-- RIIZE - NEW -->
-        <a href="/pages/riize-name-generator/" class="group-story riize">
+        <a href="/pages/riize-name-generator/" class="group-story riize has-badge">
           <div class="group-story-ring">
             <span class="group-story-badge">NEW</span>
             <div class="group-story-inner">🧡</div>
@@ -1005,6 +1078,58 @@
           
           // Initial check
           setTimeout(updateArrows, 100);
+        })();
+      </script>
+      
+      <!-- CTA Button -->
+      <div class="atf-cta" style="text-align: center; margin-top: 16px;">
+        <button class="btn jelly atf-generate-btn" id="atfGenerateBtn" style="padding: 14px 32px; font-size: 1.1rem; border-radius: 12px;">
+          ✨ Generate My K-Pop Name
+        </button>
+        <p style="margin-top: 8px; font-size: 0.8rem; color: var(--muted);">50+ idols • BTS, BLACKPINK, aespa & more</p>
+      </div>
+      
+      <!-- Hero Input Sync Script -->
+      <script>
+        (function() {
+          const heroInput = document.getElementById('heroNameInput');
+          const atfBtn = document.getElementById('atfGenerateBtn');
+          
+          if (heroInput && atfBtn) {
+            // Sync hero input to form input
+            heroInput.addEventListener('input', function() {
+              const formInput = document.getElementById('myName');
+              if (formInput) {
+                formInput.value = this.value;
+              }
+            });
+            
+            // Enter key to scroll and focus
+            heroInput.addEventListener('keypress', function(e) {
+              if (e.key === 'Enter') {
+                e.preventDefault();
+                scrollToFormAndFocus();
+              }
+            });
+            
+            // CTA button click
+            atfBtn.addEventListener('click', scrollToFormAndFocus);
+            
+            function scrollToFormAndFocus() {
+              const formInput = document.getElementById('myName');
+              const form = document.getElementById('form');
+              if (heroInput.value && formInput) {
+                formInput.value = heroInput.value;
+              }
+              if (form) {
+                form.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                setTimeout(() => {
+                  const idolSelect = document.getElementById('idol');
+                  if (idolSelect) idolSelect.focus();
+                }, 500);
+              }
+            }
+          }
         })();
       </script>
     </section>
