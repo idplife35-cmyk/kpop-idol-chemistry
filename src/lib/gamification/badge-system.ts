@@ -1,0 +1,202 @@
+/**
+ * Badge System
+ * Manages achievements and badges
+ */
+
+export interface Badge {
+  id: string;
+  name: string;
+  description: string;
+  icon: string;
+  category: 'level' | 'generation' | 'chemistry' | 'vs' | 'challenge' | 'collection' | 'social';
+  rarity: 'common' | 'uncommon' | 'rare' | 'legendary';
+}
+
+export const BADGES: Record<string, Badge> = {
+  // Level badges
+  level_2: { id: 'level_2', name: '열정적인 팬', description: '레벨 2 달성', icon: '🌟', category: 'level', rarity: 'common' },
+  level_3: { id: 'level_3', name: '전문가의 길', description: '레벨 3 달성', icon: '⭐', category: 'level', rarity: 'uncommon' },
+  level_4: { id: 'level_4', name: '마스터 등극', description: '레벨 4 달성', icon: '💫', category: 'level', rarity: 'rare' },
+  level_5: { id: 'level_5', name: '레전드 탄생', description: '레벨 5 달성', icon: '✨', category: 'level', rarity: 'legendary' },
+
+  // Generation badges
+  first_gen: { id: 'first_gen', name: '첫 발걸음', description: '첫 이름 생성', icon: '🎯', category: 'generation', rarity: 'common' },
+  gen_10: { id: 'gen_10', name: '열정의 시작', description: '10번 생성', icon: '🔥', category: 'generation', rarity: 'common' },
+  gen_50: { id: 'gen_50', name: '이름 마니아', description: '50번 생성', icon: '💯', category: 'generation', rarity: 'uncommon' },
+  gen_100: { id: 'gen_100', name: '백전백승', description: '100번 생성', icon: '🏆', category: 'generation', rarity: 'rare' },
+  gen_500: { id: 'gen_500', name: '전설의 생성자', description: '500번 생성', icon: '👑', category: 'generation', rarity: 'legendary' },
+
+  // Chemistry badges
+  chemistry_90: { id: 'chemistry_90', name: '완벽한 매치', description: '케미 90점 이상', icon: '💖', category: 'chemistry', rarity: 'uncommon' },
+  chemistry_95: { id: 'chemistry_95', name: '운명적 만남', description: '케미 95점 이상', icon: '💝', category: 'chemistry', rarity: 'rare' },
+  chemistry_100: { id: 'chemistry_100', name: '천생연분', description: '케미 100점!', icon: '💘', category: 'chemistry', rarity: 'legendary' },
+
+  // VS Mode badges
+  vs_first: { id: 'vs_first', name: '첫 대결', description: '첫 VS 모드', icon: '⚔️', category: 'vs', rarity: 'common' },
+  vs_10_wins: { id: 'vs_10_wins', name: '대결 고수', description: 'VS 모드 10승', icon: '🥊', category: 'vs', rarity: 'rare' },
+
+  // Social badges
+  share_first: { id: 'share_first', name: '공유의 시작', description: '첫 공유', icon: '📢', category: 'social', rarity: 'common' },
+  share_10: { id: 'share_10', name: '전파의 달인', description: '10번 공유', icon: '📣', category: 'social', rarity: 'uncommon' }
+};
+
+export const RARITY_CONFIG = {
+  common: { name: '일반', color: '#9E9E9E', glow: 'none' },
+  uncommon: { name: '희귀', color: '#4CAF50', glow: '0 0 10px #4CAF50' },
+  rare: { name: '레어', color: '#2196F3', glow: '0 0 15px #2196F3' },
+  legendary: { name: '전설', color: '#FF9800', glow: '0 0 20px #FF9800' }
+} as const;
+
+interface BadgeData {
+  badges: string[];
+  unlockedAt: Record<string, string>;
+  stats: {
+    vsWins: number;
+    vsTotal: number;
+    shares: number;
+    maxChemistry: number;
+  };
+}
+
+const STORAGE_KEY = 'kpop-user-badges';
+
+export function getBadgeData(): BadgeData {
+  if (typeof window === 'undefined') {
+    return getDefaultBadgeData();
+  }
+  
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (!saved) {
+    const data = getDefaultBadgeData();
+    saveBadgeData(data);
+    return data;
+  }
+  
+  return JSON.parse(saved);
+}
+
+function getDefaultBadgeData(): BadgeData {
+  return {
+    badges: [],
+    unlockedAt: {},
+    stats: { vsWins: 0, vsTotal: 0, shares: 0, maxChemistry: 0 }
+  };
+}
+
+export function saveBadgeData(data: BadgeData): void {
+  if (typeof window === 'undefined') return;
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+export function hasBadge(badgeId: string): boolean {
+  const data = getBadgeData();
+  return data.badges.includes(badgeId);
+}
+
+export function unlockBadge(badgeId: string): { unlocked: boolean; badge?: Badge } {
+  if (hasBadge(badgeId)) return { unlocked: false };
+  
+  const badge = BADGES[badgeId];
+  if (!badge) return { unlocked: false };
+  
+  const data = getBadgeData();
+  data.badges.push(badgeId);
+  data.unlockedAt[badgeId] = new Date().toISOString();
+  saveBadgeData(data);
+  
+  return { unlocked: true, badge };
+}
+
+export function getUnlockedBadges(): (Badge & { unlockedAt: string })[] {
+  const data = getBadgeData();
+  return data.badges.map(id => ({
+    ...BADGES[id],
+    unlockedAt: data.unlockedAt[id]
+  }));
+}
+
+export function getAllBadges(): (Badge & { unlocked: boolean; unlockedAt?: string })[] {
+  const data = getBadgeData();
+  return Object.values(BADGES).map(badge => ({
+    ...badge,
+    unlocked: data.badges.includes(badge.id),
+    unlockedAt: data.unlockedAt[badge.id]
+  }));
+}
+
+export function getBadgeProgress(): { unlocked: number; total: number; percentage: number } {
+  const data = getBadgeData();
+  const total = Object.keys(BADGES).length;
+  const unlocked = data.badges.length;
+  return {
+    unlocked,
+    total,
+    percentage: Math.round((unlocked / total) * 100)
+  };
+}
+
+// Badge check functions
+export function checkLevelBadges(level: number): void {
+  if (level >= 2) unlockBadge('level_2');
+  if (level >= 3) unlockBadge('level_3');
+  if (level >= 4) unlockBadge('level_4');
+  if (level >= 5) unlockBadge('level_5');
+}
+
+export function checkGenerationBadges(count: number): void {
+  if (count >= 1) unlockBadge('first_gen');
+  if (count >= 10) unlockBadge('gen_10');
+  if (count >= 50) unlockBadge('gen_50');
+  if (count >= 100) unlockBadge('gen_100');
+  if (count >= 500) unlockBadge('gen_500');
+}
+
+export function checkChemistryBadges(score: number): { unlocked: Badge[] } {
+  const unlocked: Badge[] = [];
+  
+  const data = getBadgeData();
+  if (score > data.stats.maxChemistry) {
+    data.stats.maxChemistry = score;
+    saveBadgeData(data);
+  }
+  
+  if (score >= 90) {
+    const result = unlockBadge('chemistry_90');
+    if (result.unlocked && result.badge) unlocked.push(result.badge);
+  }
+  if (score >= 95) {
+    const result = unlockBadge('chemistry_95');
+    if (result.unlocked && result.badge) unlocked.push(result.badge);
+  }
+  if (score >= 100) {
+    const result = unlockBadge('chemistry_100');
+    if (result.unlocked && result.badge) unlocked.push(result.badge);
+  }
+  
+  return { unlocked };
+}
+
+export function checkVSBadges(won: boolean): void {
+  const data = getBadgeData();
+  data.stats.vsTotal++;
+  if (won) data.stats.vsWins++;
+  saveBadgeData(data);
+  
+  if (data.stats.vsTotal >= 1) unlockBadge('vs_first');
+  if (data.stats.vsWins >= 10) unlockBadge('vs_10_wins');
+}
+
+export function checkShareBadges(): void {
+  const data = getBadgeData();
+  data.stats.shares++;
+  saveBadgeData(data);
+  
+  if (data.stats.shares >= 1) unlockBadge('share_first');
+  if (data.stats.shares >= 10) unlockBadge('share_10');
+}
+
+export function resetBadges(): void {
+  if (typeof window === 'undefined') return;
+  localStorage.removeItem(STORAGE_KEY);
+}
+

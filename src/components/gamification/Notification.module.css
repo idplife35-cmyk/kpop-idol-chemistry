@@ -1,0 +1,102 @@
+/* Notification Styles */
+
+.container {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 320px;
+}
+
+.notification {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.875rem 1rem;
+  border-radius: 12px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  box-shadow: 0 8px 24px var(--shadow);
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.notification.exit {
+  animation: slideOut 0.3s ease-out forwards;
+}
+
+@keyframes slideOut {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
+.icon {
+  font-size: 1.5rem;
+  flex-shrink: 0;
+}
+
+.message {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.4;
+}
+
+/* Type-specific styles */
+.notification.success {
+  border-color: #4CAF50;
+  background: linear-gradient(135deg, var(--surface), rgba(76, 175, 80, 0.1));
+}
+
+.notification.badge {
+  border-color: #FF9800;
+  background: linear-gradient(135deg, var(--surface), rgba(255, 152, 0, 0.1));
+}
+
+.notification.levelup {
+  border-color: #9C27B0;
+  background: linear-gradient(135deg, var(--surface), rgba(156, 39, 176, 0.1));
+  animation: slideIn 0.3s ease-out, glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 20px rgba(156, 39, 176, 0.3);
+  }
+  to {
+    box-shadow: 0 0 30px rgba(156, 39, 176, 0.5);
+  }
+}
+
+.notification.info {
+  border-color: #2196F3;
+  background: linear-gradient(135deg, var(--surface), rgba(33, 150, 243, 0.1));
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .container {
+    left: 1rem;
+    right: 1rem;
+    max-width: none;
+  }
+}
+

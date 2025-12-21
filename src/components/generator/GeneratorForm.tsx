@@ -5,6 +5,16 @@
 
 import { useState, useMemo } from 'react';
 import { generate, getChemistryDescription, RELATION_OPTIONS, type RelationType, type GeneratorResult } from '@/lib/generator';
+import {
+  addXP,
+  XP_REWARDS,
+  recordGeneration,
+  checkChemistryBadges,
+  checkGenerationBadges,
+  addToHistory,
+  getLevelStats
+} from '@/lib/gamification';
+import { showNotification } from '@/components/gamification/Notification';
 import idolsData from '@/data/idols.json';
 
 interface Idol {
@@ -71,6 +81,61 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
       
       setResult(result);
       setIsGenerating(false);
+
+      // Gamification integration
+      try {
+        // Record stats
+        recordGeneration(
+          selectedIdol.name_kr,
+          selectedIdol.group,
+          relation,
+          result.chemistry,
+          result.styled.full_kr
+        );
+
+        // Add to history
+        addToHistory({
+          myName: myName.trim(),
+          idol: {
+            group: selectedIdol.group,
+            nameEn: selectedIdol.name_en,
+            nameKr: selectedIdol.name_kr
+          },
+          result: {
+            nameKr: result.styled.full_kr,
+            nameEn: result.styled.full_en,
+            chemistry: result.chemistry
+          },
+          relation
+        });
+
+        // Determine XP type based on chemistry
+        let xpType: 'generate' | 'high_chemistry' | 'perfect_chemistry' = 'generate';
+        if (result.chemistry === 100) xpType = 'perfect_chemistry';
+        else if (result.chemistry >= 90) xpType = 'high_chemistry';
+
+        // Add XP
+        const xpAmount = XP_REWARDS[xpType];
+        const xpResult = addXP(xpAmount, xpType);
+        
+        if (xpResult.leveledUp && xpResult.newLevel) {
+          showNotification(`🎉 Level Up! Level ${xpResult.newLevel}`, 'levelup');
+        }
+
+        // Check badges
+        const stats = getLevelStats();
+        checkGenerationBadges(stats.totalGenerations);
+        
+        const badgeResult = checkChemistryBadges(result.chemistry);
+        badgeResult.unlocked.forEach(badge => {
+          showNotification(`🏆 Badge: ${badge.name}`, 'badge', badge.icon);
+        });
+
+        // Dispatch level update event for UI refresh
+        window.dispatchEvent(new Event('levelUpdate'));
+      } catch (e) {
+        console.error('Gamification error:', e);
+      }
     }, 300);
   };
 
@@ -233,7 +298,12 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
               onClick={() => {
                 const text = `My K-Pop name with ${selectedIdol?.name_en} is ${result.styled.full_kr} (${result.styled.full_en})! Chemistry: ${result.chemistry}% ${chemistryInfo?.emoji}\n\nTry yours: https://kpopnamegenerator.com`;
                 navigator.clipboard.writeText(text);
-                alert('Copied to clipboard!');
+                showNotification('Copied to clipboard!', 'success', '📋');
+                
+                // Track share for badges
+                import('@/lib/gamification').then(({ checkShareBadges }) => {
+                  checkShareBadges();
+                });
               }}
             >
               📋 Copy Result

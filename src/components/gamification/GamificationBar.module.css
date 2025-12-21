@@ -1,0 +1,73 @@
+/* Gamification Bar Styles */
+
+.bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.levelBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px 4px 4px;
+  border-radius: 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.levelBtn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.levelCircle {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: white;
+}
+
+.levelName {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.historyBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s, background 0.2s;
+}
+
+.historyBtn:hover {
+  transform: translateY(-1px);
+  background: var(--surface-alt);
+}
+
+/* Mobile */
+@media (max-width: 480px) {
+  .levelName {
+    display: none;
+  }
+  
+  .levelBtn {
+    padding: 4px;
+  }
+}
+
