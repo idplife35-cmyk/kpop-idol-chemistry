@@ -1,0 +1,154 @@
+---
+interface Props {
+  name: string;
+  nameKr?: string;
+  fandom?: string;
+  description?: string;
+  color?: string;
+  logo?: string;
+}
+
+const { name, nameKr, fandom, description, color, logo } = Astro.props;
+---
+
+<div class="group-banner" style={color ? `--group-color: ${color}` : ''}>
+  <div class="banner-content">
+    {logo && (
+      <div class="banner-logo">
+        <img src={logo} alt={`${name} logo`} />
+      </div>
+    )}
+    <div class="banner-text">
+      <h1 class="group-name">
+        {name}
+        {nameKr && <span class="name-kr">{nameKr}</span>}
+      </h1>
+      {fandom && (
+        <p class="fandom-tag">
+          <span class="fandom-icon">💜</span>
+          For {fandom}
+        </p>
+      )}
+      {description && (
+        <p class="description">{description}</p>
+      )}
+    </div>
+  </div>
+</div>
+
+<style>
+  .group-banner {
+    background: linear-gradient(135deg, var(--group-color, var(--accent)) 0%, var(--accent-2) 100%);
+    border-radius: var(--radius-lg);
+    padding: 32px;
+    margin-bottom: 24px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .group-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+    pointer-events: none;
+  }
+  
+  .banner-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    gap: 24px;
+  }
+  
+  .banner-logo {
+    width: 80px;
+    height: 80px;
+    background: white;
+    border-radius: 16px;
+    padding: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .banner-logo img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+  .banner-text {
+    flex: 1;
+  }
+  
+  .group-name {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0;
+    color: white;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  }
+  
+  .name-kr {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.9;
+    margin-left: 8px;
+  }
+  
+  .fandom-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255,255,255,0.2);
+    padding: 4px 12px;
+    border-radius: var(--radius-full);
+    font-size: 0.85rem;
+    margin: 8px 0;
+  }
+  
+  .fandom-icon {
+    font-size: 1rem;
+  }
+  
+  .description {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    margin: 8px 0 0;
+    max-width: 500px;
+  }
+  
+  @media (max-width: 600px) {
+    .group-banner {
+      padding: 20px;
+    }
+    
+    .banner-content {
+      flex-direction: column;
+      text-align: center;
+    }
+    
+    .banner-logo {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .group-name {
+      font-size: 1.5rem;
+    }
+    
+    .name-kr {
+      display: block;
+      margin-left: 0;
+      margin-top: 4px;
+    }
+  }
+</style>
+

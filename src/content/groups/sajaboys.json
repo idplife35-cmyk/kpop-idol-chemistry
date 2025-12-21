@@ -1,0 +1,27 @@
+{
+  "id": "sajaboys",
+  "name": "Saja Boys",
+  "nameKr": "사자 보이즈",
+  "slug": "sajaboys",
+  "fandom": "Lions",
+  "company": "Independent",
+  "debutYear": 2024,
+  "color": "#FFD700",
+  "logo": "/images/Saja_Boys_Logo.webp",
+  "description": "Saja Boys is a unique concept group featuring mysterious and charismatic members with a lion-inspired theme.",
+  "members": [
+    { "id": "jinu", "nameKr": "진우", "nameEn": "Jinu", "gender": "male", "position": ["Leader", "Main Vocalist"], "birthYear": 1999 },
+    { "id": "abby", "nameKr": "애비", "nameEn": "Abby", "gender": "male", "position": ["Main Dancer", "Visual"], "birthYear": 2000 },
+    { "id": "mystery", "nameKr": "미스테리", "nameEn": "Mystery", "gender": "male", "position": ["Lead Rapper"], "birthYear": 2001 },
+    { "id": "romance", "nameKr": "로맨스", "nameEn": "Romance", "gender": "male", "position": ["Lead Vocalist"], "birthYear": 2002 },
+    { "id": "baby", "nameKr": "베이비", "nameEn": "Baby", "gender": "male", "position": ["Sub Vocalist", "Maknae"], "birthYear": 2003 }
+  ],
+  "pageTypes": ["name", "stage-name"],
+  "badge": null,
+  "seo": {
+    "title": "Saja Boys Name Generator | Create Your Korean Name with Lions",
+    "description": "Create your Saja Boys name with Jinu, Abby, Mystery, Romance & Baby! Instant chemistry scores & Korean names. Perfect for Lions fanfiction.",
+    "keywords": ["saja boys name generator", "saja boys korean name", "lions fandom name", "saja boys chemistry"]
+  }
+}
+

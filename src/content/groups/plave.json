@@ -1,0 +1,27 @@
+{
+  "id": "plave",
+  "name": "PLAVE",
+  "nameKr": "플레이브",
+  "slug": "plave",
+  "fandom": "PLLI",
+  "company": "VLAST",
+  "debutYear": 2023,
+  "color": "#00D4FF",
+  "logo": "/images/plave_logo.png",
+  "description": "PLAVE is a virtual K-Pop idol group featuring AI-generated avatars with real vocalists, pioneering the future of K-Pop entertainment.",
+  "members": [
+    { "id": "yejun", "nameKr": "예준", "nameEn": "Yejun", "gender": "male", "position": ["Leader", "Main Vocalist"], "birthYear": 1998 },
+    { "id": "noah", "nameKr": "노아", "nameEn": "Noah", "gender": "male", "position": ["Lead Vocalist", "Visual"], "birthYear": 1999 },
+    { "id": "bamby", "nameKr": "밤비", "nameEn": "Bamby", "gender": "male", "position": ["Main Dancer", "Lead Rapper"], "birthYear": 2000 },
+    { "id": "eunho", "nameKr": "은호", "nameEn": "Eunho", "gender": "male", "position": ["Lead Dancer", "Sub Vocalist"], "birthYear": 2001 },
+    { "id": "hamin", "nameKr": "하민", "nameEn": "Hamin", "gender": "male", "position": ["Sub Vocalist", "Maknae"], "birthYear": 2002 }
+  ],
+  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "badge": "NEW",
+  "seo": {
+    "title": "PLAVE Name Generator | Create Your Virtual K-Pop Name with PLLI",
+    "description": "Create your PLAVE name with Yejun, Noah, Bamby, Eunho & Hamin! Instant chemistry scores with the virtual idols. Perfect for PLLI fanfiction.",
+    "keywords": ["plave name generator", "plave korean name", "plli name generator", "virtual idol name", "plave yejun chemistry"]
+  }
+}
+

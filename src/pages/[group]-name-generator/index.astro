@@ -1,0 +1,219 @@
+---
+/**
+ * Dynamic Group Name Generator Page
+ * Generates a page for each group defined in content/groups/
+ */
+
+import { getCollection } from 'astro:content';
+import GeneratorLayout from '@/layouts/GeneratorLayout.astro';
+import GroupBanner from '@/components/generator/GroupBanner.astro';
+import MemberGrid from '@/components/generator/MemberGrid.astro';
+import GeneratorForm from '@/components/generator/GeneratorForm';
+
+// Generate static paths for all groups
+export async function getStaticPaths() {
+  const groups = await getCollection('groups');
+  
+  return groups
+    .filter(group => group.data.pageTypes.includes('name'))
+    .map(group => ({
+      params: { group: group.data.slug },
+      props: { groupData: group.data }
+    }));
+}
+
+const { groupData } = Astro.props;
+
+// Transform members for idols.json format compatibility
+const idolsForForm = groupData.members.map(m => ({
+  group: groupData.name,
+  name_kr: m.nameKr,
+  name_en: m.nameEn,
+  gender: m.gender
+}));
+
+// Create FAQ Schema
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": `How does the ${groupData.name} name generator work?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `Our ${groupData.name} name generator creates authentic Korean names inspired by ${groupData.name} members. Enter your name, select your favorite member, and get a personalized Korean name with a chemistry score!`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": `Can I generate names with all ${groupData.name} members?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `Yes! You can generate names with all ${groupData.members.length} ${groupData.name} members: ${groupData.members.map(m => m.nameEn).join(', ')}.`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": `What is the chemistry score in the ${groupData.name} name generator?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `The chemistry score (70-100%) shows your compatibility with the selected ${groupData.name} member. Higher scores indicate better matches based on your name and the relationship type you choose.`
+      }
+    },
+    {
+      "@type": "Question",
+      "name": `Is the ${groupData.name} name generator free?`,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": `Yes, our ${groupData.name} name generator is completely free! Generate as many names as you want with your favorite ${groupData.fandom || groupData.name} members.`
+      }
+    }
+  ]
+};
+
+// Combined schema
+const pageSchema = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": groupData.seo.title,
+      "description": groupData.seo.description,
+      "applicationCategory": "EntertainmentApplication",
+      "operatingSystem": "All",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      },
+      "inLanguage": ["en", "ko"]
+    },
+    faqSchema
+  ]
+};
+---
+
+<GeneratorLayout
+  title={groupData.seo.title}
+  description={groupData.seo.description}
+  keywords={groupData.seo.keywords}
+  schema={pageSchema}
+  groupColor={groupData.color}
+>
+  <!-- Group Banner -->
+  <GroupBanner
+    name={groupData.name}
+    nameKr={groupData.nameKr}
+    fandom={groupData.fandom}
+    description={groupData.description}
+    color={groupData.color}
+    logo={groupData.logo}
+  />
+  
+  <!-- Member Grid -->
+  <MemberGrid 
+    members={groupData.members} 
+    groupName={groupData.name}
+  />
+  
+  <!-- Generator Form -->
+  <section class="generator-section">
+    <div class="card">
+      <h2>🎤 Generate Your {groupData.name} Name</h2>
+      <p class="text-muted mb-3">
+        Select a {groupData.name} member and create your Korean name with chemistry score!
+      </p>
+      
+      <GeneratorForm 
+        client:load 
+        initialGroup={groupData.name}
+        showAllGroups={false}
+      />
+    </div>
+  </section>
+  
+  <!-- FAQ Section -->
+  <section class="faq-section" slot="after-content">
+    <h2 class="text-center mb-3">❓ FAQ - {groupData.name} Name Generator</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>How does the {groupData.name} name generator work?</summary>
+        <p>Our {groupData.name} name generator creates authentic Korean names inspired by {groupData.name} members. Enter your name, select your favorite member, and get a personalized Korean name with a chemistry score!</p>
+      </details>
+      
+      <details class="faq-item">
+        <summary>Can I generate names with all {groupData.name} members?</summary>
+        <p>Yes! You can generate names with all {groupData.members.length} {groupData.name} members: {groupData.members.map(m => m.nameEn).join(', ')}.</p>
+      </details>
+      
+      <details class="faq-item">
+        <summary>What is the chemistry score?</summary>
+        <p>The chemistry score (70-100%) shows your compatibility with the selected {groupData.name} member. Higher scores indicate better matches based on your name and the relationship type you choose.</p>
+      </details>
+      
+      <details class="faq-item">
+        <summary>Is the {groupData.name} name generator free?</summary>
+        <p>Yes, our {groupData.name} name generator is completely free! Generate as many names as you want with your favorite {groupData.fandom || groupData.name} members.</p>
+      </details>
+      
+      <details class="faq-item">
+        <summary>Can I share my {groupData.name} name results?</summary>
+        <p>Absolutely! After generating your name, you can copy your results and share them on social media. Show your {groupData.fandom || 'fan'} friends your chemistry score with {groupData.name}!</p>
+      </details>
+      
+      <details class="faq-item">
+        <summary>What relationship types can I choose?</summary>
+        <p>You can generate names as different relationship types: Lover, Best Friend, Soulmate, Stage Partner, Drama Lead, Rival, Sibling, or Classmate. Each type creates a different style of Korean name!</p>
+      </details>
+    </div>
+  </section>
+</GeneratorLayout>
+
+<style>
+  .generator-section .card {
+    padding: 24px;
+    margin: 24px 0;
+  }
+  
+  .faq-section {
+    margin-top: 40px;
+  }
+  
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .faq-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  
+  .faq-item summary {
+    padding: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text);
+    transition: background var(--transition-fast);
+  }
+  
+  .faq-item summary:hover {
+    background: var(--chip);
+  }
+  
+  .faq-item[open] summary {
+    border-bottom: 1px solid var(--border);
+  }
+  
+  .faq-item p {
+    padding: 16px;
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+</style>
+

@@ -1,0 +1,35 @@
+{
+  "id": "seventeen",
+  "name": "SEVENTEEN",
+  "nameKr": "세븐틴",
+  "slug": "seventeen",
+  "fandom": "CARAT",
+  "company": "Pledis/HYBE",
+  "debutYear": 2015,
+  "color": "#F5C9D0",
+  "logo": "/images/seventeen_logo.png",
+  "description": "SEVENTEEN is a 13-member K-Pop group known for their self-producing abilities, synchronized performances, and three specialized units.",
+  "members": [
+    { "id": "scoups", "nameKr": "에스쿱스", "nameEn": "S.Coups", "gender": "male", "position": ["Leader", "Hip-hop Unit Leader", "Main Rapper"], "birthYear": 1995 },
+    { "id": "jeonghan", "nameKr": "정한", "nameEn": "Jeonghan", "gender": "male", "position": ["Vocal Unit", "Lead Vocalist"], "birthYear": 1995 },
+    { "id": "joshua", "nameKr": "조슈아", "nameEn": "Joshua", "gender": "male", "position": ["Vocal Unit", "Lead Vocalist"], "birthYear": 1995 },
+    { "id": "jun", "nameKr": "준", "nameEn": "Jun", "gender": "male", "position": ["Performance Unit", "Lead Dancer"], "birthYear": 1996 },
+    { "id": "hoshi", "nameKr": "호시", "nameEn": "Hoshi", "gender": "male", "position": ["Performance Unit Leader", "Main Dancer"], "birthYear": 1996 },
+    { "id": "wonwoo", "nameKr": "원우", "nameEn": "Wonwoo", "gender": "male", "position": ["Hip-hop Unit", "Lead Rapper"], "birthYear": 1996 },
+    { "id": "woozi", "nameKr": "우지", "nameEn": "Woozi", "gender": "male", "position": ["Vocal Unit Leader", "Main Vocalist", "Producer"], "birthYear": 1996 },
+    { "id": "dk", "nameKr": "도겸", "nameEn": "DK", "gender": "male", "position": ["Vocal Unit", "Main Vocalist"], "birthYear": 1997 },
+    { "id": "mingyu", "nameKr": "민규", "nameEn": "Mingyu", "gender": "male", "position": ["Hip-hop Unit", "Lead Rapper", "Visual"], "birthYear": 1997 },
+    { "id": "the8", "nameKr": "디에잇", "nameEn": "The8", "gender": "male", "position": ["Performance Unit", "Lead Dancer"], "birthYear": 1997 },
+    { "id": "seungkwan", "nameKr": "승관", "nameEn": "Seungkwan", "gender": "male", "position": ["Vocal Unit", "Lead Vocalist"], "birthYear": 1998 },
+    { "id": "vernon", "nameKr": "버논", "nameEn": "Vernon", "gender": "male", "position": ["Hip-hop Unit", "Main Rapper"], "birthYear": 1998 },
+    { "id": "dino", "nameKr": "디노", "nameEn": "Dino", "gender": "male", "position": ["Performance Unit", "Main Dancer", "Maknae"], "birthYear": 1999 }
+  ],
+  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "badge": null,
+  "seo": {
+    "title": "SEVENTEEN Name Generator | Create Your Korean Name with CARAT",
+    "description": "Create your SEVENTEEN name with all 13 members - S.Coups, Jeonghan, Joshua, Jun, Hoshi & more! Instant chemistry scores. Perfect for CARAT fanfiction.",
+    "keywords": ["seventeen name generator", "seventeen korean name", "carat name generator", "seventeen mingyu chemistry", "svt name generator"]
+  }
+}
+

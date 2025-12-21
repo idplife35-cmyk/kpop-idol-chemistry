@@ -1,4 +1,5 @@
 ---
+import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import AdSlot from '@/components/common/AdSlot.astro';
 import GeneratorForm from '@/components/generator/GeneratorForm';
@@ -39,19 +40,21 @@ const schema = {
   "inLanguage": ["en", "ko"]
 };
 
-// 그룹 데이터 (나중에 content collection에서 가져올 예정)
-const groups = [
-  { id: 'bts', name: 'BTS', slug: 'bts', badge: null },
-  { id: 'blackpink', name: 'BLACKPINK', slug: 'blackpink', badge: null },
-  { id: 'seventeen', name: 'SEVENTEEN', slug: 'seventeen', badge: null },
-  { id: 'stray-kids', name: 'Stray Kids', slug: 'stray-kids', badge: null },
-  { id: 'newjeans', name: 'NewJeans', slug: 'newjeans', badge: 'HOT' },
-  { id: 'ive', name: 'IVE', slug: 'ive', badge: null },
-  { id: 'aespa', name: 'aespa', slug: 'aespa', badge: null },
-  { id: 'plave', name: 'PLAVE', slug: 'plave', badge: 'NEW' },
-  { id: 'riize', name: 'RIIZE', slug: 'riize', badge: 'NEW' },
-  { id: 'huntrix', name: 'HUNTR/X', slug: 'huntrix', badge: 'HOT' },
-];
+// Content Collection에서 그룹 데이터 가져오기
+const groupsCollection = await getCollection('groups');
+const groups = groupsCollection
+  .map(g => ({
+    id: g.data.id,
+    name: g.data.name,
+    slug: g.data.slug,
+    badge: g.data.badge || null
+  }))
+  .sort((a, b) => {
+    // HOT과 NEW 배지가 있는 그룹을 앞으로
+    if (a.badge && !b.badge) return -1;
+    if (!a.badge && b.badge) return 1;
+    return 0;
+  });
 ---
 
 <BaseLayout 

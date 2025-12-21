@@ -1,0 +1,26 @@
+{
+  "id": "aespa",
+  "name": "aespa",
+  "nameKr": "에스파",
+  "slug": "aespa",
+  "fandom": "MY",
+  "company": "SM Entertainment",
+  "debutYear": 2020,
+  "color": "#8B00FF",
+  "logo": "/images/aespa_logo.png",
+  "description": "aespa is a unique K-Pop group featuring both real members and virtual AI avatars, known for their futuristic concept and powerful performances.",
+  "members": [
+    { "id": "karina", "nameKr": "카리나", "nameEn": "Karina", "gender": "female", "position": ["Leader", "Main Dancer", "Lead Rapper", "Sub Vocalist"], "birthYear": 2000 },
+    { "id": "giselle", "nameKr": "지젤", "nameEn": "Giselle", "gender": "female", "position": ["Main Rapper", "Sub Vocalist"], "birthYear": 2000 },
+    { "id": "winter", "nameKr": "윈터", "nameEn": "Winter", "gender": "female", "position": ["Lead Vocalist", "Lead Dancer", "Visual"], "birthYear": 2001 },
+    { "id": "ningning", "nameKr": "닝닝", "nameEn": "Ningning", "gender": "female", "position": ["Main Vocalist", "Maknae"], "birthYear": 2002 }
+  ],
+  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "badge": null,
+  "seo": {
+    "title": "aespa Name Generator | Create Your Korean Name with MY",
+    "description": "Create your aespa name with Karina, Giselle, Winter & Ningning! Instant chemistry scores & Korean stage names. Perfect for MY fanfiction.",
+    "keywords": ["aespa name generator", "aespa korean name", "my name generator", "aespa karina chemistry", "aespa winter name"]
+  }
+}
+

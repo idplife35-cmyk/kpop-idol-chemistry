@@ -1,0 +1,144 @@
+{
+  "$ref": "#/definitions/groups",
+  "definitions": {
+    "groups": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "nameKr": {
+          "type": "string"
+        },
+        "slug": {
+          "type": "string"
+        },
+        "fandom": {
+          "type": "string"
+        },
+        "company": {
+          "type": "string"
+        },
+        "debutYear": {
+          "type": "number"
+        },
+        "color": {
+          "type": "string"
+        },
+        "logo": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "members": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "id": {
+                "type": "string"
+              },
+              "nameKr": {
+                "type": "string"
+              },
+              "nameEn": {
+                "type": "string"
+              },
+              "gender": {
+                "type": "string",
+                "enum": [
+                  "male",
+                  "female"
+                ]
+              },
+              "position": {
+                "type": "array",
+                "items": {
+                  "type": "string"
+                }
+              },
+              "birthYear": {
+                "type": "number"
+              },
+              "image": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "id",
+              "nameKr",
+              "nameEn",
+              "gender"
+            ],
+            "additionalProperties": false
+          }
+        },
+        "pageTypes": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "name",
+              "stage-name",
+              "aesthetic"
+            ]
+          }
+        },
+        "badge": {
+          "anyOf": [
+            {
+              "type": "string",
+              "enum": [
+                "HOT",
+                "NEW"
+              ]
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "seo": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "keywords": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "required": [
+            "title",
+            "description",
+            "keywords"
+          ],
+          "additionalProperties": false
+        },
+        "$schema": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id",
+        "name",
+        "slug",
+        "members",
+        "pageTypes",
+        "seo"
+      ],
+      "additionalProperties": false
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#"
+}

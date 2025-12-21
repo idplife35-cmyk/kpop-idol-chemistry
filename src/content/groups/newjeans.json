@@ -1,0 +1,27 @@
+{
+  "id": "newjeans",
+  "name": "NewJeans",
+  "nameKr": "뉴진스",
+  "slug": "newjeans",
+  "fandom": "Bunnies",
+  "company": "ADOR/HYBE",
+  "debutYear": 2022,
+  "color": "#0066FF",
+  "logo": "/images/newjeans_logo.png",
+  "description": "NewJeans is a trendsetting K-Pop girl group known for their fresh, Y2K-inspired aesthetic and catchy music that blends various genres.",
+  "members": [
+    { "id": "minji", "nameKr": "민지", "nameEn": "Minji", "gender": "female", "position": ["Leader", "Lead Dancer", "Sub Vocalist"], "birthYear": 2004 },
+    { "id": "hanni", "nameKr": "하니", "nameEn": "Hanni", "gender": "female", "position": ["Lead Vocalist", "Lead Dancer"], "birthYear": 2004 },
+    { "id": "danielle", "nameKr": "다니엘", "nameEn": "Danielle", "gender": "female", "position": ["Sub Vocalist", "Sub Rapper"], "birthYear": 2005 },
+    { "id": "haerin", "nameKr": "해린", "nameEn": "Haerin", "gender": "female", "position": ["Lead Vocalist", "Visual"], "birthYear": 2006 },
+    { "id": "hyein", "nameKr": "혜인", "nameEn": "Hyein", "gender": "female", "position": ["Main Rapper", "Sub Vocalist", "Maknae"], "birthYear": 2008 }
+  ],
+  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "badge": "HOT",
+  "seo": {
+    "title": "NewJeans Name Generator | Create Your Korean Name with Bunnies",
+    "description": "Create your NewJeans name with Minji, Hanni, Danielle, Haerin & Hyein! Instant chemistry scores & Korean names. Perfect for Bunnies fanfiction.",
+    "keywords": ["newjeans name generator", "newjeans korean name", "bunnies name generator", "newjeans minji chemistry", "newjeans hanni name"]
+  }
+}
+
