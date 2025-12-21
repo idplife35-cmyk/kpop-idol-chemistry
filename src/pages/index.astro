@@ -1,0 +1,473 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import AdSlot from '@/components/common/AdSlot.astro';
+
+const title = "KPOP Idol Chemistry Name Generator | FREE Korean Name Maker";
+const description = "Create your perfect K-Pop name with BTS, BLACKPINK, aespa, NewJeans, PLAVE, RIIZE & more! Get instant chemistry scores with 65+ idols. Free Korean name generator for all K-Pop fans.";
+const keywords = [
+  "kpop name generator",
+  "korean name generator", 
+  "bts name generator",
+  "blackpink name generator",
+  "kpop idol chemistry",
+  "korean name maker"
+];
+
+// Schema.org 데이터
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "KPOP Idol Chemistry Name Generator",
+  "alternateName": ["K-Pop Name Generator", "Korean Name Maker"],
+  "url": "https://kpopnamegenerator.com/",
+  "description": description,
+  "applicationCategory": "EntertainmentApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "featureList": [
+    "Generate Korean names with 65+ K-Pop idols",
+    "Chemistry score calculator (70-100%)",
+    "VS Mode - Battle with friends",
+    "Multiple relationship types",
+    "Share on social media"
+  ],
+  "inLanguage": ["en", "ko"]
+};
+
+// 그룹 데이터 (나중에 content collection에서 가져올 예정)
+const groups = [
+  { id: 'bts', name: 'BTS', slug: 'bts', badge: null },
+  { id: 'blackpink', name: 'BLACKPINK', slug: 'blackpink', badge: null },
+  { id: 'seventeen', name: 'SEVENTEEN', slug: 'seventeen', badge: null },
+  { id: 'stray-kids', name: 'Stray Kids', slug: 'stray-kids', badge: null },
+  { id: 'newjeans', name: 'NewJeans', slug: 'newjeans', badge: 'HOT' },
+  { id: 'ive', name: 'IVE', slug: 'ive', badge: null },
+  { id: 'aespa', name: 'aespa', slug: 'aespa', badge: null },
+  { id: 'plave', name: 'PLAVE', slug: 'plave', badge: 'NEW' },
+  { id: 'riize', name: 'RIIZE', slug: 'riize', badge: 'NEW' },
+  { id: 'huntrix', name: 'HUNTR/X', slug: 'huntrix', badge: 'HOT' },
+];
+---
+
+<BaseLayout 
+  title={title}
+  description={description}
+  keywords={keywords}
+  schema={schema}
+>
+  <div class="home-page">
+    <div class="container">
+      
+      <!-- Hero Section -->
+      <section class="hero">
+        <h1 class="title-neon">KPOP Idol Chemistry</h1>
+        <p class="hero-subtitle">Create your perfect Korean name with your favorite idols!</p>
+        
+        <!-- Quick Input -->
+        <div class="quick-input">
+          <input 
+            type="text" 
+            id="hero-name-input"
+            placeholder="Enter your name..."
+            autocomplete="off"
+          />
+          <button class="btn primary" id="hero-generate-btn">
+            ✨ Generate
+          </button>
+        </div>
+      </section>
+      
+      <!-- Group Stories (Instagram Style) -->
+      <section class="group-stories-section">
+        <div class="section-header">
+          <span class="trending-label">🔥 Trending Now</span>
+        </div>
+        
+        <div class="group-stories-wrapper">
+          <button class="scroll-arrow left" id="scroll-left" aria-label="Scroll left">
+            ‹
+          </button>
+          
+          <div class="group-stories-container" id="group-stories">
+            {groups.map((group) => (
+              <a href={`/${group.slug}-name-generator/`} class="group-story" data-badge={group.badge}>
+                <div class={`group-story-ring ${group.badge ? 'has-badge' : ''}`}>
+                  <div class="group-story-inner">
+                    <span class="group-initial">{group.name[0]}</span>
+                  </div>
+                </div>
+                {group.badge && (
+                  <span class="group-story-badge">{group.badge}</span>
+                )}
+                <span class="group-story-name">{group.name}</span>
+              </a>
+            ))}
+          </div>
+          
+          <button class="scroll-arrow right" id="scroll-right" aria-label="Scroll right">
+            ›
+          </button>
+        </div>
+      </section>
+      
+      <!-- Ad Slot -->
+      <AdSlot type="responsive" />
+      
+      <!-- Main Generator Card -->
+      <section class="generator-section">
+        <div class="card">
+          <h2>🎤 Name Generator</h2>
+          <p class="text-muted mb-3">Select your favorite idol and create your Korean name!</p>
+          
+          <!-- Generator Form will be a React component -->
+          <div id="generator-form-root">
+            <!-- React component will mount here -->
+            <noscript>
+              <p>Please enable JavaScript to use the name generator.</p>
+            </noscript>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Features Grid -->
+      <section class="features-section mt-4">
+        <h2 class="text-center mb-3">✨ Features</h2>
+        <div class="features-grid">
+          <div class="feature-card">
+            <span class="feature-icon">🎯</span>
+            <h3>65+ Idols</h3>
+            <p>BTS, BLACKPINK, NewJeans, SEVENTEEN & more</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">💜</span>
+            <h3>Chemistry Score</h3>
+            <p>Get your compatibility score (70-100%)</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">⚔️</span>
+            <h3>VS Mode</h3>
+            <p>Battle with friends!</p>
+          </div>
+          <div class="feature-card">
+            <span class="feature-icon">🏆</span>
+            <h3>Badges & Levels</h3>
+            <p>Collect badges and level up</p>
+          </div>
+        </div>
+      </section>
+      
+      <!-- FAQ Section -->
+      <section class="faq-section mt-4">
+        <h2 class="text-center mb-3">❓ FAQ</h2>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>How does the K-Pop name generator work?</summary>
+            <p>Our generator uses authentic Korean syllables and naming conventions to create names that match your favorite idol's style. Each result includes a chemistry score showing your compatibility!</p>
+          </details>
+          <details class="faq-item">
+            <summary>Is it free to use?</summary>
+            <p>Yes! The K-Pop Idol Chemistry Name Generator is completely free. Generate as many names as you want!</p>
+          </details>
+          <details class="faq-item">
+            <summary>Can I share my results?</summary>
+            <p>Absolutely! Share your chemistry score and generated name on Twitter, Instagram, or copy the link to share anywhere.</p>
+          </details>
+        </div>
+      </section>
+      
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .home-page {
+    padding: 24px 0;
+  }
+  
+  /* Hero */
+  .hero {
+    text-align: center;
+    padding: 40px 0;
+  }
+  
+  .hero h1 {
+    font-size: 3rem;
+    margin-bottom: 12px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.1rem;
+    color: var(--muted);
+    margin-bottom: 24px;
+  }
+  
+  .quick-input {
+    display: flex;
+    gap: 12px;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+  
+  .quick-input input {
+    flex: 1;
+  }
+  
+  /* Group Stories */
+  .group-stories-section {
+    margin: 32px 0;
+  }
+  
+  .section-header {
+    margin-bottom: 16px;
+  }
+  
+  .trending-label {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--accent);
+  }
+  
+  .group-stories-wrapper {
+    position: relative;
+  }
+  
+  .group-stories-container {
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    padding: 8px 4px;
+    scrollbar-width: none;
+  }
+  
+  .group-stories-container::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .scroll-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    font-size: 1.5rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .scroll-arrow.left { left: -18px; }
+  .scroll-arrow.right { right: -18px; }
+  .scroll-arrow:hover { background: var(--chip); }
+  
+  .group-story {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    flex-shrink: 0;
+    position: relative;
+  }
+  
+  .group-story-ring {
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    padding: 3px;
+    background: linear-gradient(135deg, var(--border), var(--border));
+    transition: all 0.3s ease;
+  }
+  
+  .group-story-ring.has-badge {
+    background: conic-gradient(
+      var(--accent) 0deg,
+      var(--accent-2) 120deg,
+      var(--accent) 240deg,
+      var(--accent-2) 360deg
+    );
+    animation: ring-rotate 3s linear infinite;
+  }
+  
+  @keyframes ring-rotate {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  
+  .group-story-inner {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: var(--surface);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .group-initial {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--accent);
+  }
+  
+  .group-story-badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: var(--accent);
+    color: white;
+    font-size: 0.65rem;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 8px;
+    z-index: 5;
+  }
+  
+  .group-story-name {
+    font-size: 0.75rem;
+    color: var(--text);
+    font-weight: 500;
+    max-width: 72px;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .group-story:hover .group-story-ring {
+    transform: scale(1.05);
+  }
+  
+  /* Generator Section */
+  .generator-section .card {
+    padding: 24px;
+  }
+  
+  /* Features Grid */
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+  
+  .feature-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    padding: 20px;
+    text-align: center;
+    transition: transform var(--transition-normal);
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-4px);
+  }
+  
+  .feature-icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 8px;
+  }
+  
+  .feature-card h3 {
+    font-size: 1rem;
+    margin-bottom: 4px;
+  }
+  
+  .feature-card p {
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+  
+  /* FAQ */
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  
+  .faq-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  
+  .faq-item summary {
+    padding: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text);
+  }
+  
+  .faq-item summary:hover {
+    background: var(--chip);
+  }
+  
+  .faq-item p {
+    padding: 0 16px 16px;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+  
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero h1 {
+      font-size: 2rem;
+    }
+    
+    .quick-input {
+      flex-direction: column;
+    }
+    
+    .scroll-arrow {
+      display: none;
+    }
+  }
+</style>
+
+<script>
+  // Scroll arrows
+  const container = document.getElementById('group-stories');
+  const leftBtn = document.getElementById('scroll-left');
+  const rightBtn = document.getElementById('scroll-right');
+  
+  leftBtn?.addEventListener('click', () => {
+    container?.scrollBy({ left: -200, behavior: 'smooth' });
+  });
+  
+  rightBtn?.addEventListener('click', () => {
+    container?.scrollBy({ left: 200, behavior: 'smooth' });
+  });
+  
+  // Quick input
+  const heroInput = document.getElementById('hero-name-input') as HTMLInputElement;
+  const heroBtn = document.getElementById('hero-generate-btn');
+  
+  heroBtn?.addEventListener('click', () => {
+    const name = heroInput?.value.trim();
+    if (name) {
+      // For now, just scroll to generator
+      document.querySelector('.generator-section')?.scrollIntoView({ behavior: 'smooth' });
+    }
+  });
+  
+  heroInput?.addEventListener('keypress', (e) => {
+    if (e.key === 'Enter') {
+      heroBtn?.click();
+    }
+  });
+</script>
+
