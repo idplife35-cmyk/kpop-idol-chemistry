@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import AdSlot from '@/components/common/AdSlot.astro';
+import GeneratorForm from '@/components/generator/GeneratorForm';
 
 const title = "KPOP Idol Chemistry Name Generator | FREE Korean Name Maker";
 const description = "Create your perfect K-Pop name with BTS, BLACKPINK, aespa, NewJeans, PLAVE, RIIZE & more! Get instant chemistry scores with 65+ idols. Free Korean name generator for all K-Pop fans.";
@@ -123,13 +124,8 @@ const groups = [
           <h2>🎤 Name Generator</h2>
           <p class="text-muted mb-3">Select your favorite idol and create your Korean name!</p>
           
-          <!-- Generator Form will be a React component -->
-          <div id="generator-form-root">
-            <!-- React component will mount here -->
-            <noscript>
-              <p>Please enable JavaScript to use the name generator.</p>
-            </noscript>
-          </div>
+          <!-- Generator Form - React Component with client:load -->
+          <GeneratorForm client:load showAllGroups={true} />
         </div>
       </section>
       
