@@ -9,6 +9,7 @@ import GeneratorLayout from '@/layouts/GeneratorLayout.astro';
 import GroupBanner from '@/components/generator/GroupBanner.astro';
 import MemberGrid from '@/components/generator/MemberGrid.astro';
 import GeneratorForm from '@/components/generator/GeneratorForm';
+import { generateGroupPageSchema, type FAQItem } from '@/lib/seo';
 
 // Generate static paths for all groups
 export async function getStaticPaths() {
@@ -32,66 +33,41 @@ const idolsForForm = groupData.members.map(m => ({
   gender: m.gender
 }));
 
-// Create FAQ Schema
-const faqSchema = {
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": `How does the ${groupData.name} name generator work?`,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": `Our ${groupData.name} name generator creates authentic Korean names inspired by ${groupData.name} members. Enter your name, select your favorite member, and get a personalized Korean name with a chemistry score!`
-      }
-    },
-    {
-      "@type": "Question",
-      "name": `Can I generate names with all ${groupData.name} members?`,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": `Yes! You can generate names with all ${groupData.members.length} ${groupData.name} members: ${groupData.members.map(m => m.nameEn).join(', ')}.`
-      }
-    },
-    {
-      "@type": "Question",
-      "name": `What is the chemistry score in the ${groupData.name} name generator?`,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": `The chemistry score (70-100%) shows your compatibility with the selected ${groupData.name} member. Higher scores indicate better matches based on your name and the relationship type you choose.`
-      }
-    },
-    {
-      "@type": "Question",
-      "name": `Is the ${groupData.name} name generator free?`,
-      "acceptedAnswer": {
-        "@type": "Answer",
-        "text": `Yes, our ${groupData.name} name generator is completely free! Generate as many names as you want with your favorite ${groupData.fandom || groupData.name} members.`
-      }
-    }
-  ]
-};
+// FAQ content
+const faqs: FAQItem[] = [
+  {
+    question: `How does the ${groupData.name} name generator work?`,
+    answer: `Our ${groupData.name} name generator creates authentic Korean names inspired by ${groupData.name} members. Enter your name, select your favorite member, and get a personalized Korean name with a chemistry score!`
+  },
+  {
+    question: `Can I generate names with all ${groupData.name} members?`,
+    answer: `Yes! You can generate names with all ${groupData.members.length} ${groupData.name} members: ${groupData.members.map(m => m.nameEn).join(', ')}.`
+  },
+  {
+    question: `What is the chemistry score in the ${groupData.name} name generator?`,
+    answer: `The chemistry score (70-100%) shows your compatibility with the selected ${groupData.name} member. Higher scores indicate better matches based on your name and the relationship type you choose.`
+  },
+  {
+    question: `Is the ${groupData.name} name generator free?`,
+    answer: `Yes, our ${groupData.name} name generator is completely free! Generate as many names as you want with your favorite ${groupData.fandom || groupData.name} members.`
+  },
+  {
+    question: `Can I share my ${groupData.name} name results?`,
+    answer: `Absolutely! After generating your name, you can copy your results and share them on social media. Show your ${groupData.fandom || 'fan'} friends your chemistry score with ${groupData.name}!`
+  },
+  {
+    question: `What relationship types can I choose?`,
+    answer: `You can generate names as different relationship types: Lover, Best Friend, Soulmate, Stage Partner, Drama Lead, Rival, Sibling, or Classmate. Each type creates a different style of Korean name!`
+  }
+];
 
-// Combined schema
-const pageSchema = {
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": "WebApplication",
-      "name": groupData.seo.title,
-      "description": groupData.seo.description,
-      "applicationCategory": "EntertainmentApplication",
-      "operatingSystem": "All",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD"
-      },
-      "inLanguage": ["en", "ko"]
-    },
-    faqSchema
-  ]
-};
+// Generate comprehensive schema
+const pageSchema = generateGroupPageSchema({
+  groupName: groupData.name,
+  slug: groupData.slug,
+  description: groupData.seo.description,
+  faqs
+});
 ---
 
 <GeneratorLayout

@@ -1,71 +1,161 @@
 ---
+/**
+ * AdSlot Component
+ * Optimized for CLS (Cumulative Layout Shift) prevention
+ */
+
 interface Props {
-  type?: 'horizontal' | 'in-article' | 'sidebar' | 'responsive';
+  type?: 'horizontal' | 'in-article' | 'sidebar' | 'responsive' | 'native';
   slot?: string;
+  className?: string;
 }
 
-const { type = 'responsive', slot = '' } = Astro.props;
+const { type = 'responsive', slot = '', className = '' } = Astro.props;
 
-const sizes = {
-  horizontal: { width: 728, height: 90 },
-  'in-article': { width: 336, height: 280 },
-  sidebar: { width: 300, height: 250 },
-  responsive: { width: 'auto', height: 'auto' }
+// Predefined sizes for CLS optimization
+const sizeConfig = {
+  horizontal: { width: 728, height: 90, minHeight: 90 },
+  'in-article': { width: 336, height: 280, minHeight: 280 },
+  sidebar: { width: 300, height: 250, minHeight: 250 },
+  responsive: { width: 'auto', height: 'auto', minHeight: 100 },
+  native: { width: 'auto', height: 'auto', minHeight: 120 }
 };
 
-const size = sizes[type];
-const isResponsive = type === 'responsive';
+const config = sizeConfig[type];
+const isResponsive = type === 'responsive' || type === 'native';
+
+// Calculate aspect ratio for responsive containers (prevents CLS)
+const aspectRatio = isResponsive ? 'auto' : `${config.width} / ${config.height}`;
 ---
 
-<div class="ad-container" data-ad-type={type}>
+<div 
+  class={`ad-container ${className}`.trim()}
+  data-ad-type={type}
+  style={`min-height: ${config.minHeight}px; ${!isResponsive ? `aspect-ratio: ${aspectRatio};` : ''}`}
+>
   <ins 
     class="adsbygoogle"
     style={isResponsive 
       ? 'display:block;' 
-      : `display:inline-block;width:${size.width}px;height:${size.height}px;`
+      : `display:inline-block;width:${config.width}px;height:${config.height}px;`
     }
     data-ad-client="ca-pub-9514930752765161"
-    data-ad-slot={slot}
+    data-ad-slot={slot || undefined}
     data-ad-format={isResponsive ? 'auto' : undefined}
     data-full-width-responsive={isResponsive ? 'true' : undefined}
   />
+  
+  <!-- Fallback placeholder for ad blocking or slow load -->
+  <div class="ad-placeholder">
+    <span class="ad-label">Advertisement</span>
+  </div>
 </div>
 
 <script>
-  // AdSense 초기화
-  try {
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
-  } catch (e) {
-    console.log('AdSense not loaded');
+  // AdSense 초기화 with lazy loading
+  const initAds = () => {
+    try {
+      const adContainers = document.querySelectorAll('.ad-container:not([data-ad-loaded])');
+      adContainers.forEach(container => {
+        const ins = container.querySelector('ins.adsbygoogle');
+        if (ins && !(ins as any).getAttribute('data-ad-status')) {
+          (window.adsbygoogle = window.adsbygoogle || []).push({});
+          container.setAttribute('data-ad-loaded', 'true');
+        }
+      });
+    } catch (e) {
+      console.log('AdSense initialization skipped');
+    }
+  };
+
+  // Use Intersection Observer for lazy loading ads
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          initAds();
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { rootMargin: '200px 0px' });
+    
+    document.querySelectorAll('.ad-container').forEach(ad => observer.observe(ad));
+  } else {
+    // Fallback for browsers without IntersectionObserver
+    initAds();
   }
 </script>
 
 <style>
   .ad-container {
+    position: relative;
     display: flex;
     justify-content: center;
+    align-items: center;
     margin: 24px 0;
-    min-height: 100px;
     background: var(--chip);
     border-radius: var(--radius-md);
     overflow: hidden;
+    /* CLS prevention: reserve space before ad loads */
+    contain: layout style;
   }
   
+  .ad-container ins {
+    z-index: 1;
+  }
+  
+  /* Placeholder styling */
+  .ad-placeholder {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--chip);
+    z-index: 0;
+  }
+  
+  .ad-label {
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    opacity: 0.5;
+  }
+  
+  /* Hide placeholder when ad is loaded */
+  .ad-container[data-ad-loaded] .ad-placeholder {
+    display: none;
+  }
+  
+  /* Type-specific styles */
   .ad-container[data-ad-type="horizontal"] {
-    min-height: 90px;
+    max-width: 728px;
   }
   
   .ad-container[data-ad-type="in-article"] {
-    min-height: 280px;
+    max-width: 336px;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .ad-container[data-ad-type="sidebar"] {
-    min-height: 250px;
+    max-width: 300px;
   }
   
+  .ad-container[data-ad-type="native"] {
+    border: 1px solid var(--border);
+  }
+  
+  /* Mobile responsiveness */
   @media (max-width: 768px) {
     .ad-container[data-ad-type="horizontal"] {
-      display: none; /* 모바일에서 수평 광고 숨김 */
+      min-height: 50px; /* Smaller on mobile */
+    }
+    
+    .ad-container[data-ad-type="in-article"],
+    .ad-container[data-ad-type="sidebar"] {
+      max-width: 100%;
     }
   }
 </style>

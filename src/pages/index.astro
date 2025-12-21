@@ -3,6 +3,7 @@ import { getCollection } from 'astro:content';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import AdSlot from '@/components/common/AdSlot.astro';
 import GeneratorForm from '@/components/generator/GeneratorForm';
+import { generateHomePageSchema } from '@/lib/seo';
 
 const title = "KPOP Idol Chemistry Name Generator | FREE Korean Name Maker";
 const description = "Create your perfect K-Pop name with BTS, BLACKPINK, aespa, NewJeans, PLAVE, RIIZE & more! Get instant chemistry scores with 65+ idols. Free Korean name generator for all K-Pop fans.";
@@ -14,31 +15,6 @@ const keywords = [
   "kpop idol chemistry",
   "korean name maker"
 ];
-
-// Schema.org 데이터
-const schema = {
-  "@context": "https://schema.org",
-  "@type": "WebApplication",
-  "name": "KPOP Idol Chemistry Name Generator",
-  "alternateName": ["K-Pop Name Generator", "Korean Name Maker"],
-  "url": "https://kpopnamegenerator.com/",
-  "description": description,
-  "applicationCategory": "EntertainmentApplication",
-  "operatingSystem": "All",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "featureList": [
-    "Generate Korean names with 65+ K-Pop idols",
-    "Chemistry score calculator (70-100%)",
-    "VS Mode - Battle with friends",
-    "Multiple relationship types",
-    "Share on social media"
-  ],
-  "inLanguage": ["en", "ko"]
-};
 
 // Content Collection에서 그룹 데이터 가져오기
 const groupsCollection = await getCollection('groups');
@@ -55,6 +31,11 @@ const groups = groupsCollection
     if (!a.badge && b.badge) return 1;
     return 0;
   });
+
+// Schema.org structured data
+const schema = generateHomePageSchema(
+  groups.map(g => ({ name: g.name, slug: g.slug }))
+);
 ---
 
 <BaseLayout 
