@@ -293,21 +293,93 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
             <button className="btn secondary" onClick={handleReset}>
               🔄 Try Again
             </button>
-            <button 
-              className="btn primary"
-              onClick={() => {
-                const text = `My K-Pop name with ${selectedIdol?.name_en} is ${result.styled.full_kr} (${result.styled.full_en})! Chemistry: ${result.chemistry}% ${chemistryInfo?.emoji}\n\nTry yours: https://kpopnamegenerator.com`;
-                navigator.clipboard.writeText(text);
-                showNotification('Copied to clipboard!', 'success', '📋');
-                
-                // Track share for badges
-                import('@/lib/gamification').then(({ checkShareBadges }) => {
-                  checkShareBadges();
-                });
-              }}
-            >
-              📋 Copy Result
-            </button>
+          </div>
+          
+          {/* Share Buttons */}
+          <div className="share-section">
+            <span className="share-label">✨ Flex your K-Pop soulmate! ✨</span>
+            <div className="share-buttons">
+              {/* Native Share Button - Primary on Mobile */}
+              <button 
+                className="share-btn native-share"
+                onClick={async () => {
+                  const shareData = {
+                    title: `My K-Pop Chemistry with ${selectedIdol?.name_en}`,
+                    text: `OMG! I got ${result.chemistry}% chemistry with ${selectedIdol?.name_en}! 💜 My K-Pop name is ${result.styled.full_kr} ✨ Can you beat my score?`,
+                    url: 'https://kpopnamegenerator.com'
+                  };
+                  
+                  if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
+                    try {
+                      await navigator.share(shareData);
+                      import('@/lib/gamification').then(({ checkShareBadges }) => checkShareBadges());
+                    } catch (err) {
+                      if ((err as Error).name !== 'AbortError') {
+                        console.log('Share failed:', err);
+                      }
+                    }
+                  } else {
+                    // Fallback for desktop - copy to clipboard
+                    const text = `OMG! I got ${result.chemistry}% chemistry with ${selectedIdol?.name_en}! 💜 My K-Pop name is ${result.styled.full_kr} ✨\n\n🔗 kpopnamegenerator.com`;
+                    navigator.clipboard.writeText(text);
+                    showNotification('Copied to clipboard!', 'success', '📋');
+                    import('@/lib/gamification').then(({ checkShareBadges }) => checkShareBadges());
+                  }
+                }}
+                title="Share"
+              >
+                📤
+              </button>
+              <button 
+                className="share-btn tiktok"
+                onClick={() => {
+                  const text = `OMG I got ${result.chemistry}% chemistry with ${selectedIdol?.name_en}! 💜 My K-Pop name is ${result.styled.full_kr} ✨ Can you beat my score?\n\n🔗 kpopnamegenerator.com`;
+                  navigator.clipboard.writeText(text);
+                  showNotification('Copied! Paste in TikTok 🎵', 'success', '🎵');
+                  import('@/lib/gamification').then(({ checkShareBadges }) => checkShareBadges());
+                }}
+                title="Copy for TikTok"
+              >
+                <span className="tiktok-icon">♪</span>
+              </button>
+              <button 
+                className="share-btn instagram"
+                onClick={() => {
+                  const text = `${result.chemistry}% chemistry with ${selectedIdol?.name_en}?! 😱💜\n\nMy K-Pop name: ${result.styled.full_kr}\n\n✨ Get yours: kpopnamegenerator.com\n\n#kpop #${selectedIdol?.group.replace(/\s+/g, '')} #kpopnamegenerator #fyp`;
+                  navigator.clipboard.writeText(text);
+                  showNotification('Copied! Share to Story 📸', 'success', '📸');
+                  import('@/lib/gamification').then(({ checkShareBadges }) => checkShareBadges());
+                }}
+                title="Copy for Instagram"
+              >
+                📸
+              </button>
+              <button 
+                className="share-btn twitter"
+                onClick={() => {
+                  const text = `I got ${result.chemistry}% chemistry with ${selectedIdol?.name_en}! 💜✨ My K-Pop name is ${result.styled.full_kr}\n\nFind your idol soulmate 👇`;
+                  const url = 'https://kpopnamegenerator.com';
+                  window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
+                  import('@/lib/gamification').then(({ checkShareBadges }) => checkShareBadges());
+                }}
+                title="Share on X"
+              >
+                𝕏
+              </button>
+              <button 
+                className="share-btn discord"
+                onClick={() => {
+                  const text = `**My K-Pop Chemistry Result** 💜\n\n🎤 Idol: ${selectedIdol?.name_en} (${selectedIdol?.group})\n💕 Chemistry: **${result.chemistry}%** ${chemistryInfo?.emoji}\n✨ My Name: ${result.styled.full_kr} (${result.styled.full_en})\n\nGet yours → <https://kpopnamegenerator.com>`;
+                  navigator.clipboard.writeText(text);
+                  showNotification('Copied for Discord! 🎮', 'success', '🎮');
+                  import('@/lib/gamification').then(({ checkShareBadges }) => checkShareBadges());
+                }}
+                title="Copy for Discord"
+              >
+                🎮
+              </button>
+            </div>
+            <p className="share-challenge">Tag your friends & compare scores! 🏆</p>
           </div>
         </div>
       )}
@@ -446,6 +518,142 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           gap: 12px;
           justify-content: center;
           flex-wrap: wrap;
+          margin-bottom: 20px;
+        }
+
+        /* Share Section */
+        .share-section {
+          text-align: center;
+          padding-top: 20px;
+          margin-top: 8px;
+          border-top: 1px solid var(--border, #e5e5e5);
+        }
+
+        .share-label {
+          display: block;
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--text, #333);
+          margin-bottom: 16px;
+        }
+
+        .share-buttons {
+          display: flex;
+          justify-content: center;
+          gap: 10px;
+          flex-wrap: wrap;
+        }
+
+        .share-btn {
+          width: 50px;
+          height: 50px;
+          border-radius: 14px;
+          border: none;
+          cursor: pointer;
+          font-size: 1.3rem;
+          font-weight: bold;
+          transition: transform 0.2s, box-shadow 0.2s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+
+        .share-btn:hover {
+          transform: scale(1.1) translateY(-2px);
+        }
+
+        .share-btn:active {
+          transform: scale(0.95);
+        }
+
+        .share-btn.tiktok {
+          background: linear-gradient(135deg, #00f2ea, #ff0050);
+          color: #fff;
+        }
+
+        .share-btn.tiktok:hover {
+          box-shadow: 0 6px 20px rgba(255, 0, 80, 0.4);
+        }
+
+        .tiktok-icon {
+          font-family: sans-serif;
+          text-shadow: -1px -1px 0 #00f2ea, 1px 1px 0 #ff0050;
+        }
+
+        .share-btn.instagram {
+          background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
+          color: #fff;
+        }
+
+        .share-btn.instagram:hover {
+          box-shadow: 0 6px 20px rgba(253, 29, 29, 0.4);
+        }
+
+        .share-btn.twitter {
+          background: #000;
+          color: #fff;
+        }
+
+        .share-btn.twitter:hover {
+          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .share-btn.imessage {
+          background: linear-gradient(135deg, #34c759, #30d158);
+          color: #fff;
+        }
+
+        .share-btn.imessage:hover {
+          box-shadow: 0 6px 20px rgba(52, 199, 89, 0.4);
+        }
+
+        .share-btn.discord {
+          background: #5865F2;
+          color: #fff;
+        }
+
+        .share-btn.discord:hover {
+          box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
+        }
+
+        .share-btn.native-share {
+          background: linear-gradient(135deg, #667eea, #764ba2);
+          color: #fff;
+        }
+
+        .share-btn.native-share:hover {
+          box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        /* On mobile, make native share button more prominent */
+        @media (max-width: 768px) {
+          .share-btn.native-share {
+            order: -1;
+            width: 100%;
+            border-radius: 12px;
+            height: 48px;
+            margin-bottom: 8px;
+          }
+          
+          .share-btn.native-share::after {
+            content: ' Share';
+            font-weight: 600;
+            margin-left: 8px;
+          }
+        }
+
+        /* Hide on desktop if Web Share API not available */
+        @media (min-width: 769px) {
+          .share-btn.native-share {
+            display: flex;
+          }
+        }
+
+        .share-challenge {
+          margin-top: 16px;
+          font-size: 0.85rem;
+          color: var(--muted, #888);
+          font-style: italic;
         }
 
         @media (max-width: 480px) {
@@ -460,6 +668,24 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
 
           .result-actions .btn {
             width: 100%;
+          }
+
+          .share-buttons {
+            gap: 8px;
+          }
+
+          .share-btn {
+            width: 48px;
+            height: 48px;
+            font-size: 1.2rem;
+          }
+
+          .share-label {
+            font-size: 0.95rem;
+          }
+
+          .share-challenge {
+            font-size: 0.8rem;
           }
         }
       `}</style>

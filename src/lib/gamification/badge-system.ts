@@ -14,37 +14,37 @@ export interface Badge {
 
 export const BADGES: Record<string, Badge> = {
   // Level badges
-  level_2: { id: 'level_2', name: '열정적인 팬', description: '레벨 2 달성', icon: '🌟', category: 'level', rarity: 'common' },
-  level_3: { id: 'level_3', name: '전문가의 길', description: '레벨 3 달성', icon: '⭐', category: 'level', rarity: 'uncommon' },
-  level_4: { id: 'level_4', name: '마스터 등극', description: '레벨 4 달성', icon: '💫', category: 'level', rarity: 'rare' },
-  level_5: { id: 'level_5', name: '레전드 탄생', description: '레벨 5 달성', icon: '✨', category: 'level', rarity: 'legendary' },
+  level_2: { id: 'level_2', name: 'Rising Star', description: 'Reach Level 2', icon: '🌟', category: 'level', rarity: 'common' },
+  level_3: { id: 'level_3', name: 'Expert Path', description: 'Reach Level 3', icon: '⭐', category: 'level', rarity: 'uncommon' },
+  level_4: { id: 'level_4', name: 'Master Rank', description: 'Reach Level 4', icon: '💫', category: 'level', rarity: 'rare' },
+  level_5: { id: 'level_5', name: 'Legend Born', description: 'Reach Level 5', icon: '✨', category: 'level', rarity: 'legendary' },
 
   // Generation badges
-  first_gen: { id: 'first_gen', name: '첫 발걸음', description: '첫 이름 생성', icon: '🎯', category: 'generation', rarity: 'common' },
-  gen_10: { id: 'gen_10', name: '열정의 시작', description: '10번 생성', icon: '🔥', category: 'generation', rarity: 'common' },
-  gen_50: { id: 'gen_50', name: '이름 마니아', description: '50번 생성', icon: '💯', category: 'generation', rarity: 'uncommon' },
-  gen_100: { id: 'gen_100', name: '백전백승', description: '100번 생성', icon: '🏆', category: 'generation', rarity: 'rare' },
-  gen_500: { id: 'gen_500', name: '전설의 생성자', description: '500번 생성', icon: '👑', category: 'generation', rarity: 'legendary' },
+  first_gen: { id: 'first_gen', name: 'First Step', description: 'First name generated', icon: '🎯', category: 'generation', rarity: 'common' },
+  gen_10: { id: 'gen_10', name: 'Getting Started', description: '10 generations', icon: '🔥', category: 'generation', rarity: 'common' },
+  gen_50: { id: 'gen_50', name: 'Name Enthusiast', description: '50 generations', icon: '💯', category: 'generation', rarity: 'uncommon' },
+  gen_100: { id: 'gen_100', name: 'Century Club', description: '100 generations', icon: '🏆', category: 'generation', rarity: 'rare' },
+  gen_500: { id: 'gen_500', name: 'Name Legend', description: '500 generations', icon: '👑', category: 'generation', rarity: 'legendary' },
 
   // Chemistry badges
-  chemistry_90: { id: 'chemistry_90', name: '완벽한 매치', description: '케미 90점 이상', icon: '💖', category: 'chemistry', rarity: 'uncommon' },
-  chemistry_95: { id: 'chemistry_95', name: '운명적 만남', description: '케미 95점 이상', icon: '💝', category: 'chemistry', rarity: 'rare' },
-  chemistry_100: { id: 'chemistry_100', name: '천생연분', description: '케미 100점!', icon: '💘', category: 'chemistry', rarity: 'legendary' },
+  chemistry_90: { id: 'chemistry_90', name: 'Perfect Match', description: '90%+ chemistry', icon: '💖', category: 'chemistry', rarity: 'uncommon' },
+  chemistry_95: { id: 'chemistry_95', name: 'Destined Pair', description: '95%+ chemistry', icon: '💝', category: 'chemistry', rarity: 'rare' },
+  chemistry_100: { id: 'chemistry_100', name: 'Soulmate', description: '100% chemistry!', icon: '💘', category: 'chemistry', rarity: 'legendary' },
 
   // VS Mode badges
-  vs_first: { id: 'vs_first', name: '첫 대결', description: '첫 VS 모드', icon: '⚔️', category: 'vs', rarity: 'common' },
-  vs_10_wins: { id: 'vs_10_wins', name: '대결 고수', description: 'VS 모드 10승', icon: '🥊', category: 'vs', rarity: 'rare' },
+  vs_first: { id: 'vs_first', name: 'First Battle', description: 'First VS mode', icon: '⚔️', category: 'vs', rarity: 'common' },
+  vs_10_wins: { id: 'vs_10_wins', name: 'Battle Master', description: '10 VS wins', icon: '🥊', category: 'vs', rarity: 'rare' },
 
   // Social badges
-  share_first: { id: 'share_first', name: '공유의 시작', description: '첫 공유', icon: '📢', category: 'social', rarity: 'common' },
-  share_10: { id: 'share_10', name: '전파의 달인', description: '10번 공유', icon: '📣', category: 'social', rarity: 'uncommon' }
+  share_first: { id: 'share_first', name: 'First Share', description: 'First share', icon: '📢', category: 'social', rarity: 'common' },
+  share_10: { id: 'share_10', name: 'Influencer', description: '10 shares', icon: '📣', category: 'social', rarity: 'uncommon' }
 };
 
 export const RARITY_CONFIG = {
-  common: { name: '일반', color: '#9E9E9E', glow: 'none' },
-  uncommon: { name: '희귀', color: '#4CAF50', glow: '0 0 10px #4CAF50' },
-  rare: { name: '레어', color: '#2196F3', glow: '0 0 15px #2196F3' },
-  legendary: { name: '전설', color: '#FF9800', glow: '0 0 20px #FF9800' }
+  common: { name: 'Common', color: '#9E9E9E', glow: 'none' },
+  uncommon: { name: 'Uncommon', color: '#4CAF50', glow: '0 0 10px #4CAF50' },
+  rare: { name: 'Rare', color: '#2196F3', glow: '0 0 15px #2196F3' },
+  legendary: { name: 'Legendary', color: '#FF9800', glow: '0 0 20px #FF9800' }
 } as const;
 
 interface BadgeData {
@@ -199,4 +199,5 @@ export function resetBadges(): void {
   if (typeof window === 'undefined') return;
   localStorage.removeItem(STORAGE_KEY);
 }
+
 

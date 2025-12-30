@@ -28,28 +28,31 @@ const isResponsive = type === 'responsive' || type === 'native';
 const aspectRatio = isResponsive ? 'auto' : `${config.width} / ${config.height}`;
 ---
 
-<div 
-  class={`ad-container ${className}`.trim()}
-  data-ad-type={type}
-  style={`min-height: ${config.minHeight}px; ${!isResponsive ? `aspect-ratio: ${aspectRatio};` : ''}`}
->
-  <ins 
-    class="adsbygoogle"
-    style={isResponsive 
-      ? 'display:block;' 
-      : `display:inline-block;width:${config.width}px;height:${config.height}px;`
-    }
-    data-ad-client="ca-pub-9514930752765161"
-    data-ad-slot={slot || undefined}
-    data-ad-format={isResponsive ? 'auto' : undefined}
-    data-full-width-responsive={isResponsive ? 'true' : undefined}
-  />
-  
-  <!-- Fallback placeholder for ad blocking or slow load -->
-  <div class="ad-placeholder">
-    <span class="ad-label">Advertisement</span>
+<!-- Ad slots only render in production -->
+{import.meta.env.PROD && (
+  <div 
+    class={`ad-container ${className}`.trim()}
+    data-ad-type={type}
+    style={`min-height: ${config.minHeight}px; ${!isResponsive ? `aspect-ratio: ${aspectRatio};` : ''}`}
+  >
+    <ins 
+      class="adsbygoogle"
+      style={isResponsive 
+        ? 'display:block;' 
+        : `display:inline-block;width:${config.width}px;height:${config.height}px;`
+      }
+      data-ad-client="ca-pub-9514930752765161"
+      data-ad-slot={slot || undefined}
+      data-ad-format={isResponsive ? 'auto' : undefined}
+      data-full-width-responsive={isResponsive ? 'true' : undefined}
+    />
+    
+    <!-- Fallback placeholder for ad blocking or slow load -->
+    <div class="ad-placeholder">
+      <span class="ad-label">Advertisement</span>
+    </div>
   </div>
-</div>
+)}
 
 <script>
   // AdSense 초기화 with lazy loading

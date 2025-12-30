@@ -75,3 +75,4 @@ export default function LevelBadge({ compact = false, onClick }: LevelBadgeProps
   );
 }
 
+

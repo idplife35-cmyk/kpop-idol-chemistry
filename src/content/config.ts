@@ -63,3 +63,4 @@ export const collections = {
   faqs: faqsCollection
 };
 
+

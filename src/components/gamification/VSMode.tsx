@@ -304,3 +304,4 @@ function IdolSlot({ label, idol, result, isWinner, groupedIdols, onSelect, exclu
   );
 }
 
+

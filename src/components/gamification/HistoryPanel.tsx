@@ -3,6 +3,7 @@
  * Displays generation history and favorites
  */
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import {
   getHistory,
   getFavorites,
@@ -26,12 +27,37 @@ export default function HistoryPanel({ isOpen, onClose }: HistoryPanelProps) {
   const [activeTab, setActiveTab] = useState<TabType>('history');
   const [history, setHistory] = useState<HistoryItem[]>([]);
   const [favorites, setFavorites] = useState<HistoryItem[]>([]);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    return () => setMounted(false);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
       refreshData();
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
     }
+    
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [isOpen]);
+
+  // Handle escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+    
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [isOpen, onClose]);
 
   const refreshData = () => {
     setHistory(getHistory());
@@ -57,16 +83,16 @@ export default function HistoryPanel({ isOpen, onClose }: HistoryPanelProps) {
     refreshData();
   };
 
-  if (!isOpen) return null;
+  if (!isOpen || !mounted) return null;
 
   const items = activeTab === 'history' ? history : favorites;
 
-  return (
+  const panelContent = (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.panel} onClick={e => e.stopPropagation()}>
         <div className={styles.header}>
           <h2 className={styles.title}>📜 History</h2>
-          <button className={styles.closeBtn} onClick={onClose}>✕</button>
+          <button className={styles.closeBtn} onClick={onClose} aria-label="Close">✕</button>
         </div>
 
         <div className={styles.tabs}>
@@ -88,8 +114,8 @@ export default function HistoryPanel({ isOpen, onClose }: HistoryPanelProps) {
           {items.length === 0 ? (
             <div className={styles.empty}>
               {activeTab === 'history' 
-                ? '아직 생성 기록이 없어요. 이름을 생성해보세요! ✨'
-                : '즐겨찾기에 추가된 결과가 없어요. 하트를 눌러 저장해보세요! 💕'}
+                ? 'No history yet. Generate a name to get started! ✨'
+                : 'No favorites yet. Tap the heart to save results! 💕'}
             </div>
           ) : (
             <div className={styles.list}>
@@ -112,6 +138,8 @@ export default function HistoryPanel({ isOpen, onClose }: HistoryPanelProps) {
       </div>
     </div>
   );
+
+  return createPortal(panelContent, document.body);
 }
 
 interface HistoryCardProps {
@@ -173,4 +201,3 @@ function HistoryCard({ item, isFav, onToggleFavorite, onRemove }: HistoryCardPro
     </div>
   );
 }
-

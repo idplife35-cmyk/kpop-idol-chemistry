@@ -10,11 +10,11 @@ export interface LevelConfig {
 }
 
 export const LEVEL_CONFIG: Record<number, LevelConfig> = {
-  1: { name: '신입 팬', xpRequired: 0, color: '#9E9E9E' },
-  2: { name: '열정 팬', xpRequired: 10, color: '#4CAF50' },
-  3: { name: '전문 팬', xpRequired: 30, color: '#2196F3' },
-  4: { name: '마스터 팬', xpRequired: 70, color: '#9C27B0' },
-  5: { name: '레전드', xpRequired: 150, color: '#FF9800' }
+  1: { name: 'Rookie Fan', xpRequired: 0, color: '#9E9E9E' },
+  2: { name: 'Passionate Fan', xpRequired: 10, color: '#4CAF50' },
+  3: { name: 'Expert Fan', xpRequired: 30, color: '#2196F3' },
+  4: { name: 'Master Fan', xpRequired: 70, color: '#9C27B0' },
+  5: { name: 'Legend', xpRequired: 150, color: '#FF9800' }
 };
 
 export const XP_REWARDS = {
@@ -75,7 +75,7 @@ export function saveLevelData(data: LevelData): void {
 
 // Get level info
 export function getLevelName(level: number): string {
-  return LEVEL_CONFIG[level]?.name || '신입 팬';
+  return LEVEL_CONFIG[level]?.name || 'Rookie Fan';
 }
 
 export function getLevelColor(level: number): string {
@@ -163,4 +163,5 @@ export function resetLevel(): void {
   if (typeof window === 'undefined') return;
   localStorage.removeItem(STORAGE_KEY);
 }
+
 

@@ -3,6 +3,7 @@
  * Displays detailed user statistics
  */
 import { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import {
   getLevelStats,
   getAllStats,
@@ -26,6 +27,12 @@ export default function StatsModal({ isOpen, onClose }: StatsModalProps) {
   const [userStats, setUserStats] = useState<ReturnType<typeof getAllStats> | null>(null);
   const [badges, setBadges] = useState<(Badge & { unlocked: boolean })[]>([]);
   const [badgeProgress, setBadgeProgress] = useState({ unlocked: 0, total: 0, percentage: 0 });
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+    return () => setMounted(false);
+  }, []);
 
   useEffect(() => {
     if (isOpen) {
@@ -33,17 +40,37 @@ export default function StatsModal({ isOpen, onClose }: StatsModalProps) {
       setUserStats(getAllStats());
       setBadges(getAllBadges());
       setBadgeProgress(getBadgeProgress());
+      // Prevent body scroll when modal is open
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
     }
+    
+    return () => {
+      document.body.style.overflow = '';
+    };
   }, [isOpen]);
 
-  if (!isOpen || !levelStats || !userStats) return null;
+  // Handle escape key
+  useEffect(() => {
+    const handleEscape = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isOpen) {
+        onClose();
+      }
+    };
+    
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
+  }, [isOpen, onClose]);
 
-  return (
+  if (!isOpen || !levelStats || !userStats || !mounted) return null;
+
+  const modalContent = (
     <div className={styles.overlay} onClick={onClose}>
       <div className={styles.modal} onClick={e => e.stopPropagation()}>
         <div className={styles.header}>
           <h2 className={styles.title}>📊 My Stats</h2>
-          <button className={styles.closeBtn} onClick={onClose}>✕</button>
+          <button className={styles.closeBtn} onClick={onClose} aria-label="Close">✕</button>
         </div>
 
         {/* Level Section */}
@@ -98,6 +125,9 @@ export default function StatsModal({ isOpen, onClose }: StatsModalProps) {
       </div>
     </div>
   );
+
+  // Use portal to render modal at document body level
+  return createPortal(modalContent, document.body);
 }
 
 function StatsContent({ stats }: { stats: ReturnType<typeof getAllStats> }) {
@@ -218,4 +248,3 @@ function BadgesContent({ badges }: { badges: (Badge & { unlocked: boolean })[] }
     </div>
   );
 }
-
