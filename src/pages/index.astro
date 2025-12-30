@@ -432,14 +432,21 @@ const schema = generateHomePageSchema(
     container?.scrollBy({ left: 200, behavior: 'smooth' });
   });
   
-  // Quick input
+  // Quick input - sync with Generator Form via localStorage
   const heroInput = document.getElementById('hero-name-input') as HTMLInputElement;
   const heroBtn = document.getElementById('hero-generate-btn');
   
   heroBtn?.addEventListener('click', () => {
     const name = heroInput?.value.trim();
     if (name) {
-      // For now, just scroll to generator
+      // Save to localStorage for React component to pick up
+      localStorage.setItem('kpop-hero-name', name);
+      // Dispatch custom event
+      window.dispatchEvent(new CustomEvent('hero-name-submitted', { detail: { name } }));
+      // Scroll to generator
+      document.querySelector('.generator-section')?.scrollIntoView({ behavior: 'smooth' });
+    } else {
+      // Just scroll if no name
       document.querySelector('.generator-section')?.scrollIntoView({ behavior: 'smooth' });
     }
   });

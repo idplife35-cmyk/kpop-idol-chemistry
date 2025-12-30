@@ -3,7 +3,7 @@
  * Interactive form for generating K-Pop idol chemistry names
  */
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useEffect } from 'react';
 import { generate, getChemistryDescription, RELATION_OPTIONS, type RelationType, type GeneratorResult } from '@/lib/generator';
 import {
   addXP,
@@ -36,6 +36,29 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
   const [relation, setRelation] = useState<RelationType>('lover');
   const [result, setResult] = useState<GeneratorResult | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
+  const [variation, setVariation] = useState(0); // 같은 입력으로 다른 결과 생성
+
+  // Listen for hero input from Astro page
+  useEffect(() => {
+    // Check localStorage on mount
+    const savedName = localStorage.getItem('kpop-hero-name');
+    if (savedName) {
+      setMyName(savedName);
+      localStorage.removeItem('kpop-hero-name'); // Clear after use
+    }
+
+    // Listen for custom event
+    const handleHeroName = (e: CustomEvent<{ name: string }>) => {
+      if (e.detail?.name) {
+        setMyName(e.detail.name);
+      }
+    };
+
+    window.addEventListener('hero-name-submitted', handleHeroName as EventListener);
+    return () => {
+      window.removeEventListener('hero-name-submitted', handleHeroName as EventListener);
+    };
+  }, []);
 
   // Get idols data
   const idols = useMemo(() => {
@@ -76,7 +99,8 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           gender: selectedIdol.gender
         },
         genderPref,
-        relation
+        relation,
+        variation
       });
       
       setResult(result);
@@ -141,6 +165,34 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
 
   const handleReset = () => {
     setResult(null);
+    setVariation(0); // Reset variation
+  };
+
+  // Re-roll: 같은 입력으로 다른 결과 생성
+  const handleReroll = () => {
+    if (!myName.trim() || !selectedIdol) return;
+    
+    setIsGenerating(true);
+    const newVariation = (variation + 1) % 10; // 0-9 순환
+    setVariation(newVariation);
+    
+    setTimeout(() => {
+      const result = generate({
+        myName: myName.trim(),
+        idol: {
+          group: selectedIdol.group,
+          name_kr: selectedIdol.name_kr,
+          name_en: selectedIdol.name_en,
+          gender: selectedIdol.gender
+        },
+        genderPref,
+        relation,
+        variation: newVariation
+      });
+      
+      setResult(result);
+      setIsGenerating(false);
+    }, 200);
   };
 
   const chemistryInfo = result ? getChemistryDescription(result.chemistry) : null;
@@ -291,7 +343,15 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
 
           <div className="result-actions">
             <button className="btn secondary" onClick={handleReset}>
-              🔄 Try Again
+              ← New Name
+            </button>
+            <button 
+              className="btn reroll" 
+              onClick={handleReroll}
+              disabled={isGenerating}
+              title="Get a different result with the same inputs"
+            >
+              🎲 Re-roll
             </button>
           </div>
           
@@ -519,6 +579,23 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           justify-content: center;
           flex-wrap: wrap;
           margin-bottom: 20px;
+        }
+
+        .btn.reroll {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
+          border: none;
+          transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .btn.reroll:hover {
+          transform: scale(1.05);
+          box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn.reroll:disabled {
+          opacity: 0.6;
+          transform: none;
         }
 
         /* Share Section */
