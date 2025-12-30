@@ -1,0 +1,29 @@
+{
+  "id": "ive",
+  "name": "IVE",
+  "nameKr": "아이브",
+  "slug": "ive",
+  "fandom": "DIVE",
+  "company": "Starship Entertainment",
+  "debutYear": 2021,
+  "color": "#FFD700",
+  "logo": "/images/Ive_logo_(Black).svg",
+  "description": "IVE is a 4th generation K-Pop girl group known for their confident concept, powerful vocals, and elegant performances.",
+  "members": [
+    { "id": "yujin", "nameKr": "안유진", "nameEn": "Yujin", "gender": "female", "position": ["Leader", "Lead Vocalist", "Center"], "birthYear": 2003 },
+    { "id": "wonyoung", "nameKr": "장원영", "nameEn": "Wonyoung", "gender": "female", "position": ["Lead Vocalist", "Visual", "Center"], "birthYear": 2004 },
+    { "id": "gaeul", "nameKr": "가을", "nameEn": "Gaeul", "gender": "female", "position": ["Main Rapper", "Lead Dancer"], "birthYear": 2002 },
+    { "id": "rei", "nameKr": "레이", "nameEn": "Rei", "gender": "female", "position": ["Lead Dancer", "Sub Rapper"], "birthYear": 2004 },
+    { "id": "liz", "nameKr": "리즈", "nameEn": "Liz", "gender": "female", "position": ["Main Vocalist"], "birthYear": 2004 },
+    { "id": "leeseo", "nameKr": "이서", "nameEn": "Leeseo", "gender": "female", "position": ["Lead Dancer", "Sub Vocalist", "Maknae"], "birthYear": 2007 }
+  ],
+  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "badge": null,
+  "seo": {
+    "title": "IVE Name Generator | Create Your Korean Name with DIVE",
+    "description": "Create your IVE name with Wonyoung, Yujin, Gaeul, Rei, Liz & Leeseo! Instant chemistry scores & Korean stage names. Perfect for DIVE fanfiction.",
+    "keywords": ["ive name generator", "ive korean name", "dive name generator", "ive wonyoung chemistry", "ive yujin name"]
+  }
+}
+
+

@@ -1,0 +1,57 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string[];
+  canonicalUrl: string;
+  ogImage?: string;
+  noIndex?: boolean;
+}
+
+const {
+  title,
+  description,
+  keywords = [],
+  canonicalUrl,
+  ogImage = '/assets/social/kpop-name-generator-og.png',
+  noIndex = false
+} = Astro.props;
+
+const siteUrl = 'https://kpopnamegenerator.com';
+const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}`;
+---
+
+<!-- Primary Meta Tags -->
+<meta name="description" content={description} />
+{keywords.length > 0 && (
+  <meta name="keywords" content={keywords.join(', ')} />
+)}
+<meta name="author" content="KPOP Idol Chemistry" />
+<meta name="robots" content={noIndex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
+
+<!-- Canonical & Alternate -->
+<link rel="canonical" href={canonicalUrl} />
+<link rel="alternate" hreflang="en" href={canonicalUrl} />
+<link rel="alternate" hreflang="ko" href={`${canonicalUrl}?lang=ko`} />
+<link rel="alternate" hreflang="x-default" href={canonicalUrl} />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:url" content={canonicalUrl} />
+<meta property="og:title" content={title} />
+<meta property="og:description" content={description} />
+<meta property="og:image" content={fullOgImage} />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:site_name" content="KPOP Idol Chemistry" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:locale:alternate" content="ko_KR" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:url" content={canonicalUrl} />
+<meta name="twitter:title" content={title} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={fullOgImage} />
+<meta name="twitter:site" content="@kpopnamegen" />
+

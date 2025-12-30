@@ -1,0 +1,83 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import AdSlot from '@/components/common/AdSlot.astro';
+
+interface Props {
+  title: string;
+  description: string;
+  keywords?: string[];
+  canonicalUrl?: string;
+  ogImage?: string;
+  schema?: object;
+  groupColor?: string;
+}
+
+const { 
+  title, 
+  description, 
+  keywords = [],
+  canonicalUrl,
+  ogImage,
+  schema,
+  groupColor
+} = Astro.props;
+
+// WebApplication 스키마 기본값
+const defaultSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": title,
+  "description": description,
+  "applicationCategory": "EntertainmentApplication",
+  "operatingSystem": "All",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "inLanguage": ["en", "ko"]
+};
+
+const finalSchema = schema || defaultSchema;
+---
+
+<BaseLayout 
+  title={title}
+  description={description}
+  keywords={keywords}
+  canonicalUrl={canonicalUrl}
+  ogImage={ogImage}
+  schema={finalSchema}
+>
+  <div class="generator-page" style={groupColor ? `--group-color: ${groupColor}` : ''}>
+    <div class="container">
+      <!-- 상단 광고 슬롯 -->
+      <AdSlot type="responsive" />
+      
+      <!-- 메인 콘텐츠 -->
+      <slot />
+      
+      <!-- 중간 광고 슬롯 -->
+      <AdSlot type="in-article" />
+      
+      <!-- 추가 콘텐츠 (FAQ 등) -->
+      <slot name="after-content" />
+      
+      <!-- 하단 광고 슬롯 -->
+      <AdSlot type="responsive" />
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .generator-page {
+    padding: 24px 0;
+    min-height: 100vh;
+  }
+  
+  /* 그룹 컬러 변수 사용 가능 */
+  .generator-page[style*="--group-color"] :global(.group-accent) {
+    color: var(--group-color);
+  }
+</style>
+

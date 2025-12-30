@@ -1,0 +1,30 @@
+{
+  "id": "bts",
+  "name": "BTS",
+  "nameKr": "방탄소년단",
+  "slug": "bts",
+  "fandom": "ARMY",
+  "company": "HYBE",
+  "debutYear": 2013,
+  "color": "#7B2B8F",
+  "logo": "/images/bts_logo.png",
+  "description": "BTS (방탄소년단) is a global K-Pop phenomenon known for their powerful performances, meaningful lyrics, and strong connection with fans worldwide.",
+  "members": [
+    { "id": "jungkook", "nameKr": "정국", "nameEn": "Jungkook", "gender": "male", "position": ["Main Vocalist", "Lead Dancer", "Sub Rapper"], "birthYear": 1997 },
+    { "id": "jimin", "nameKr": "지민", "nameEn": "Jimin", "gender": "male", "position": ["Main Dancer", "Lead Vocalist"], "birthYear": 1995 },
+    { "id": "v", "nameKr": "뷔", "nameEn": "V", "gender": "male", "position": ["Lead Dancer", "Vocalist", "Visual"], "birthYear": 1995 },
+    { "id": "jin", "nameKr": "진", "nameEn": "Jin", "gender": "male", "position": ["Vocalist", "Visual"], "birthYear": 1992 },
+    { "id": "rm", "nameKr": "RM", "nameEn": "RM", "gender": "male", "position": ["Leader", "Main Rapper"], "birthYear": 1994 },
+    { "id": "suga", "nameKr": "슈가", "nameEn": "SUGA", "gender": "male", "position": ["Lead Rapper", "Producer"], "birthYear": 1993 },
+    { "id": "jhope", "nameKr": "제이홉", "nameEn": "J-Hope", "gender": "male", "position": ["Main Dancer", "Sub Rapper", "Sub Vocalist"], "birthYear": 1994 }
+  ],
+  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "badge": null,
+  "seo": {
+    "title": "BTS Name Generator | Create Your Korean Name with ARMY",
+    "description": "Create your BTS name with all 7 members - Jungkook, Jimin, V, Jin, RM, SUGA & J-Hope! Get instant chemistry scores and Korean stage names. Perfect for ARMY fanfiction.",
+    "keywords": ["bts name generator", "bts korean name", "army name generator", "bts jungkook name", "bts jimin chemistry", "bts fan name"]
+  }
+}
+
+

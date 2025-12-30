@@ -1,0 +1,147 @@
+---
+// Footer Component
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-brand">
+        <span class="brand-name">KPOP Idol Chemistry</span>
+        <p class="tagline">Create your perfect K-Pop name</p>
+      </div>
+      
+      <nav class="footer-nav">
+        <div class="footer-section">
+          <h4>Generators</h4>
+          <a href="/bts-name-generator/">BTS</a>
+          <a href="/blackpink-name-generator/">BLACKPINK</a>
+          <a href="/newjeans-name-generator/">NewJeans</a>
+          <a href="/seventeen-name-generator/">SEVENTEEN</a>
+        </div>
+        
+        <div class="footer-section">
+          <h4>More Groups</h4>
+          <a href="/stray-kids-name-generator/">Stray Kids</a>
+          <a href="/aespa-name-generator/">aespa</a>
+          <a href="/ive-name-generator/">IVE</a>
+          <a href="/riize-name-generator/">RIIZE</a>
+        </div>
+        
+        <div class="footer-section">
+          <h4>Info</h4>
+          <a href="/about/">About</a>
+          <a href="/contact/">Contact</a>
+          <a href="/privacy/">Privacy</a>
+          <a href="/terms/">Terms</a>
+        </div>
+      </nav>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {currentYear} KPOP Idol Chemistry. All rights reserved.</p>
+      <p class="disclaimer">This site is fan-made and not affiliated with any entertainment companies.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    padding: 40px 0 24px;
+    margin-top: 60px;
+  }
+  
+  .footer-content {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+  }
+  
+  .footer-brand {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .brand-name {
+    font-family: var(--font-heading);
+    font-weight: 700;
+    font-size: 1.2rem;
+    background: linear-gradient(92deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+  
+  .tagline {
+    font-size: 0.9rem;
+    color: var(--muted);
+  }
+  
+  .footer-nav {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  
+  .footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .footer-section h4 {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 4px;
+  }
+  
+  .footer-section a {
+    color: var(--muted);
+    font-size: 0.85rem;
+    transition: color var(--transition-fast);
+  }
+  
+  .footer-section a:hover {
+    color: var(--accent);
+  }
+  
+  .footer-bottom {
+    margin-top: 32px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+    text-align: center;
+  }
+  
+  .footer-bottom p {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  
+  .disclaimer {
+    font-size: 0.75rem;
+    margin-top: 8px;
+    opacity: 0.7;
+  }
+  
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+    
+    .footer-nav {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .footer-nav {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+

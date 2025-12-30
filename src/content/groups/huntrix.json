@@ -1,0 +1,26 @@
+{
+  "id": "huntrix",
+  "name": "HUNTR/X",
+  "nameKr": "헌트릭스",
+  "slug": "huntrix",
+  "fandom": "Hunters",
+  "company": "Netflix/Fictional",
+  "debutYear": 2024,
+  "color": "#00FFAA",
+  "logo": "/images/huntrix_logo.png",
+  "description": "HUNTR/X is inspired by Netflix's K-Pop Demon Hunters anime, featuring fierce characters who fight supernatural threats with K-Pop power.",
+  "members": [
+    { "id": "rumi", "nameKr": "루미", "nameEn": "Rumi", "gender": "female", "position": ["Leader", "Main Vocalist"], "birthYear": 2000 },
+    { "id": "mira", "nameKr": "미라", "nameEn": "Mira", "gender": "female", "position": ["Main Rapper", "Lead Dancer"], "birthYear": 2001 },
+    { "id": "zoey", "nameKr": "조이", "nameEn": "Zoey", "gender": "female", "position": ["Lead Vocalist", "Visual"], "birthYear": 2002 }
+  ],
+  "pageTypes": ["name", "stage-name"],
+  "badge": "HOT",
+  "seo": {
+    "title": "K-Pop Demon Hunters Name Generator | HUNTR/X Netflix Inspired",
+    "description": "Create your K-Pop Demon Hunters name with HUNTR/X! Inspired by Netflix anime, generate futuristic Korean names with Rumi, Mira & Zoey.",
+    "keywords": ["kpop demon hunters name generator", "huntrix name generator", "netflix kpop anime name", "demon hunter korean name"]
+  }
+}
+
+

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF8AD6"/>
+      <stop offset="50%" style="stop-color:#A855F7"/>
+      <stop offset="100%" style="stop-color:#6366F1"/>
+    </linearGradient>
+  </defs>
+  <!-- Background Circle -->
+  <circle cx="32" cy="32" r="30" fill="url(#gradient)"/>
+  <!-- Heart -->
+  <path d="M32 50C32 50 14 38 14 26C14 20 19 16 25 16C28.5 16 31 18 32 20C33 18 35.5 16 39 16C45 16 50 20 50 26C50 38 32 50 32 50Z" fill="white"/>
+  <!-- Star sparkle -->
+  <path d="M48 12L49.5 16L53 14L50 17L52 20L48.5 18.5L46 22L47 18L44 16L47.5 15L48 12Z" fill="#FFE066"/>
+  <!-- K letter hint -->
+  <text x="26" y="40" font-family="Arial Black, sans-serif" font-size="16" font-weight="900" fill="url(#gradient)">K</text>
+</svg>
+

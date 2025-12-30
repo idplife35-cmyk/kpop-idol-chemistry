@@ -1,86 +1,182 @@
+# KPOP Idol Chemistry 🎤💜
 
+Create your perfect Korean name with your favorite K-Pop idols! This is a fan-made entertainment app that generates Korean names and chemistry scores with 65+ K-Pop idols.
 
-# 🎤 KPOP Idol Chemistry
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Astro](https://img.shields.io/badge/Astro-4.x-orange)
+![React](https://img.shields.io/badge/React-18.x-61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.x-blue)
 
-정적 웹사이트 기반 **아이돌 케미 이름 생성기** 프로젝트입니다.  
-내 이름과 좋아하는 아이돌을 입력하면, 절친/파트너/애인 등 다양한 관계 타입에 맞춰 새로운 이름과 케미 지수를 생성합니다.
+## ✨ Features
 
----
+- **65+ K-Pop Idols** - BTS, BLACKPINK, NewJeans, SEVENTEEN, Stray Kids, IVE, aespa, PLAVE, RIIZE, and more
+- **Chemistry Score** - Get your compatibility score (70-100%) with your favorite idol
+- **VS Mode** - Battle with friends to see who has better chemistry
+- **Gamification** - Earn badges, level up, and track your stats
+- **Multi-language** - English and Korean support
+- **SEO Optimized** - Schema.org structured data, sitemaps, and more
 
-## 🚀 특징
-- 100% **정적 웹사이트** (서버/DB 불필요, GitHub Pages/Netlify 배포 가능)
-- **아이돌 데이터 (idols.json)** 기반 자동완성 + 퍼지 매칭
-- **성별 선택 (남/여/자동)** 및 관계 타입 (절친/무대 파트너/반 친구/드라마 주인공/애인)
-- 결과:  
-  - 아이돌 이름 그대로 성씨만 바꾼 **SameName** 버전  
-  - 스타일 변형된 **Styled** 버전  
-  - 케미 지수(70~100%) + 관계별 코멘트
-- **SEO/광고 최적화**: robots.txt, sitemap.xml, ads.txt 포함
-- **Privacy by Design**: 모든 입력은 **브라우저에서만 처리**, 서버 저장 없음
+## 🚀 Quick Start
 
----
+### Prerequisites
 
-## 📂 프로젝트 구조
+- Node.js 18+ 
+- npm or pnpm
+
+### Installation
+
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/kpop-idol-chemistry.git
+cd kpop-idol-chemistry
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+### Build
+
+```bash
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
+
+## 📁 Project Structure
 
 ```
 kpop-idol-chemistry/
-├─ index.html              # 메인 페이지
-├─ css/style.css           # 공통 스타일
-├─ js/
-│  ├─ app.js               # 메인 진입점
-│  ├─ generator/
-│  │  ├─ engine.js         # 이름 생성 알고리즘
-│  │  ├─ romanize.js       # 한글 → 영문 변환
-│  │  ├─ seed.js           # 시드/랜덤 유틸
-│  │  ├─ style-presets.js  # 관계 타입별 스타일 설정
-│  │  └─ syllable-pool.js  # 음절 풀 로더
-│  ├─ data/
-│  │  ├─ idols.js          # 아이돌 데이터 로더
-│  │  ├─ surnames.js       # 성씨 데이터 로더
-│  │  └─ loader.js         # JSON fetch 유틸
-│  ├─ ui/
-│  │  ├─ dom.js            # DOM 유틸
-│  │  ├─ templates.js      # 결과 렌더링 템플릿
-│  │  └─ i18n.js           # 다국어 레이블/문구
-│  └─ util/
-│     ├─ normalize.js      # 입력 정규화
-│     └─ fuzzy.js          # 퍼지 매칭
-├─ data/
-│  ├─ idols.json           # 아이돌 목록
-│  ├─ surnames.json        # 성씨 목록
-│  └─ syllables.json       # 음절 풀
-├─ public/
-│  ├─ robots.txt           # 크롤러 접근 설정
-│  ├─ sitemap.xml          # 사이트맵
-│  └─ ads.txt              # AdSense ID
-├─ legal/
-│  ├─ privacy.html         # 개인정보 처리방침
-│  └─ terms.html           # 이용 약관
-├─ components/
-│  ├─ header.html          # 공통 헤더
-│  └─ footer.html          # 공통 푸터
-├─ tests/
-│  └─ engine.spec.html     # 알고리즘 테스트 페이지
-└─ README.md
+├── public/                  # Static assets
+│   ├── ads.txt              # AdSense verification
+│   ├── robots.txt           # SEO robots file
+│   ├── CNAME                # Custom domain
+│   └── assets/              # Images and logos
+├── src/
+│   ├── components/          # React & Astro components
+│   │   ├── common/          # Header, Footer, AdSlot
+│   │   ├── gamification/    # Level, Badge, Stats, VS Mode
+│   │   └── generator/       # Name generator form
+│   ├── content/             # Content Collections (groups, FAQs)
+│   │   └── groups/          # JSON files for each K-Pop group
+│   ├── layouts/             # Page layouts
+│   ├── lib/                 # Utilities and business logic
+│   │   ├── gamification/    # Level, Badge, Stats, History systems
+│   │   ├── generator/       # Name generation algorithm
+│   │   └── seo/             # Schema.org generators
+│   ├── pages/               # Astro pages (routes)
+│   │   ├── [group]-name-generator/  # Dynamic group pages
+│   │   ├── index.astro      # Home page
+│   │   ├── about.astro      # About page
+│   │   ├── contact.astro    # Contact page
+│   │   ├── privacy.astro    # Privacy Policy
+│   │   └── terms.astro      # Terms of Service
+│   └── styles/              # Global CSS
+├── data/                    # Legacy JSON data files
+├── docs/                    # Documentation
+├── astro.config.mjs         # Astro configuration
+├── tsconfig.json            # TypeScript configuration
+└── package.json             # Project dependencies
 ```
 
----
+## 🛠️ Tech Stack
 
-## 🛠 실행 방법
+- **Framework**: [Astro](https://astro.build/) 4.x with Islands Architecture
+- **UI Components**: [React](https://react.dev/) 18.x (partial hydration)
+- **Language**: [TypeScript](https://www.typescriptlang.org/) 5.x
+- **Styling**: CSS Modules + CSS Custom Properties
+- **Analytics**: Google Analytics 4
+- **Ads**: Google AdSense
 
-### 1. 로컬 테스트
+## 🎮 Gamification System
+
+### Level System
+- **Level 1**: 신입 팬 (Rookie Fan) - 0 XP
+- **Level 2**: 열정 팬 (Passionate Fan) - 10 XP
+- **Level 3**: 전문 팬 (Expert Fan) - 30 XP
+- **Level 4**: 마스터 팬 (Master Fan) - 70 XP
+- **Level 5**: 레전드 (Legend) - 150 XP
+
+### Badges
+- Generation badges (first gen, 10, 50, 100, 500)
+- Chemistry badges (90%, 95%, 100%)
+- VS Mode badges
+- Social sharing badges
+- Level achievement badges
+
+## 🌐 Supported Groups
+
+| Group | Members | Badge |
+|-------|---------|-------|
+| Huntrix | 5 | 🔥 HOT |
+| aespa | 4 | ✨ NEW |
+| PLAVE | 5 | ✨ NEW |
+| RIIZE | 6 | ✨ NEW |
+| BTS | 7 | - |
+| BLACKPINK | 4 | - |
+| NewJeans | 5 | - |
+| SEVENTEEN | 13 | - |
+| Stray Kids | 8 | - |
+| IVE | 6 | - |
+| Saja Boys | 4 | - |
+
+## 📝 Adding New Groups
+
+1. Create a new JSON file in `src/content/groups/`:
+
+```json
+{
+  "id": "group-id",
+  "name": "Group Name",
+  "nameKr": "그룹명",
+  "slug": "group-name",
+  "fandom": "Fandom Name",
+  "description": "Group description",
+  "color": "#HEX",
+  "members": [
+    {
+      "nameEn": "Member",
+      "nameKr": "멤버",
+      "gender": "male|female"
+    }
+  ],
+  "pageTypes": ["name"],
+  "seo": {
+    "title": "Group Name Generator",
+    "description": "SEO description",
+    "keywords": ["keyword1", "keyword2"]
+  }
+}
+```
+
+2. Build and the page will be automatically generated!
+
+## 🚀 Deployment
+
+### GitHub Pages (Automatic)
+
+Push to `main` branch triggers automatic deployment via GitHub Actions.
+
+### Manual Deployment
+
 ```bash
-# 간단한 로컬 서버 실행
-npx http-server -c-1 -p 5173 .
+npm run build
+# Upload `dist/` folder to your hosting provider
 ```
-이후 `http://localhost:5173` 접속.
 
-### 2. 배포
-- GitHub Pages, Netlify, Vercel 등 정적 호스팅 서비스 사용
-- `robots.txt`, `sitemap.xml`, `ads.txt`가 루트에 노출되는지 확인
+## 📄 License
 
----
+This project is licensed under the MIT License. See [LICENSE](LICENSE) for details.
 
-## 📜 라이선스
-이 프로젝트는 학습/연습용으로 제작되었습니다.  
-아이돌 그룹명과 멤버 이름은 각 소속사/권리자에게 귀속됩니다.
+## ⚠️ Disclaimer
+
+This is a fan-made entertainment tool and is not affiliated with, endorsed by, or connected to any K-Pop entertainment companies, artists, or their management. All idol names and group references are used for entertainment purposes only.
+
+## 📧 Contact
+
+- Email: idplife35@gmail.com
+- Website: https://kpopnamegenerator.com

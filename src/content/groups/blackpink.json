@@ -1,0 +1,27 @@
+{
+  "id": "blackpink",
+  "name": "BLACKPINK",
+  "nameKr": "블랙핑크",
+  "slug": "blackpink",
+  "fandom": "BLINK",
+  "company": "YG Entertainment",
+  "debutYear": 2016,
+  "color": "#FF007F",
+  "logo": "/images/black_pink_logo2.png",
+  "description": "BLACKPINK is a global girl group known for their powerful performances, fashion influence, and record-breaking achievements.",
+  "members": [
+    { "id": "jisoo", "nameKr": "지수", "nameEn": "Jisoo", "gender": "female", "position": ["Lead Vocalist", "Visual"], "birthYear": 1995 },
+    { "id": "jennie", "nameKr": "제니", "nameEn": "Jennie", "gender": "female", "position": ["Main Rapper", "Lead Vocalist"], "birthYear": 1996 },
+    { "id": "rose", "nameKr": "로제", "nameEn": "Rosé", "gender": "female", "position": ["Main Vocalist", "Lead Dancer"], "birthYear": 1997 },
+    { "id": "lisa", "nameKr": "리사", "nameEn": "Lisa", "gender": "female", "position": ["Main Dancer", "Lead Rapper", "Sub Vocalist"], "birthYear": 1997 }
+  ],
+  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "badge": null,
+  "seo": {
+    "title": "BLACKPINK Name Generator | Create Your Korean Name with BLINK",
+    "description": "Create your BLACKPINK name with Jennie, Jisoo, Rosé & Lisa! Get instant chemistry scores and Korean stage names. Perfect for BLINK fanfiction and roleplay.",
+    "keywords": ["blackpink name generator", "blackpink korean name", "blink name generator", "blackpink jennie name", "blackpink lisa chemistry"]
+  }
+}
+
+

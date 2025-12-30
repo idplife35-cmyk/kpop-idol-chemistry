@@ -1,0 +1,31 @@
+{
+  "id": "stray-kids",
+  "name": "Stray Kids",
+  "nameKr": "스트레이 키즈",
+  "slug": "stray-kids",
+  "fandom": "STAY",
+  "company": "JYP Entertainment",
+  "debutYear": 2018,
+  "color": "#FF0000",
+  "logo": "/images/straykids_logo.png",
+  "description": "Stray Kids is a self-producing K-Pop group known for their powerful performances, unique sound, and deep involvement in music production.",
+  "members": [
+    { "id": "bangchan", "nameKr": "방찬", "nameEn": "Bang Chan", "gender": "male", "position": ["Leader", "Producer", "Main Rapper", "Lead Vocalist"], "birthYear": 1997 },
+    { "id": "leeknow", "nameKr": "리노", "nameEn": "Lee Know", "gender": "male", "position": ["Main Dancer", "Sub Rapper", "Sub Vocalist"], "birthYear": 1998 },
+    { "id": "changbin", "nameKr": "창빈", "nameEn": "Changbin", "gender": "male", "position": ["Producer", "Main Rapper"], "birthYear": 1999 },
+    { "id": "hyunjin", "nameKr": "현진", "nameEn": "Hyunjin", "gender": "male", "position": ["Main Dancer", "Lead Rapper", "Visual"], "birthYear": 2000 },
+    { "id": "han", "nameKr": "한", "nameEn": "Han", "gender": "male", "position": ["Producer", "Main Rapper", "Lead Vocalist"], "birthYear": 2000 },
+    { "id": "felix", "nameKr": "필릭스", "nameEn": "Felix", "gender": "male", "position": ["Lead Dancer", "Lead Rapper"], "birthYear": 2000 },
+    { "id": "seungmin", "nameKr": "승민", "nameEn": "Seungmin", "gender": "male", "position": ["Lead Vocalist"], "birthYear": 2000 },
+    { "id": "in", "nameKr": "아이엔", "nameEn": "I.N", "gender": "male", "position": ["Sub Vocalist", "Maknae"], "birthYear": 2001 }
+  ],
+  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "badge": null,
+  "seo": {
+    "title": "Stray Kids Name Generator | Create Your Korean Name with STAY",
+    "description": "Create your Stray Kids name with Bang Chan, Felix, Hyunjin & all 8 members! Get instant chemistry scores and Korean stage names. Perfect for STAY fanfiction.",
+    "keywords": ["stray kids name generator", "skz korean name", "stay name generator", "stray kids felix name", "skz hyunjin chemistry"]
+  }
+}
+
+
