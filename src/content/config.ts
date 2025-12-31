@@ -47,6 +47,19 @@ const faqSchema = z.object({
   }))
 });
 
+// Blog post schema
+const blogSchema = z.object({
+  title: z.string(),
+  description: z.string(),
+  pubDate: z.coerce.date(),
+  updatedDate: z.coerce.date().optional(),
+  heroImage: z.string().optional(),
+  category: z.enum(['guides', 'culture', 'names', 'idols', 'fun']),
+  tags: z.array(z.string()).optional(),
+  author: z.string().default('K-Pop Name Generator Team'),
+  featured: z.boolean().default(false)
+});
+
 // Define collections
 const groupsCollection = defineCollection({
   type: 'data',
@@ -58,9 +71,17 @@ const faqsCollection = defineCollection({
   schema: faqSchema
 });
 
+const blogCollection = defineCollection({
+  type: 'content',
+  schema: blogSchema
+});
+
 export const collections = {
   groups: groupsCollection,
-  faqs: faqsCollection
+  faqs: faqsCollection,
+  blog: blogCollection
 };
+
+
 
 

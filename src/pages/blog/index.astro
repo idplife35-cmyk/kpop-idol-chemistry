@@ -1,0 +1,394 @@
+---
+/**
+ * Blog List Page
+ * Displays all blog posts sorted by date
+ */
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import AdSlot from '../../components/common/AdSlot.astro';
+import { getCollection } from 'astro:content';
+
+// Get all blog posts and sort by date
+const allPosts = await getCollection('blog');
+const sortedPosts = allPosts.sort((a, b) => 
+  new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime()
+);
+
+// Featured posts
+const featuredPosts = sortedPosts.filter(post => post.data.featured);
+
+// Category colors
+const categoryColors: Record<string, string> = {
+  guides: '#10b981',
+  culture: '#8b5cf6',
+  names: '#f59e0b',
+  idols: '#ec4899',
+  fun: '#06b6d4'
+};
+
+const seo = {
+  title: "K-Pop Name Blog | Korean Names, Idol Stories & Culture",
+  description: "Explore the fascinating world of K-Pop names, Korean naming culture, and idol stories. Learn about your favorite idols' names and create your own!",
+  keywords: ["kpop blog", "korean names", "kpop culture", "idol names", "korean naming culture"]
+};
+---
+
+<BaseLayout title={seo.title} description={seo.description} keywords={seo.keywords}>
+  <div class="blog-page">
+    <div class="container">
+      <!-- Hero Section -->
+      <section class="blog-hero">
+        <h1>K-Pop Name Blog</h1>
+        <p class="subtitle">Discover the stories behind K-Pop names, Korean culture, and create your perfect idol persona</p>
+      </section>
+
+      <AdSlot slot="blog-top" />
+
+      <!-- Featured Posts -->
+      {featuredPosts.length > 0 && (
+        <section class="featured-section">
+          <h2 class="section-title">✨ Featured Articles</h2>
+          <div class="featured-grid">
+            {featuredPosts.slice(0, 2).map((post) => (
+              <article class="featured-card">
+                <a href={`/blog/${post.slug}/`}>
+                  <div class="featured-image" style={`background: linear-gradient(135deg, ${categoryColors[post.data.category]}, ${categoryColors[post.data.category]}88)`}>
+                    <span class="category-badge" style={`background: ${categoryColors[post.data.category]}`}>
+                      {post.data.category}
+                    </span>
+                  </div>
+                  <div class="featured-content">
+                    <h3>{post.data.title}</h3>
+                    <p>{post.data.description}</p>
+                    <time datetime={post.data.pubDate.toISOString()}>
+                      {post.data.pubDate.toLocaleDateString('en-US', { 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                      })}
+                    </time>
+                  </div>
+                </a>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
+
+      <!-- All Posts -->
+      <section class="posts-section">
+        <h2 class="section-title">📚 All Articles</h2>
+        <div class="posts-grid">
+          {sortedPosts.map((post) => (
+            <article class="post-card">
+              <a href={`/blog/${post.slug}/`}>
+                <div class="post-header">
+                  <span class="category-tag" style={`background: ${categoryColors[post.data.category]}22; color: ${categoryColors[post.data.category]}`}>
+                    {post.data.category}
+                  </span>
+                  <time datetime={post.data.pubDate.toISOString()}>
+                    {post.data.pubDate.toLocaleDateString('en-US', { 
+                      month: 'short', 
+                      day: 'numeric' 
+                    })}
+                  </time>
+                </div>
+                <h3>{post.data.title}</h3>
+                <p>{post.data.description}</p>
+                {post.data.tags && (
+                  <div class="tags">
+                    {post.data.tags.slice(0, 3).map((tag: string) => (
+                      <span class="tag">#{tag}</span>
+                    ))}
+                  </div>
+                )}
+              </a>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <AdSlot slot="blog-bottom" />
+
+      <!-- CTA Section -->
+      <section class="cta-section">
+        <div class="cta-card">
+          <h2>Ready to Create Your K-Pop Name?</h2>
+          <p>Use our free generator to discover your perfect Korean name inspired by your favorite idols!</p>
+          <a href="/" class="btn primary">Generate My Name →</a>
+        </div>
+      </section>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .blog-page {
+    padding: 2rem 0 4rem;
+    min-height: 100vh;
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+
+  /* Hero */
+  .blog-hero {
+    text-align: center;
+    padding: 3rem 0;
+    margin-bottom: 2rem;
+    background: linear-gradient(135deg, var(--accent)11, var(--accent-2)11);
+    border-radius: 1.5rem;
+  }
+
+  .blog-hero h1 {
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 0.5rem;
+  }
+
+  .subtitle {
+    color: var(--muted);
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Section Titles */
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--text);
+  }
+
+  /* Featured Section */
+  .featured-section {
+    margin-bottom: 3rem;
+  }
+
+  .featured-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .featured-card {
+    border-radius: 1rem;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .featured-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+  }
+
+  .featured-card a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .featured-image {
+    height: 200px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 1rem;
+  }
+
+  .category-badge {
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .featured-content {
+    padding: 1.5rem;
+  }
+
+  .featured-content h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    color: var(--text);
+  }
+
+  .featured-content p {
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .featured-content time {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  /* Posts Grid */
+  .posts-section {
+    margin-bottom: 3rem;
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .post-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+
+  .post-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .post-card a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .post-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.75rem;
+  }
+
+  .category-tag {
+    padding: 0.2rem 0.6rem;
+    border-radius: 0.5rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+  }
+
+  .post-header time {
+    font-size: 0.75rem;
+    color: var(--muted);
+  }
+
+  .post-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.4;
+    color: var(--text);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .post-card p {
+    font-size: 0.85rem;
+    color: var(--muted);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 0.75rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tag {
+    font-size: 0.7rem;
+    color: var(--muted);
+    background: var(--chip);
+    padding: 0.2rem 0.5rem;
+    border-radius: 0.25rem;
+  }
+
+  /* CTA Section */
+  .cta-section {
+    margin-top: 3rem;
+  }
+
+  .cta-card {
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    border-radius: 1.5rem;
+    padding: 3rem 2rem;
+    text-align: center;
+    color: white;
+  }
+
+  .cta-card h2 {
+    font-size: 1.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta-card p {
+    font-size: 1rem;
+    opacity: 0.9;
+    margin-bottom: 1.5rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .btn.primary {
+    background: white;
+    color: var(--accent);
+    padding: 0.875rem 2rem;
+    border-radius: 2rem;
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: transform 0.2s;
+  }
+
+  .btn.primary:hover {
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    .blog-hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .featured-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .posts-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-card {
+      padding: 2rem 1.5rem;
+    }
+
+    .cta-card h2 {
+      font-size: 1.5rem;
+    }
+  }
+</style>
