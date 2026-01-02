@@ -1,0 +1,31 @@
+{
+  "id": "twice",
+  "name": "TWICE",
+  "nameKr": "트와이스",
+  "slug": "twice",
+  "fandom": "ONCE",
+  "company": "JYP Entertainment",
+  "debutYear": 2015,
+  "color": "#FF5FA2",
+  "logo": "/images/twice_logo.png",
+  "description": "TWICE is one of the best-selling K-Pop girl groups, known for their catchy songs, synchronized choreography, and nine talented members from Korea, Japan, and Taiwan.",
+  "members": [
+    { "id": "nayeon", "nameKr": "나연", "nameEn": "Nayeon", "gender": "female", "position": ["Lead Vocalist", "Lead Dancer", "Center"], "birthYear": 1995 },
+    { "id": "jeongyeon", "nameKr": "정연", "nameEn": "Jeongyeon", "gender": "female", "position": ["Lead Vocalist"], "birthYear": 1996 },
+    { "id": "momo", "nameKr": "모모", "nameEn": "Momo", "gender": "female", "position": ["Main Dancer", "Sub Vocalist", "Sub Rapper"], "birthYear": 1996 },
+    { "id": "sana", "nameKr": "사나", "nameEn": "Sana", "gender": "female", "position": ["Sub Vocalist"], "birthYear": 1996 },
+    { "id": "jihyo", "nameKr": "지효", "nameEn": "Jihyo", "gender": "female", "position": ["Leader", "Main Vocalist"], "birthYear": 1997 },
+    { "id": "mina", "nameKr": "미나", "nameEn": "Mina", "gender": "female", "position": ["Main Dancer", "Sub Vocalist"], "birthYear": 1997 },
+    { "id": "dahyun", "nameKr": "다현", "nameEn": "Dahyun", "gender": "female", "position": ["Lead Rapper", "Sub Vocalist"], "birthYear": 1998 },
+    { "id": "chaeyoung", "nameKr": "채영", "nameEn": "Chaeyoung", "gender": "female", "position": ["Main Rapper", "Sub Vocalist"], "birthYear": 1999 },
+    { "id": "tzuyu", "nameKr": "쯔위", "nameEn": "Tzuyu", "gender": "female", "position": ["Lead Dancer", "Sub Vocalist", "Visual"], "birthYear": 1999 }
+  ],
+  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "badge": null,
+  "seo": {
+    "title": "TWICE Name Generator | Create Your Korean Name with ONCE",
+    "description": "Create your TWICE name with all 9 members - Nayeon, Jeongyeon, Momo, Sana, Jihyo, Mina, Dahyun, Chaeyoung & Tzuyu! Get instant chemistry scores and Korean names.",
+    "keywords": ["twice name generator", "twice korean name", "once name generator", "twice nayeon name", "twice tzuyu chemistry", "twice fan name"]
+  }
+}
+

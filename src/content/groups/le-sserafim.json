@@ -1,0 +1,27 @@
+{
+  "id": "le-sserafim",
+  "name": "LE SSERAFIM",
+  "nameKr": "르세라핌",
+  "slug": "le-sserafim",
+  "fandom": "FEARNOT",
+  "company": "Source Music / HYBE",
+  "debutYear": 2022,
+  "color": "#000000",
+  "logo": "/images/lesserafim_logo.png",
+  "description": "LE SSERAFIM is a powerful 4th generation girl group known for their fierce performances, bold concepts, and athletic choreography.",
+  "members": [
+    { "id": "sakura", "nameKr": "사쿠라", "nameEn": "Sakura", "gender": "female", "position": ["Lead Dancer", "Sub Vocalist", "Visual"], "birthYear": 1998 },
+    { "id": "chaewon", "nameKr": "채원", "nameEn": "Chaewon", "gender": "female", "position": ["Leader", "Main Vocalist", "Lead Dancer"], "birthYear": 2000 },
+    { "id": "yunjin", "nameKr": "윤진", "nameEn": "Yunjin", "gender": "female", "position": ["Lead Vocalist"], "birthYear": 2001 },
+    { "id": "kazuha", "nameKr": "카즈하", "nameEn": "Kazuha", "gender": "female", "position": ["Lead Dancer", "Sub Vocalist", "Visual"], "birthYear": 2003 },
+    { "id": "eunchae", "nameKr": "은채", "nameEn": "Eunchae", "gender": "female", "position": ["Main Rapper", "Sub Vocalist", "Maknae"], "birthYear": 2006 }
+  ],
+  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "badge": "HOT",
+  "seo": {
+    "title": "LE SSERAFIM Name Generator | Create Your Korean Name with FEARNOT",
+    "description": "Create your LE SSERAFIM name with Sakura, Chaewon, Yunjin, Kazuha & Eunchae! Get instant chemistry scores and Korean stage names. Perfect for FEARNOT fans.",
+    "keywords": ["le sserafim name generator", "lesserafim korean name", "fearnot name generator", "le sserafim chaewon", "kazuha name generator"]
+  }
+}
+

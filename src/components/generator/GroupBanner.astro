@@ -9,15 +9,33 @@ interface Props {
 }
 
 const { name, nameKr, fandom, description, color, logo } = Astro.props;
+
+// Get initials for fallback (e.g., "BTS", "LE" from "LE SSERAFIM", "RV" from "Red Velvet")
+function getInitials(groupName: string): string {
+  const words = groupName.replace(/[()]/g, '').split(' ');
+  if (words.length === 1) {
+    return groupName.slice(0, 3).toUpperCase();
+  }
+  return words.map(w => w[0]).join('').slice(0, 3).toUpperCase();
+}
+
+const initials = getInitials(name);
 ---
 
 <div class="group-banner" style={color ? `--group-color: ${color}` : ''}>
   <div class="banner-content">
-    {logo && (
-      <div class="banner-logo">
-        <img src={logo} alt={`${name} logo`} />
-      </div>
-    )}
+    <div class="banner-logo">
+      {logo ? (
+        <img 
+          src={logo} 
+          alt={`${name} logo`} 
+          onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';"
+        />
+        <span class="logo-fallback" style="display: none;">{initials}</span>
+      ) : (
+        <span class="logo-fallback">{initials}</span>
+      )}
+    </div>
     <div class="banner-text">
       <h1 class="group-name">
         {name}
@@ -54,7 +72,7 @@ const { name, nameKr, fandom, description, color, logo } = Astro.props;
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(0,0,0,0.1) 0%, rgba(0,0,0,0.3) 100%);
+    background: linear-gradient(135deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.4) 100%);
     pointer-events: none;
   }
   
@@ -84,6 +102,23 @@ const { name, nameKr, fandom, description, color, logo } = Astro.props;
     object-fit: contain;
   }
   
+  .logo-fallback {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--group-color, var(--accent));
+    background: linear-gradient(135deg, var(--group-color, var(--accent)) 20%, var(--accent-2) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-transform: uppercase;
+    letter-spacing: -1px;
+  }
+  
   .banner-text {
     flex: 1;
   }
@@ -98,20 +133,24 @@ const { name, nameKr, fandom, description, color, logo } = Astro.props;
   
   .name-kr {
     font-size: 1rem;
-    font-weight: 400;
-    opacity: 0.9;
+    font-weight: 500;
     margin-left: 8px;
+    color: rgba(255,255,255,0.95);
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
   }
   
   .fandom-tag {
     display: inline-flex;
     align-items: center;
     gap: 6px;
-    background: rgba(255,255,255,0.2);
-    padding: 4px 12px;
+    background: rgba(255,255,255,0.3);
+    padding: 6px 14px;
     border-radius: var(--radius-full);
     font-size: 0.85rem;
+    font-weight: 600;
     margin: 8px 0;
+    color: white;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.3);
   }
   
   .fandom-icon {
@@ -120,9 +159,12 @@ const { name, nameKr, fandom, description, color, logo } = Astro.props;
   
   .description {
     font-size: 0.9rem;
-    opacity: 0.9;
     margin: 8px 0 0;
     max-width: 500px;
+    color: white;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+    line-height: 1.5;
+    font-weight: 500;
   }
   
   @media (max-width: 600px) {

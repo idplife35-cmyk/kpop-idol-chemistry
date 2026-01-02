@@ -1,6 +1,6 @@
 /**
  * Generator Form - React Component
- * Interactive form for generating K-Pop idol chemistry names
+ * Interactive form with 2-step idol selection + quick pick
  */
 
 import { useState, useMemo, useEffect } from 'react';
@@ -16,6 +16,8 @@ import {
 } from '@/lib/gamification';
 import { showNotification } from '@/components/gamification/Notification';
 import idolsData from '@/data/idols.json';
+import groupColors from '@/data/groupColors.json';
+import styles from './IdolSelector.module.css';
 
 interface Idol {
   group: string;
@@ -24,30 +26,57 @@ interface Idol {
   gender: 'male' | 'female';
 }
 
+interface GroupColor {
+  color: string;
+  emoji: string;
+}
+
 interface Props {
   initialGroup?: string;
   showAllGroups?: boolean;
 }
 
+// Popular groups to show first
+const POPULAR_GROUPS = ['BTS', 'BLACKPINK', 'Stray Kids', 'TWICE', 'LE SSERAFIM', 'NewJeans', 'EXO', 'SEVENTEEN', 'TXT', 'ENHYPEN'];
+const INITIAL_VISIBLE_GROUPS = 8;
+
+// Recent idols storage key
+const RECENT_IDOLS_KEY = 'kpop-recent-idols';
+const MAX_RECENT_IDOLS = 5;
+
 export default function GeneratorForm({ initialGroup, showAllGroups = true }: Props) {
   const [myName, setMyName] = useState('');
   const [selectedIdol, setSelectedIdol] = useState<Idol | null>(null);
+  const [selectedGroup, setSelectedGroup] = useState(initialGroup || '');
   const [genderPref, setGenderPref] = useState<'auto' | 'male' | 'female'>('auto');
   const [relation, setRelation] = useState<RelationType>('lover');
   const [result, setResult] = useState<GeneratorResult | null>(null);
   const [isGenerating, setIsGenerating] = useState(false);
-  const [variation, setVariation] = useState(0); // 같은 입력으로 다른 결과 생성
+  const [variation, setVariation] = useState(0);
+  const [showAllGroupsGrid, setShowAllGroupsGrid] = useState(false);
+  const [recentIdols, setRecentIdols] = useState<Idol[]>([]);
+  const [categoryFilter, setCategoryFilter] = useState<'all' | 'boy' | 'girl'>('all');
+
+  // Load recent idols from localStorage
+  useEffect(() => {
+    try {
+      const saved = localStorage.getItem(RECENT_IDOLS_KEY);
+      if (saved) {
+        setRecentIdols(JSON.parse(saved));
+      }
+    } catch (e) {
+      console.error('Error loading recent idols:', e);
+    }
+  }, []);
 
   // Listen for hero input from Astro page
   useEffect(() => {
-    // Check localStorage on mount
     const savedName = localStorage.getItem('kpop-hero-name');
     if (savedName) {
       setMyName(savedName);
-      localStorage.removeItem('kpop-hero-name'); // Clear after use
+      localStorage.removeItem('kpop-hero-name');
     }
 
-    // Listen for custom event
     const handleHeroName = (e: CustomEvent<{ name: string }>) => {
       if (e.detail?.name) {
         setMyName(e.detail.name);
@@ -69,26 +98,87 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
     return data;
   }, [initialGroup]);
 
-  // Get unique groups
+  // Get unique groups sorted by popularity
   const groups = useMemo(() => {
     const groupSet = new Set(idols.map(idol => idol.group));
-    return Array.from(groupSet);
+    const allGroups = Array.from(groupSet);
+    
+    // Sort: popular groups first, then alphabetically
+    return allGroups.sort((a, b) => {
+      const aPopular = POPULAR_GROUPS.indexOf(a);
+      const bPopular = POPULAR_GROUPS.indexOf(b);
+      if (aPopular !== -1 && bPopular !== -1) return aPopular - bPopular;
+      if (aPopular !== -1) return -1;
+      if (bPopular !== -1) return 1;
+      return a.localeCompare(b);
+    });
   }, [idols]);
 
+  // Filter groups by category
+  const filteredGroups = useMemo(() => {
+    if (categoryFilter === 'all') return groups;
+    
+    return groups.filter(group => {
+      const groupIdols = idols.filter(idol => idol.group === group);
+      if (groupIdols.length === 0) return false;
+      
+      // Check majority gender of group
+      const femaleCount = groupIdols.filter(i => i.gender === 'female').length;
+      const isBoyGroup = femaleCount < groupIdols.length / 2;
+      
+      return categoryFilter === 'boy' ? isBoyGroup : !isBoyGroup;
+    });
+  }, [groups, categoryFilter, idols]);
+
+  // Groups to display (limited or all)
+  const displayedGroups = useMemo(() => {
+    if (showAllGroupsGrid || !showAllGroups) return filteredGroups;
+    return filteredGroups.slice(0, INITIAL_VISIBLE_GROUPS);
+  }, [filteredGroups, showAllGroupsGrid, showAllGroups]);
+
   // Filter idols by selected group
-  const [selectedGroup, setSelectedGroup] = useState(initialGroup || '');
-  
   const filteredIdols = useMemo(() => {
     if (!selectedGroup) return idols;
     return idols.filter(idol => idol.group === selectedGroup);
   }, [idols, selectedGroup]);
+
+  // Save idol to recent
+  const saveToRecent = (idol: Idol) => {
+    try {
+      const updated = [idol, ...recentIdols.filter(
+        i => !(i.group === idol.group && i.name_en === idol.name_en)
+      )].slice(0, MAX_RECENT_IDOLS);
+      setRecentIdols(updated);
+      localStorage.setItem(RECENT_IDOLS_KEY, JSON.stringify(updated));
+    } catch (e) {
+      console.error('Error saving recent idol:', e);
+    }
+  };
+
+  // Handle group selection
+  const handleGroupSelect = (group: string) => {
+    setSelectedGroup(group);
+    setSelectedIdol(null);
+  };
+
+  // Handle idol selection
+  const handleIdolSelect = (idol: Idol) => {
+    setSelectedIdol(idol);
+    saveToRecent(idol);
+  };
+
+  // Handle quick pick selection
+  const handleQuickPick = (idol: Idol) => {
+    setSelectedGroup(idol.group);
+    setSelectedIdol(idol);
+    saveToRecent(idol);
+  };
 
   const handleGenerate = () => {
     if (!myName.trim() || !selectedIdol) return;
 
     setIsGenerating(true);
     
-    // Small delay for animation effect
     setTimeout(() => {
       const result = generate({
         myName: myName.trim(),
@@ -108,7 +198,6 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
 
       // Gamification integration
       try {
-        // Record stats
         recordGeneration(
           selectedIdol.name_kr,
           selectedIdol.group,
@@ -117,7 +206,6 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           result.styled.full_kr
         );
 
-        // Add to history
         addToHistory({
           myName: myName.trim(),
           idol: {
@@ -133,12 +221,10 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           relation
         });
 
-        // Determine XP type based on chemistry
         let xpType: 'generate' | 'high_chemistry' | 'perfect_chemistry' = 'generate';
         if (result.chemistry === 100) xpType = 'perfect_chemistry';
         else if (result.chemistry >= 90) xpType = 'high_chemistry';
 
-        // Add XP
         const xpAmount = XP_REWARDS[xpType];
         const xpResult = addXP(xpAmount, xpType);
         
@@ -146,7 +232,6 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           showNotification(`🎉 Level Up! Level ${xpResult.newLevel}`, 'levelup');
         }
 
-        // Check badges
         const stats = getLevelStats();
         checkGenerationBadges(stats.totalGenerations);
         
@@ -155,7 +240,6 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           showNotification(`🏆 Badge: ${badge.name}`, 'badge', badge.icon);
         });
 
-        // Dispatch level update event for UI refresh
         window.dispatchEvent(new Event('levelUpdate'));
       } catch (e) {
         console.error('Gamification error:', e);
@@ -165,15 +249,14 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
 
   const handleReset = () => {
     setResult(null);
-    setVariation(0); // Reset variation
+    setVariation(0);
   };
 
-  // Re-roll: 같은 입력으로 다른 결과 생성
   const handleReroll = () => {
     if (!myName.trim() || !selectedIdol) return;
     
     setIsGenerating(true);
-    const newVariation = (variation + 1) % 10; // 0-9 순환
+    const newVariation = (variation + 1) % 10;
     setVariation(newVariation);
     
     setTimeout(() => {
@@ -196,11 +279,11 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
   };
 
   const chemistryInfo = result ? getChemistryDescription(result.chemistry) : null;
+  const colors = groupColors as Record<string, GroupColor>;
 
   return (
     <div className="generator-form">
       {!result ? (
-        // Input Form
         <div className="form-container">
           {/* Name Input */}
           <div className="form-group">
@@ -215,49 +298,150 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
             />
           </div>
 
-          {/* Group Selection (if showing all groups) */}
-          {showAllGroups && groups.length > 1 && (
-            <div className="form-group">
-              <label htmlFor="group-select">Select Group</label>
-              <select
-                id="group-select"
-                value={selectedGroup}
-                onChange={(e) => {
-                  setSelectedGroup(e.target.value);
-                  setSelectedIdol(null);
-                }}
-              >
-                <option value="">All Groups</option>
-                {groups.map(group => (
-                  <option key={group} value={group}>{group}</option>
+          {/* Quick Pick - Recent Idols */}
+          {recentIdols.length > 0 && showAllGroups && (
+            <div className={styles.quickPick}>
+              <div className={styles.quickPickHeader}>
+                <span>📍</span> Quick Pick
+              </div>
+              <div className={styles.quickPickItems}>
+                {recentIdols.map((idol) => (
+                  <button
+                    key={`${idol.group}:${idol.name_en}`}
+                    className={`${styles.quickPickItem} ${
+                      selectedIdol?.name_en === idol.name_en && selectedIdol?.group === idol.group ? styles.selected : ''
+                    }`}
+                    onClick={() => handleQuickPick(idol)}
+                  >
+                    <span>{idol.name_en}</span>
+                    <span className={styles.group}>{idol.group}</span>
+                  </button>
                 ))}
-              </select>
+              </div>
             </div>
           )}
 
-          {/* Idol Selection */}
-          <div className="form-group">
-            <label htmlFor="idol-select">Select Idol</label>
-            <select
-              id="idol-select"
-              value={selectedIdol ? `${selectedIdol.group}:${selectedIdol.name_en}` : ''}
-              onChange={(e) => {
-                const [group, name] = e.target.value.split(':');
-                const idol = idols.find(i => i.group === group && i.name_en === name);
-                setSelectedIdol(idol || null);
-              }}
-            >
-              <option value="">Choose an idol...</option>
-              {filteredIdols.map(idol => (
-                <option 
-                  key={`${idol.group}:${idol.name_en}`} 
-                  value={`${idol.group}:${idol.name_en}`}
-                >
-                  {idol.name_en} ({idol.name_kr}) - {idol.group}
-                </option>
-              ))}
-            </select>
-          </div>
+          {/* Step 1: Group Selection */}
+          {showAllGroups && groups.length > 1 && (
+            <div className={styles.stepSection}>
+              <div className={styles.stepHeader}>
+                <span className={`${styles.stepNumber} ${selectedGroup ? styles.stepComplete : ''}`}>
+                  {selectedGroup ? '✓' : '1'}
+                </span>
+                <span className={styles.stepTitle}>
+                  {selectedGroup ? `Group: ${selectedGroup}` : 'Select Group'}
+                </span>
+                {selectedGroup && (
+                  <button 
+                    className="btn-text" 
+                    onClick={() => { setSelectedGroup(''); setSelectedIdol(null); }}
+                    style={{ marginLeft: 'auto', fontSize: '0.8rem', color: 'var(--accent)' }}
+                  >
+                    Change
+                  </button>
+                )}
+              </div>
+
+              {!selectedGroup && (
+                <>
+                  {/* Category Filter */}
+                  <div className={styles.categoryFilter}>
+                    <button 
+                      className={`${styles.categoryButton} ${categoryFilter === 'all' ? styles.active : ''}`}
+                      onClick={() => setCategoryFilter('all')}
+                    >
+                      All
+                    </button>
+                    <button 
+                      className={`${styles.categoryButton} ${categoryFilter === 'boy' ? styles.active : ''}`}
+                      onClick={() => setCategoryFilter('boy')}
+                    >
+                      👦 Boy Groups
+                    </button>
+                    <button 
+                      className={`${styles.categoryButton} ${categoryFilter === 'girl' ? styles.active : ''}`}
+                      onClick={() => setCategoryFilter('girl')}
+                    >
+                      👧 Girl Groups
+                    </button>
+                  </div>
+
+                  {/* Group Grid */}
+                  <div className={styles.groupGrid}>
+                    {displayedGroups.map((group) => {
+                      const groupColor = colors[group] || { color: '#888', emoji: '🎤' };
+                      return (
+                        <button
+                          key={group}
+                          className={`${styles.groupCard} ${selectedGroup === group ? styles.selected : ''}`}
+                          style={{ '--group-color': groupColor.color } as React.CSSProperties}
+                          onClick={() => handleGroupSelect(group)}
+                        >
+                          <span className={styles.groupEmoji}>{groupColor.emoji}</span>
+                          <span className={styles.groupName}>{group}</span>
+                        </button>
+                      );
+                    })}
+                    
+                    {/* More Button */}
+                    {!showAllGroupsGrid && filteredGroups.length > INITIAL_VISIBLE_GROUPS && (
+                      <button 
+                        className={styles.moreButton}
+                        onClick={() => setShowAllGroupsGrid(true)}
+                      >
+                        <span>+{filteredGroups.length - INITIAL_VISIBLE_GROUPS}</span>
+                        <span style={{ fontSize: '0.7rem' }}>More</span>
+                      </button>
+                    )}
+                  </div>
+                </>
+              )}
+            </div>
+          )}
+
+          {/* Step 2: Member Selection */}
+          {(selectedGroup || !showAllGroups) && (
+            <div className={styles.stepSection}>
+              <div className={styles.stepHeader}>
+                <span className={`${styles.stepNumber} ${selectedIdol ? styles.stepComplete : ''}`}>
+                  {selectedIdol ? '✓' : showAllGroups ? '2' : '1'}
+                </span>
+                <span className={styles.stepTitle}>
+                  {selectedIdol ? `Idol: ${selectedIdol.name_en}` : 'Select Idol'}
+                </span>
+              </div>
+
+              {!selectedIdol ? (
+                <div className={styles.memberGrid}>
+                  {filteredIdols.map((idol) => (
+                    <button
+                      key={`${idol.group}:${idol.name_en}`}
+                      className={styles.memberButton}
+                      onClick={() => handleIdolSelect(idol)}
+                    >
+                      <span className={styles.memberNameEn}>{idol.name_en}</span>
+                      <span className={styles.memberNameKr}>{idol.name_kr}</span>
+                    </button>
+                  ))}
+                </div>
+              ) : (
+                <div className={styles.memberGrid}>
+                  {filteredIdols.map((idol) => (
+                    <button
+                      key={`${idol.group}:${idol.name_en}`}
+                      className={`${styles.memberButton} ${
+                        selectedIdol.name_en === idol.name_en ? styles.selected : ''
+                      }`}
+                      onClick={() => handleIdolSelect(idol)}
+                    >
+                      <span className={styles.memberNameEn}>{idol.name_en}</span>
+                      <span className={styles.memberNameKr}>{idol.name_kr}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
 
           {/* Gender Preference */}
           <div className="form-group">
@@ -359,7 +543,6 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           <div className="share-section">
             <span className="share-label">✨ Flex your K-Pop soulmate! ✨</span>
             <div className="share-buttons">
-              {/* Native Share Button - Primary on Mobile */}
               <button 
                 className="share-btn native-share"
                 onClick={async () => {
@@ -379,7 +562,6 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
                       }
                     }
                   } else {
-                    // Fallback for desktop - copy to clipboard
                     const text = `OMG! I got ${result.chemistry}% chemistry with ${selectedIdol?.name_en}! 💜 My K-Pop name is ${result.styled.full_kr} ✨\n\n🔗 kpopnamegenerator.com`;
                     navigator.clipboard.writeText(text);
                     showNotification('Copied to clipboard!', 'success', '📋');
@@ -452,7 +634,7 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
         .form-container {
           display: flex;
           flex-direction: column;
-          gap: 16px;
+          gap: 20px;
         }
 
         .form-group {
@@ -483,6 +665,13 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
 
         .radio-label input {
           width: auto;
+        }
+
+        .btn-text {
+          background: none;
+          border: none;
+          cursor: pointer;
+          padding: 0;
         }
 
         .generate-btn {
@@ -675,15 +864,6 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
         }
 
-        .share-btn.imessage {
-          background: linear-gradient(135deg, #34c759, #30d158);
-          color: #fff;
-        }
-
-        .share-btn.imessage:hover {
-          box-shadow: 0 6px 20px rgba(52, 199, 89, 0.4);
-        }
-
         .share-btn.discord {
           background: #5865F2;
           color: #fff;
@@ -702,7 +882,6 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
         }
 
-        /* On mobile, make native share button more prominent */
         @media (max-width: 768px) {
           .share-btn.native-share {
             order: -1;
@@ -716,13 +895,6 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
             content: ' Share';
             font-weight: 600;
             margin-left: 8px;
-          }
-        }
-
-        /* Hide on desktop if Web Share API not available */
-        @media (min-width: 769px) {
-          .share-btn.native-share {
-            display: flex;
           }
         }
 
@@ -756,17 +928,8 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
             height: 48px;
             font-size: 1.2rem;
           }
-
-          .share-label {
-            font-size: 0.95rem;
-          }
-
-          .share-challenge {
-            font-size: 0.8rem;
-          }
         }
       `}</style>
     </div>
   );
 }
-

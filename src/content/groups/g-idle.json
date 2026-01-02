@@ -1,0 +1,27 @@
+{
+  "id": "g-idle",
+  "name": "(G)I-DLE",
+  "nameKr": "여자아이들",
+  "slug": "g-idle",
+  "fandom": "NEVERLAND",
+  "company": "Cube Entertainment",
+  "debutYear": 2018,
+  "color": "#9B59B6",
+  "logo": "/images/gidle_logo.png",
+  "description": "(G)I-DLE is a self-producing girl group known for their unique concepts, powerful performances, and member Soyeon's songwriting and producing skills.",
+  "members": [
+    { "id": "miyeon", "nameKr": "미연", "nameEn": "Miyeon", "gender": "female", "position": ["Main Vocalist", "Visual"], "birthYear": 1997 },
+    { "id": "minnie", "nameKr": "민니", "nameEn": "Minnie", "gender": "female", "position": ["Main Vocalist"], "birthYear": 1997 },
+    { "id": "soyeon", "nameKr": "소연", "nameEn": "Soyeon", "gender": "female", "position": ["Leader", "Main Rapper", "Lead Dancer", "Sub Vocalist", "Center"], "birthYear": 1998 },
+    { "id": "yuqi", "nameKr": "우기", "nameEn": "Yuqi", "gender": "female", "position": ["Lead Vocalist", "Lead Rapper"], "birthYear": 1999 },
+    { "id": "shuhua", "nameKr": "슈화", "nameEn": "Shuhua", "gender": "female", "position": ["Sub Vocalist", "Visual", "Maknae"], "birthYear": 2000 }
+  ],
+  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "badge": null,
+  "seo": {
+    "title": "(G)I-DLE Name Generator | Create Your Korean Name with NEVERLAND",
+    "description": "Create your (G)I-DLE name with Miyeon, Minnie, Soyeon, Yuqi & Shuhua! Get instant chemistry scores and Korean stage names. Perfect for NEVERLAND.",
+    "keywords": ["gidle name generator", "g idle korean name", "neverland name generator", "gidle soyeon name", "yuqi name generator"]
+  }
+}
+

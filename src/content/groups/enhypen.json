@@ -1,0 +1,29 @@
+{
+  "id": "enhypen",
+  "name": "ENHYPEN",
+  "nameKr": "엔하이픈",
+  "slug": "enhypen",
+  "fandom": "ENGENE",
+  "company": "BELIFT LAB / HYBE",
+  "debutYear": 2020,
+  "color": "#FF6B35",
+  "logo": "/images/enhypen_logo.png",
+  "description": "ENHYPEN is a 4th generation boy group formed through I-LAND, known for their vampire concepts, powerful choreography, and global popularity.",
+  "members": [
+    { "id": "jungwon", "nameKr": "정원", "nameEn": "Jungwon", "gender": "male", "position": ["Leader", "Main Vocalist", "Lead Dancer"], "birthYear": 2004 },
+    { "id": "heeseung", "nameKr": "희승", "nameEn": "Heeseung", "gender": "male", "position": ["Main Vocalist", "Lead Dancer", "Visual"], "birthYear": 2001 },
+    { "id": "jay", "nameKr": "제이", "nameEn": "Jay", "gender": "male", "position": ["Lead Rapper", "Sub Vocalist"], "birthYear": 2002 },
+    { "id": "jake", "nameKr": "제이크", "nameEn": "Jake", "gender": "male", "position": ["Lead Rapper", "Lead Dancer", "Sub Vocalist"], "birthYear": 2002 },
+    { "id": "sunghoon", "nameKr": "성훈", "nameEn": "Sunghoon", "gender": "male", "position": ["Lead Dancer", "Sub Vocalist", "Visual"], "birthYear": 2002 },
+    { "id": "sunoo", "nameKr": "선우", "nameEn": "Sunoo", "gender": "male", "position": ["Lead Vocalist", "Visual"], "birthYear": 2003 },
+    { "id": "ni-ki", "nameKr": "니키", "nameEn": "Ni-ki", "gender": "male", "position": ["Main Dancer", "Sub Vocalist", "Maknae"], "birthYear": 2005 }
+  ],
+  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "badge": "HOT",
+  "seo": {
+    "title": "ENHYPEN Name Generator | Create Your Korean Name with ENGENE",
+    "description": "Create your ENHYPEN name with Jungwon, Heeseung, Jay, Jake, Sunghoon, Sunoo & Ni-ki! Get instant chemistry scores and Korean names for ENGENE.",
+    "keywords": ["enhypen name generator", "enhypen korean name", "engene name generator", "enhypen jake name", "enhypen ni-ki chemistry"]
+  }
+}
+

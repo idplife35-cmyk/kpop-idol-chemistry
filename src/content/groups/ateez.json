@@ -1,0 +1,30 @@
+{
+  "id": "ateez",
+  "name": "ATEEZ",
+  "nameKr": "에이티즈",
+  "slug": "ateez",
+  "fandom": "ATINY",
+  "company": "KQ Entertainment",
+  "debutYear": 2018,
+  "color": "#0066CC",
+  "logo": "/images/ateez_logo.png",
+  "description": "ATEEZ is known for their powerful performances, pirate-themed storylines, and explosive stage presence that has earned them a massive global following.",
+  "members": [
+    { "id": "hongjoong", "nameKr": "홍중", "nameEn": "Hongjoong", "gender": "male", "position": ["Leader", "Main Rapper", "Sub Vocalist"], "birthYear": 1998 },
+    { "id": "seonghwa", "nameKr": "성화", "nameEn": "Seonghwa", "gender": "male", "position": ["Lead Vocalist", "Visual"], "birthYear": 1998 },
+    { "id": "yunho", "nameKr": "윤호", "nameEn": "Yunho", "gender": "male", "position": ["Main Dancer", "Sub Vocalist", "Sub Rapper"], "birthYear": 1999 },
+    { "id": "yeosang", "nameKr": "여상", "nameEn": "Yeosang", "gender": "male", "position": ["Lead Dancer", "Sub Vocalist", "Visual"], "birthYear": 1999 },
+    { "id": "san", "nameKr": "산", "nameEn": "San", "gender": "male", "position": ["Main Vocalist", "Lead Dancer", "Center"], "birthYear": 1999 },
+    { "id": "mingi", "nameKr": "민기", "nameEn": "Mingi", "gender": "male", "position": ["Main Rapper", "Sub Vocalist"], "birthYear": 1999 },
+    { "id": "wooyoung", "nameKr": "우영", "nameEn": "Wooyoung", "gender": "male", "position": ["Main Dancer", "Lead Vocalist", "Sub Rapper"], "birthYear": 1999 },
+    { "id": "jongho", "nameKr": "종호", "nameEn": "Jongho", "gender": "male", "position": ["Main Vocalist", "Maknae"], "birthYear": 2000 }
+  ],
+  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "badge": "HOT",
+  "seo": {
+    "title": "ATEEZ Name Generator | Create Your Korean Name with ATINY",
+    "description": "Create your ATEEZ name with Hongjoong, Seonghwa, San, Wooyoung, Jongho & more! Get instant chemistry scores and Korean names. Perfect for ATINY.",
+    "keywords": ["ateez name generator", "ateez korean name", "atiny name generator", "ateez san name", "ateez hongjoong chemistry"]
+  }
+}
+

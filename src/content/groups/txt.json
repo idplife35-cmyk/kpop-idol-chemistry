@@ -1,0 +1,27 @@
+{
+  "id": "txt",
+  "name": "TXT",
+  "nameKr": "투모로우바이투게더",
+  "slug": "txt",
+  "fandom": "MOA",
+  "company": "HYBE",
+  "debutYear": 2019,
+  "color": "#0ABAB5",
+  "logo": "/images/txt_logo.png",
+  "description": "TXT (Tomorrow X Together) is HYBE's second boy group known for their creative concepts, youth-focused themes, and synchronized performances.",
+  "members": [
+    { "id": "yeonjun", "nameKr": "연준", "nameEn": "Yeonjun", "gender": "male", "position": ["Lead Dancer", "Lead Rapper", "Sub Vocalist", "Visual", "Center"], "birthYear": 1999 },
+    { "id": "soobin", "nameKr": "수빈", "nameEn": "Soobin", "gender": "male", "position": ["Leader", "Lead Vocalist", "Visual"], "birthYear": 2000 },
+    { "id": "beomgyu", "nameKr": "범규", "nameEn": "Beomgyu", "gender": "male", "position": ["Lead Dancer", "Lead Vocalist", "Visual"], "birthYear": 2001 },
+    { "id": "taehyun", "nameKr": "태현", "nameEn": "Taehyun", "gender": "male", "position": ["Main Vocalist"], "birthYear": 2002 },
+    { "id": "huening-kai", "nameKr": "휴닝카이", "nameEn": "Huening Kai", "gender": "male", "position": ["Lead Vocalist", "Lead Dancer", "Visual", "Maknae"], "birthYear": 2002 }
+  ],
+  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "badge": null,
+  "seo": {
+    "title": "TXT Name Generator | Create Your Korean Name with MOA",
+    "description": "Create your TXT name with Yeonjun, Soobin, Beomgyu, Taehyun & Huening Kai! Get instant chemistry scores and Korean stage names. Perfect for MOA.",
+    "keywords": ["txt name generator", "tomorrow x together name", "moa name generator", "txt yeonjun name", "txt soobin chemistry"]
+  }
+}
+

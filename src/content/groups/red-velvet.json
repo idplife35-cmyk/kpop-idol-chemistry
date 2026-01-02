@@ -1,0 +1,27 @@
+{
+  "id": "red-velvet",
+  "name": "Red Velvet",
+  "nameKr": "레드벨벳",
+  "slug": "red-velvet",
+  "fandom": "ReVeluv",
+  "company": "SM Entertainment",
+  "debutYear": 2014,
+  "color": "#FF0000",
+  "logo": "/images/redvelvet_logo.png",
+  "description": "Red Velvet is known for their dual concept - 'Red' for energetic pop and 'Velvet' for smooth R&B - along with their unique vocals and artistic music videos.",
+  "members": [
+    { "id": "irene", "nameKr": "아이린", "nameEn": "Irene", "gender": "female", "position": ["Leader", "Main Rapper", "Lead Dancer", "Visual", "Center"], "birthYear": 1991 },
+    { "id": "seulgi", "nameKr": "슬기", "nameEn": "Seulgi", "gender": "female", "position": ["Main Dancer", "Lead Vocalist"], "birthYear": 1994 },
+    { "id": "wendy", "nameKr": "웬디", "nameEn": "Wendy", "gender": "female", "position": ["Main Vocalist"], "birthYear": 1994 },
+    { "id": "joy", "nameKr": "조이", "nameEn": "Joy", "gender": "female", "position": ["Lead Rapper", "Lead Vocalist", "Visual"], "birthYear": 1996 },
+    { "id": "yeri", "nameKr": "예리", "nameEn": "Yeri", "gender": "female", "position": ["Lead Rapper", "Sub Vocalist", "Maknae"], "birthYear": 1999 }
+  ],
+  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "badge": null,
+  "seo": {
+    "title": "Red Velvet Name Generator | Create Your Korean Name with ReVeluv",
+    "description": "Create your Red Velvet name with Irene, Seulgi, Wendy, Joy & Yeri! Get instant chemistry scores and Korean stage names. Perfect for ReVeluv.",
+    "keywords": ["red velvet name generator", "red velvet korean name", "reveluv name generator", "red velvet irene name", "seulgi name generator"]
+  }
+}
+

@@ -1,0 +1,31 @@
+{
+  "id": "exo",
+  "name": "EXO",
+  "nameKr": "엑소",
+  "slug": "exo",
+  "fandom": "EXO-L",
+  "company": "SM Entertainment",
+  "debutYear": 2012,
+  "color": "#C0C0C0",
+  "logo": "/images/exo_logo.png",
+  "description": "EXO is a legendary K-Pop boy group known for their powerful vocals, synchronized performances, and groundbreaking concepts. They're one of the best-selling Korean artists of all time.",
+  "members": [
+    { "id": "xiumin", "nameKr": "시우민", "nameEn": "Xiumin", "gender": "male", "position": ["Lead Vocalist", "Lead Dancer"], "birthYear": 1990 },
+    { "id": "suho", "nameKr": "수호", "nameEn": "Suho", "gender": "male", "position": ["Leader", "Lead Vocalist", "Visual"], "birthYear": 1991 },
+    { "id": "lay", "nameKr": "레이", "nameEn": "Lay", "gender": "male", "position": ["Main Dancer", "Vocalist"], "birthYear": 1991 },
+    { "id": "baekhyun", "nameKr": "백현", "nameEn": "Baekhyun", "gender": "male", "position": ["Main Vocalist"], "birthYear": 1992 },
+    { "id": "chen", "nameKr": "첸", "nameEn": "Chen", "gender": "male", "position": ["Main Vocalist"], "birthYear": 1992 },
+    { "id": "chanyeol", "nameKr": "찬열", "nameEn": "Chanyeol", "gender": "male", "position": ["Main Rapper", "Vocalist", "Visual"], "birthYear": 1992 },
+    { "id": "do", "nameKr": "디오", "nameEn": "D.O.", "gender": "male", "position": ["Main Vocalist"], "birthYear": 1993 },
+    { "id": "kai", "nameKr": "카이", "nameEn": "Kai", "gender": "male", "position": ["Main Dancer", "Lead Vocalist", "Visual", "Center"], "birthYear": 1994 },
+    { "id": "sehun", "nameKr": "세훈", "nameEn": "Sehun", "gender": "male", "position": ["Lead Dancer", "Lead Rapper", "Visual", "Maknae"], "birthYear": 1994 }
+  ],
+  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "badge": null,
+  "seo": {
+    "title": "EXO Name Generator | Create Your Korean Name with EXO-L",
+    "description": "Create your EXO name with Baekhyun, Chanyeol, Kai, D.O., Sehun & more! Get instant chemistry scores and Korean stage names. Perfect for EXO-L fanfiction.",
+    "keywords": ["exo name generator", "exo korean name", "exo-l name generator", "exo baekhyun name", "exo kai chemistry", "exo fan name"]
+  }
+}
+

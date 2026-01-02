@@ -1,0 +1,31 @@
+{
+  "id": "nct127",
+  "name": "NCT 127",
+  "nameKr": "엔시티 127",
+  "slug": "nct127",
+  "fandom": "NCTzen",
+  "company": "SM Entertainment",
+  "debutYear": 2016,
+  "color": "#00FF00",
+  "logo": "/images/nct127_logo.png",
+  "description": "NCT 127 is the Seoul-based unit of NCT, known for their experimental music, powerful performances, and unique 'Neo Culture Technology' concept.",
+  "members": [
+    { "id": "taeil", "nameKr": "태일", "nameEn": "Taeil", "gender": "male", "position": ["Main Vocalist"], "birthYear": 1994 },
+    { "id": "johnny", "nameKr": "쟈니", "nameEn": "Johnny", "gender": "male", "position": ["Sub Vocalist", "Visual"], "birthYear": 1995 },
+    { "id": "taeyong", "nameKr": "태용", "nameEn": "Taeyong", "gender": "male", "position": ["Leader", "Main Rapper", "Main Dancer", "Center", "Visual"], "birthYear": 1995 },
+    { "id": "yuta", "nameKr": "유타", "nameEn": "Yuta", "gender": "male", "position": ["Lead Dancer", "Sub Vocalist"], "birthYear": 1995 },
+    { "id": "doyoung", "nameKr": "도영", "nameEn": "Doyoung", "gender": "male", "position": ["Main Vocalist"], "birthYear": 1996 },
+    { "id": "jaehyun", "nameKr": "재현", "nameEn": "Jaehyun", "gender": "male", "position": ["Lead Vocalist", "Lead Dancer", "Visual", "Center"], "birthYear": 1997 },
+    { "id": "jungwoo", "nameKr": "정우", "nameEn": "Jungwoo", "gender": "male", "position": ["Lead Vocalist", "Lead Dancer"], "birthYear": 1998 },
+    { "id": "mark", "nameKr": "마크", "nameEn": "Mark", "gender": "male", "position": ["Main Rapper", "Lead Dancer", "Sub Vocalist"], "birthYear": 1999 },
+    { "id": "haechan", "nameKr": "해찬", "nameEn": "Haechan", "gender": "male", "position": ["Main Vocalist", "Lead Dancer"], "birthYear": 2000 }
+  ],
+  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "badge": null,
+  "seo": {
+    "title": "NCT 127 Name Generator | Create Your Korean Name with NCTzen",
+    "description": "Create your NCT 127 name with Taeyong, Mark, Jaehyun, Haechan & more! Get instant chemistry scores and Korean stage names. Perfect for NCTzen.",
+    "keywords": ["nct 127 name generator", "nct korean name", "nctzen name generator", "nct taeyong name", "nct mark chemistry"]
+  }
+}
+

@@ -1,0 +1,27 @@
+{
+  "id": "itzy",
+  "name": "ITZY",
+  "nameKr": "있지",
+  "slug": "itzy",
+  "fandom": "MIDZY",
+  "company": "JYP Entertainment",
+  "debutYear": 2019,
+  "color": "#FF3366",
+  "logo": "/images/itzy_logo.png",
+  "description": "ITZY is a girl group known for their self-confidence anthems, powerful choreography, and 'teen crush' concept that inspires young fans worldwide.",
+  "members": [
+    { "id": "yeji", "nameKr": "예지", "nameEn": "Yeji", "gender": "female", "position": ["Leader", "Main Dancer", "Lead Vocalist", "Visual"], "birthYear": 2000 },
+    { "id": "lia", "nameKr": "리아", "nameEn": "Lia", "gender": "female", "position": ["Main Vocalist"], "birthYear": 2000 },
+    { "id": "ryujin", "nameKr": "류진", "nameEn": "Ryujin", "gender": "female", "position": ["Main Rapper", "Lead Dancer", "Sub Vocalist", "Center"], "birthYear": 2001 },
+    { "id": "chaeryeong", "nameKr": "채령", "nameEn": "Chaeryeong", "gender": "female", "position": ["Main Dancer", "Sub Vocalist", "Visual"], "birthYear": 2001 },
+    { "id": "yuna", "nameKr": "유나", "nameEn": "Yuna", "gender": "female", "position": ["Lead Rapper", "Sub Vocalist", "Visual", "Maknae"], "birthYear": 2003 }
+  ],
+  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "badge": null,
+  "seo": {
+    "title": "ITZY Name Generator | Create Your Korean Name with MIDZY",
+    "description": "Create your ITZY name with Yeji, Lia, Ryujin, Chaeryeong & Yuna! Get instant chemistry scores and Korean stage names. Perfect for MIDZY fans.",
+    "keywords": ["itzy name generator", "itzy korean name", "midzy name generator", "itzy ryujin name", "itzy yeji chemistry"]
+  }
+}
+
