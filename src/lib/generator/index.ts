@@ -15,3 +15,5 @@ export type { RelationType, RelationPreset } from './style-presets';
 export { getSyllables, getPool, candidatesForSyllable } from './syllable-pool';
 export type { SyllablePool, SyllablePools } from './syllable-pool';
 
+export { generateDeepAnalysis, generateCoupleNames } from './analysis';
+

@@ -4,7 +4,7 @@
  */
 
 import { useState, useMemo, useEffect } from 'react';
-import { generate, getChemistryDescription, RELATION_OPTIONS, type RelationType, type GeneratorResult } from '@/lib/generator';
+import { generate, getChemistryDescription, RELATION_OPTIONS, generateDeepAnalysis, generateCoupleNames, type RelationType, type GeneratorResult } from '@/lib/generator';
 import {
   addXP,
   XP_REWARDS,
@@ -56,6 +56,7 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
   const [showAllGroupsGrid, setShowAllGroupsGrid] = useState(false);
   const [recentIdols, setRecentIdols] = useState<Idol[]>([]);
   const [categoryFilter, setCategoryFilter] = useState<'all' | 'boy' | 'girl'>('all');
+  const [isFirstResult, setIsFirstResult] = useState(true); // For animation control
 
   // Load recent idols from localStorage
   useEffect(() => {
@@ -178,6 +179,7 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
     if (!myName.trim() || !selectedIdol) return;
 
     setIsGenerating(true);
+    setIsFirstResult(true); // Enable animation for first generate
     
     setTimeout(() => {
       const result = generate({
@@ -256,6 +258,7 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
     if (!myName.trim() || !selectedIdol) return;
     
     setIsGenerating(true);
+    setIsFirstResult(false); // Disable animation for re-roll
     const newVariation = (variation + 1) % 10;
     setVariation(newVariation);
     
@@ -280,6 +283,15 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
 
   const chemistryInfo = result ? getChemistryDescription(result.chemistry) : null;
   const colors = groupColors as Record<string, GroupColor>;
+  
+  // Generate analysis and couple names when result exists
+  // Pass variation so each re-roll produces different rankings
+  const deepAnalysis = result && selectedIdol 
+    ? generateDeepAnalysis(myName, selectedIdol.name_en, selectedIdol.group, result.chemistry, variation)
+    : null;
+  const coupleNames = result && selectedIdol
+    ? generateCoupleNames(myName, selectedIdol.name_en, selectedIdol.name_kr)
+    : null;
 
   return (
     <div className="generator-form">
@@ -494,46 +506,124 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
       ) : (
         // Result Display
         <div className="result-container">
+          {/* Header with Chemistry Score */}
           <div className="result-header">
             <span className="chemistry-emoji">{chemistryInfo?.emoji}</span>
             <div className="chemistry-score" style={{ color: chemistryInfo?.color }}>
               {result.chemistry}%
             </div>
             <span className="chemistry-text">{chemistryInfo?.text}</span>
-          </div>
-
-          <div className="result-names">
-            <div className="result-card">
-              <span className="result-label">Your K-Pop Name</span>
-              <span className="result-name-kr">{result.styled.full_kr}</span>
-              <span className="result-name-en">{result.styled.full_en}</span>
-            </div>
-
-            <div className="result-card secondary">
-              <span className="result-label">Same Name as {selectedIdol?.name_en}</span>
-              <span className="result-name-kr">{result.sameName.full_kr}</span>
-              <span className="result-name-en">{result.sameName.full_en}</span>
-            </div>
-          </div>
-
-          <div className="result-info">
-            <p>
-              💕 You + <strong>{selectedIdol?.name_en}</strong> ({selectedIdol?.group})
-            </p>
-            <p className="relation-text">
-              as {RELATION_OPTIONS.find(o => o.value === relation)?.emoji} {RELATION_OPTIONS.find(o => o.value === relation)?.label}
+            <p className="result-subtitle">
+              {myName} + {selectedIdol?.name_en} ({selectedIdol?.group})
             </p>
           </div>
 
-          <div className="result-actions">
-            <button className="btn secondary" onClick={handleReset}>
-              ← New Name
+          {/* All-in-One Content (No Tabs) */}
+          <div className={`all-in-one-content ${isFirstResult ? 'animate' : ''}`}>
+            {/* Section 1: Names */}
+            <div className={`section-card section-name ${isFirstResult ? 'fade-in' : ''}`} style={{ animationDelay: isFirstResult ? '0s' : '0s' }}>
+              <div className="section-header">📝 Your K-Pop Names</div>
+              <div className="result-names">
+                <div className="result-card">
+                  <span className="result-label">Your K-Pop Name</span>
+                  <span className="result-name-kr">{result.styled.full_kr}</span>
+                  <span className="result-name-en">{result.styled.full_en}</span>
+                </div>
+
+                <div className="result-card secondary">
+                  <span className="result-label">Same Name as {selectedIdol?.name_en}</span>
+                  <span className="result-name-kr">{result.sameName.full_kr}</span>
+                  <span className="result-name-en">{result.sameName.full_en}</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Section 2: Analysis */}
+            {deepAnalysis && (
+              <div className={`section-card section-analysis ${isFirstResult ? 'fade-in' : ''}`} style={{ animationDelay: isFirstResult ? '0.15s' : '0s' }}>
+                <div className="section-header">💜 Chemistry Analysis</div>
+                
+                <div className="analysis-categories">
+                  {deepAnalysis.categories.map((cat, idx) => (
+                    <div key={idx} className="analysis-category">
+                      <div className="category-header">
+                        <span>{cat.emoji} {cat.name}</span>
+                        <span className="category-score">{cat.score}%</span>
+                      </div>
+                      <div className="category-bar">
+                        <div 
+                          className="category-fill" 
+                          style={{ 
+                            width: `${cat.score}%`,
+                            transition: isFirstResult ? 'width 0.6s ease-out' : 'width 0.15s ease-out',
+                            transitionDelay: isFirstResult ? `${0.3 + idx * 0.1}s` : '0s'
+                          }}
+                        />
+                      </div>
+                      <div className="category-desc">{cat.description}</div>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="analysis-extras compact">
+                  <span>🎨 {deepAnalysis.luckyColor}</span>
+                  <span>🔢 Lucky {deepAnalysis.luckyNumber}</span>
+                  <span>🎵 {deepAnalysis.recommendedSong}</span>
+                </div>
+              </div>
+            )}
+
+            {/* Section 3: Ship Names */}
+            {coupleNames && (
+              <div className={`section-card section-ship ${isFirstResult ? 'fade-in' : ''}`} style={{ animationDelay: isFirstResult ? '0.3s' : '0s' }}>
+                <div className="section-header">💑 Ship Names</div>
+
+                <div className="ship-names-grid">
+                  <div className="ship-item">
+                    <span className="ship-label">Korean</span>
+                    <span className="ship-value">{coupleNames.korean}</span>
+                  </div>
+                  <div className="ship-item">
+                    <span className="ship-label">English</span>
+                    <span className="ship-value">{coupleNames.english}</span>
+                  </div>
+                  <div className="ship-item highlight">
+                    <span className="ship-label">Hashtag</span>
+                    <span className="ship-value">{coupleNames.hashtag}</span>
+                  </div>
+                  <div className="ship-item">
+                    <span className="ship-label">Profile</span>
+                    <span className="ship-value">{coupleNames.profileName}</span>
+                  </div>
+                </div>
+
+                <button 
+                  className="btn-compact copy-ships-btn"
+                  onClick={() => {
+                    const allNames = `${coupleNames.hashtag} | ${coupleNames.english} | ${coupleNames.korean}`;
+                    navigator.clipboard.writeText(allNames);
+                    showNotification('Copied!', 'success', '📋');
+                  }}
+                >
+                  📋 Copy Ship Names
+                </button>
+              </div>
+            )}
+          </div>
+
+          {/* Sticky Bottom Action Bar */}
+          <div className="sticky-action-bar">
+            <button className="action-btn secondary" onClick={handleReset}>
+              ← New
             </button>
+            <div className="action-bar-info">
+              <span className="action-bar-name">{result.styled.full_kr}</span>
+              <span className="action-bar-chemistry">{result.chemistry}%</span>
+            </div>
             <button 
-              className="btn reroll" 
+              className="action-btn reroll" 
               onClick={handleReroll}
               disabled={isGenerating}
-              title="Get a different result with the same inputs"
             >
               🎲 Re-roll
             </button>
@@ -762,12 +852,84 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           font-size: 0.9rem;
         }
 
-        .result-actions {
+        /* Sticky Bottom Action Bar */
+        .sticky-action-bar {
+          position: sticky;
+          bottom: 0;
+          left: 0;
+          right: 0;
           display: flex;
+          align-items: center;
+          justify-content: space-between;
           gap: 12px;
-          justify-content: center;
-          flex-wrap: wrap;
-          margin-bottom: 20px;
+          padding: 12px 16px;
+          background: rgba(255, 255, 255, 0.95);
+          backdrop-filter: blur(10px);
+          border-top: 1px solid var(--border, #e5e5e5);
+          border-radius: 0 0 20px 20px;
+          margin: 20px -24px -24px -24px;
+          z-index: 10;
+        }
+
+        .action-btn {
+          padding: 10px 16px;
+          border: none;
+          border-radius: 10px;
+          font-size: 0.9rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.15s ease;
+          white-space: nowrap;
+        }
+
+        .action-btn.secondary {
+          background: var(--bg-secondary, #f0f0f0);
+          color: var(--text);
+        }
+
+        .action-btn.secondary:hover {
+          background: var(--border, #e0e0e0);
+        }
+
+        .action-btn.reroll {
+          background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+          color: white;
+        }
+
+        .action-btn.reroll:hover {
+          transform: scale(1.05);
+          box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        }
+
+        .action-btn.reroll:disabled {
+          opacity: 0.6;
+          cursor: not-allowed;
+          transform: none;
+        }
+
+        .action-bar-info {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 2px;
+          flex: 1;
+          min-width: 0;
+        }
+
+        .action-bar-name {
+          font-size: 0.85rem;
+          font-weight: 700;
+          color: var(--text);
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          max-width: 100%;
+        }
+
+        .action-bar-chemistry {
+          font-size: 0.75rem;
+          color: var(--accent);
+          font-weight: 600;
         }
 
         .btn.reroll {
@@ -911,12 +1073,18 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
             gap: 8px;
           }
 
-          .result-actions {
-            flex-direction: column;
+          .sticky-action-bar {
+            padding: 10px 12px;
+            margin: 16px -16px -16px -16px;
           }
 
-          .result-actions .btn {
-            width: 100%;
+          .action-btn {
+            padding: 8px 12px;
+            font-size: 0.8rem;
+          }
+
+          .action-bar-name {
+            font-size: 0.8rem;
           }
 
           .share-buttons {
@@ -927,6 +1095,330 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
             width: 48px;
             height: 48px;
             font-size: 1.2rem;
+          }
+        }
+
+        /* Result Subtitle */
+        .result-subtitle {
+          font-size: 0.9rem;
+          color: var(--muted);
+          margin-top: 8px;
+        }
+
+        /* All-in-One Content */
+        .all-in-one-content {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          margin-top: 20px;
+        }
+
+        .section-card {
+          background: var(--bg-secondary, #f9f9f9);
+          border-radius: 16px;
+          padding: 16px;
+          opacity: 1;
+        }
+
+        .section-card.fade-in {
+          animation: slideUp 0.4s ease-out both;
+        }
+
+        @keyframes slideUp {
+          from { 
+            opacity: 0; 
+            transform: translateY(20px); 
+          }
+          to { 
+            opacity: 1; 
+            transform: translateY(0); 
+          }
+        }
+
+        .section-header {
+          font-size: 0.95rem;
+          font-weight: 700;
+          color: var(--text);
+          margin-bottom: 12px;
+          padding-bottom: 8px;
+          border-bottom: 2px solid var(--border, #e5e5e5);
+        }
+
+        /* Ship Names Grid */
+        .ship-names-grid {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 8px;
+          margin-bottom: 12px;
+        }
+
+        .ship-item {
+          background: white;
+          padding: 10px 12px;
+          border-radius: 10px;
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .ship-item.highlight {
+          background: linear-gradient(135deg, rgba(156, 107, 255, 0.15), rgba(255, 107, 156, 0.15));
+        }
+
+        .ship-label {
+          font-size: 0.7rem;
+          color: var(--muted);
+          text-transform: uppercase;
+          font-weight: 600;
+        }
+
+        .ship-value {
+          font-size: 0.9rem;
+          font-weight: 600;
+          color: var(--text);
+          word-break: break-all;
+        }
+
+        .btn-compact {
+          width: 100%;
+          padding: 10px;
+          background: var(--accent);
+          color: white;
+          border: none;
+          border-radius: 8px;
+          font-size: 0.85rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: transform 0.15s ease, background 0.15s ease;
+        }
+
+        .btn-compact:hover {
+          background: var(--accent-dark, #8b5cf6);
+          transform: scale(1.02);
+        }
+
+        .btn-compact:active {
+          transform: scale(0.98);
+        }
+
+        /* Analysis Extras Compact */
+        .analysis-extras.compact {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+          justify-content: center;
+          margin-top: 12px;
+          padding-top: 12px;
+          border-top: 1px solid var(--border, #e5e5e5);
+        }
+
+        .analysis-extras.compact span {
+          font-size: 0.8rem;
+          background: white;
+          padding: 6px 12px;
+          border-radius: 20px;
+          color: var(--text);
+        }
+
+        /* Analysis Panel */
+        .analysis-panel {
+          text-align: left;
+        }
+
+        .analysis-title {
+          font-size: 1.1rem;
+          font-weight: 700;
+          text-align: center;
+          margin-bottom: 20px;
+          color: var(--text);
+        }
+
+        .analysis-categories {
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
+          margin-bottom: 24px;
+        }
+
+        .analysis-category {
+          background: var(--bg-secondary, #f9f9f9);
+          padding: 12px 16px;
+          border-radius: 12px;
+        }
+
+        .category-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 8px;
+          font-weight: 600;
+          font-size: 0.9rem;
+        }
+
+        .category-score {
+          color: var(--accent);
+          font-weight: 700;
+        }
+
+        .category-bar {
+          height: 8px;
+          background: var(--border, #e5e5e5);
+          border-radius: 4px;
+          overflow: hidden;
+          margin-bottom: 6px;
+        }
+
+        .category-fill {
+          height: 100%;
+          background: linear-gradient(90deg, var(--accent), var(--accent-2, #ff6b9d));
+          border-radius: 4px;
+          transition: width 0.5s ease;
+        }
+
+        .category-desc {
+          font-size: 0.8rem;
+          color: var(--muted);
+        }
+
+        .destiny-message {
+          background: linear-gradient(135deg, rgba(156, 107, 255, 0.1), rgba(255, 107, 156, 0.1));
+          padding: 16px;
+          border-radius: 12px;
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
+        .destiny-icon {
+          font-size: 1.5rem;
+          display: block;
+          margin-bottom: 8px;
+        }
+
+        .destiny-message p {
+          font-size: 0.95rem;
+          color: var(--text);
+          margin: 0;
+          line-height: 1.5;
+        }
+
+        .analysis-extras {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+          gap: 12px;
+        }
+
+        .extra-item {
+          background: white;
+          padding: 12px;
+          border-radius: 10px;
+          text-align: center;
+          border: 1px solid var(--border, #e5e5e5);
+        }
+
+        .extra-label {
+          display: block;
+          font-size: 0.7rem;
+          color: var(--muted);
+          margin-bottom: 4px;
+          text-transform: uppercase;
+        }
+
+        .extra-value {
+          font-weight: 600;
+          font-size: 0.9rem;
+          color: var(--text);
+        }
+
+        /* Couple Panel */
+        .couple-panel {
+          text-align: center;
+        }
+
+        .couple-title {
+          font-size: 1.1rem;
+          font-weight: 700;
+          margin-bottom: 20px;
+          color: var(--text);
+        }
+
+        .couple-names {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+          margin-bottom: 20px;
+        }
+
+        .couple-card {
+          background: var(--bg-secondary, #f9f9f9);
+          padding: 14px;
+          border-radius: 12px;
+          position: relative;
+          text-align: left;
+        }
+
+        .couple-card.highlight {
+          background: linear-gradient(135deg, rgba(156, 107, 255, 0.15), rgba(255, 107, 156, 0.15));
+          border: 1px solid var(--accent);
+        }
+
+        .couple-label {
+          display: block;
+          font-size: 0.7rem;
+          color: var(--muted);
+          margin-bottom: 4px;
+          text-transform: uppercase;
+        }
+
+        .couple-value {
+          font-weight: 600;
+          font-size: 1rem;
+          color: var(--text);
+          word-break: break-all;
+        }
+
+        .copy-btn {
+          position: absolute;
+          top: 8px;
+          right: 8px;
+          background: white;
+          border: 1px solid var(--border, #e5e5e5);
+          border-radius: 6px;
+          width: 28px;
+          height: 28px;
+          cursor: pointer;
+          font-size: 0.8rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.2s;
+        }
+
+        .copy-btn:hover {
+          background: var(--accent-light, #fff0f5);
+          border-color: var(--accent);
+        }
+
+        .copy-all-btn {
+          width: 100%;
+          background: linear-gradient(135deg, var(--accent), var(--accent-2, #ff6b9d));
+          color: white;
+          border: none;
+          padding: 12px;
+          font-weight: 600;
+          margin-bottom: 24px;
+        }
+
+        @media (max-width: 480px) {
+          .analysis-extras {
+            grid-template-columns: 1fr;
+          }
+
+          .couple-names {
+            grid-template-columns: 1fr;
+          }
+
+          .ship-names-grid {
+            grid-template-columns: repeat(2, 1fr);
           }
         }
       `}</style>
