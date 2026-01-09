@@ -1032,7 +1032,7 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
 
         .collection-bar {
           height: 8px;
-          background: rgba(255, 255, 255, 0.5);
+          background: var(--bg-secondary, rgba(255, 255, 255, 0.5));
           border-radius: 4px;
           overflow: hidden;
           margin-bottom: 8px;
@@ -1074,7 +1074,7 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
         }
 
         .other-member-card {
-          background: white;
+          background: var(--surface, #fff);
           border: 1px solid var(--border, #e5e5e5);
           border-radius: 12px;
           padding: 12px 8px;
@@ -1155,7 +1155,7 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           justify-content: space-between;
           gap: 12px;
           padding: 12px 16px;
-          background: rgba(255, 255, 255, 0.95);
+          background: var(--surface-glass, rgba(255, 255, 255, 0.95));
           backdrop-filter: blur(10px);
           border-top: 1px solid var(--border, #e5e5e5);
           border-radius: 0 0 20px 20px;
@@ -1461,7 +1461,7 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
         }
 
         .ship-item {
-          background: white;
+          background: var(--surface, #fff);
           padding: 10px 12px;
           border-radius: 10px;
           display: flex;
@@ -1535,7 +1535,7 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
 
         .analysis-extras.compact span {
           font-size: 0.8rem;
-          background: white;
+          background: var(--surface, #fff);
           padding: 6px 12px;
           border-radius: 20px;
           color: var(--text);
@@ -1629,7 +1629,7 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
         }
 
         .extra-item {
-          background: white;
+          background: var(--surface, #fff);
           padding: 12px;
           border-radius: 10px;
           text-align: center;
@@ -1701,7 +1701,7 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           position: absolute;
           top: 8px;
           right: 8px;
-          background: white;
+          background: var(--surface, #fff);
           border: 1px solid var(--border, #e5e5e5);
           border-radius: 6px;
           width: 28px;
