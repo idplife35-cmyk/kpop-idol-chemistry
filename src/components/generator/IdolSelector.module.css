@@ -233,12 +233,13 @@
 
 .categoryButton {
   padding: 6px 12px;
-  background: var(--bg-secondary);
+  background: var(--surface, #f5f5f5);
   border: 1px solid var(--border);
   border-radius: var(--radius-full);
   font-size: 0.8rem;
   cursor: pointer;
   transition: all 0.2s ease;
+  color: var(--text);
 }
 
 .categoryButton:hover {
