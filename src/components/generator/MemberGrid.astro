@@ -11,22 +11,20 @@ interface Member {
 interface Props {
   members: Member[];
   groupName: string;
-  onSelect?: string; // JavaScript function name to call
+  groupSlug: string;
 }
 
-const { members, groupName, onSelect } = Astro.props;
+const { members, groupName, groupSlug } = Astro.props;
 ---
 
 <div class="member-grid">
   <h3 class="grid-title">👥 {groupName} Members</h3>
+  <p class="grid-subtitle">Click a member to test your chemistry!</p>
   <div class="members">
     {members.map((member) => (
-      <button 
+      <a 
+        href={`/${groupSlug}-name-generator/${member.id}/`}
         class="member-card"
-        data-member-id={member.id}
-        data-member-kr={member.nameKr}
-        data-member-en={member.nameEn}
-        data-member-gender={member.gender}
       >
         <div class="member-avatar">
           {member.image ? (
@@ -39,7 +37,8 @@ const { members, groupName, onSelect } = Astro.props;
           <span class="member-name-en">{member.nameEn}</span>
           <span class="member-name-kr">{member.nameKr}</span>
         </div>
-      </button>
+        <span class="member-arrow">→</span>
+      </a>
     ))}
   </div>
 </div>
@@ -51,8 +50,14 @@ const { members, groupName, onSelect } = Astro.props;
   
   .grid-title {
     font-size: 1.1rem;
-    margin-bottom: 16px;
+    margin-bottom: 4px;
     color: var(--text);
+  }
+
+  .grid-subtitle {
+    font-size: 0.85rem;
+    color: var(--muted);
+    margin-bottom: 16px;
   }
   
   .members {
@@ -73,17 +78,30 @@ const { members, groupName, onSelect } = Astro.props;
     align-items: center;
     gap: 8px;
     text-align: center;
+    text-decoration: none;
+    position: relative;
   }
   
   .member-card:hover {
     border-color: var(--accent);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255, 46, 139, 0.15);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(255, 46, 139, 0.2);
   }
-  
-  .member-card.selected {
-    border-color: var(--accent);
-    background: var(--bg-t1);
+
+  .member-card:hover .member-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .member-arrow {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    font-size: 0.8rem;
+    color: var(--accent);
+    opacity: 0;
+    transform: translateX(-4px);
+    transition: all 0.2s ease;
   }
   
   .member-avatar {
@@ -95,6 +113,11 @@ const { members, groupName, onSelect } = Astro.props;
     align-items: center;
     justify-content: center;
     overflow: hidden;
+    transition: transform 0.2s ease;
+  }
+
+  .member-card:hover .member-avatar {
+    transform: scale(1.05);
   }
   
   .member-avatar img {
@@ -152,33 +175,12 @@ const { members, groupName, onSelect } = Astro.props;
     .member-name-kr {
       font-size: 0.7rem;
     }
+
+    .member-arrow {
+      display: none;
+    }
   }
 </style>
-
-<script>
-  // Member card selection
-  const memberCards = document.querySelectorAll('.member-card');
-  
-  memberCards.forEach(card => {
-    card.addEventListener('click', () => {
-      // Remove selection from all cards
-      memberCards.forEach(c => c.classList.remove('selected'));
-      // Add selection to clicked card
-      card.classList.add('selected');
-      
-      // Get member data
-      const memberId = card.getAttribute('data-member-id');
-      const memberKr = card.getAttribute('data-member-kr');
-      const memberEn = card.getAttribute('data-member-en');
-      const memberGender = card.getAttribute('data-member-gender');
-      
-      // Dispatch custom event for React to catch
-      window.dispatchEvent(new CustomEvent('memberSelected', {
-        detail: { id: memberId, nameKr: memberKr, nameEn: memberEn, gender: memberGender }
-      }));
-    });
-  });
-</script>
 
 
 

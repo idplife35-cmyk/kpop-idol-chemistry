@@ -537,6 +537,12 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
             <p className="result-subtitle">
               {myName} 💕 {selectedIdol?.name_en} ({selectedIdol?.group})
             </p>
+            <a 
+              href={`/${selectedIdol?.group.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '')}-name-generator/${selectedIdol?.name_en.toLowerCase().replace(/\s+/g, '-')}/`}
+              className="view-profile-link"
+            >
+              View {selectedIdol?.name_en}'s Profile →
+            </a>
           </div>
 
           {/* All-in-One Content (No Tabs) */}
@@ -942,6 +948,27 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           font-weight: 600;
           color: var(--text);
           margin-bottom: 8px;
+        }
+
+        .view-profile-link {
+          display: inline-block;
+          margin-top: 12px;
+          padding: 8px 16px;
+          background: var(--surface, #f5f5f5);
+          border: 1px solid var(--border);
+          border-radius: 20px;
+          color: var(--text);
+          text-decoration: none;
+          font-size: 0.85rem;
+          font-weight: 500;
+          transition: all 0.2s ease;
+        }
+
+        .view-profile-link:hover {
+          background: var(--accent);
+          color: white;
+          border-color: var(--accent);
+          transform: scale(1.05);
         }
 
         .result-names {
