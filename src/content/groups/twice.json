@@ -10,15 +10,213 @@
   "logo": "/images/twice_logo.png",
   "description": "TWICE is one of the best-selling K-Pop girl groups, known for their catchy songs, synchronized choreography, and nine talented members from Korea, Japan, and Taiwan.",
   "members": [
-    { "id": "nayeon", "nameKr": "나연", "nameEn": "Nayeon", "gender": "female", "position": ["Lead Vocalist", "Lead Dancer", "Center"], "birthYear": 1995 },
-    { "id": "jeongyeon", "nameKr": "정연", "nameEn": "Jeongyeon", "gender": "female", "position": ["Lead Vocalist"], "birthYear": 1996 },
-    { "id": "momo", "nameKr": "모모", "nameEn": "Momo", "gender": "female", "position": ["Main Dancer", "Sub Vocalist", "Sub Rapper"], "birthYear": 1996 },
-    { "id": "sana", "nameKr": "사나", "nameEn": "Sana", "gender": "female", "position": ["Sub Vocalist"], "birthYear": 1996 },
-    { "id": "jihyo", "nameKr": "지효", "nameEn": "Jihyo", "gender": "female", "position": ["Leader", "Main Vocalist"], "birthYear": 1997 },
-    { "id": "mina", "nameKr": "미나", "nameEn": "Mina", "gender": "female", "position": ["Main Dancer", "Sub Vocalist"], "birthYear": 1997 },
-    { "id": "dahyun", "nameKr": "다현", "nameEn": "Dahyun", "gender": "female", "position": ["Lead Rapper", "Sub Vocalist"], "birthYear": 1998 },
-    { "id": "chaeyoung", "nameKr": "채영", "nameEn": "Chaeyoung", "gender": "female", "position": ["Main Rapper", "Sub Vocalist"], "birthYear": 1999 },
-    { "id": "tzuyu", "nameKr": "쯔위", "nameEn": "Tzuyu", "gender": "female", "position": ["Lead Dancer", "Sub Vocalist", "Visual"], "birthYear": 1999 }
+    {
+      "id": "nayeon",
+      "nameKr": "나연",
+      "nameEn": "Nayeon",
+      "realName": "Im Na-yeon (임나연)",
+      "gender": "female",
+      "position": ["Lead Vocalist", "Lead Dancer", "Center"],
+      "birthYear": 1995,
+      "birthday": "September 22",
+      "zodiac": "Virgo",
+      "mbti": "ISTP",
+      "height": "163cm",
+      "emoji": "🐰",
+      "nicknames": ["Bunny", "Nation's Center", "Im Naeng-mi", "Nabongs"],
+      "funFacts": [
+        "First TWICE member to have a solo debut with 'POP!'",
+        "Known for her signature bunny teeth",
+        "Oldest member but often acts the youngest",
+        "Appeared in GOT7's 'Girls Girls Girls' MV pre-debut",
+        "Her solo album sold over 1 million copies"
+      ],
+      "bio": "Nayeon is TWICE's center and lead vocalist, known for her bunny-like visuals and powerful stage presence. She became the first TWICE member to debut solo in 2022, achieving massive success with 'POP!' and becoming a million-selling solo artist."
+    },
+    {
+      "id": "jeongyeon",
+      "nameKr": "정연",
+      "nameEn": "Jeongyeon",
+      "realName": "Yoo Jeong-yeon (유정연)",
+      "gender": "female",
+      "position": ["Lead Vocalist"],
+      "birthYear": 1996,
+      "birthday": "November 1",
+      "zodiac": "Scorpio",
+      "mbti": "ISFJ",
+      "height": "167cm",
+      "emoji": "🐸",
+      "nicknames": ["No Jam Brother", "Mom of TWICE", "Yoo Leader", "Jeongie"],
+      "funFacts": [
+        "Sister of actress Gong Seung-yeon",
+        "Known as TWICE's 'mom' for taking care of members",
+        "Had short hair for years, became her signature look",
+        "Took hiatus in 2020-2021 for health recovery",
+        "Often called 'No Jam Brother' for her serious humor"
+      ],
+      "bio": "Jeongyeon is TWICE's reliable lead vocalist known for her short hair and caring personality. She's often called the 'mom' of TWICE for looking after members. Her powerful vocals and stable performances make her essential to TWICE's sound."
+    },
+    {
+      "id": "momo",
+      "nameKr": "모모",
+      "nameEn": "Momo",
+      "realName": "Hirai Momo (平井もも)",
+      "gender": "female",
+      "position": ["Main Dancer", "Sub Vocalist", "Sub Rapper"],
+      "birthYear": 1996,
+      "birthday": "November 9",
+      "zodiac": "Scorpio",
+      "mbti": "ISFP",
+      "height": "162cm",
+      "emoji": "🍑",
+      "nicknames": ["Dance Machine", "Momoring", "Peach", "Moguri"],
+      "funFacts": [
+        "From Kyoto, Japan",
+        "Known as one of the best dancers in K-Pop",
+        "Was eliminated from Sixteen but brought back by JYP",
+        "Has a famous 'jokbal' (pig feet) mukbang video",
+        "Her abs are legendary among fans"
+      ],
+      "bio": "Momo is TWICE's Japanese main dancer, considered one of the best dancers in K-Pop. Despite being eliminated during SIXTEEN, JYP himself brought her back. Her powerful dance moves and lovable personality have made her a fan favorite."
+    },
+    {
+      "id": "sana",
+      "nameKr": "사나",
+      "nameEn": "Sana",
+      "realName": "Minatozaki Sana (湊崎紗夏)",
+      "gender": "female",
+      "position": ["Sub Vocalist"],
+      "birthYear": 1996,
+      "birthday": "December 29",
+      "zodiac": "Capricorn",
+      "mbti": "ENFP",
+      "height": "164cm",
+      "emoji": "🦊",
+      "nicknames": ["Squirrel", "Shiba Inu", "Sana-Chan", "Aegyo Queen"],
+      "funFacts": [
+        "From Osaka, Japan",
+        "Famous for her 'Shy Shy Shy' aegyo that went viral",
+        "Known as the most affectionate member",
+        "Her 'No Sana No Life' phrase is iconic",
+        "Has a very bubbly, touchy personality with members"
+      ],
+      "bio": "Sana is TWICE's Japanese member known for her irresistible aegyo and bubbly personality. Her 'Shy Shy Shy' moment went viral and became one of K-Pop's most iconic scenes. She's known for being extremely affectionate with everyone."
+    },
+    {
+      "id": "jihyo",
+      "nameKr": "지효",
+      "nameEn": "Jihyo",
+      "realName": "Park Ji-hyo (박지효)",
+      "gender": "female",
+      "position": ["Leader", "Main Vocalist"],
+      "birthYear": 1997,
+      "birthday": "February 1",
+      "zodiac": "Aquarius",
+      "mbti": "ESTP",
+      "height": "162cm",
+      "emoji": "🦌",
+      "nicknames": ["God Jihyo", "Shoulder Fairy", "Deer", "10-Year Trainee"],
+      "funFacts": [
+        "Trained for 10 years at JYP before debut",
+        "Known for her powerful vocals and leadership",
+        "Famous for her 'deer' eyes",
+        "Was a JYP trainee since age 8",
+        "Her shoulder-exposed outfits became iconic"
+      ],
+      "bio": "Jihyo is TWICE's leader and main vocalist who trained for a remarkable 10 years. Her powerful vocals, strong leadership, and characteristic deer eyes have made her the heart of TWICE. She's known as 'God Jihyo' for her incredible talent."
+    },
+    {
+      "id": "mina",
+      "nameKr": "미나",
+      "nameEn": "Mina",
+      "realName": "Myoui Mina (名井南)",
+      "gender": "female",
+      "position": ["Main Dancer", "Sub Vocalist"],
+      "birthYear": 1997,
+      "birthday": "March 24",
+      "zodiac": "Aries",
+      "mbti": "ISFP",
+      "height": "163cm",
+      "emoji": "🐧",
+      "nicknames": ["Black Swan", "Penguin", "Mina Sharon", "Ballet Queen"],
+      "funFacts": [
+        "From Kobe, Japan with 11 years of ballet training",
+        "Known as the 'Black Swan' for her elegant dancing",
+        "Very introverted and shy off-stage",
+        "Took a hiatus in 2019 for anxiety treatment",
+        "Loves gaming and is surprisingly competitive"
+      ],
+      "bio": "Mina is TWICE's Japanese main dancer with 11 years of ballet training. Known as the 'Black Swan,' her elegant, graceful movements set her apart. Despite being quiet and introverted, she's deeply loved by fans and members alike."
+    },
+    {
+      "id": "dahyun",
+      "nameKr": "다현",
+      "nameEn": "Dahyun",
+      "realName": "Kim Da-hyun (김다현)",
+      "gender": "female",
+      "position": ["Lead Rapper", "Sub Vocalist"],
+      "birthYear": 1998,
+      "birthday": "May 28",
+      "zodiac": "Gemini",
+      "mbti": "ESFJ",
+      "height": "158cm",
+      "emoji": "🦅",
+      "nicknames": ["Tofu", "Eagle", "Dubu", "Variety Queen"],
+      "funFacts": [
+        "Went viral pre-debut for 'Eagle Dance' at church",
+        "Known for her pale 'tofu' skin",
+        "The mood maker and variety star of TWICE",
+        "Can play piano - learned it in just 3 months",
+        "Famous for her witty humor and quick thinking"
+      ],
+      "bio": "Dahyun is TWICE's lead rapper and variety queen. She went viral before debut with her 'eagle dance' video. Her pale 'tofu' skin, quick wit, and mood-making abilities make her essential to TWICE's fun, energetic image."
+    },
+    {
+      "id": "chaeyoung",
+      "nameKr": "채영",
+      "nameEn": "Chaeyoung",
+      "realName": "Son Chae-young (손채영)",
+      "gender": "female",
+      "position": ["Main Rapper", "Sub Vocalist"],
+      "birthYear": 1999,
+      "birthday": "April 23",
+      "zodiac": "Taurus",
+      "mbti": "INFP",
+      "height": "159cm",
+      "emoji": "🍓",
+      "nicknames": ["Baby Beast", "Strawberry", "Art Fairy", "Chaeng"],
+      "funFacts": [
+        "Known for her artistic talents - draws and paints",
+        "Has numerous tattoos despite conservative K-Pop industry",
+        "The shortest member but full of confidence",
+        "Writes her own rap lyrics",
+        "Her unique fashion sense stands out in TWICE"
+      ],
+      "bio": "Chaeyoung is TWICE's main rapper and artistic soul. Despite being the shortest, her confident rap delivery and unique style make her stand out. She's known for her tattoos, art skills, and independent fashion choices."
+    },
+    {
+      "id": "tzuyu",
+      "nameKr": "쯔위",
+      "nameEn": "Tzuyu",
+      "realName": "Chou Tzu-yu (周子瑜)",
+      "gender": "female",
+      "position": ["Lead Dancer", "Sub Vocalist", "Visual"],
+      "birthYear": 1999,
+      "birthday": "June 14",
+      "zodiac": "Gemini",
+      "mbti": "ISTP",
+      "height": "172cm",
+      "emoji": "🐶",
+      "nicknames": ["Yoda", "Chewy", "Taiwan Princess", "Visual Queen"],
+      "funFacts": [
+        "From Tainan, Taiwan - TWICE's only Taiwanese member",
+        "Named 'Most Beautiful Face 2019' by TC Candler",
+        "Her flag controversy in 2016 made international news",
+        "Known for her goddess-like visuals",
+        "Very shy and quiet despite stunning looks"
+      ],
+      "bio": "Tzuyu is TWICE's Taiwanese visual and maknae. Her stunning visuals have earned her numerous 'most beautiful' titles globally. Despite her goddess-like appearance, she's known for being shy, quiet, and adorably clumsy."
+    }
   ],
   "pageTypes": ["name", "stage-name", "aesthetic"],
   "badge": null,
@@ -28,4 +226,3 @@
     "keywords": ["twice name generator", "twice korean name", "once name generator", "twice nayeon name", "twice tzuyu chemistry", "twice fan name"]
   }
 }
-

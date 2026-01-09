@@ -10,15 +10,213 @@
   "logo": "/images/nct127_logo.png",
   "description": "NCT 127 is the Seoul-based unit of NCT, known for their experimental music, powerful performances, and unique 'Neo Culture Technology' concept.",
   "members": [
-    { "id": "taeil", "nameKr": "태일", "nameEn": "Taeil", "gender": "male", "position": ["Main Vocalist"], "birthYear": 1994 },
-    { "id": "johnny", "nameKr": "쟈니", "nameEn": "Johnny", "gender": "male", "position": ["Sub Vocalist", "Visual"], "birthYear": 1995 },
-    { "id": "taeyong", "nameKr": "태용", "nameEn": "Taeyong", "gender": "male", "position": ["Leader", "Main Rapper", "Main Dancer", "Center", "Visual"], "birthYear": 1995 },
-    { "id": "yuta", "nameKr": "유타", "nameEn": "Yuta", "gender": "male", "position": ["Lead Dancer", "Sub Vocalist"], "birthYear": 1995 },
-    { "id": "doyoung", "nameKr": "도영", "nameEn": "Doyoung", "gender": "male", "position": ["Main Vocalist"], "birthYear": 1996 },
-    { "id": "jaehyun", "nameKr": "재현", "nameEn": "Jaehyun", "gender": "male", "position": ["Lead Vocalist", "Lead Dancer", "Visual", "Center"], "birthYear": 1997 },
-    { "id": "jungwoo", "nameKr": "정우", "nameEn": "Jungwoo", "gender": "male", "position": ["Lead Vocalist", "Lead Dancer"], "birthYear": 1998 },
-    { "id": "mark", "nameKr": "마크", "nameEn": "Mark", "gender": "male", "position": ["Main Rapper", "Lead Dancer", "Sub Vocalist"], "birthYear": 1999 },
-    { "id": "haechan", "nameKr": "해찬", "nameEn": "Haechan", "gender": "male", "position": ["Main Vocalist", "Lead Dancer"], "birthYear": 2000 }
+    {
+      "id": "taeil",
+      "nameKr": "태일",
+      "nameEn": "Taeil",
+      "realName": "Moon Tae-il (문태일)",
+      "gender": "male",
+      "position": ["Main Vocalist"],
+      "birthYear": 1994,
+      "birthday": "June 14",
+      "zodiac": "Gemini",
+      "mbti": "ISFP",
+      "height": "171cm",
+      "emoji": "🌙",
+      "nicknames": ["Vocal King", "Moon", "Taeil Hyung", "High Note Master"],
+      "funFacts": [
+        "Known for his incredible high notes",
+        "Oldest NCT 127 member",
+        "Very quiet but has a great sense of humor",
+        "His vocal range is one of the widest in K-Pop",
+        "Despite his age, often acts cute"
+      ],
+      "bio": "Taeil is NCT 127's main vocalist with an incredible vocal range. His high notes are legendary in K-Pop. Despite being the oldest, he's known for his quiet, gentle personality and unexpected cuteness."
+    },
+    {
+      "id": "johnny",
+      "nameKr": "쟈니",
+      "nameEn": "Johnny",
+      "realName": "John Suh (서영호)",
+      "gender": "male",
+      "position": ["Sub Vocalist", "Visual"],
+      "birthYear": 1995,
+      "birthday": "February 9",
+      "zodiac": "Aquarius",
+      "mbti": "ENFP",
+      "height": "185cm",
+      "emoji": "🌟",
+      "nicknames": ["Big Johnny", "JCC Host", "Chicago Boy", "Gentle Giant"],
+      "funFacts": [
+        "From Chicago, USA - fluent in English",
+        "Trained for 9 years at SM before debut",
+        "Hosts 'Johnny's Communication Center' (JCC)",
+        "One of the tallest NCT members",
+        "Known for his caring, big brother personality"
+      ],
+      "bio": "Johnny is NCT 127's American member from Chicago. After training for 9 years, he finally debuted. His variety skills, English fluency, and caring personality have made him beloved among fans."
+    },
+    {
+      "id": "taeyong",
+      "nameKr": "태용",
+      "nameEn": "Taeyong",
+      "realName": "Lee Tae-yong (이태용)",
+      "gender": "male",
+      "position": ["Leader", "Main Rapper", "Main Dancer", "Center", "Visual"],
+      "birthYear": 1995,
+      "birthday": "July 1",
+      "zodiac": "Cancer",
+      "mbti": "INFJ",
+      "height": "175cm",
+      "emoji": "🦁",
+      "nicknames": ["4th Gen Ace", "Visual Prince", "TY Track", "Dance King"],
+      "funFacts": [
+        "Considered one of the best performers in K-Pop",
+        "Writes and produces his own music (TY Track)",
+        "Known for his striking visuals",
+        "Very introverted but charismatic on stage",
+        "His drawings and art are quite good"
+      ],
+      "bio": "Taeyong is NCT 127's leader and one of K-Pop's best performers. His rap, dance, visuals, and production skills make him a true all-rounder. Despite his fierce stage presence, he's known for being gentle and introverted."
+    },
+    {
+      "id": "yuta",
+      "nameKr": "유타",
+      "nameEn": "Yuta",
+      "realName": "Nakamoto Yuta (中本悠太)",
+      "gender": "male",
+      "position": ["Lead Dancer", "Sub Vocalist"],
+      "birthYear": 1995,
+      "birthday": "October 26",
+      "zodiac": "Scorpio",
+      "mbti": "ENFJ",
+      "height": "176cm",
+      "emoji": "🌸",
+      "nicknames": ["Japanese Prince", "Osaka Man", "Healing Smile", "Yuta Sensei"],
+      "funFacts": [
+        "From Osaka, Japan",
+        "Known for his healing smile and positive energy",
+        "Very athletic - loves soccer",
+        "Fluent in Japanese and Korean",
+        "His long hair era became iconic"
+      ],
+      "bio": "Yuta is NCT 127's Japanese member from Osaka. His healing smile and positive energy brighten the group. He's known for his athletic abilities and his iconic long hair era."
+    },
+    {
+      "id": "doyoung",
+      "nameKr": "도영",
+      "nameEn": "Doyoung",
+      "realName": "Kim Dong-young (김동영)",
+      "gender": "male",
+      "position": ["Main Vocalist"],
+      "birthYear": 1996,
+      "birthday": "February 1",
+      "zodiac": "Aquarius",
+      "mbti": "INFJ",
+      "height": "178cm",
+      "emoji": "🐰",
+      "nicknames": ["Bunny", "Vocal Genius", "Naggy Mom", "Actor Doyoung"],
+      "funFacts": [
+        "Known for his powerful, emotional vocals",
+        "Often nags members like a mom",
+        "Has a successful acting career",
+        "Brother of actor Gong Myung",
+        "His bunny-like visuals are iconic"
+      ],
+      "bio": "Doyoung is NCT 127's main vocalist with powerful, emotional delivery. He's known as the 'mom' of NCT for nagging members. His acting career and bunny-like visuals have earned him solo fame."
+    },
+    {
+      "id": "jaehyun",
+      "nameKr": "재현",
+      "nameEn": "Jaehyun",
+      "realName": "Jung Yoon-oh (정윤오)",
+      "gender": "male",
+      "position": ["Lead Vocalist", "Lead Dancer", "Visual", "Center"],
+      "birthYear": 1997,
+      "birthday": "February 14",
+      "zodiac": "Aquarius",
+      "mbti": "INFP",
+      "height": "180cm",
+      "emoji": "🍑",
+      "nicknames": ["Valentine Boy", "Peach", "Visual King", "Jay"],
+      "funFacts": [
+        "Born on Valentine's Day",
+        "Lived in USA for 4 years",
+        "Known for his perfect visuals and smooth voice",
+        "Very calm and collected personality",
+        "Has acted in several dramas"
+      ],
+      "bio": "Jaehyun is NCT 127's visual and center born on Valentine's Day. His perfect features and smooth vocals have made him incredibly popular. Having lived in the USA, he's fluent in English."
+    },
+    {
+      "id": "jungwoo",
+      "nameKr": "정우",
+      "nameEn": "Jungwoo",
+      "realName": "Kim Jung-woo (김정우)",
+      "gender": "male",
+      "position": ["Lead Vocalist", "Lead Dancer"],
+      "birthYear": 1998,
+      "birthday": "February 19",
+      "zodiac": "Aquarius",
+      "mbti": "INFP",
+      "height": "180cm",
+      "emoji": "🐶",
+      "nicknames": ["Puppy", "Soft Boy", "Jungwoo-ya", "Gentle Soul"],
+      "funFacts": [
+        "Known for his soft, gentle personality",
+        "Has a puppy-like innocent charm",
+        "His aegyo is beloved by fans",
+        "Very caring towards other members",
+        "His voice has a unique, gentle tone"
+      ],
+      "bio": "Jungwoo is NCT 127's gentle soul with a puppy-like charm. His soft personality and innocent aegyo have made him beloved. His unique vocal tone adds a special color to NCT's music."
+    },
+    {
+      "id": "mark",
+      "nameKr": "마크",
+      "nameEn": "Mark",
+      "realName": "Mark Lee (이민형)",
+      "gender": "male",
+      "position": ["Main Rapper", "Lead Dancer", "Sub Vocalist"],
+      "birthYear": 1999,
+      "birthday": "August 2",
+      "zodiac": "Leo",
+      "mbti": "ENFP",
+      "height": "174cm",
+      "emoji": "🦁",
+      "nicknames": ["Fullsun's Partner", "Canadian Boy", "Hardworking Mark", "Mark Lee"],
+      "funFacts": [
+        "From Vancouver, Canada",
+        "Known as the hardest working idol in K-Pop",
+        "In multiple NCT units simultaneously",
+        "His 'absolutely' catchphrase is iconic",
+        "Writes his own rap lyrics"
+      ],
+      "bio": "Mark is NCT 127's main rapper from Canada, known as the hardest working idol. He's in multiple NCT units and always delivers. His 'absolutely!' catchphrase and talented rapping have made him iconic."
+    },
+    {
+      "id": "haechan",
+      "nameKr": "해찬",
+      "nameEn": "Haechan",
+      "realName": "Lee Dong-hyuck (이동혁)",
+      "gender": "male",
+      "position": ["Main Vocalist", "Lead Dancer"],
+      "birthYear": 2000,
+      "birthday": "June 6",
+      "zodiac": "Gemini",
+      "mbti": "ENFP",
+      "height": "174cm",
+      "emoji": "☀️",
+      "nicknames": ["Fullsun", "Mischief Maker", "Haechannie", "Honey Voice"],
+      "funFacts": [
+        "His name 'Haechan' means 'full sun'",
+        "Known for his honey-like vocals",
+        "Very playful and mischievous",
+        "Always pranks and teases members",
+        "In both NCT 127 and NCT Dream"
+      ],
+      "bio": "Haechan is NCT 127's main vocalist whose name means 'full sun.' His honey-like vocals and mischievous personality brighten the group. He's known for pranking members and his sunny, playful energy."
+    }
   ],
   "pageTypes": ["name", "stage-name", "aesthetic"],
   "badge": null,
@@ -28,4 +226,3 @@
     "keywords": ["nct 127 name generator", "nct korean name", "nctzen name generator", "nct taeyong name", "nct mark chemistry"]
   }
 }
-

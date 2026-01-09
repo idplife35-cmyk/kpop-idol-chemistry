@@ -10,15 +10,213 @@
   "logo": "/images/exo_logo.png",
   "description": "EXO is a legendary K-Pop boy group known for their powerful vocals, synchronized performances, and groundbreaking concepts. They're one of the best-selling Korean artists of all time.",
   "members": [
-    { "id": "xiumin", "nameKr": "시우민", "nameEn": "Xiumin", "gender": "male", "position": ["Lead Vocalist", "Lead Dancer"], "birthYear": 1990 },
-    { "id": "suho", "nameKr": "수호", "nameEn": "Suho", "gender": "male", "position": ["Leader", "Lead Vocalist", "Visual"], "birthYear": 1991 },
-    { "id": "lay", "nameKr": "레이", "nameEn": "Lay", "gender": "male", "position": ["Main Dancer", "Vocalist"], "birthYear": 1991 },
-    { "id": "baekhyun", "nameKr": "백현", "nameEn": "Baekhyun", "gender": "male", "position": ["Main Vocalist"], "birthYear": 1992 },
-    { "id": "chen", "nameKr": "첸", "nameEn": "Chen", "gender": "male", "position": ["Main Vocalist"], "birthYear": 1992 },
-    { "id": "chanyeol", "nameKr": "찬열", "nameEn": "Chanyeol", "gender": "male", "position": ["Main Rapper", "Vocalist", "Visual"], "birthYear": 1992 },
-    { "id": "do", "nameKr": "디오", "nameEn": "D.O.", "gender": "male", "position": ["Main Vocalist"], "birthYear": 1993 },
-    { "id": "kai", "nameKr": "카이", "nameEn": "Kai", "gender": "male", "position": ["Main Dancer", "Lead Vocalist", "Visual", "Center"], "birthYear": 1994 },
-    { "id": "sehun", "nameKr": "세훈", "nameEn": "Sehun", "gender": "male", "position": ["Lead Dancer", "Lead Rapper", "Visual", "Maknae"], "birthYear": 1994 }
+    {
+      "id": "xiumin",
+      "nameKr": "시우민",
+      "nameEn": "Xiumin",
+      "realName": "Kim Min-seok (김민석)",
+      "gender": "male",
+      "position": ["Lead Vocalist", "Lead Dancer"],
+      "birthYear": 1990,
+      "birthday": "March 26",
+      "zodiac": "Aries",
+      "mbti": "INTJ",
+      "height": "173cm",
+      "emoji": "☕",
+      "nicknames": ["Baozi", "Coffee Oppa", "Eldest Hyung", "Forever Young"],
+      "funFacts": [
+        "Oldest EXO member but looks the youngest",
+        "Known for his 'baozi' (steamed bun) cheeks",
+        "Big coffee enthusiast",
+        "Completed military service in 2020",
+        "His youthful looks have become legendary"
+      ],
+      "bio": "Xiumin is EXO's eldest member who's famous for looking the youngest. His 'baozi' cheeks and youthful appearance defy age. He's known for his love of coffee, cleanliness, and his surprisingly powerful vocals."
+    },
+    {
+      "id": "suho",
+      "nameKr": "수호",
+      "nameEn": "Suho",
+      "realName": "Kim Jun-myeon (김준면)",
+      "gender": "male",
+      "position": ["Leader", "Lead Vocalist", "Visual"],
+      "birthYear": 1991,
+      "birthday": "May 22",
+      "zodiac": "Gemini",
+      "mbti": "ENFJ",
+      "height": "173cm",
+      "emoji": "💎",
+      "nicknames": ["Guardian", "Mom of EXO", "Rich Man", "Actor Suho"],
+      "funFacts": [
+        "His stage name 'Suho' means guardian",
+        "Known for taking care of members like a mother",
+        "Successful solo career and actor",
+        "Comes from a wealthy family",
+        "Trained for 7 years before debut"
+      ],
+      "bio": "Suho is EXO's devoted leader whose name means 'guardian.' He's known as the 'mom' of EXO for his caring nature. His successful solo album and acting career have proven his versatility beyond EXO."
+    },
+    {
+      "id": "lay",
+      "nameKr": "레이",
+      "nameEn": "Lay",
+      "realName": "Zhang Yixing (张艺兴)",
+      "gender": "male",
+      "position": ["Main Dancer", "Vocalist"],
+      "birthYear": 1991,
+      "birthday": "October 7",
+      "zodiac": "Libra",
+      "mbti": "ISFP",
+      "height": "177cm",
+      "emoji": "🦄",
+      "nicknames": ["Healing Unicorn", "Hardworking King", "Yixing", "Chinese Superstar"],
+      "funFacts": [
+        "Hugely successful solo career in China",
+        "Known for his incredible work ethic",
+        "His dimple is his signature feature",
+        "Has his own studio in China",
+        "One of the most successful Chinese idols globally"
+      ],
+      "bio": "Lay is EXO's Chinese member and main dancer with a massive solo career in China. Known as the 'healing unicorn,' his dedication and hard work are legendary. His dimple and gentle personality have won hearts globally."
+    },
+    {
+      "id": "baekhyun",
+      "nameKr": "백현",
+      "nameEn": "Baekhyun",
+      "realName": "Byun Baek-hyun (변백현)",
+      "gender": "male",
+      "position": ["Main Vocalist"],
+      "birthYear": 1992,
+      "birthday": "May 6",
+      "zodiac": "Taurus",
+      "mbti": "ENFP",
+      "height": "174cm",
+      "emoji": "🐶",
+      "nicknames": ["Beagle", "Bacon", "Best Vocalist", "Million Seller"],
+      "funFacts": [
+        "His solo albums have sold millions",
+        "Known as one of the best vocalists in K-Pop",
+        "Has a puppy-like playful personality",
+        "Part of supergroup SuperM",
+        "His high notes are legendary"
+      ],
+      "bio": "Baekhyun is EXO's main vocalist and one of K-Pop's best singers. His solo albums have broken records, making him a million-selling solo artist. His playful 'beagle' personality and powerful vocals are equally beloved."
+    },
+    {
+      "id": "chen",
+      "nameKr": "첸",
+      "nameEn": "Chen",
+      "realName": "Kim Jong-dae (김종대)",
+      "gender": "male",
+      "position": ["Main Vocalist"],
+      "birthYear": 1992,
+      "birthday": "September 21",
+      "zodiac": "Virgo",
+      "mbti": "INFP",
+      "height": "173cm",
+      "emoji": "🎤",
+      "nicknames": ["Ballad King", "Jongdae", "OST Prince", "Vocal Legend"],
+      "funFacts": [
+        "Known for his emotional ballad vocals",
+        "Has sung numerous popular OSTs",
+        "Is married and has children",
+        "His high notes are unmatched",
+        "Very humble and down-to-earth"
+      ],
+      "bio": "Chen is EXO's main vocalist known for his emotional, powerful voice. His OSTs and ballads have topped charts. Despite controversies, his vocal abilities remain unquestioned as one of K-Pop's finest singers."
+    },
+    {
+      "id": "chanyeol",
+      "nameKr": "찬열",
+      "nameEn": "Chanyeol",
+      "realName": "Park Chan-yeol (박찬열)",
+      "gender": "male",
+      "position": ["Main Rapper", "Vocalist", "Visual"],
+      "birthYear": 1992,
+      "birthday": "November 27",
+      "zodiac": "Sagittarius",
+      "mbti": "ENFJ",
+      "height": "185cm",
+      "emoji": "🎸",
+      "nicknames": ["Giant Baby", "Happy Virus", "Loey", "Multi-Instrumentalist"],
+      "funFacts": [
+        "One of the tallest K-Pop idols at 185cm",
+        "Plays multiple instruments including drums and guitar",
+        "Known for his deep voice and happy personality",
+        "Has composed and produced many songs",
+        "His smile earned him 'happy virus' nickname"
+      ],
+      "bio": "Chanyeol is EXO's main rapper and a multi-instrumentalist. At 185cm, he's one of K-Pop's tallest idols. His 'happy virus' personality, deep voice, and musical talents have made him a beloved idol and producer."
+    },
+    {
+      "id": "do",
+      "nameKr": "디오",
+      "nameEn": "D.O.",
+      "realName": "Do Kyung-soo (도경수)",
+      "gender": "male",
+      "position": ["Main Vocalist"],
+      "birthYear": 1993,
+      "birthday": "January 12",
+      "zodiac": "Capricorn",
+      "mbti": "ISFJ",
+      "height": "172cm",
+      "emoji": "🐧",
+      "nicknames": ["Penguin", "Actor D.O.", "Squishy", "Kyungsoo"],
+      "funFacts": [
+        "Highly acclaimed actor with multiple movie roles",
+        "Known for his powerful, emotional vocals",
+        "Has a squishy, penguin-like appearance",
+        "Very quiet and introverted",
+        "His acting career rivals his singing career"
+      ],
+      "bio": "D.O. is EXO's main vocalist and a highly acclaimed actor. His emotional vocals and acting skills are equally celebrated. Despite his quiet, introverted nature, he shines brilliantly both on stage and screen."
+    },
+    {
+      "id": "kai",
+      "nameKr": "카이",
+      "nameEn": "Kai",
+      "realName": "Kim Jong-in (김종인)",
+      "gender": "male",
+      "position": ["Main Dancer", "Lead Vocalist", "Visual", "Center"],
+      "birthYear": 1994,
+      "birthday": "January 14",
+      "zodiac": "Capricorn",
+      "mbti": "ISFP",
+      "height": "182cm",
+      "emoji": "🐻",
+      "nicknames": ["Dancing King", "Teddy Bear", "Gucci Model", "Stage Genius"],
+      "funFacts": [
+        "Considered one of the best dancers in K-Pop history",
+        "Global ambassador for Gucci",
+        "Has a cute, teddy bear-like off-stage personality",
+        "His stage presence is legendary",
+        "Part of supergroup SuperM"
+      ],
+      "bio": "Kai is EXO's main dancer and one of K-Pop's greatest performers. His powerful dancing and stage presence have made him legendary. Off-stage, he's known as a gentle teddy bear who loves his dogs."
+    },
+    {
+      "id": "sehun",
+      "nameKr": "세훈",
+      "nameEn": "Sehun",
+      "realName": "Oh Se-hun (오세훈)",
+      "gender": "male",
+      "position": ["Lead Dancer", "Lead Rapper", "Visual", "Maknae"],
+      "birthYear": 1994,
+      "birthday": "April 12",
+      "zodiac": "Aries",
+      "mbti": "INTJ",
+      "height": "183cm",
+      "emoji": "🦌",
+      "nicknames": ["Maknae on Top", "Wind Prince", "Oh Sehun", "Model Material"],
+      "funFacts": [
+        "Known for his striking visuals and proportions",
+        "Has a confident 'maknae on top' personality",
+        "His wind/bubble tea obsession is iconic",
+        "Very close with his members despite seeming cold",
+        "Model-like features and runway skills"
+      ],
+      "bio": "Sehun is EXO's maknae and visual known for his stunning proportions and cold beauty. Despite seeming aloof, he's deeply attached to his members. His 'maknae on top' confidence and striking looks are iconic."
+    }
   ],
   "pageTypes": ["name", "stage-name", "aesthetic"],
   "badge": null,
@@ -28,4 +226,3 @@
     "keywords": ["exo name generator", "exo korean name", "exo-l name generator", "exo baekhyun name", "exo kai chemistry", "exo fan name"]
   }
 }
-

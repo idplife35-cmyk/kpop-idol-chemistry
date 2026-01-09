@@ -10,14 +10,190 @@
   "logo": "/images/straykids_logo.png",
   "description": "Stray Kids is a self-producing K-Pop group known for their powerful performances, unique sound, and deep involvement in music production.",
   "members": [
-    { "id": "bangchan", "nameKr": "방찬", "nameEn": "Bang Chan", "gender": "male", "position": ["Leader", "Producer", "Main Rapper", "Lead Vocalist"], "birthYear": 1997 },
-    { "id": "leeknow", "nameKr": "리노", "nameEn": "Lee Know", "gender": "male", "position": ["Main Dancer", "Sub Rapper", "Sub Vocalist"], "birthYear": 1998 },
-    { "id": "changbin", "nameKr": "창빈", "nameEn": "Changbin", "gender": "male", "position": ["Producer", "Main Rapper"], "birthYear": 1999 },
-    { "id": "hyunjin", "nameKr": "현진", "nameEn": "Hyunjin", "gender": "male", "position": ["Main Dancer", "Lead Rapper", "Visual"], "birthYear": 2000 },
-    { "id": "han", "nameKr": "한", "nameEn": "Han", "gender": "male", "position": ["Producer", "Main Rapper", "Lead Vocalist"], "birthYear": 2000 },
-    { "id": "felix", "nameKr": "필릭스", "nameEn": "Felix", "gender": "male", "position": ["Lead Dancer", "Lead Rapper"], "birthYear": 2000 },
-    { "id": "seungmin", "nameKr": "승민", "nameEn": "Seungmin", "gender": "male", "position": ["Lead Vocalist"], "birthYear": 2000 },
-    { "id": "in", "nameKr": "아이엔", "nameEn": "I.N", "gender": "male", "position": ["Sub Vocalist", "Maknae"], "birthYear": 2001 }
+    {
+      "id": "bangchan",
+      "nameKr": "방찬",
+      "nameEn": "Bang Chan",
+      "realName": "Christopher Bang (방찬)",
+      "gender": "male",
+      "position": ["Leader", "Producer", "Main Rapper", "Lead Vocalist"],
+      "birthYear": 1997,
+      "birthday": "October 3",
+      "zodiac": "Libra",
+      "mbti": "ENFJ",
+      "height": "171cm",
+      "emoji": "🐺",
+      "nicknames": ["Chan", "CB97", "Chris", "Father of Stray Kids"],
+      "funFacts": [
+        "Born in South Korea, raised in Sydney, Australia",
+        "Trained at JYP for 7 years before debut",
+        "Hosts weekly live stream 'Chan's Room'",
+        "Produces music as part of 3RACHA",
+        "Known as the group's 'dad' for taking care of members"
+      ],
+      "bio": "Bang Chan is the Australian-Korean leader of Stray Kids and head of their producing unit 3RACHA. After training for 7 years at JYP, he formed Stray Kids through the survival show. His 'Chan's Room' VLive series is beloved by STAYs worldwide."
+    },
+    {
+      "id": "leeknow",
+      "nameKr": "리노",
+      "nameEn": "Lee Know",
+      "realName": "Lee Min-ho (이민호)",
+      "gender": "male",
+      "position": ["Main Dancer", "Sub Rapper", "Sub Vocalist"],
+      "birthYear": 1998,
+      "birthday": "October 25",
+      "zodiac": "Scorpio",
+      "mbti": "ISFP",
+      "height": "172cm",
+      "emoji": "🐈",
+      "nicknames": ["Minho", "Cat Mom", "Dance Genius", "King of Sass"],
+      "funFacts": [
+        "Has three cats: Soonie, Doongie, and Dori",
+        "Was a backup dancer for BTS before joining JYP",
+        "Known for his savage humor and witty remarks",
+        "Eliminated during survival show but brought back by members",
+        "Loves cooking and often makes food for members"
+      ],
+      "bio": "Lee Know is Stray Kids' main dancer known for his precise technique and cat-like charisma. Before JYP, he was a backup dancer for BTS. His sassy personality and love for his three cats make him a fan favorite."
+    },
+    {
+      "id": "changbin",
+      "nameKr": "창빈",
+      "nameEn": "Changbin",
+      "realName": "Seo Chang-bin (서창빈)",
+      "gender": "male",
+      "position": ["Producer", "Main Rapper"],
+      "birthYear": 1999,
+      "birthday": "August 11",
+      "zodiac": "Leo",
+      "mbti": "ENFP",
+      "height": "167cm",
+      "emoji": "🐰",
+      "nicknames": ["Binnie", "SpearB", "Dark Changbin", "Muscular Rabbit"],
+      "funFacts": [
+        "Raps under stage name SpearB in 3RACHA",
+        "Known for his dark, powerful rapping style",
+        "Has a cute personality despite his fierce image",
+        "Very physically strong despite small stature",
+        "Writes emotional, introspective lyrics"
+      ],
+      "bio": "Changbin is one-third of 3RACHA and known for his aggressive rap delivery. Despite his fierce stage presence as 'Dark Changbin,' he's actually quite soft and cuddly off-stage, earning him the nickname 'Muscular Rabbit.'"
+    },
+    {
+      "id": "hyunjin",
+      "nameKr": "현진",
+      "nameEn": "Hyunjin",
+      "realName": "Hwang Hyun-jin (황현진)",
+      "gender": "male",
+      "position": ["Main Dancer", "Lead Rapper", "Visual"],
+      "birthYear": 2000,
+      "birthday": "March 20",
+      "zodiac": "Pisces",
+      "mbti": "INFP",
+      "height": "179cm",
+      "emoji": "🦙",
+      "nicknames": ["Jinnie", "Prince", "Hwang Hyunjin", "Art Fairy"],
+      "funFacts": [
+        "Known for his elegant, artistic dancing style",
+        "Passionate about painting and visual art",
+        "Had a viral 'God's Menu' fancam with 40M+ views",
+        "Best friends with ENHYPEN's Sunoo and TXT's Yeonjun",
+        "His dog's name is Kkami"
+      ],
+      "bio": "Hyunjin is Stray Kids' visual and a main dancer known for his elegant, artistic movement. He's passionate about all forms of art including painting. His expressive dance style and visuals have made him one of K-pop's most popular idols."
+    },
+    {
+      "id": "han",
+      "nameKr": "한",
+      "nameEn": "Han",
+      "realName": "Han Ji-sung (한지성)",
+      "gender": "male",
+      "position": ["Producer", "Main Rapper", "Lead Vocalist"],
+      "birthYear": 2000,
+      "birthday": "September 14",
+      "zodiac": "Virgo",
+      "mbti": "ISTP",
+      "height": "169cm",
+      "emoji": "🐿️",
+      "nicknames": ["Jisung", "J.One", "Quokka", "Han Squirrel"],
+      "funFacts": [
+        "Known as the 'Quokka' for his resemblance to the animal",
+        "Part of producing unit 3RACHA as J.One",
+        "Can both rap fast and sing high notes",
+        "Has openly discussed his anxiety to help fans",
+        "Lived in Malaysia as a child"
+      ],
+      "bio": "Han is a versatile member who excels at both rapping and singing. As part of 3RACHA, he contributes significantly to Stray Kids' music. He's known for his adorable 'quokka' cheeks and has been open about his mental health journey."
+    },
+    {
+      "id": "felix",
+      "nameKr": "필릭스",
+      "nameEn": "Felix",
+      "realName": "Lee Felix (이필릭스) / Felix Lee",
+      "gender": "male",
+      "position": ["Lead Dancer", "Lead Rapper"],
+      "birthYear": 2000,
+      "birthday": "September 15",
+      "zodiac": "Virgo",
+      "mbti": "ENFP",
+      "height": "171cm",
+      "emoji": "🌞",
+      "nicknames": ["Sunshine", "Yongbok", "Deep Voice", "Pixie"],
+      "funFacts": [
+        "Born and raised in Sydney, Australia",
+        "Famous for his extremely deep voice contrast with cute looks",
+        "Known for his bright, sunshine personality",
+        "Loves baking - made famous 'fairy bread' in Australia",
+        "His Korean name is Yongbok"
+      ],
+      "bio": "Felix is the Australian-Korean member known for his surprisingly deep voice and sunshine personality. Despite struggling with Korean initially, he's become fluent and is beloved for his warmth. His freckles and bright smile are iconic among fans."
+    },
+    {
+      "id": "seungmin",
+      "nameKr": "승민",
+      "nameEn": "Seungmin",
+      "realName": "Kim Seung-min (김승민)",
+      "gender": "male",
+      "position": ["Lead Vocalist"],
+      "birthYear": 2000,
+      "birthday": "September 22",
+      "zodiac": "Virgo",
+      "mbti": "ESFJ",
+      "height": "178cm",
+      "emoji": "🐶",
+      "nicknames": ["Sunshine", "Baby Bread", "Dog Seungmin", "Sky"],
+      "funFacts": [
+        "Has perfect pitch and stable vocals",
+        "Big fan of Day6 before debut",
+        "Known as the group's mood maker",
+        "Resembles a puppy with his bright smile",
+        "Very organized and clean"
+      ],
+      "bio": "Seungmin is Stray Kids' vocal powerhouse with perfect pitch and incredibly stable live vocals. He's known as a 'puppy' for his bright, loyal personality and is the group's resident Day6 superfan."
+    },
+    {
+      "id": "in",
+      "nameKr": "아이엔",
+      "nameEn": "I.N",
+      "realName": "Yang Jeong-in (양정인)",
+      "gender": "male",
+      "position": ["Sub Vocalist", "Maknae"],
+      "birthYear": 2001,
+      "birthday": "February 8",
+      "zodiac": "Aquarius",
+      "mbti": "ISFJ",
+      "height": "172cm",
+      "emoji": "🦊",
+      "nicknames": ["Jeongin", "Fox", "Maknae On Top", "Bread Cheeks"],
+      "funFacts": [
+        "Known for his fox-like visuals and smile",
+        "Had braces during debut, removed in 2020",
+        "Despite being maknae, can be savage to hyungs",
+        "His laugh is contagious and unique",
+        "Trained for only 2 years before debut"
+      ],
+      "bio": "I.N is the maknae of Stray Kids with signature fox-like visuals and bread cheeks. Despite being the youngest, he's known for his witty comebacks to his hyungs. His vocal improvement over the years has been praised by fans."
+    }
   ],
   "pageTypes": ["name", "stage-name", "aesthetic"],
   "badge": null,
@@ -27,7 +203,3 @@
     "keywords": ["stray kids name generator", "skz korean name", "stay name generator", "stray kids felix name", "skz hyunjin chemistry"]
   }
 }
-
-
-
-

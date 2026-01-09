@@ -10,11 +10,121 @@
   "logo": "/images/lesserafim_logo.png",
   "description": "LE SSERAFIM is a powerful 4th generation girl group known for their fierce performances, bold concepts, and athletic choreography.",
   "members": [
-    { "id": "sakura", "nameKr": "사쿠라", "nameEn": "Sakura", "gender": "female", "position": ["Lead Dancer", "Sub Vocalist", "Visual"], "birthYear": 1998 },
-    { "id": "chaewon", "nameKr": "채원", "nameEn": "Chaewon", "gender": "female", "position": ["Leader", "Main Vocalist", "Lead Dancer"], "birthYear": 2000 },
-    { "id": "yunjin", "nameKr": "윤진", "nameEn": "Yunjin", "gender": "female", "position": ["Lead Vocalist"], "birthYear": 2001 },
-    { "id": "kazuha", "nameKr": "카즈하", "nameEn": "Kazuha", "gender": "female", "position": ["Lead Dancer", "Sub Vocalist", "Visual"], "birthYear": 2003 },
-    { "id": "eunchae", "nameKr": "은채", "nameEn": "Eunchae", "gender": "female", "position": ["Main Rapper", "Sub Vocalist", "Maknae"], "birthYear": 2006 }
+    {
+      "id": "sakura",
+      "nameKr": "사쿠라",
+      "nameEn": "Sakura",
+      "realName": "Miyawaki Sakura (宮脇咲良)",
+      "gender": "female",
+      "position": ["Lead Dancer", "Sub Vocalist", "Visual"],
+      "birthYear": 1998,
+      "birthday": "March 19",
+      "zodiac": "Pisces",
+      "mbti": "ESTJ",
+      "height": "163cm",
+      "emoji": "🌸",
+      "nicknames": ["Kkura", "Cherry Blossom", "Gaming Queen", "HKT48 Ace"],
+      "funFacts": [
+        "Former IZ*ONE and HKT48 member",
+        "One of the most followed K-pop idols from Japan",
+        "Known for her gaming skills, especially in Overwatch",
+        "Has been in the industry since 2011",
+        "Her fans are called 'Sakura Trees'"
+      ],
+      "bio": "Sakura is a Japanese idol veteran who rose to fame in HKT48 before joining IZ*ONE through Produce 48. With over a decade of experience, she brings unmatched professionalism to LE SSERAFIM. She's known for her gaming streams and elegant presence."
+    },
+    {
+      "id": "chaewon",
+      "nameKr": "채원",
+      "nameEn": "Chaewon",
+      "realName": "Kim Chae-won (김채원)",
+      "gender": "female",
+      "position": ["Leader", "Main Vocalist", "Lead Dancer"],
+      "birthYear": 2000,
+      "birthday": "August 1",
+      "zodiac": "Leo",
+      "mbti": "INFP",
+      "height": "164cm",
+      "emoji": "🦄",
+      "nicknames": ["Kkura", "Puppy", "Baby Demon", "Killer Leader"],
+      "funFacts": [
+        "Former IZ*ONE member who placed 10th in Produce 48",
+        "Known for her 'killer' charisma on stage",
+        "Has a '4D' quirky personality off-stage",
+        "Her high notes are legendary",
+        "Youngest leader of a HYBE group"
+      ],
+      "bio": "Chaewon is LE SSERAFIM's leader and main vocalist. Despite her cute appearance, she's known for her fierce stage presence, earning the nickname 'Baby Demon.' Her powerful vocals and leadership skills have made her the heart of LE SSERAFIM."
+    },
+    {
+      "id": "yunjin",
+      "nameKr": "윤진",
+      "nameEn": "Yunjin",
+      "realName": "Huh Yun-jin (허윤진) / Jennifer Huh",
+      "gender": "female",
+      "position": ["Lead Vocalist"],
+      "birthYear": 2001,
+      "birthday": "October 8",
+      "zodiac": "Libra",
+      "mbti": "ENFP",
+      "height": "172cm",
+      "emoji": "🦁",
+      "nicknames": ["Jennifer", "Main Vocalist Material", "American Unnie", "Powerful Yunjin"],
+      "funFacts": [
+        "Born in Korea, raised in New York",
+        "Participated in Produce 48 but didn't make final lineup",
+        "Plays piano and writes songs",
+        "Known for her powerful, emotional vocals",
+        "Her original song 'Raise y_our glass' went viral"
+      ],
+      "bio": "Yunjin is a Korean-American vocalist who didn't make IZ*ONE but got a second chance with LE SSERAFIM. Her powerful vocals and songwriting skills have made her a standout. She's known for her confident personality and emotional performances."
+    },
+    {
+      "id": "kazuha",
+      "nameKr": "카즈하",
+      "nameEn": "Kazuha",
+      "realName": "Nakamura Kazuha (中村一葉)",
+      "gender": "female",
+      "position": ["Lead Dancer", "Sub Vocalist", "Visual"],
+      "birthYear": 2003,
+      "birthday": "August 9",
+      "zodiac": "Leo",
+      "mbti": "INFJ",
+      "height": "174cm",
+      "emoji": "🩰",
+      "nicknames": ["Ballerina", "Zuha", "Royal Class", "Japanese Flower"],
+      "funFacts": [
+        "Trained as a professional ballerina for 15 years",
+        "Studied at Royal Ballet School in Netherlands",
+        "Known for her elegant, graceful movements",
+        "Had the shortest training period in the group",
+        "Her ballet background makes her dancing unique"
+      ],
+      "bio": "Kazuha is a former professional ballerina from Japan who trained at the prestigious Royal Ballet School. Her elegant movements and graceful presence set her apart in K-pop. Despite limited K-pop training, her dance background made her a natural fit."
+    },
+    {
+      "id": "eunchae",
+      "nameKr": "은채",
+      "nameEn": "Eunchae",
+      "realName": "Hong Eun-chae (홍은채)",
+      "gender": "female",
+      "position": ["Main Rapper", "Sub Vocalist", "Maknae"],
+      "birthYear": 2006,
+      "birthday": "November 10",
+      "zodiac": "Scorpio",
+      "mbti": "ISTP",
+      "height": "172cm",
+      "emoji": "🐱",
+      "nicknames": ["Baby Cat", "Athletic Maknae", "Chaechae", "Sports Ace"],
+      "funFacts": [
+        "Youngest member, debuted at 15",
+        "Exceptionally athletic - excels at sports",
+        "Known for her 'cat-like' visuals and personality",
+        "Despite being youngest, very confident on stage",
+        "Her archery skills went viral on variety shows"
+      ],
+      "bio": "Eunchae is LE SSERAFIM's maknae who debuted at just 15 years old. Despite her young age, she's remarkably athletic and confident. Her cat-like visuals and playful personality have won over fans worldwide."
+    }
   ],
   "pageTypes": ["name", "stage-name", "aesthetic"],
   "badge": "HOT",
@@ -24,4 +134,3 @@
     "keywords": ["le sserafim name generator", "lesserafim korean name", "fearnot name generator", "le sserafim chaewon", "kazuha name generator"]
   }
 }
-

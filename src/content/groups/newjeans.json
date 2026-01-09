@@ -10,11 +10,121 @@
   "logo": "/images/newjeans_logo.png",
   "description": "NewJeans is a trendsetting K-Pop girl group known for their fresh, Y2K-inspired aesthetic and catchy music that blends various genres.",
   "members": [
-    { "id": "minji", "nameKr": "민지", "nameEn": "Minji", "gender": "female", "position": ["Leader", "Lead Dancer", "Sub Vocalist"], "birthYear": 2004 },
-    { "id": "hanni", "nameKr": "하니", "nameEn": "Hanni", "gender": "female", "position": ["Lead Vocalist", "Lead Dancer"], "birthYear": 2004 },
-    { "id": "danielle", "nameKr": "다니엘", "nameEn": "Danielle", "gender": "female", "position": ["Sub Vocalist", "Sub Rapper"], "birthYear": 2005 },
-    { "id": "haerin", "nameKr": "해린", "nameEn": "Haerin", "gender": "female", "position": ["Lead Vocalist", "Visual"], "birthYear": 2006 },
-    { "id": "hyein", "nameKr": "혜인", "nameEn": "Hyein", "gender": "female", "position": ["Main Rapper", "Sub Vocalist", "Maknae"], "birthYear": 2008 }
+    {
+      "id": "minji",
+      "nameKr": "민지",
+      "nameEn": "Minji",
+      "realName": "Kim Min-ji (김민지)",
+      "gender": "female",
+      "position": ["Leader", "Lead Dancer", "Sub Vocalist"],
+      "birthYear": 2004,
+      "birthday": "May 7",
+      "zodiac": "Taurus",
+      "mbti": "ESTJ",
+      "height": "169cm",
+      "emoji": "🐻",
+      "nicknames": ["Bear", "Jin", "Kim Minji", "Reliable Leader"],
+      "funFacts": [
+        "Known for her mature, reliable leadership",
+        "Has a 'girl crush' image with soft personality",
+        "Trained for 5 years at HYBE before debut",
+        "Speaks fluent Japanese",
+        "Known for her powerful stage presence and duality"
+      ],
+      "bio": "Minji is NewJeans' leader despite being one of the youngest K-pop group leaders. Her mature personality and reliable nature earned her the leader position. She's known for her 'duality' - fierce on stage but adorable off-stage."
+    },
+    {
+      "id": "hanni",
+      "nameKr": "하니",
+      "nameEn": "Hanni",
+      "realName": "Hanni Pham (팜응옥한)",
+      "gender": "female",
+      "position": ["Lead Vocalist", "Lead Dancer"],
+      "birthYear": 2004,
+      "birthday": "October 6",
+      "zodiac": "Libra",
+      "mbti": "INFP",
+      "height": "162cm",
+      "emoji": "🐱",
+      "nicknames": ["Pham Hanni", "Vietnamese Princess", "Haribo", "Cutie"],
+      "funFacts": [
+        "Born in Vietnam, raised in Melbourne, Australia",
+        "Only Vietnamese K-pop idol in a major group",
+        "Known for her adorable personality and reactions",
+        "Speaks Vietnamese, English, and Korean fluently",
+        "Her aegyo (cuteness) is legendary among fans"
+      ],
+      "bio": "Hanni is the Vietnamese-Australian member of NewJeans. Born in Vietnam and raised in Australia, she brings a unique multicultural perspective to the group. Her adorable personality and genuine reactions have made her a viral sensation."
+    },
+    {
+      "id": "danielle",
+      "nameKr": "다니엘",
+      "nameEn": "Danielle",
+      "realName": "Danielle Marsh (다니엘 마쉬) / Mo Ji-hye (모지혜)",
+      "gender": "female",
+      "position": ["Sub Vocalist", "Sub Rapper"],
+      "birthYear": 2005,
+      "birthday": "April 11",
+      "zodiac": "Aries",
+      "mbti": "ENFP",
+      "height": "165cm",
+      "emoji": "🐿️",
+      "nicknames": ["Dani", "Squirrel", "Mo Danielle", "Marshmallow"],
+      "funFacts": [
+        "Half Korean, half Australian",
+        "Known for her unique, versatile vocal color",
+        "The mood maker of the group",
+        "Went viral for her 'Hype Boy' pronunciation coaching",
+        "Has lived in both Korea and Australia"
+      ],
+      "bio": "Danielle is a half-Korean, half-Australian member known for her bright energy and unique vocal tone. She's the group's mood maker and her bilingual skills have made her popular in both Korean and international markets."
+    },
+    {
+      "id": "haerin",
+      "nameKr": "해린",
+      "nameEn": "Haerin",
+      "realName": "Kang Hae-rin (강해린)",
+      "gender": "female",
+      "position": ["Lead Vocalist", "Visual"],
+      "birthYear": 2006,
+      "birthday": "May 15",
+      "zodiac": "Taurus",
+      "mbti": "ISTP",
+      "height": "165cm",
+      "emoji": "🐱",
+      "nicknames": ["Cat", "Kitty", "Quiet Cat", "Haerini"],
+      "funFacts": [
+        "Known for her cat-like visuals and personality",
+        "Very quiet and introverted off-stage",
+        "Her 'Cool With You' fancam went viral",
+        "Loves cats and has a pet cat",
+        "Her duality between performances is extreme"
+      ],
+      "bio": "Haerin is NewJeans' visual known for her striking cat-like features. Despite her quiet, introverted personality off-stage, she transforms into a powerful performer. Her mysterious aura has captivated fans worldwide."
+    },
+    {
+      "id": "hyein",
+      "nameKr": "혜인",
+      "nameEn": "Hyein",
+      "realName": "Lee Hye-in (이혜인)",
+      "gender": "female",
+      "position": ["Main Rapper", "Sub Vocalist", "Maknae"],
+      "birthYear": 2008,
+      "birthday": "April 21",
+      "zodiac": "Taurus",
+      "mbti": "INFP",
+      "height": "170cm",
+      "emoji": "🐶",
+      "nicknames": ["Puppy", "Tall Maknae", "Hyeinie", "Young Boss"],
+      "funFacts": [
+        "Youngest K-pop idol in a major group (debuted at 14)",
+        "Already 170cm tall and still growing",
+        "Has a surprisingly mature rap style",
+        "Very playful and energetic despite being the youngest",
+        "Known for her unexpectedly deep voice"
+      ],
+      "bio": "Hyein is NewJeans' maknae who debuted at just 14 years old. Despite her young age, her rap skills and stage presence are remarkably mature. She's one of the tallest members and brings youthful energy to the group."
+    }
   ],
   "pageTypes": ["name", "stage-name", "aesthetic"],
   "badge": "HOT",
@@ -24,7 +134,3 @@
     "keywords": ["newjeans name generator", "newjeans korean name", "bunnies name generator", "newjeans minji chemistry", "newjeans hanni name"]
   }
 }
-
-
-
-

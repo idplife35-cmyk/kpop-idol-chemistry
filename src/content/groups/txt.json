@@ -10,11 +10,121 @@
   "logo": "/images/txt_logo.png",
   "description": "TXT (Tomorrow X Together) is HYBE's second boy group known for their creative concepts, youth-focused themes, and synchronized performances.",
   "members": [
-    { "id": "yeonjun", "nameKr": "연준", "nameEn": "Yeonjun", "gender": "male", "position": ["Lead Dancer", "Lead Rapper", "Sub Vocalist", "Visual", "Center"], "birthYear": 1999 },
-    { "id": "soobin", "nameKr": "수빈", "nameEn": "Soobin", "gender": "male", "position": ["Leader", "Lead Vocalist", "Visual"], "birthYear": 2000 },
-    { "id": "beomgyu", "nameKr": "범규", "nameEn": "Beomgyu", "gender": "male", "position": ["Lead Dancer", "Lead Vocalist", "Visual"], "birthYear": 2001 },
-    { "id": "taehyun", "nameKr": "태현", "nameEn": "Taehyun", "gender": "male", "position": ["Main Vocalist"], "birthYear": 2002 },
-    { "id": "huening-kai", "nameKr": "휴닝카이", "nameEn": "Huening Kai", "gender": "male", "position": ["Lead Vocalist", "Lead Dancer", "Visual", "Maknae"], "birthYear": 2002 }
+    {
+      "id": "yeonjun",
+      "nameKr": "연준",
+      "nameEn": "Yeonjun",
+      "realName": "Choi Yeon-jun (최연준)",
+      "gender": "male",
+      "position": ["Lead Dancer", "Lead Rapper", "Sub Vocalist", "Visual", "Center"],
+      "birthYear": 1999,
+      "birthday": "September 13",
+      "zodiac": "Virgo",
+      "mbti": "ENFP",
+      "height": "181cm",
+      "emoji": "🦊",
+      "nicknames": ["4th Gen It Boy", "Blue Hair Iconic", "Yeonjunie", "Dance King"],
+      "funFacts": [
+        "First TXT member revealed, instantly went viral",
+        "Known for his exceptional dancing and fashion",
+        "His blue hair era is legendary among fans",
+        "Best friends with Stray Kids' Hyunjin and ENHYPEN's Sunoo",
+        "Lived in USA for 2 years during childhood"
+      ],
+      "bio": "Yeonjun is TXT's '4th Gen It Boy,' known for his exceptional dance skills and trendsetting fashion. He was the first member revealed and instantly captured attention. His charismatic performances and friendly personality have made him iconic."
+    },
+    {
+      "id": "soobin",
+      "nameKr": "수빈",
+      "nameEn": "Soobin",
+      "realName": "Choi Soo-bin (최수빈)",
+      "gender": "male",
+      "position": ["Leader", "Lead Vocalist", "Visual"],
+      "birthYear": 2000,
+      "birthday": "December 5",
+      "zodiac": "Sagittarius",
+      "mbti": "INFP",
+      "height": "185cm",
+      "emoji": "🐰",
+      "nicknames": ["Tall Boy", "Dimple Prince", "Soob", "Gentle Giant"],
+      "funFacts": [
+        "One of the tallest K-Pop idols at 185cm",
+        "Known for his dimples and bunny-like smile",
+        "Hosted Music Bank with IVE's Arin",
+        "Very introverted but opens up to MOA",
+        "Has a calming, gentle leadership style"
+      ],
+      "bio": "Soobin is TXT's gentle giant leader at 185cm tall. His dimples, bunny smile, and calm personality make him beloved. Despite being introverted, he's an excellent host (Music Bank) and caring leader who puts members first."
+    },
+    {
+      "id": "beomgyu",
+      "nameKr": "범규",
+      "nameEn": "Beomgyu",
+      "realName": "Choi Beom-gyu (최범규)",
+      "gender": "male",
+      "position": ["Lead Dancer", "Lead Vocalist", "Visual"],
+      "birthYear": 2001,
+      "birthday": "March 13",
+      "zodiac": "Pisces",
+      "mbti": "ENFP",
+      "height": "180cm",
+      "emoji": "🐻",
+      "nicknames": ["Baby Bear", "Beomie", "Guitar Boy", "4D Prince"],
+      "funFacts": [
+        "Plays guitar and is very musically talented",
+        "Known for his teddy bear-like visuals",
+        "Has a '4D' quirky, playful personality",
+        "Was a band kid before becoming a trainee",
+        "His laugh is contagious and unique"
+      ],
+      "bio": "Beomgyu is TXT's teddy bear with a '4D' personality. His guitar skills, quirky humor, and bear-like visuals make him unique. He brings playful energy to TXT and is known for his contagious laughter."
+    },
+    {
+      "id": "taehyun",
+      "nameKr": "태현",
+      "nameEn": "Taehyun",
+      "realName": "Kang Tae-hyun (강태현)",
+      "gender": "male",
+      "position": ["Main Vocalist"],
+      "birthYear": 2002,
+      "birthday": "February 5",
+      "zodiac": "Aquarius",
+      "mbti": "ESTP",
+      "height": "177cm",
+      "emoji": "🐿️",
+      "nicknames": ["4th Gen Vocal King", "Terry", "Big Brain", "Fitness King"],
+      "funFacts": [
+        "Known for his powerful, stable vocals",
+        "Very logical and intelligent - always speaks his mind",
+        "Works out regularly and is very fit",
+        "Best friends with ENHYPEN's Sunoo",
+        "Can harmonize with any song immediately"
+      ],
+      "bio": "Taehyun is TXT's main vocalist with a powerful voice that stands out in 4th gen. He's known for his logical thinking, fitness dedication, and straightforward personality. His vocal stability during performances is remarkable."
+    },
+    {
+      "id": "huening-kai",
+      "nameKr": "휴닝카이",
+      "nameEn": "Huening Kai",
+      "realName": "Kai Kamal Huening",
+      "gender": "male",
+      "position": ["Lead Vocalist", "Lead Dancer", "Visual", "Maknae"],
+      "birthYear": 2002,
+      "birthday": "August 14",
+      "zodiac": "Leo",
+      "mbti": "ISFP",
+      "height": "183cm",
+      "emoji": "🐧",
+      "nicknames": ["Hyuka", "Plushie Collector", "Half-German Prince", "Penguin"],
+      "funFacts": [
+        "Half Korean, half German-American",
+        "Has a famous sister (Lea of VCHA)",
+        "Collects plushies - has hundreds",
+        "Known for his unique vocals and high notes",
+        "Very playful maknae who loves pranks"
+      ],
+      "bio": "Huening Kai is TXT's maknae with a unique multicultural background (Korean-German-American). His distinctive vocals, plushie collection, and playful personality make him special. He's known for his high notes and penguin-like cuteness."
+    }
   ],
   "pageTypes": ["name", "stage-name", "aesthetic"],
   "badge": null,
@@ -24,4 +134,3 @@
     "keywords": ["txt name generator", "tomorrow x together name", "moa name generator", "txt yeonjun name", "txt soobin chemistry"]
   }
 }
-

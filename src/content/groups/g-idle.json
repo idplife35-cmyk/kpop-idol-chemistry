@@ -10,11 +10,121 @@
   "logo": "/images/gidle_logo.png",
   "description": "(G)I-DLE is a self-producing girl group known for their unique concepts, powerful performances, and member Soyeon's songwriting and producing skills.",
   "members": [
-    { "id": "miyeon", "nameKr": "미연", "nameEn": "Miyeon", "gender": "female", "position": ["Main Vocalist", "Visual"], "birthYear": 1997 },
-    { "id": "minnie", "nameKr": "민니", "nameEn": "Minnie", "gender": "female", "position": ["Main Vocalist"], "birthYear": 1997 },
-    { "id": "soyeon", "nameKr": "소연", "nameEn": "Soyeon", "gender": "female", "position": ["Leader", "Main Rapper", "Lead Dancer", "Sub Vocalist", "Center"], "birthYear": 1998 },
-    { "id": "yuqi", "nameKr": "우기", "nameEn": "Yuqi", "gender": "female", "position": ["Lead Vocalist", "Lead Rapper"], "birthYear": 1999 },
-    { "id": "shuhua", "nameKr": "슈화", "nameEn": "Shuhua", "gender": "female", "position": ["Sub Vocalist", "Visual", "Maknae"], "birthYear": 2000 }
+    {
+      "id": "miyeon",
+      "nameKr": "미연",
+      "nameEn": "Miyeon",
+      "realName": "Cho Mi-yeon (조미연)",
+      "gender": "female",
+      "position": ["Main Vocalist", "Visual"],
+      "birthYear": 1997,
+      "birthday": "January 31",
+      "zodiac": "Aquarius",
+      "mbti": "ENFP",
+      "height": "160cm",
+      "emoji": "🌸",
+      "nicknames": ["Visual Queen", "Little Deer", "Vocal Queen", "Miyeonnie"],
+      "funFacts": [
+        "Was a YG trainee for years before joining Cube",
+        "Almost debuted with BLACKPINK",
+        "Known for her crystal-clear vocals",
+        "Has MC'd various shows including Running Man",
+        "Her visual is often compared to classic Korean beauty"
+      ],
+      "bio": "Miyeon is (G)I-DLE's main vocalist and visual. She was a YG trainee who almost debuted with BLACKPINK. Her clear, powerful vocals and classic Korean beauty have made her a beloved member."
+    },
+    {
+      "id": "minnie",
+      "nameKr": "민니",
+      "nameEn": "Minnie",
+      "realName": "Nicha Yontararak (ณิชา ยนตรรักษ์)",
+      "gender": "female",
+      "position": ["Main Vocalist"],
+      "birthYear": 1997,
+      "birthday": "October 23",
+      "zodiac": "Scorpio",
+      "mbti": "INFP",
+      "height": "164cm",
+      "emoji": "🎀",
+      "nicknames": ["Thai Princess", "Sexy Voice", "Songwriting Queen", "Minniee"],
+      "funFacts": [
+        "Born and raised in Thailand",
+        "Known for her unique, husky voice",
+        "Has composed several (G)I-DLE songs",
+        "Very fashionable and loves shopping",
+        "Fluent in Thai, English, and Korean"
+      ],
+      "bio": "Minnie is (G)I-DLE's Thai main vocalist known for her distinctive husky voice. She's not only a vocalist but also a talented songwriter who has contributed to the group's discography."
+    },
+    {
+      "id": "soyeon",
+      "nameKr": "소연",
+      "nameEn": "Soyeon",
+      "realName": "Jeon So-yeon (전소연)",
+      "gender": "female",
+      "position": ["Leader", "Main Rapper", "Lead Dancer", "Sub Vocalist", "Center"],
+      "birthYear": 1998,
+      "birthday": "August 26",
+      "zodiac": "Virgo",
+      "mbti": "ENTJ",
+      "height": "156cm",
+      "emoji": "🔥",
+      "nicknames": ["Genius Producer", "4th Gen Ace", "Boss", "Tiny but Mighty"],
+      "funFacts": [
+        "Writes and produces almost all (G)I-DLE songs",
+        "Competed on Produce 101 and Unpretty Rapstar",
+        "Considered one of the best female rappers in K-Pop",
+        "Has worked with artists outside of Cube",
+        "Her leadership style is bold and confident"
+      ],
+      "bio": "Soyeon is (G)I-DLE's genius leader who writes and produces their music. Despite being the shortest member, her talent is immense. She's considered one of the best female rappers and producers in K-Pop."
+    },
+    {
+      "id": "yuqi",
+      "nameKr": "우기",
+      "nameEn": "Yuqi",
+      "realName": "Song Yuqi (宋雨琦)",
+      "gender": "female",
+      "position": ["Lead Vocalist", "Lead Rapper"],
+      "birthYear": 1999,
+      "birthday": "September 23",
+      "zodiac": "Libra",
+      "mbti": "ENFJ",
+      "height": "161cm",
+      "emoji": "🐻",
+      "nicknames": ["China's Pride", "Deep Voice", "Variety Queen", "Song Yuqi"],
+      "funFacts": [
+        "Born in Beijing, China",
+        "Known for her surprisingly deep, husky voice",
+        "Hugely popular in China as a variety show star",
+        "Her personality is bubbly and energetic",
+        "One of the most recognized Chinese idols in Korea"
+      ],
+      "bio": "Yuqi is (G)I-DLE's Chinese member known for her deep voice and bubbly personality. She's a variety show star in China and brings international appeal. Her contrast between cute looks and deep voice is charming."
+    },
+    {
+      "id": "shuhua",
+      "nameKr": "슈화",
+      "nameEn": "Shuhua",
+      "realName": "Yeh Shuhua (葉舒華)",
+      "gender": "female",
+      "position": ["Sub Vocalist", "Visual", "Maknae"],
+      "birthYear": 2000,
+      "birthday": "January 6",
+      "zodiac": "Capricorn",
+      "mbti": "INFP",
+      "height": "163cm",
+      "emoji": "🌙",
+      "nicknames": ["Taiwanese Princess", "Savage Queen", "Maknae on Top", "Shuhua-ya"],
+      "funFacts": [
+        "Born in Tainan, Taiwan",
+        "Known for her savage, fearless personality",
+        "Struggled with Korean but worked hard to improve",
+        "Her blunt honesty is loved by fans",
+        "Very close with all members despite being maknae"
+      ],
+      "bio": "Shuhua is (G)I-DLE's Taiwanese maknae and visual. Despite struggling with Korean initially, her savage personality and blunt honesty won fans over. She's known for her fearless attitude and stunning visuals."
+    }
   ],
   "pageTypes": ["name", "stage-name", "aesthetic"],
   "badge": null,
@@ -24,4 +134,3 @@
     "keywords": ["gidle name generator", "g idle korean name", "neverland name generator", "gidle soyeon name", "yuqi name generator"]
   }
 }
-

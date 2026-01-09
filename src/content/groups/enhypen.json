@@ -10,13 +10,167 @@
   "logo": "/images/enhypen_logo.png",
   "description": "ENHYPEN is a 4th generation boy group formed through I-LAND, known for their vampire concepts, powerful choreography, and global popularity.",
   "members": [
-    { "id": "jungwon", "nameKr": "정원", "nameEn": "Jungwon", "gender": "male", "position": ["Leader", "Main Vocalist", "Lead Dancer"], "birthYear": 2004 },
-    { "id": "heeseung", "nameKr": "희승", "nameEn": "Heeseung", "gender": "male", "position": ["Main Vocalist", "Lead Dancer", "Visual"], "birthYear": 2001 },
-    { "id": "jay", "nameKr": "제이", "nameEn": "Jay", "gender": "male", "position": ["Lead Rapper", "Sub Vocalist"], "birthYear": 2002 },
-    { "id": "jake", "nameKr": "제이크", "nameEn": "Jake", "gender": "male", "position": ["Lead Rapper", "Lead Dancer", "Sub Vocalist"], "birthYear": 2002 },
-    { "id": "sunghoon", "nameKr": "성훈", "nameEn": "Sunghoon", "gender": "male", "position": ["Lead Dancer", "Sub Vocalist", "Visual"], "birthYear": 2002 },
-    { "id": "sunoo", "nameKr": "선우", "nameEn": "Sunoo", "gender": "male", "position": ["Lead Vocalist", "Visual"], "birthYear": 2003 },
-    { "id": "ni-ki", "nameKr": "니키", "nameEn": "Ni-ki", "gender": "male", "position": ["Main Dancer", "Sub Vocalist", "Maknae"], "birthYear": 2005 }
+    {
+      "id": "jungwon",
+      "nameKr": "정원",
+      "nameEn": "Jungwon",
+      "realName": "Yang Jeong-won (양정원)",
+      "gender": "male",
+      "position": ["Leader", "Main Vocalist", "Lead Dancer"],
+      "birthYear": 2004,
+      "birthday": "February 9",
+      "zodiac": "Aquarius",
+      "mbti": "ESTJ",
+      "height": "174cm",
+      "emoji": "🐱",
+      "nicknames": ["Garden", "Leader Won", "Kitten", "Yang Cat"],
+      "funFacts": [
+        "Youngest leader in HYBE family",
+        "Known for his cat-like visuals and dimples",
+        "His name 'Jungwon' means garden in Korean",
+        "Finished 3rd place on I-LAND",
+        "Despite being leader, he's the second youngest"
+      ],
+      "bio": "Jungwon is ENHYPEN's leader despite being one of the youngest members. His cat-like visuals, dimples, and mature leadership have earned him respect. He became one of the youngest leaders in K-Pop history at just 16."
+    },
+    {
+      "id": "heeseung",
+      "nameKr": "희승",
+      "nameEn": "Heeseung",
+      "realName": "Lee Hee-seung (이희승)",
+      "gender": "male",
+      "position": ["Main Vocalist", "Lead Dancer", "Visual"],
+      "birthYear": 2001,
+      "birthday": "October 15",
+      "zodiac": "Libra",
+      "mbti": "INFJ",
+      "height": "183cm",
+      "emoji": "🦌",
+      "nicknames": ["Ace", "Deer", "Heehee", "Big Hit's Hidden Gem"],
+      "funFacts": [
+        "Trained at Big Hit for 3 years before I-LAND",
+        "Known as the 'ace' for his all-rounder abilities",
+        "Finished 1st place on I-LAND",
+        "Has deer-like visuals and long limbs",
+        "Was friends with TXT members during training"
+      ],
+      "bio": "Heeseung is ENHYPEN's eldest member and ace, excelling at vocals, dance, and rap. His 3 years of Big Hit training made him a standout on I-LAND where he finished first. His deer-like visuals and all-rounder talents make him irreplaceable."
+    },
+    {
+      "id": "jay",
+      "nameKr": "제이",
+      "nameEn": "Jay",
+      "realName": "Park Jong-seong (박종성) / Jay Park",
+      "gender": "male",
+      "position": ["Lead Rapper", "Sub Vocalist"],
+      "birthYear": 2002,
+      "birthday": "April 20",
+      "zodiac": "Taurus",
+      "mbti": "ENFJ",
+      "height": "180cm",
+      "emoji": "🔥",
+      "nicknames": ["Fashion Icon", "Chef Jay", "4th Gen It Boy", "Jongseong"],
+      "funFacts": [
+        "Lived in USA until age 9",
+        "Known for his exceptional fashion sense",
+        "A talented cook, often makes food for members",
+        "Fluent in English and Korean",
+        "His fierce stage presence contrasts his caring personality"
+      ],
+      "bio": "Jay is ENHYPEN's fashion icon and lead rapper. Having lived in the USA, he's fluent in English and brings international appeal. His fierce stage presence and cooking skills for members show his caring, multifaceted personality."
+    },
+    {
+      "id": "jake",
+      "nameKr": "제이크",
+      "nameEn": "Jake",
+      "realName": "Sim Jae-yun (심재윤) / Jake Sim",
+      "gender": "male",
+      "position": ["Lead Rapper", "Lead Dancer", "Sub Vocalist"],
+      "birthYear": 2002,
+      "birthday": "November 15",
+      "zodiac": "Scorpio",
+      "mbti": "ISTJ",
+      "height": "176cm",
+      "emoji": "🐶",
+      "nicknames": ["Puppy", "Australian Boy", "Layla's Dad", "Golden Retriever"],
+      "funFacts": [
+        "Born in Korea, raised in Australia",
+        "Has a dog named Layla he loves dearly",
+        "Known for his puppy-like personality",
+        "Only trained for 9 months before I-LAND",
+        "His Australian accent is adored by fans"
+      ],
+      "bio": "Jake is ENHYPEN's Australian member known for his puppy-like charm. Despite having only 9 months of training, his natural talent shone through. His warm personality and love for his dog Layla have made him beloved worldwide."
+    },
+    {
+      "id": "sunghoon",
+      "nameKr": "성훈",
+      "nameEn": "Sunghoon",
+      "realName": "Park Sung-hoon (박성훈)",
+      "gender": "male",
+      "position": ["Lead Dancer", "Sub Vocalist", "Visual"],
+      "birthYear": 2002,
+      "birthday": "December 8",
+      "zodiac": "Sagittarius",
+      "mbti": "INFP",
+      "height": "177cm",
+      "emoji": "⛸️",
+      "nicknames": ["Ice Prince", "Former Figure Skater", "Visual King", "Hoonie"],
+      "funFacts": [
+        "Was a competitive figure skater before becoming an idol",
+        "Won numerous skating competitions nationally",
+        "Known for his ice prince visuals",
+        "Quiet and introverted but opens up on stage",
+        "His grace from skating shows in his dancing"
+      ],
+      "bio": "Sunghoon is ENHYPEN's visual and former figure skater. He competed nationally before choosing the idol path. His elegant skating background gives him unique grace on stage, and his 'ice prince' visuals are stunning."
+    },
+    {
+      "id": "sunoo",
+      "nameKr": "선우",
+      "nameEn": "Sunoo",
+      "realName": "Kim Sun-woo (김선우)",
+      "gender": "male",
+      "position": ["Lead Vocalist", "Visual"],
+      "birthYear": 2003,
+      "birthday": "June 24",
+      "zodiac": "Cancer",
+      "mbti": "ENFP",
+      "height": "174cm",
+      "emoji": "🌻",
+      "nicknames": ["Sunshine", "Mochi", "Sunflower", "Aegyo King"],
+      "funFacts": [
+        "Known for his bright, sunshine personality",
+        "Best friends with TXT's Taehyun and Stray Kids' Hyunjin",
+        "His aegyo is legendary in ENHYPEN",
+        "Entered I-LAND through global auditions",
+        "Always makes members and fans smile"
+      ],
+      "bio": "Sunoo is ENHYPEN's sunshine and mood maker. His bright personality and adorable aegyo light up every room. Despite initial doubts during I-LAND, his charm won producers and fans over, securing his spot in the final lineup."
+    },
+    {
+      "id": "ni-ki",
+      "nameKr": "니키",
+      "nameEn": "Ni-ki",
+      "realName": "Nishimura Riki (西村力)",
+      "gender": "male",
+      "position": ["Main Dancer", "Sub Vocalist", "Maknae"],
+      "birthYear": 2005,
+      "birthday": "December 9",
+      "zodiac": "Sagittarius",
+      "mbti": "ENTP",
+      "height": "183cm",
+      "emoji": "🐆",
+      "nicknames": ["Dance Prodigy", "Niki", "Maknae on Top", "Japanese Prince"],
+      "funFacts": [
+        "From Okayama, Japan",
+        "Was a backup dancer for SHINee as a child",
+        "Known as a dance prodigy since young age",
+        "Youngest ENHYPEN member but very charismatic",
+        "His growth spurt made him one of the tallest"
+      ],
+      "bio": "Ni-ki is ENHYPEN's Japanese maknae and main dancer, known as a dance prodigy. He danced for SHINee as a child and has been training since young. Despite being the youngest, his dance skills rival professionals."
+    }
   ],
   "pageTypes": ["name", "stage-name", "aesthetic"],
   "badge": "HOT",
@@ -26,4 +180,3 @@
     "keywords": ["enhypen name generator", "enhypen korean name", "engene name generator", "enhypen jake name", "enhypen ni-ki chemistry"]
   }
 }
-

@@ -1,32 +1,12 @@
 ---
 /**
  * Individual Member Name Generator Page
- * SEO-optimized page for each idol member
+ * SEO-optimized page with detailed member info for each idol
  */
 
 import { getCollection } from 'astro:content';
 import GeneratorLayout from '@/layouts/GeneratorLayout.astro';
 import GeneratorForm from '@/components/generator/GeneratorForm';
-
-// Member themes for personalization
-const MEMBER_THEMES: Record<string, { icon: string; nickname: string; keywords: string[] }> = {
-  'Jungkook': { icon: '🐰', nickname: 'Golden Maknae', keywords: ['bunny', 'golden', 'muscle'] },
-  'V': { icon: '🐻', nickname: 'Taetae', keywords: ['bear', 'artist', 'deep voice'] },
-  'Jimin': { icon: '🍡', nickname: 'Mochi', keywords: ['angel', 'dance', 'high note'] },
-  'RM': { icon: '🦉', nickname: 'Leader', keywords: ['genius', 'dimples', 'philosopher'] },
-  'Jin': { icon: '🦙', nickname: 'Worldwide Handsome', keywords: ['handsome', 'dad jokes', 'cook'] },
-  'SUGA': { icon: '🐱', nickname: 'Agust D', keywords: ['cat', 'producer', 'sleepy'] },
-  'J-Hope': { icon: '🌞', nickname: 'Hobi', keywords: ['sunshine', 'dance', 'hope'] },
-  'Lisa': { icon: '👑', nickname: 'Dance Queen', keywords: ['dance', 'thai', 'fashion'] },
-  'Jennie': { icon: '🖤', nickname: 'Human Chanel', keywords: ['chic', 'rap', 'fashion'] },
-  'Rosé': { icon: '🌹', nickname: 'Chaeyoung', keywords: ['voice', 'guitar', 'aussie'] },
-  'Jisoo': { icon: '💎', nickname: 'Visual Queen', keywords: ['visual', 'cute', 'actress'] },
-  'Felix': { icon: '🌞', nickname: 'Sunshine', keywords: ['deep voice', 'freckles', 'aussie'] },
-  'Hyunjin': { icon: '🦢', nickname: 'Prince', keywords: ['dance', 'visual', 'art'] },
-  'Bang Chan': { icon: '🐺', nickname: 'Chan', keywords: ['leader', 'producer', 'aussie'] },
-  'Han': { icon: '🐿️', nickname: 'Quokka', keywords: ['rap', 'producer', 'cute'] },
-  'default': { icon: '💜', nickname: 'Idol', keywords: ['talented', 'amazing'] }
-};
 
 // Generate static paths for all members in all groups
 export async function getStaticPaths() {
@@ -54,21 +34,35 @@ export async function getStaticPaths() {
 }
 
 const { groupData, memberData } = Astro.props;
-const theme = MEMBER_THEMES[memberData.nameEn] || MEMBER_THEMES['default'];
+
+// Extract member details with fallbacks
+const emoji = memberData.emoji || '💜';
+const nickname = memberData.nicknames?.[0] || 'Idol';
+const bio = memberData.bio || `${memberData.nameEn} is a talented member of ${groupData.name}.`;
+const funFacts = memberData.funFacts || [];
+const mbti = memberData.mbti;
+const zodiac = memberData.zodiac;
+const birthday = memberData.birthday;
+const height = memberData.height;
+const realName = memberData.realName;
+const nicknames = memberData.nicknames || [];
 
 // Other members for navigation
 const otherMembers = groupData.members.filter(m => m.id !== memberData.id);
 
 // SEO data
 const pageTitle = `${memberData.nameEn} Name Generator | ${groupData.name} Chemistry Test`;
-const pageDescription = `Generate your Korean name with ${memberData.nameEn} from ${groupData.name}! ${theme.icon} Get your chemistry score and ship names with ${theme.nickname}. Perfect for ${groupData.fandom || groupData.name} fans!`;
+const pageDescription = `Generate your Korean name with ${memberData.nameEn} from ${groupData.name}! ${emoji} Get your chemistry score with ${nickname}. MBTI: ${mbti || 'Unknown'}, Zodiac: ${zodiac || 'Unknown'}. Perfect for ${groupData.fandom || groupData.name} fans!`;
 const keywords = [
   `${memberData.nameEn.toLowerCase()} name generator`,
   `${memberData.nameEn.toLowerCase()} chemistry test`,
   `${memberData.nameEn.toLowerCase()} ${groupData.name.toLowerCase()}`,
   `${memberData.nameEn.toLowerCase()} korean name`,
+  `${memberData.nameEn.toLowerCase()} mbti`,
+  `${memberData.nameEn.toLowerCase()} birthday`,
+  `${memberData.nameEn.toLowerCase()} real name`,
   `${groupData.name.toLowerCase()} ${memberData.nameEn.toLowerCase()}`,
-  ...theme.keywords.map(k => `${memberData.nameEn.toLowerCase()} ${k}`)
+  ...(nicknames.slice(0, 3).map(n => `${memberData.nameEn.toLowerCase()} ${n.toLowerCase()}`))
 ];
 
 // Schema for SEO
@@ -97,12 +91,13 @@ const schema = {
 >
   <!-- Member Hero Section -->
   <section class="member-hero" style={`--member-color: ${groupData.color}`}>
-    <div class="member-icon">{theme.icon}</div>
+    <div class="member-icon">{emoji}</div>
     <h1 class="member-name">{memberData.nameEn}</h1>
     <p class="member-korean">{memberData.nameKr}</p>
+    {realName && <p class="member-realname">Real Name: {realName}</p>}
     <div class="member-info">
       <span class="member-group">{groupData.name}</span>
-      <span class="member-nickname">"{theme.nickname}"</span>
+      <span class="member-nickname">"{nickname}"</span>
     </div>
     {memberData.position && (
       <div class="member-positions">
@@ -113,10 +108,93 @@ const schema = {
     )}
   </section>
 
+  <!-- Quick Stats Section -->
+  <section class="quick-stats">
+    <div class="stat-grid">
+      {birthday && (
+        <div class="stat-card">
+          <span class="stat-icon">🎂</span>
+          <span class="stat-label">Birthday</span>
+          <span class="stat-value">{birthday}</span>
+        </div>
+      )}
+      {zodiac && (
+        <div class="stat-card">
+          <span class="stat-icon">⭐</span>
+          <span class="stat-label">Zodiac</span>
+          <span class="stat-value">{zodiac}</span>
+        </div>
+      )}
+      {mbti && (
+        <div class="stat-card">
+          <span class="stat-icon">🧠</span>
+          <span class="stat-label">MBTI</span>
+          <span class="stat-value">{mbti}</span>
+        </div>
+      )}
+      {height && (
+        <div class="stat-card">
+          <span class="stat-icon">📏</span>
+          <span class="stat-label">Height</span>
+          <span class="stat-value">{height}</span>
+        </div>
+      )}
+      {memberData.birthYear && (
+        <div class="stat-card">
+          <span class="stat-icon">📅</span>
+          <span class="stat-label">Birth Year</span>
+          <span class="stat-value">{memberData.birthYear}</span>
+        </div>
+      )}
+      {groupData.fandom && (
+        <div class="stat-card">
+          <span class="stat-icon">💕</span>
+          <span class="stat-label">Fandom</span>
+          <span class="stat-value">{groupData.fandom}</span>
+        </div>
+      )}
+    </div>
+  </section>
+
+  <!-- About Section -->
+  {bio && (
+    <section class="about-section">
+      <h2>{emoji} About {memberData.nameEn}</h2>
+      <p class="bio-text">{bio}</p>
+    </section>
+  )}
+
+  <!-- Nicknames Section -->
+  {nicknames.length > 0 && (
+    <section class="nicknames-section">
+      <h3>🏷️ Known As</h3>
+      <div class="nickname-tags">
+        {nicknames.map((name: string) => (
+          <span class="nickname-tag">{name}</span>
+        ))}
+      </div>
+    </section>
+  )}
+
+  <!-- Fun Facts Section -->
+  {funFacts.length > 0 && (
+    <section class="fun-facts-section">
+      <h2>✨ {memberData.nameEn} Fun Facts</h2>
+      <ul class="fun-facts-list">
+        {funFacts.map((fact: string) => (
+          <li class="fun-fact-item">
+            <span class="fact-bullet">💜</span>
+            <span class="fact-text">{fact}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
   <!-- Generator Section -->
   <section class="generator-section">
     <div class="card">
-      <h2>{theme.icon} Generate Your Name with {memberData.nameEn}</h2>
+      <h2>{emoji} Generate Your Name with {memberData.nameEn}</h2>
       <p class="text-muted mb-3">
         Find out your chemistry with {memberData.nameEn} and get your personalized Korean name!
       </p>
@@ -138,6 +216,7 @@ const schema = {
           href={`/${groupData.slug}-name-generator/${m.id}/`} 
           class="member-link"
         >
+          <span class="link-emoji">{m.emoji || '💜'}</span>
           <span class="link-name">{m.nameEn}</span>
           <span class="link-korean">{m.nameKr}</span>
         </a>
@@ -150,31 +229,49 @@ const schema = {
 
   <!-- FAQ Section -->
   <section class="faq-section" slot="after-content">
-    <h2>❓ FAQ - {memberData.nameEn} Name Generator</h2>
+    <h2>❓ FAQ - {memberData.nameEn}</h2>
     <div class="faq-list">
+      {realName && (
+        <details class="faq-item">
+          <summary>What is {memberData.nameEn}'s real name?</summary>
+          <p>{memberData.nameEn}'s real name is {realName}. The Korean name is {memberData.nameKr}.</p>
+        </details>
+      )}
+      
+      {mbti && (
+        <details class="faq-item">
+          <summary>What is {memberData.nameEn}'s MBTI?</summary>
+          <p>{memberData.nameEn}'s MBTI personality type is {mbti}. This personality type is known for {
+            mbti.startsWith('E') ? 'being outgoing and energetic' : 'being thoughtful and introspective'
+          }.</p>
+        </details>
+      )}
+      
+      {birthday && zodiac && (
+        <details class="faq-item">
+          <summary>When is {memberData.nameEn}'s birthday?</summary>
+          <p>{memberData.nameEn} was born on {birthday}{memberData.birthYear ? `, ${memberData.birthYear}` : ''}. Their zodiac sign is {zodiac}.</p>
+        </details>
+      )}
+      
       <details class="faq-item">
         <summary>How does the {memberData.nameEn} name generator work?</summary>
-        <p>Enter your name and instantly get a Korean name inspired by {memberData.nameEn} ({memberData.nameKr}) from {groupData.name}. You'll also receive a chemistry score showing your compatibility with {memberData.nameEn}!</p>
+        <p>Enter your name and instantly get a Korean name inspired by {memberData.nameEn} from {groupData.name}. You'll receive a chemistry score (0-100%) showing your compatibility, along with a deep analysis and cute ship names!</p>
       </details>
       
       <details class="faq-item">
-        <summary>What is {memberData.nameEn}'s real name in Korean?</summary>
-        <p>{memberData.nameEn}'s Korean name is {memberData.nameKr}. {memberData.nameEn} is a {memberData.position?.join(', ')} in {groupData.name}.</p>
+        <summary>What position does {memberData.nameEn} have in {groupData.name}?</summary>
+        <p>{memberData.nameEn} is the {memberData.position?.join(', ') || 'member'} of {groupData.name}. {groupData.name} debuted in {groupData.debutYear} under {groupData.company}.</p>
       </details>
       
       <details class="faq-item">
         <summary>What is the chemistry score with {memberData.nameEn}?</summary>
-        <p>The chemistry score (70-100%) shows your compatibility with {memberData.nameEn}. Higher scores indicate a stronger connection based on your name. Scores above 95% are Legendary!</p>
+        <p>The chemistry score shows your compatibility with {memberData.nameEn}. Scores are categorized as: Mythical (98-100%), Legendary (95-97%), Epic (90-94%), Rare (85-89%), Uncommon (75-84%), and Common (70-74%).</p>
       </details>
       
       <details class="faq-item">
-        <summary>Can I share my {memberData.nameEn} chemistry results?</summary>
-        <p>Yes! After generating your name, you can share your results on TikTok, Instagram, X (Twitter), and Discord. Show your {groupData.fandom || 'fan'} friends your chemistry with {memberData.nameEn}!</p>
-      </details>
-      
-      <details class="faq-item">
-        <summary>Why is {memberData.nameEn} called "{theme.nickname}"?</summary>
-        <p>{memberData.nameEn} is affectionately known as "{theme.nickname}" by {groupData.fandom || groupData.name} fans. This nickname reflects their unique personality and charm in {groupData.name}!</p>
+        <summary>Why is {memberData.nameEn} called "{nickname}"?</summary>
+        <p>{memberData.nameEn} is affectionately called "{nickname}" by {groupData.fandom || groupData.name} fans. {nicknames.length > 1 ? `Other nicknames include: ${nicknames.slice(1).join(', ')}.` : ''}</p>
       </details>
     </div>
   </section>
@@ -210,7 +307,14 @@ const schema = {
   .member-korean {
     font-size: 1.2rem;
     color: var(--muted);
-    margin: 8px 0 16px;
+    margin: 8px 0 0;
+  }
+
+  .member-realname {
+    font-size: 0.9rem;
+    color: var(--muted);
+    margin: 4px 0 16px;
+    font-style: italic;
   }
 
   .member-info {
@@ -250,11 +354,143 @@ const schema = {
     color: var(--text);
   }
 
+  /* Quick Stats */
+  .quick-stats {
+    margin: 24px 0;
+  }
+
+  .stat-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 12px;
+  }
+
+  .stat-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    text-align: center;
+  }
+
+  .stat-icon {
+    font-size: 1.5rem;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 0.75rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .stat-value {
+    font-weight: 700;
+    color: var(--text);
+    font-size: 0.95rem;
+    margin-top: 2px;
+  }
+
+  /* About Section */
+  .about-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin: 24px 0;
+  }
+
+  .about-section h2 {
+    margin: 0 0 16px;
+    font-size: 1.3rem;
+    color: var(--text);
+  }
+
+  .bio-text {
+    color: var(--muted);
+    line-height: 1.8;
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  /* Nicknames */
+  .nicknames-section {
+    margin: 24px 0;
+  }
+
+  .nicknames-section h3 {
+    font-size: 1.1rem;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  .nickname-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .nickname-tag {
+    background: linear-gradient(135deg, var(--accent), #a855f7);
+    color: white;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  /* Fun Facts */
+  .fun-facts-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin: 24px 0;
+  }
+
+  .fun-facts-section h2 {
+    margin: 0 0 20px;
+    font-size: 1.3rem;
+    color: var(--text);
+  }
+
+  .fun-facts-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .fun-fact-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+
+  .fact-bullet {
+    flex-shrink: 0;
+    font-size: 1rem;
+  }
+
+  .fact-text {
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  /* Generator Section */
   .generator-section .card {
     padding: 24px;
     margin: 24px 0;
   }
 
+  /* Other Members */
   .other-members-nav {
     margin-top: 40px;
     text-align: center;
@@ -290,6 +526,11 @@ const schema = {
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 
+  .link-emoji {
+    font-size: 1.5rem;
+    margin-bottom: 4px;
+  }
+
   .link-name {
     font-weight: 600;
     color: var(--text);
@@ -312,6 +553,7 @@ const schema = {
     text-decoration: underline;
   }
 
+  /* FAQ */
   .faq-section {
     margin-top: 40px;
   }
@@ -362,9 +604,12 @@ const schema = {
       font-size: 3rem;
     }
 
+    .stat-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
     .member-links {
       grid-template-columns: repeat(2, 1fr);
     }
   }
 </style>
-

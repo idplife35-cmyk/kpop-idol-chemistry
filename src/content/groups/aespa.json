@@ -10,10 +10,98 @@
   "logo": "/images/aespa_logo.png",
   "description": "aespa is a unique K-Pop group featuring both real members and virtual AI avatars, known for their futuristic concept and powerful performances.",
   "members": [
-    { "id": "karina", "nameKr": "카리나", "nameEn": "Karina", "gender": "female", "position": ["Leader", "Main Dancer", "Lead Rapper", "Sub Vocalist"], "birthYear": 2000 },
-    { "id": "giselle", "nameKr": "지젤", "nameEn": "Giselle", "gender": "female", "position": ["Main Rapper", "Sub Vocalist"], "birthYear": 2000 },
-    { "id": "winter", "nameKr": "윈터", "nameEn": "Winter", "gender": "female", "position": ["Lead Vocalist", "Lead Dancer", "Visual"], "birthYear": 2001 },
-    { "id": "ningning", "nameKr": "닝닝", "nameEn": "Ningning", "gender": "female", "position": ["Main Vocalist", "Maknae"], "birthYear": 2002 }
+    {
+      "id": "karina",
+      "nameKr": "카리나",
+      "nameEn": "Karina",
+      "realName": "Yoo Ji-min (유지민)",
+      "gender": "female",
+      "position": ["Leader", "Main Dancer", "Lead Rapper", "Sub Vocalist"],
+      "birthYear": 2000,
+      "birthday": "April 11",
+      "zodiac": "Aries",
+      "mbti": "ESFJ",
+      "height": "168cm",
+      "emoji": "🦋",
+      "nicknames": ["Giant Baby", "Ace Karina", "Jimin-ie", "aespa's Duality Queen"],
+      "funFacts": [
+        "Was famous as 'Glass Bead Girl' pre-debut",
+        "Known for her 'cute giant baby' personality off-stage",
+        "Her real name Jimin means 'wisdom' in Korean",
+        "Dating rumors with Lee Jae-wook were confirmed in 2024",
+        "One of SM's most talented all-rounders"
+      ],
+      "bio": "Karina is aespa's leader and the group's ultimate all-rounder. Despite her fierce on-stage persona, she's known as a 'giant baby' for her cute, friendly personality. She trained at SM for years and was famous even before debut."
+    },
+    {
+      "id": "giselle",
+      "nameKr": "지젤",
+      "nameEn": "Giselle",
+      "realName": "Aeri Uchinaga (内永愛里) / Uchinaga Aeri",
+      "gender": "female",
+      "position": ["Main Rapper", "Sub Vocalist"],
+      "birthYear": 2000,
+      "birthday": "October 30",
+      "zodiac": "Scorpio",
+      "mbti": "INFP",
+      "height": "166cm",
+      "emoji": "🎀",
+      "nicknames": ["Ae-ri", "Half-Japanese Princess", "Vocal Queen", "Fashion Icon"],
+      "funFacts": [
+        "Half Korean, half Japanese",
+        "Born and raised in Tokyo, Japan",
+        "Fluent in Japanese, Korean, and English",
+        "Had the shortest training period in aespa (11 months)",
+        "Known for her unique fashion sense and style"
+      ],
+      "bio": "Giselle is aespa's main rapper and the only member who is half-Japanese. Despite having the shortest training period, her natural talent and trilingual abilities have made her invaluable. She's known for her stylish fashion and friendly personality."
+    },
+    {
+      "id": "winter",
+      "nameKr": "윈터",
+      "nameEn": "Winter",
+      "realName": "Kim Min-jeong (김민정)",
+      "gender": "female",
+      "position": ["Lead Vocalist", "Lead Dancer", "Visual"],
+      "birthYear": 2001,
+      "birthday": "January 1",
+      "zodiac": "Capricorn",
+      "mbti": "INFP",
+      "height": "163cm",
+      "emoji": "❄️",
+      "nicknames": ["Minjeong", "Baby Lion", "SM's Fairy", "New Year's Baby"],
+      "funFacts": [
+        "Born on January 1st - literally a New Year's baby",
+        "Known for her baby lion-like visuals",
+        "Has a surprisingly deep, husky voice",
+        "Very introverted but opens up to members",
+        "Her stage name reflects her cool, mysterious image"
+      ],
+      "bio": "Winter is aespa's visual and lead vocalist known for her fairy-like visuals and powerful voice. Born on New Year's Day, she brings a mysterious, cool charm to the group. Despite her cold stage name, she's warm with her members."
+    },
+    {
+      "id": "ningning",
+      "nameKr": "닝닝",
+      "nameEn": "Ningning",
+      "realName": "Ning Yi-zhuo (宁艺卓)",
+      "gender": "female",
+      "position": ["Main Vocalist", "Maknae"],
+      "birthYear": 2002,
+      "birthday": "October 23",
+      "zodiac": "Scorpio",
+      "mbti": "ENFP",
+      "height": "163cm",
+      "emoji": "🐰",
+      "nicknames": ["Ningdori", "China's Gem", "Vocal Queen", "4D Maknae"],
+      "funFacts": [
+        "Born in Harbin, China",
+        "Known for her extraordinary vocal range and power",
+        "Has a '4D' personality - playful and unpredictable",
+        "Trained at SM since 2016",
+        "Her high notes are considered legendary"
+      ],
+      "bio": "Ningning is aespa's main vocalist and maknae from China. Her powerful vocals and impressive range have made her one of the best 4th generation vocalists. Despite being the youngest, her confident and playful '4D' personality makes her stand out."
+    }
   ],
   "pageTypes": ["name", "stage-name", "aesthetic"],
   "badge": null,
@@ -23,7 +111,3 @@
     "keywords": ["aespa name generator", "aespa korean name", "my name generator", "aespa karina chemistry", "aespa winter name"]
   }
 }
-
-
-
-

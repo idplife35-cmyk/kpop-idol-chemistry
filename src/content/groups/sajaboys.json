@@ -10,11 +10,121 @@
   "logo": "/images/Saja_Boys_Logo.webp",
   "description": "Saja Boys is a unique concept group featuring mysterious and charismatic members with a lion-inspired theme.",
   "members": [
-    { "id": "jinu", "nameKr": "진우", "nameEn": "Jinu", "gender": "male", "position": ["Leader", "Main Vocalist"], "birthYear": 1999 },
-    { "id": "abby", "nameKr": "애비", "nameEn": "Abby", "gender": "male", "position": ["Main Dancer", "Visual"], "birthYear": 2000 },
-    { "id": "mystery", "nameKr": "미스테리", "nameEn": "Mystery", "gender": "male", "position": ["Lead Rapper"], "birthYear": 2001 },
-    { "id": "romance", "nameKr": "로맨스", "nameEn": "Romance", "gender": "male", "position": ["Lead Vocalist"], "birthYear": 2002 },
-    { "id": "baby", "nameKr": "베이비", "nameEn": "Baby", "gender": "male", "position": ["Sub Vocalist", "Maknae"], "birthYear": 2003 }
+    {
+      "id": "jinu",
+      "nameKr": "진우",
+      "nameEn": "Jinu",
+      "realName": "Kim Jin-woo (김진우)",
+      "gender": "male",
+      "position": ["Leader", "Main Vocalist"],
+      "birthYear": 1999,
+      "birthday": "January 20",
+      "zodiac": "Aquarius",
+      "mbti": "ENTJ",
+      "height": "180cm",
+      "emoji": "🦁",
+      "nicknames": ["Lion King", "Golden Leader", "Jinu Hyung", "Pride Leader"],
+      "funFacts": [
+        "The alpha lion of Saja Boys",
+        "His powerful vocals lead the pack",
+        "Known for his commanding presence",
+        "Protects his members fiercely",
+        "His mane-like hair is iconic"
+      ],
+      "bio": "Jinu is Saja Boys' lion king leader whose powerful vocals and commanding presence lead the pack. His protective nature and golden charisma make him the alpha of the group."
+    },
+    {
+      "id": "abby",
+      "nameKr": "애비",
+      "nameEn": "Abby",
+      "realName": "Park Ae-bi (박애비)",
+      "gender": "male",
+      "position": ["Main Dancer", "Visual"],
+      "birthYear": 2000,
+      "birthday": "May 12",
+      "zodiac": "Taurus",
+      "mbti": "ISFP",
+      "height": "178cm",
+      "emoji": "✨",
+      "nicknames": ["Golden Visual", "Dance Lion", "Abby-ya", "Graceful Hunter"],
+      "funFacts": [
+        "The visual of Saja Boys",
+        "His dancing is graceful like a hunting lion",
+        "Known for his striking golden features",
+        "Quiet but deadly on stage",
+        "Fans call him the 'golden mane'"
+      ],
+      "bio": "Abby is Saja Boys' visual whose graceful dancing mirrors a lion's hunt. His golden features and striking presence make him unforgettable on stage."
+    },
+    {
+      "id": "mystery",
+      "nameKr": "미스테리",
+      "nameEn": "Mystery",
+      "realName": "Unknown",
+      "gender": "male",
+      "position": ["Lead Rapper"],
+      "birthYear": 2001,
+      "birthday": "October 31",
+      "zodiac": "Scorpio",
+      "mbti": "INTJ",
+      "height": "176cm",
+      "emoji": "🌙",
+      "nicknames": ["Shadow Lion", "Dark Rapper", "Night Hunter", "Mysterious One"],
+      "funFacts": [
+        "His true identity remains unknown",
+        "Raps about the mysteries of life",
+        "Known for his dark, enigmatic aura",
+        "Appears when least expected",
+        "His stage presence is hauntingly powerful"
+      ],
+      "bio": "Mystery is Saja Boys' enigmatic rapper whose true identity remains unknown. His dark, powerful rap and mysterious aura create an unforgettable presence."
+    },
+    {
+      "id": "romance",
+      "nameKr": "로맨스",
+      "nameEn": "Romance",
+      "realName": "Lee Ro-man (이로만)",
+      "gender": "male",
+      "position": ["Lead Vocalist"],
+      "birthYear": 2002,
+      "birthday": "February 14",
+      "zodiac": "Aquarius",
+      "mbti": "ENFP",
+      "height": "177cm",
+      "emoji": "💝",
+      "nicknames": ["Love Lion", "Heart Stealer", "Romantic Prince", "Valentine Boy"],
+      "funFacts": [
+        "Born on Valentine's Day",
+        "His vocals make hearts flutter",
+        "Known for romantic ballad performances",
+        "The charmer of Saja Boys",
+        "His smile is irresistible"
+      ],
+      "bio": "Romance is Saja Boys' heart-stealer born on Valentine's Day. His romantic vocals and charming personality make every fan feel special and loved."
+    },
+    {
+      "id": "baby",
+      "nameKr": "베이비",
+      "nameEn": "Baby",
+      "realName": "Choi Yeo-woon (최여운)",
+      "gender": "male",
+      "position": ["Sub Vocalist", "Maknae"],
+      "birthYear": 2003,
+      "birthday": "August 25",
+      "zodiac": "Virgo",
+      "mbti": "ESFP",
+      "height": "174cm",
+      "emoji": "🐱",
+      "nicknames": ["Lion Cub", "Baby Lion", "Maknae on Top", "Cute Predator"],
+      "funFacts": [
+        "The lion cub of Saja Boys",
+        "Cute but surprisingly fierce",
+        "Growing into his lion mane",
+        "The mood maker of the group",
+        "His aegyo is deadly"
+      ],
+      "bio": "Baby is Saja Boys' adorable lion cub and maknae. Though cute and playful, he shows fierce potential. His growth into a full lion is exciting to watch."
+    }
   ],
   "pageTypes": ["name", "stage-name"],
   "badge": null,
@@ -24,7 +134,3 @@
     "keywords": ["saja boys name generator", "saja boys korean name", "lions fandom name", "saja boys chemistry"]
   }
 }
-
-
-
-

@@ -10,13 +10,167 @@
   "logo": "/images/bts_logo.png",
   "description": "BTS (방탄소년단) is a global K-Pop phenomenon known for their powerful performances, meaningful lyrics, and strong connection with fans worldwide.",
   "members": [
-    { "id": "jungkook", "nameKr": "정국", "nameEn": "Jungkook", "gender": "male", "position": ["Main Vocalist", "Lead Dancer", "Sub Rapper"], "birthYear": 1997 },
-    { "id": "jimin", "nameKr": "지민", "nameEn": "Jimin", "gender": "male", "position": ["Main Dancer", "Lead Vocalist"], "birthYear": 1995 },
-    { "id": "v", "nameKr": "뷔", "nameEn": "V", "gender": "male", "position": ["Lead Dancer", "Vocalist", "Visual"], "birthYear": 1995 },
-    { "id": "jin", "nameKr": "진", "nameEn": "Jin", "gender": "male", "position": ["Vocalist", "Visual"], "birthYear": 1992 },
-    { "id": "rm", "nameKr": "RM", "nameEn": "RM", "gender": "male", "position": ["Leader", "Main Rapper"], "birthYear": 1994 },
-    { "id": "suga", "nameKr": "슈가", "nameEn": "SUGA", "gender": "male", "position": ["Lead Rapper", "Producer"], "birthYear": 1993 },
-    { "id": "jhope", "nameKr": "제이홉", "nameEn": "J-Hope", "gender": "male", "position": ["Main Dancer", "Sub Rapper", "Sub Vocalist"], "birthYear": 1994 }
+    {
+      "id": "jungkook",
+      "nameKr": "정국",
+      "nameEn": "Jungkook",
+      "realName": "Jeon Jung-kook (전정국)",
+      "gender": "male",
+      "position": ["Main Vocalist", "Lead Dancer", "Sub Rapper", "Center"],
+      "birthYear": 1997,
+      "birthday": "September 1",
+      "zodiac": "Virgo",
+      "mbti": "INTP",
+      "height": "179cm",
+      "emoji": "🐰",
+      "nicknames": ["Golden Maknae", "Kookie", "JK", "Muscle Bunny"],
+      "funFacts": [
+        "Called 'Golden Maknae' because he excels at everything",
+        "Has a extensive tattoo sleeve on his right arm",
+        "Known for his athletic abilities and love for working out",
+        "Released solo hit 'Seven' featuring Latto in 2023",
+        "His favorite number is 1"
+      ],
+      "bio": "Jungkook is the youngest member (maknae) of BTS and is often called the 'Golden Maknae' for his exceptional talents in singing, dancing, and athletics. Since debuting at just 15 years old, he has grown into one of the most beloved K-Pop idols worldwide."
+    },
+    {
+      "id": "jimin",
+      "nameKr": "지민",
+      "nameEn": "Jimin",
+      "realName": "Park Ji-min (박지민)",
+      "gender": "male",
+      "position": ["Main Dancer", "Lead Vocalist"],
+      "birthYear": 1995,
+      "birthday": "October 13",
+      "zodiac": "Libra",
+      "mbti": "ESTP",
+      "height": "173cm",
+      "emoji": "🍡",
+      "nicknames": ["Mochi", "ChimChim", "Baby Mochi", "Park Jiminnie"],
+      "funFacts": [
+        "Studied contemporary dance before joining BTS",
+        "First BTS member to have a solo song reach #1 on Billboard Hot 100 with 'Like Crazy'",
+        "Known for his eye-smile and cute cheeks",
+        "Often gives members surprise back hugs",
+        "His solo album 'FACE' topped charts worldwide"
+      ],
+      "bio": "Jimin is known for his graceful contemporary dance background and powerful vocals. His charismatic stage presence and sweet personality have earned him the nickname 'Mochi' from fans who adore his soft, squishy cheeks and caring nature."
+    },
+    {
+      "id": "v",
+      "nameKr": "뷔",
+      "nameEn": "V",
+      "realName": "Kim Tae-hyung (김태형)",
+      "gender": "male",
+      "position": ["Lead Dancer", "Vocalist", "Visual"],
+      "birthYear": 1995,
+      "birthday": "December 30",
+      "zodiac": "Capricorn",
+      "mbti": "INFP",
+      "height": "179cm",
+      "emoji": "🐻",
+      "nicknames": ["Taetae", "CGV", "Good Boy", "Tata"],
+      "funFacts": [
+        "Was a 'hidden member' revealed only at BTS's debut",
+        "Known for his unique, deep baritone voice",
+        "Passionate about art, photography and vintage items",
+        "Created the phrase 'I purple you' (보라해) meaning eternal love",
+        "His song 'Christmas Tree' was OST for 'Our Beloved Summer'"
+      ],
+      "bio": "V, also known as Taehyung, is famous for his unique deep voice and artistic soul. He coined the phrase 'I purple you' which has become a symbol of BTS and ARMY's eternal bond. His eccentric personality and fashion sense have made him a global icon."
+    },
+    {
+      "id": "jin",
+      "nameKr": "진",
+      "nameEn": "Jin",
+      "realName": "Kim Seok-jin (김석진)",
+      "gender": "male",
+      "position": ["Vocalist", "Visual"],
+      "birthYear": 1992,
+      "birthday": "December 4",
+      "zodiac": "Sagittarius",
+      "mbti": "INTP",
+      "height": "179cm",
+      "emoji": "🦙",
+      "nicknames": ["Worldwide Handsome", "Car Door Guy", "Third One From The Left", "Eat Jin"],
+      "funFacts": [
+        "Went viral as 'Third One From The Left' at 2017 BBMAs",
+        "Studied acting at Konkuk University",
+        "Famous for his 'dad jokes' and windshield wiper laugh",
+        "Completed military service in 2024",
+        "Loves cooking and has his own mukbang series 'Eat Jin'"
+      ],
+      "bio": "Jin is the eldest member of BTS and is known for his stunning visuals, earning him the nickname 'Worldwide Handsome.' His warm personality, hilarious dad jokes, and caring nature as the group's eldest make him the beloved 'mom' of BTS."
+    },
+    {
+      "id": "rm",
+      "nameKr": "RM",
+      "nameEn": "RM",
+      "realName": "Kim Nam-joon (김남준)",
+      "gender": "male",
+      "position": ["Leader", "Main Rapper"],
+      "birthYear": 1994,
+      "birthday": "September 12",
+      "zodiac": "Virgo",
+      "mbti": "ENFP",
+      "height": "181cm",
+      "emoji": "🦉",
+      "nicknames": ["God of Destruction", "Brain of BTS", "Namjoonie", "Joon"],
+      "funFacts": [
+        "Learned English by watching 'Friends' TV show",
+        "Has an IQ of 148",
+        "Known for accidentally breaking things",
+        "Passionate about art and visits museums worldwide",
+        "Gave historic speech at United Nations"
+      ],
+      "bio": "RM is the leader of BTS and the group's main rapper. Known for his incredible intelligence (IQ 148) and self-taught English skills, he serves as BTS's spokesperson and has addressed the United Nations multiple times about youth issues."
+    },
+    {
+      "id": "suga",
+      "nameKr": "슈가",
+      "nameEn": "SUGA",
+      "realName": "Min Yoon-gi (민윤기)",
+      "gender": "male",
+      "position": ["Lead Rapper", "Producer"],
+      "birthYear": 1993,
+      "birthday": "March 9",
+      "zodiac": "Pisces",
+      "mbti": "ISTP",
+      "height": "174cm",
+      "emoji": "🐱",
+      "nicknames": ["Agust D", "Min PD", "Lil Meow Meow", "Grandpa"],
+      "funFacts": [
+        "Has solo project 'Agust D' with chart-topping albums",
+        "Was an underground rapper before BTS",
+        "Known for his savage and honest personality",
+        "Produced songs for many artists including IU",
+        "Loves basketball and his cat-like personality earned him 'Lil Meow Meow'"
+      ],
+      "bio": "SUGA is BTS's lead rapper and a prolific producer under his solo alias 'Agust D'. Despite his seemingly cold exterior, he's known for his thoughtful and caring nature. His honest lyrics about mental health have resonated with millions worldwide."
+    },
+    {
+      "id": "jhope",
+      "nameKr": "제이홉",
+      "nameEn": "J-Hope",
+      "realName": "Jung Ho-seok (정호석)",
+      "gender": "male",
+      "position": ["Main Dancer", "Sub Rapper", "Sub Vocalist"],
+      "birthYear": 1994,
+      "birthday": "February 18",
+      "zodiac": "Aquarius",
+      "mbti": "INFJ",
+      "height": "177cm",
+      "emoji": "🌞",
+      "nicknames": ["Hobi", "Sunshine", "Hope", "Dance Machine"],
+      "funFacts": [
+        "Named himself J-Hope to be a source of hope for fans",
+        "Was a street dancer before joining BTS",
+        "First BTS member to headline a major US festival (Lollapalooza 2022)",
+        "Known as the mood maker of the group",
+        "His smile is said to be contagious"
+      ],
+      "bio": "J-Hope is BTS's main dancer and the group's eternal sunshine. He chose his stage name to represent hope for fans. His incredible dance skills, positive energy, and bright personality make him the mood maker of BTS."
+    }
   ],
   "pageTypes": ["name", "stage-name", "aesthetic"],
   "badge": null,
@@ -26,7 +180,3 @@
     "keywords": ["bts name generator", "bts korean name", "army name generator", "bts jungkook name", "bts jimin chemistry", "bts fan name"]
   }
 }
-
-
-
-

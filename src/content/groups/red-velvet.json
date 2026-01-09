@@ -10,11 +10,121 @@
   "logo": "/images/redvelvet_logo.png",
   "description": "Red Velvet is known for their dual concept - 'Red' for energetic pop and 'Velvet' for smooth R&B - along with their unique vocals and artistic music videos.",
   "members": [
-    { "id": "irene", "nameKr": "아이린", "nameEn": "Irene", "gender": "female", "position": ["Leader", "Main Rapper", "Lead Dancer", "Visual", "Center"], "birthYear": 1991 },
-    { "id": "seulgi", "nameKr": "슬기", "nameEn": "Seulgi", "gender": "female", "position": ["Main Dancer", "Lead Vocalist"], "birthYear": 1994 },
-    { "id": "wendy", "nameKr": "웬디", "nameEn": "Wendy", "gender": "female", "position": ["Main Vocalist"], "birthYear": 1994 },
-    { "id": "joy", "nameKr": "조이", "nameEn": "Joy", "gender": "female", "position": ["Lead Rapper", "Lead Vocalist", "Visual"], "birthYear": 1996 },
-    { "id": "yeri", "nameKr": "예리", "nameEn": "Yeri", "gender": "female", "position": ["Lead Rapper", "Sub Vocalist", "Maknae"], "birthYear": 1999 }
+    {
+      "id": "irene",
+      "nameKr": "아이린",
+      "nameEn": "Irene",
+      "realName": "Bae Joo-hyun (배주현)",
+      "gender": "female",
+      "position": ["Leader", "Main Rapper", "Lead Dancer", "Visual", "Center"],
+      "birthYear": 1991,
+      "birthday": "March 29",
+      "zodiac": "Aries",
+      "mbti": "ISFJ",
+      "height": "160cm",
+      "emoji": "👑",
+      "nicknames": ["Visual Queen", "Ice Princess", "Joohyun Unnie", "Face Genius"],
+      "funFacts": [
+        "Considered one of the most beautiful K-Pop idols",
+        "Known for her elegant, ice princess image",
+        "Debuted at 23, one of the oldest debut ages",
+        "Very introverted and reserved",
+        "Her visuals have been called 'legendary'"
+      ],
+      "bio": "Irene is Red Velvet's leader and visual, often called the 'face genius.' Her elegant beauty and ice princess image are iconic. Despite her cold appearance, she's a caring leader who looks after members."
+    },
+    {
+      "id": "seulgi",
+      "nameKr": "슬기",
+      "nameEn": "Seulgi",
+      "realName": "Kang Seul-gi (강슬기)",
+      "gender": "female",
+      "position": ["Main Dancer", "Lead Vocalist"],
+      "birthYear": 1994,
+      "birthday": "February 10",
+      "zodiac": "Aquarius",
+      "mbti": "ISTP",
+      "height": "164cm",
+      "emoji": "🐻",
+      "nicknames": ["Bear", "Dance Machine", "Seulgi Bear", "All-Rounder"],
+      "funFacts": [
+        "Trained for 7 years at SM before debut",
+        "Known for her powerful dancing skills",
+        "Has a bear-like cute personality",
+        "Very hardworking and perfectionist",
+        "Has a successful solo career"
+      ],
+      "bio": "Seulgi is Red Velvet's main dancer and all-rounder who trained for 7 years. Her powerful dancing and bear-like personality are equally beloved. She's known as one of the best female dancers in K-Pop."
+    },
+    {
+      "id": "wendy",
+      "nameKr": "웬디",
+      "nameEn": "Wendy",
+      "realName": "Son Seung-wan (손승완)",
+      "gender": "female",
+      "position": ["Main Vocalist"],
+      "birthYear": 1994,
+      "birthday": "February 21",
+      "zodiac": "Pisces",
+      "mbti": "ISFP",
+      "height": "159cm",
+      "emoji": "🎤",
+      "nicknames": ["Vocal Queen", "Wannie", "Seungwan", "Power Vocalist"],
+      "funFacts": [
+        "Lived in Canada and USA, fluent in English",
+        "Known for her powerful, emotional vocals",
+        "Suffered a bad injury in 2019 but recovered",
+        "Very caring and maternal personality",
+        "Her high notes are legendary"
+      ],
+      "bio": "Wendy is Red Velvet's main vocalist with one of the most powerful voices in K-Pop. Having lived abroad, she's fluent in English. After recovering from a serious injury, she returned stronger than ever."
+    },
+    {
+      "id": "joy",
+      "nameKr": "조이",
+      "nameEn": "Joy",
+      "realName": "Park Soo-young (박수영)",
+      "gender": "female",
+      "position": ["Lead Rapper", "Lead Vocalist", "Visual"],
+      "birthYear": 1996,
+      "birthday": "September 3",
+      "zodiac": "Virgo",
+      "mbti": "ESFJ",
+      "height": "168cm",
+      "emoji": "🌻",
+      "nicknames": ["Sunshine", "Park Sooyoung", "Actress Joy", "Mood Maker"],
+      "funFacts": [
+        "Known for her bright, sunny personality",
+        "Has a successful acting career",
+        "The tallest member at 168cm",
+        "Her smile is considered her signature",
+        "Has released solo music"
+      ],
+      "bio": "Joy is Red Velvet's mood maker with a bright, sunny personality. Her acting career has been equally successful. Her genuine smile and tall figure make her stand out both on stage and screen."
+    },
+    {
+      "id": "yeri",
+      "nameKr": "예리",
+      "nameEn": "Yeri",
+      "realName": "Kim Ye-rim (김예림)",
+      "gender": "female",
+      "position": ["Lead Rapper", "Sub Vocalist", "Maknae"],
+      "birthYear": 1999,
+      "birthday": "March 5",
+      "zodiac": "Pisces",
+      "mbti": "ENFP",
+      "height": "158cm",
+      "emoji": "🍇",
+      "nicknames": ["Grape", "Maknae", "Yerihan", "Instagram Queen"],
+      "funFacts": [
+        "Added to Red Velvet in 2015 after debut",
+        "Known for her artistic Instagram aesthetic",
+        "Very creative and artistic personality",
+        "Has done various solo activities",
+        "Her quirky personality is loved by fans"
+      ],
+      "bio": "Yeri is Red Velvet's maknae who joined in 2015. Her artistic Instagram and quirky personality have earned her a dedicated fanbase. She brings youthful energy and creativity to the group."
+    }
   ],
   "pageTypes": ["name", "stage-name", "aesthetic"],
   "badge": null,
@@ -24,4 +134,3 @@
     "keywords": ["red velvet name generator", "red velvet korean name", "reveluv name generator", "red velvet irene name", "seulgi name generator"]
   }
 }
-

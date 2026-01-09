@@ -10,12 +10,144 @@
   "logo": "/images/riize_logo.png",
   "description": "RIIZE is SM Entertainment's newest boy group, known for their fresh concept, powerful performances, and instant rookie success.",
   "members": [
-    { "id": "shotaro", "nameKr": "샷건", "nameEn": "Shotaro", "gender": "male", "position": ["Leader", "Main Dancer"], "birthYear": 2000 },
-    { "id": "eunseok", "nameKr": "은석", "nameEn": "Eunseok", "gender": "male", "position": ["Lead Dancer", "Visual"], "birthYear": 2001 },
-    { "id": "sungchan", "nameKr": "성찬", "nameEn": "Sungchan", "gender": "male", "position": ["Lead Rapper", "Sub Vocalist"], "birthYear": 2001 },
-    { "id": "wonbin", "nameKr": "원빈", "nameEn": "Wonbin", "gender": "male", "position": ["Lead Vocalist", "Visual"], "birthYear": 2003 },
-    { "id": "sohee", "nameKr": "소희", "nameEn": "Sohee", "gender": "male", "position": ["Main Vocalist"], "birthYear": 2003 },
-    { "id": "anton", "nameKr": "앤톤", "nameEn": "Anton", "gender": "male", "position": ["Sub Vocalist", "Maknae"], "birthYear": 2004 }
+    {
+      "id": "shotaro",
+      "nameKr": "쇼타로",
+      "nameEn": "Shotaro",
+      "realName": "Osaki Shotaro (大崎将太郎)",
+      "gender": "male",
+      "position": ["Leader", "Main Dancer"],
+      "birthYear": 2000,
+      "birthday": "November 25",
+      "zodiac": "Sagittarius",
+      "mbti": "ESFP",
+      "height": "178cm",
+      "emoji": "🐹",
+      "nicknames": ["Dance Machine", "Taro", "Hamster", "Smiley Boy"],
+      "funFacts": [
+        "From Kanagawa, Japan",
+        "Was in NCT before joining RIIZE",
+        "Known for his exceptional dancing skills",
+        "His bright smile is contagious",
+        "Very hardworking and dedicated"
+      ],
+      "bio": "Shotaro is RIIZE's Japanese leader and main dancer, previously in NCT. His exceptional dance skills and bright smile have made him beloved. He brings experience and positivity to the new group."
+    },
+    {
+      "id": "eunseok",
+      "nameKr": "은석",
+      "nameEn": "Eunseok",
+      "realName": "Song Eun-seok (송은석)",
+      "gender": "male",
+      "position": ["Lead Dancer", "Visual"],
+      "birthYear": 2001,
+      "birthday": "November 19",
+      "zodiac": "Scorpio",
+      "mbti": "INTJ",
+      "height": "180cm",
+      "emoji": "🦋",
+      "nicknames": ["Visual King", "Cold Prince", "Song Eunseok", "Model Material"],
+      "funFacts": [
+        "Known for his striking visuals",
+        "Has a cold, chic image on stage",
+        "Very tall with model-like proportions",
+        "Quiet and introverted off-stage",
+        "His dance skills are very refined"
+      ],
+      "bio": "Eunseok is RIIZE's visual with model-like proportions. His cold, elegant image on stage contrasts with his quiet personality. His striking looks and dancing have made him a fan favorite."
+    },
+    {
+      "id": "sungchan",
+      "nameKr": "성찬",
+      "nameEn": "Sungchan",
+      "realName": "Jung Sung-chan (정성찬)",
+      "gender": "male",
+      "position": ["Lead Rapper", "Sub Vocalist"],
+      "birthYear": 2001,
+      "birthday": "September 13",
+      "zodiac": "Virgo",
+      "mbti": "ESTP",
+      "height": "186cm",
+      "emoji": "🦌",
+      "nicknames": ["Tall Boy", "Deer", "NCT Graduate", "Gentle Giant"],
+      "funFacts": [
+        "One of the tallest K-Pop idols at 186cm",
+        "Was in NCT before joining RIIZE",
+        "Known for his rap skills and deep voice",
+        "Very gentle and caring personality",
+        "His tall frame stands out on stage"
+      ],
+      "bio": "Sungchan is RIIZE's rapper and one of K-Pop's tallest idols at 186cm. Previously in NCT, he brings experience and skill. His deep voice and gentle giant personality are beloved."
+    },
+    {
+      "id": "wonbin",
+      "nameKr": "원빈",
+      "nameEn": "Wonbin",
+      "realName": "Park Won-bin (박원빈)",
+      "gender": "male",
+      "position": ["Lead Vocalist", "Visual"],
+      "birthYear": 2003,
+      "birthday": "September 6",
+      "zodiac": "Virgo",
+      "mbti": "ISFP",
+      "height": "176cm",
+      "emoji": "🐰",
+      "nicknames": ["Prince Charming", "Viral Boy", "Bunny", "Visual Fairy"],
+      "funFacts": [
+        "Went viral pre-debut for his visuals",
+        "Named after actor Won Bin",
+        "Known for his prince-like appearance",
+        "His fancams consistently trend",
+        "Very shy and quiet off-stage"
+      ],
+      "bio": "Wonbin is RIIZE's visual who went viral before debut for his stunning looks. Named after the famous actor, he lives up to the name. His prince-like visuals and shy personality are endearing."
+    },
+    {
+      "id": "sohee",
+      "nameKr": "소희",
+      "nameEn": "Sohee",
+      "realName": "Park So-hee (박소희)",
+      "gender": "male",
+      "position": ["Main Vocalist"],
+      "birthYear": 2003,
+      "birthday": "August 21",
+      "zodiac": "Leo",
+      "mbti": "ENFP",
+      "height": "175cm",
+      "emoji": "🎤",
+      "nicknames": ["Vocal King", "Main Vocal", "Sohee-ya", "Power Voice"],
+      "funFacts": [
+        "Known for his powerful, stable vocals",
+        "His high notes are impressive",
+        "Has a bright, cheerful personality",
+        "Very passionate about singing",
+        "His live vocals match studio versions"
+      ],
+      "bio": "Sohee is RIIZE's main vocalist with powerful, stable vocals. His high notes and passionate delivery anchor RIIZE's sound. His cheerful personality brightens the group dynamic."
+    },
+    {
+      "id": "anton",
+      "nameKr": "앤톤",
+      "nameEn": "Anton",
+      "realName": "Lee Sung-chan (이성찬) / Anton Lee",
+      "gender": "male",
+      "position": ["Sub Vocalist", "Maknae"],
+      "birthYear": 2004,
+      "birthday": "March 21",
+      "zodiac": "Aries",
+      "mbti": "ISFP",
+      "height": "187cm",
+      "emoji": "🐻",
+      "nicknames": ["Giant Baby", "Teddy Bear", "NY Prince", "Half Korean"],
+      "funFacts": [
+        "Half Korean, half American (father is Yoon Sang)",
+        "Tallest member at 187cm",
+        "Born and raised in New York",
+        "Fluent in English and Korean",
+        "Despite his size, he's the youngest"
+      ],
+      "bio": "Anton is RIIZE's maknae and tallest member at 187cm. Half-Korean and raised in New York, he's fluent in both languages. His 'giant baby' charm and musical heritage (son of composer Yoon Sang) make him special."
+    }
   ],
   "pageTypes": ["name", "stage-name", "aesthetic"],
   "badge": "NEW",
@@ -25,7 +157,3 @@
     "keywords": ["riize name generator", "riize korean name", "briize name generator", "riize wonbin chemistry", "riize anton name"]
   }
 }
-
-
-
-

@@ -10,11 +10,121 @@
   "logo": "/images/plave_logo.png",
   "description": "PLAVE is a virtual K-Pop idol group featuring AI-generated avatars with real vocalists, pioneering the future of K-Pop entertainment.",
   "members": [
-    { "id": "yejun", "nameKr": "예준", "nameEn": "Yejun", "gender": "male", "position": ["Leader", "Main Vocalist"], "birthYear": 1998 },
-    { "id": "noah", "nameKr": "노아", "nameEn": "Noah", "gender": "male", "position": ["Lead Vocalist", "Visual"], "birthYear": 1999 },
-    { "id": "bamby", "nameKr": "밤비", "nameEn": "Bamby", "gender": "male", "position": ["Main Dancer", "Lead Rapper"], "birthYear": 2000 },
-    { "id": "eunho", "nameKr": "은호", "nameEn": "Eunho", "gender": "male", "position": ["Lead Dancer", "Sub Vocalist"], "birthYear": 2001 },
-    { "id": "hamin", "nameKr": "하민", "nameEn": "Hamin", "gender": "male", "position": ["Sub Vocalist", "Maknae"], "birthYear": 2002 }
+    {
+      "id": "yejun",
+      "nameKr": "예준",
+      "nameEn": "Yejun",
+      "realName": "Virtual Identity",
+      "gender": "male",
+      "position": ["Leader", "Main Vocalist"],
+      "birthYear": 1998,
+      "birthday": "April 14",
+      "zodiac": "Aries",
+      "mbti": "ENFJ",
+      "height": "182cm",
+      "emoji": "💙",
+      "nicknames": ["Virtual Leader", "Blue Prince", "Yejunnie", "Caring Captain"],
+      "funFacts": [
+        "The reliable leader of PLAVE",
+        "Known for his soothing vocal tone",
+        "Represents the color blue in the group",
+        "His character design was the first revealed",
+        "Fans love his caring personality"
+      ],
+      "bio": "Yejun is PLAVE's virtual leader with a warm, caring personality. His soothing vocals and reliable leadership have made him the heart of this innovative virtual group."
+    },
+    {
+      "id": "noah",
+      "nameKr": "노아",
+      "nameEn": "Noah",
+      "realName": "Virtual Identity",
+      "gender": "male",
+      "position": ["Lead Vocalist", "Visual"],
+      "birthYear": 1999,
+      "birthday": "August 8",
+      "zodiac": "Leo",
+      "mbti": "INFP",
+      "height": "180cm",
+      "emoji": "💜",
+      "nicknames": ["Purple Visual", "Dreamy Boy", "Noah-ya", "Visual King"],
+      "funFacts": [
+        "The visual of PLAVE",
+        "Known for his dreamy, ethereal appearance",
+        "Represents the color purple",
+        "His emotional vocals move fans to tears",
+        "Has a gentle, thoughtful personality"
+      ],
+      "bio": "Noah is PLAVE's visual with ethereal, dreamy features. His emotional vocal delivery and gentle personality have captured hearts in the virtual idol space."
+    },
+    {
+      "id": "bamby",
+      "nameKr": "밤비",
+      "nameEn": "Bamby",
+      "realName": "Virtual Identity",
+      "gender": "male",
+      "position": ["Main Dancer", "Lead Rapper"],
+      "birthYear": 2000,
+      "birthday": "November 22",
+      "zodiac": "Sagittarius",
+      "mbti": "ESTP",
+      "height": "178cm",
+      "emoji": "💚",
+      "nicknames": ["Green Dancer", "Deer Boy", "Bamby-ya", "Energy King"],
+      "funFacts": [
+        "The main dancer of PLAVE",
+        "Known for his energetic performances",
+        "Represents the color green",
+        "His name comes from 'Bambi' (deer)",
+        "Has a playful, mischievous personality"
+      ],
+      "bio": "Bamby is PLAVE's energetic main dancer whose playful personality lights up performances. His deer-inspired name reflects his graceful yet powerful dance moves."
+    },
+    {
+      "id": "eunho",
+      "nameKr": "은호",
+      "nameEn": "Eunho",
+      "realName": "Virtual Identity",
+      "gender": "male",
+      "position": ["Lead Dancer", "Sub Vocalist"],
+      "birthYear": 2001,
+      "birthday": "March 3",
+      "zodiac": "Pisces",
+      "mbti": "ISFP",
+      "height": "176cm",
+      "emoji": "🩷",
+      "nicknames": ["Pink Prince", "Soft Boy", "Eunho-ya", "Gentle Soul"],
+      "funFacts": [
+        "Known for his soft, gentle image",
+        "Represents the color pink",
+        "Has a shy but caring personality",
+        "His dancing is elegant and graceful",
+        "Fans love his sweet interactions"
+      ],
+      "bio": "Eunho is PLAVE's gentle soul with elegant dance skills. His soft, shy personality and graceful movements have made him a fan favorite in the virtual idol world."
+    },
+    {
+      "id": "hamin",
+      "nameKr": "하민",
+      "nameEn": "Hamin",
+      "realName": "Virtual Identity",
+      "gender": "male",
+      "position": ["Sub Vocalist", "Maknae"],
+      "birthYear": 2002,
+      "birthday": "June 15",
+      "zodiac": "Gemini",
+      "mbti": "ENFP",
+      "height": "175cm",
+      "emoji": "💛",
+      "nicknames": ["Yellow Maknae", "Bright Boy", "Hamin-ie", "Sunshine"],
+      "funFacts": [
+        "The maknae of PLAVE",
+        "Known for his bright, sunny personality",
+        "Represents the color yellow",
+        "His energy is contagious",
+        "Loves to make hyungs laugh"
+      ],
+      "bio": "Hamin is PLAVE's bright maknae whose sunshine personality brings joy to the group. His youthful energy and cheerful demeanor make him the mood maker."
+    }
   ],
   "pageTypes": ["name", "stage-name", "aesthetic"],
   "badge": "NEW",
@@ -24,7 +134,3 @@
     "keywords": ["plave name generator", "plave korean name", "plli name generator", "virtual idol name", "plave yejun chemistry"]
   }
 }
-
-
-
-

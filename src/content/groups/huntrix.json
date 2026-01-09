@@ -10,9 +10,75 @@
   "logo": "/images/huntrix_logo.png",
   "description": "HUNTR/X is inspired by Netflix's K-Pop Demon Hunters anime, featuring fierce characters who fight supernatural threats with K-Pop power.",
   "members": [
-    { "id": "rumi", "nameKr": "루미", "nameEn": "Rumi", "gender": "female", "position": ["Leader", "Main Vocalist"], "birthYear": 2000 },
-    { "id": "mira", "nameKr": "미라", "nameEn": "Mira", "gender": "female", "position": ["Main Rapper", "Lead Dancer"], "birthYear": 2001 },
-    { "id": "zoey", "nameKr": "조이", "nameEn": "Zoey", "gender": "female", "position": ["Lead Vocalist", "Visual"], "birthYear": 2002 }
+    {
+      "id": "rumi",
+      "nameKr": "루미",
+      "nameEn": "Rumi",
+      "realName": "Kim Ru-mi (김루미)",
+      "gender": "female",
+      "position": ["Leader", "Main Vocalist"],
+      "birthYear": 2000,
+      "birthday": "March 15",
+      "zodiac": "Pisces",
+      "mbti": "ENTJ",
+      "height": "168cm",
+      "emoji": "⚡",
+      "nicknames": ["Lightning Leader", "Demon Slayer", "Voice of Power", "Rumi the Fierce"],
+      "funFacts": [
+        "Has the power to channel lightning through her voice",
+        "Was recruited after defeating a demon alone",
+        "Her high notes can shatter demon barriers",
+        "Natural born leader with strategic mind",
+        "Protects her team with fierce loyalty"
+      ],
+      "bio": "Rumi is HUNTR/X's fearless leader whose powerful vocals can channel supernatural energy. She leads the team against demon threats with strategic brilliance and unwavering courage."
+    },
+    {
+      "id": "mira",
+      "nameKr": "미라",
+      "nameEn": "Mira",
+      "realName": "Park Mi-ra (박미라)",
+      "gender": "female",
+      "position": ["Main Rapper", "Lead Dancer"],
+      "birthYear": 2001,
+      "birthday": "July 23",
+      "zodiac": "Leo",
+      "mbti": "ESTP",
+      "height": "165cm",
+      "emoji": "🔥",
+      "nicknames": ["Fire Dancer", "Rap Destroyer", "Shadow Walker", "Mira Blaze"],
+      "funFacts": [
+        "Her rap flows can create fire barriers",
+        "Fastest demon hunter in the squad",
+        "Trained in martial arts since childhood",
+        "Her dance moves double as combat techniques",
+        "Never backs down from a challenge"
+      ],
+      "bio": "Mira is HUNTR/X's fierce rapper and dancer whose movements are deadly both on stage and in battle. Her fire-infused rap creates protective barriers for her team."
+    },
+    {
+      "id": "zoey",
+      "nameKr": "조이",
+      "nameEn": "Zoey",
+      "realName": "Lee Zo-yi (이조이)",
+      "gender": "female",
+      "position": ["Lead Vocalist", "Visual"],
+      "birthYear": 2002,
+      "birthday": "December 1",
+      "zodiac": "Sagittarius",
+      "mbti": "INFP",
+      "height": "170cm",
+      "emoji": "✨",
+      "nicknames": ["Star Visual", "Healing Voice", "Light Bringer", "Zoey Shine"],
+      "funFacts": [
+        "Her voice has healing properties",
+        "Can see demons that others cannot",
+        "The visual who stuns both humans and demons",
+        "Her gentle nature hides immense power",
+        "Brings hope to the darkest situations"
+      ],
+      "bio": "Zoey is HUNTR/X's visual whose ethereal beauty masks incredible healing powers. Her voice can mend wounds and bring light to darkness, making her essential to the team."
+    }
   ],
   "pageTypes": ["name", "stage-name"],
   "badge": "HOT",
@@ -22,7 +88,3 @@
     "keywords": ["kpop demon hunters name generator", "huntrix name generator", "netflix kpop anime name", "demon hunter korean name"]
   }
 }
-
-
-
-

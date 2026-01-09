@@ -5,14 +5,23 @@
 
 import { defineCollection, z } from 'astro:content';
 
-// Member schema
+// Member schema (extended with detailed profile info)
 const memberSchema = z.object({
   id: z.string(),
   nameKr: z.string(),
   nameEn: z.string(),
+  realName: z.string().optional(),
   gender: z.enum(['male', 'female']),
   position: z.array(z.string()).optional(),
   birthYear: z.number().optional(),
+  birthday: z.string().optional(),
+  zodiac: z.string().optional(),
+  mbti: z.string().optional(),
+  height: z.string().optional(),
+  emoji: z.string().optional(),
+  nicknames: z.array(z.string()).optional(),
+  funFacts: z.array(z.string()).optional(),
+  bio: z.string().optional(),
   image: z.string().optional()
 });
 

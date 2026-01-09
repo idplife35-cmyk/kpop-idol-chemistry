@@ -10,10 +10,98 @@
   "logo": "/images/black_pink_logo2.png",
   "description": "BLACKPINK is a global girl group known for their powerful performances, fashion influence, and record-breaking achievements.",
   "members": [
-    { "id": "jisoo", "nameKr": "지수", "nameEn": "Jisoo", "gender": "female", "position": ["Lead Vocalist", "Visual"], "birthYear": 1995 },
-    { "id": "jennie", "nameKr": "제니", "nameEn": "Jennie", "gender": "female", "position": ["Main Rapper", "Lead Vocalist"], "birthYear": 1996 },
-    { "id": "rose", "nameKr": "로제", "nameEn": "Rosé", "gender": "female", "position": ["Main Vocalist", "Lead Dancer"], "birthYear": 1997 },
-    { "id": "lisa", "nameKr": "리사", "nameEn": "Lisa", "gender": "female", "position": ["Main Dancer", "Lead Rapper", "Sub Vocalist"], "birthYear": 1997 }
+    {
+      "id": "jisoo",
+      "nameKr": "지수",
+      "nameEn": "Jisoo",
+      "realName": "Kim Ji-soo (김지수)",
+      "gender": "female",
+      "position": ["Lead Vocalist", "Visual"],
+      "birthYear": 1995,
+      "birthday": "January 3",
+      "zodiac": "Capricorn",
+      "mbti": "INTJ",
+      "height": "162cm",
+      "emoji": "🐢",
+      "nicknames": ["Jichu", "Chuchu", "Turtle Rabbit Kim", "4D Jisoo"],
+      "funFacts": [
+        "Lead actress in K-drama 'Snowdrop' (2021-2022)",
+        "Known for her '4D' quirky personality",
+        "Loves video games especially PUBG and Overwatch",
+        "Has a unique way of eating - 'Jisoo way'",
+        "Trained for 5 years before debuting"
+      ],
+      "bio": "Jisoo is BLACKPINK's eldest member and visual. Despite her stunning looks, she's known for her hilarious '4D' personality and gaming skills. She expanded into acting with the lead role in 'Snowdrop' and released her solo album 'ME' in 2023."
+    },
+    {
+      "id": "jennie",
+      "nameKr": "제니",
+      "nameEn": "Jennie",
+      "realName": "Jennie Kim (김제니)",
+      "gender": "female",
+      "position": ["Main Rapper", "Lead Vocalist"],
+      "birthYear": 1996,
+      "birthday": "January 16",
+      "zodiac": "Capricorn",
+      "mbti": "ENFP",
+      "height": "163cm",
+      "emoji": "🐻",
+      "nicknames": ["NiNi", "Human Chanel", "Jendeuk", "Jendeukie"],
+      "funFacts": [
+        "Lived in New Zealand for 5 years during childhood",
+        "First BLACKPINK member to debut solo with 'SOLO' (2018)",
+        "Global ambassador for Chanel, earning 'Human Chanel' nickname",
+        "Known for her duality - fierce on stage, cute off stage",
+        "Her cat's name is Kuma"
+      ],
+      "bio": "Jennie is BLACKPINK's main rapper and a fashion icon. Having studied abroad in New Zealand, she's fluent in English and known for her versatile talents. She became the first member to go solo with the hit 'SOLO' and is Chanel's global ambassador."
+    },
+    {
+      "id": "rose",
+      "nameKr": "로제",
+      "nameEn": "Rosé",
+      "realName": "Park Chae-young (박채영) / Roseanne Park",
+      "gender": "female",
+      "position": ["Main Vocalist", "Lead Dancer"],
+      "birthYear": 1997,
+      "birthday": "February 11",
+      "zodiac": "Aquarius",
+      "mbti": "ISTP",
+      "height": "168cm",
+      "emoji": "🌹",
+      "nicknames": ["Rosie", "Pasta", "Chipmunk", "Park Chaeyoung"],
+      "funFacts": [
+        "Born in New Zealand, raised in Australia",
+        "Her solo 'On The Ground' broke multiple records",
+        "Known for her unique, husky vocal tone",
+        "Plays guitar and piano",
+        "First Korean solo artist to reach #1 on Billboard Global 200"
+      ],
+      "bio": "Rosé is BLACKPINK's main vocalist with a distinctive, emotive voice. Born in New Zealand and raised in Melbourne, Australia, she brings a unique tone to the group. Her solo debut 'R' featured hits like 'On The Ground' and 'Gone.'"
+    },
+    {
+      "id": "lisa",
+      "nameKr": "리사",
+      "nameEn": "Lisa",
+      "realName": "Lalisa Manobal (ลลิษา มโนบาล) / Pranpriya Manobal",
+      "gender": "female",
+      "position": ["Main Dancer", "Lead Rapper", "Sub Vocalist", "Maknae"],
+      "birthYear": 1997,
+      "birthday": "March 27",
+      "zodiac": "Aries",
+      "mbti": "ENFP",
+      "height": "167cm",
+      "emoji": "🐱",
+      "nicknames": ["Lalisa", "Lili", "Thai Princess", "Dancing Machine"],
+      "funFacts": [
+        "Only Thai member, from Buriram Province",
+        "Most-followed K-pop idol on Instagram (100M+)",
+        "Solo song 'LALISA' MV got 73.6M views in 24 hours (record)",
+        "Won 'Best K-Pop' at 2022 VMAs for 'LALISA'",
+        "Known for her incredible dance covers and versatility"
+      ],
+      "bio": "Lisa is BLACKPINK's main dancer and the only non-Korean member. Originally from Thailand, she's become one of the most influential K-pop idols globally with the most Instagram followers. Her solo debut 'LALISA' broke multiple YouTube records."
+    }
   ],
   "pageTypes": ["name", "stage-name", "aesthetic"],
   "badge": null,
@@ -23,7 +111,3 @@
     "keywords": ["blackpink name generator", "blackpink korean name", "blink name generator", "blackpink jennie name", "blackpink lisa chemistry"]
   }
 }
-
-
-
-

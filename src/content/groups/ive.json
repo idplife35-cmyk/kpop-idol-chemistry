@@ -10,12 +10,144 @@
   "logo": "/images/Ive_logo_(Black).svg",
   "description": "IVE is a 4th generation K-Pop girl group known for their confident concept, powerful vocals, and elegant performances.",
   "members": [
-    { "id": "yujin", "nameKr": "안유진", "nameEn": "Yujin", "gender": "female", "position": ["Leader", "Lead Vocalist", "Center"], "birthYear": 2003 },
-    { "id": "wonyoung", "nameKr": "장원영", "nameEn": "Wonyoung", "gender": "female", "position": ["Lead Vocalist", "Visual", "Center"], "birthYear": 2004 },
-    { "id": "gaeul", "nameKr": "가을", "nameEn": "Gaeul", "gender": "female", "position": ["Main Rapper", "Lead Dancer"], "birthYear": 2002 },
-    { "id": "rei", "nameKr": "레이", "nameEn": "Rei", "gender": "female", "position": ["Lead Dancer", "Sub Rapper"], "birthYear": 2004 },
-    { "id": "liz", "nameKr": "리즈", "nameEn": "Liz", "gender": "female", "position": ["Main Vocalist"], "birthYear": 2004 },
-    { "id": "leeseo", "nameKr": "이서", "nameEn": "Leeseo", "gender": "female", "position": ["Lead Dancer", "Sub Vocalist", "Maknae"], "birthYear": 2007 }
+    {
+      "id": "yujin",
+      "nameKr": "안유진",
+      "nameEn": "Yujin",
+      "realName": "Ahn Yu-jin (안유진)",
+      "gender": "female",
+      "position": ["Leader", "Lead Vocalist", "Center"],
+      "birthYear": 2003,
+      "birthday": "September 1",
+      "zodiac": "Virgo",
+      "mbti": "ENFP",
+      "height": "173cm",
+      "emoji": "🐶",
+      "nicknames": ["Puppy", "IZ*ONE Yujin", "Ahn Leader", "Starship Princess"],
+      "funFacts": [
+        "Former IZ*ONE member who placed 5th in Produce 48",
+        "Known for her variety show skills and quick wit",
+        "Has hosted multiple music shows including Music Bank",
+        "Appeared in Running Man as a guest multiple times",
+        "Her energy and leadership earned her the leader position"
+      ],
+      "bio": "Yujin is IVE's leader and one of two former IZ*ONE members. Her bright personality, hosting skills, and natural leadership make her a beloved idol. She's known for her puppy-like charm and exceptional variety show presence."
+    },
+    {
+      "id": "wonyoung",
+      "nameKr": "장원영",
+      "nameEn": "Wonyoung",
+      "realName": "Jang Won-young (장원영)",
+      "gender": "female",
+      "position": ["Lead Vocalist", "Visual", "Center"],
+      "birthYear": 2004,
+      "birthday": "August 31",
+      "zodiac": "Virgo",
+      "mbti": "ESFJ",
+      "height": "173cm",
+      "emoji": "🦋",
+      "nicknames": ["Wonjjangi", "Princess", "Giant Baby", "Produce 48 Winner"],
+      "funFacts": [
+        "Won 1st place on Produce 48, becoming IZ*ONE center",
+        "Known for her 'princess' visuals and elegant aura",
+        "Has numerous brand endorsement deals",
+        "Youngest member to win Produce series at age 13",
+        "Her mukbang content is extremely popular"
+      ],
+      "bio": "Wonyoung is IVE's visual and former IZ*ONE center. She made history by winning Produce 48 at just 13 years old. Her elegant visuals, graceful presence, and brand power have made her one of K-pop's top idols."
+    },
+    {
+      "id": "gaeul",
+      "nameKr": "가을",
+      "nameEn": "Gaeul",
+      "realName": "Kim Ga-eul (김가을)",
+      "gender": "female",
+      "position": ["Main Rapper", "Lead Dancer"],
+      "birthYear": 2002,
+      "birthday": "September 24",
+      "zodiac": "Libra",
+      "mbti": "ESFJ",
+      "height": "164cm",
+      "emoji": "🍂",
+      "nicknames": ["Autumn", "Unnie", "Kim Gaeul", "IVE's Hidden Gem"],
+      "funFacts": [
+        "Her name 'Gaeul' means 'autumn' in Korean",
+        "Oldest member of IVE",
+        "Known for her rap skills and charismatic stage presence",
+        "Trained for 4 years before debut",
+        "Often called the 'hidden gem' for her underrated talents"
+      ],
+      "bio": "Gaeul is IVE's eldest member and main rapper. Her name means 'autumn' in Korean. Despite being overshadowed initially, her sharp rap skills and charismatic performances have gained her a dedicated fanbase."
+    },
+    {
+      "id": "rei",
+      "nameKr": "레이",
+      "nameEn": "Rei",
+      "realName": "Naoi Rei (直井怜)",
+      "gender": "female",
+      "position": ["Lead Dancer", "Sub Rapper"],
+      "birthYear": 2004,
+      "birthday": "February 3",
+      "zodiac": "Aquarius",
+      "mbti": "INFP",
+      "height": "169cm",
+      "emoji": "🦊",
+      "nicknames": ["Japanese Princess", "Rei-nim", "Fox", "Elegant Rei"],
+      "funFacts": [
+        "Born in Tokyo, Japan",
+        "Known for her elegant, fox-like visuals",
+        "Can speak Japanese, Korean, and some English",
+        "Very quiet and introverted off-stage",
+        "Her focus cam videos are extremely popular"
+      ],
+      "bio": "Rei is IVE's Japanese member known for her elegant visuals and quiet personality. Originally from Tokyo, she brings a unique charm to the group. Her sophisticated aura and dance skills have made her a fan favorite."
+    },
+    {
+      "id": "liz",
+      "nameKr": "리즈",
+      "nameEn": "Liz",
+      "realName": "Kim Ji-won (김지원)",
+      "gender": "female",
+      "position": ["Main Vocalist"],
+      "birthYear": 2004,
+      "birthday": "November 21",
+      "zodiac": "Scorpio",
+      "mbti": "ISFJ",
+      "height": "170cm",
+      "emoji": "🐰",
+      "nicknames": ["Main Vocal Queen", "Jiwonnie", "Powerful Liz", "IVE's Voice"],
+      "funFacts": [
+        "Known for her powerful, stable vocals",
+        "Can hit incredibly high notes live",
+        "Has a softer, quieter personality off-stage",
+        "Her high note in 'LOVE DIVE' is iconic",
+        "Often praised for her live singing ability"
+      ],
+      "bio": "Liz is IVE's main vocalist with powerful, stable vocals. Her high notes are legendary among fans. Despite her quiet personality, she shines on stage with her incredible vocal abilities."
+    },
+    {
+      "id": "leeseo",
+      "nameKr": "이서",
+      "nameEn": "Leeseo",
+      "realName": "Lee Hyun-seo (이현서)",
+      "gender": "female",
+      "position": ["Lead Dancer", "Sub Vocalist", "Maknae"],
+      "birthYear": 2007,
+      "birthday": "February 21",
+      "zodiac": "Pisces",
+      "mbti": "ENFP",
+      "height": "165cm",
+      "emoji": "🐥",
+      "nicknames": ["Baby", "Maknae On Top", "Hyunseo", "Tiny Dancer"],
+      "funFacts": [
+        "Youngest 4th gen idol from a major group (debuted at 14)",
+        "Despite being the youngest, she's very mature",
+        "Known for her exceptional dance skills",
+        "Has been training since elementary school",
+        "Her confidence on stage surprises many given her age"
+      ],
+      "bio": "Leeseo is IVE's maknae who debuted at just 14 years old. Despite her young age, her dance skills and stage presence are remarkably mature. She's known as 'maknae on top' for her confident personality."
+    }
   ],
   "pageTypes": ["name", "stage-name", "aesthetic"],
   "badge": null,
@@ -25,7 +157,3 @@
     "keywords": ["ive name generator", "ive korean name", "dive name generator", "ive wonyoung chemistry", "ive yujin name"]
   }
 }
-
-
-
-

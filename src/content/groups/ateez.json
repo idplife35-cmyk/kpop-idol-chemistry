@@ -10,14 +10,190 @@
   "logo": "/images/ateez_logo.png",
   "description": "ATEEZ is known for their powerful performances, pirate-themed storylines, and explosive stage presence that has earned them a massive global following.",
   "members": [
-    { "id": "hongjoong", "nameKr": "홍중", "nameEn": "Hongjoong", "gender": "male", "position": ["Leader", "Main Rapper", "Sub Vocalist"], "birthYear": 1998 },
-    { "id": "seonghwa", "nameKr": "성화", "nameEn": "Seonghwa", "gender": "male", "position": ["Lead Vocalist", "Visual"], "birthYear": 1998 },
-    { "id": "yunho", "nameKr": "윤호", "nameEn": "Yunho", "gender": "male", "position": ["Main Dancer", "Sub Vocalist", "Sub Rapper"], "birthYear": 1999 },
-    { "id": "yeosang", "nameKr": "여상", "nameEn": "Yeosang", "gender": "male", "position": ["Lead Dancer", "Sub Vocalist", "Visual"], "birthYear": 1999 },
-    { "id": "san", "nameKr": "산", "nameEn": "San", "gender": "male", "position": ["Main Vocalist", "Lead Dancer", "Center"], "birthYear": 1999 },
-    { "id": "mingi", "nameKr": "민기", "nameEn": "Mingi", "gender": "male", "position": ["Main Rapper", "Sub Vocalist"], "birthYear": 1999 },
-    { "id": "wooyoung", "nameKr": "우영", "nameEn": "Wooyoung", "gender": "male", "position": ["Main Dancer", "Lead Vocalist", "Sub Rapper"], "birthYear": 1999 },
-    { "id": "jongho", "nameKr": "종호", "nameEn": "Jongho", "gender": "male", "position": ["Main Vocalist", "Maknae"], "birthYear": 2000 }
+    {
+      "id": "hongjoong",
+      "nameKr": "홍중",
+      "nameEn": "Hongjoong",
+      "realName": "Kim Hong-joong (김홍중)",
+      "gender": "male",
+      "position": ["Leader", "Main Rapper", "Sub Vocalist"],
+      "birthYear": 1998,
+      "birthday": "November 7",
+      "zodiac": "Scorpio",
+      "mbti": "INFP",
+      "height": "171cm",
+      "emoji": "🏴‍☠️",
+      "nicknames": ["Captain", "Producer Hongjoong", "Fashion Icon", "Tiny Giant"],
+      "funFacts": [
+        "Writes and produces many ATEEZ songs",
+        "Known for his unique fashion sense and DIY styling",
+        "Compared to G-Dragon for his artistry",
+        "Very short but has huge stage presence",
+        "His leadership style is warm and supportive"
+      ],
+      "bio": "Hongjoong is ATEEZ's captain and creative leader who writes and produces their music. Despite his small stature, his stage presence is immense. His unique fashion and artistic vision have made him ATEEZ's icon."
+    },
+    {
+      "id": "seonghwa",
+      "nameKr": "성화",
+      "nameEn": "Seonghwa",
+      "realName": "Park Seong-hwa (박성화)",
+      "gender": "male",
+      "position": ["Lead Vocalist", "Visual"],
+      "birthYear": 1998,
+      "birthday": "April 3",
+      "zodiac": "Aries",
+      "mbti": "INFJ",
+      "height": "178cm",
+      "emoji": "🌙",
+      "nicknames": ["Mars", "Neat Freak", "Visual King", "Cleaning Fairy"],
+      "funFacts": [
+        "Known for being extremely clean and organized",
+        "His stage name was almost 'Mars'",
+        "Has stunning visuals that went viral",
+        "Very gentle and caring personality",
+        "Takes care of the dorm cleanliness"
+      ],
+      "bio": "Seonghwa is ATEEZ's visual known for his stunning looks and neat personality. He's famous for keeping everything clean and organized. His elegant visuals and gentle care for members have made him beloved."
+    },
+    {
+      "id": "yunho",
+      "nameKr": "윤호",
+      "nameEn": "Yunho",
+      "realName": "Jeong Yun-ho (정윤호)",
+      "gender": "male",
+      "position": ["Main Dancer", "Sub Vocalist", "Sub Rapper"],
+      "birthYear": 1999,
+      "birthday": "March 23",
+      "zodiac": "Aries",
+      "mbti": "ENFP",
+      "height": "184cm",
+      "emoji": "🐶",
+      "nicknames": ["Golden Retriever", "Tall Baby", "Happy Virus", "Yunho-ya"],
+      "funFacts": [
+        "One of the tallest K-Pop idols at 184cm",
+        "Known for his golden retriever personality",
+        "Extremely energetic and positive",
+        "His dancing is powerful yet precise",
+        "Always smiling and making others happy"
+      ],
+      "bio": "Yunho is ATEEZ's main dancer and the group's 'golden retriever.' His tall frame and powerful dancing are impressive. His constantly positive energy and bright personality light up every room."
+    },
+    {
+      "id": "yeosang",
+      "nameKr": "여상",
+      "nameEn": "Yeosang",
+      "realName": "Kang Yeo-sang (강여상)",
+      "gender": "male",
+      "position": ["Lead Dancer", "Sub Vocalist", "Visual"],
+      "birthYear": 1999,
+      "birthday": "June 15",
+      "zodiac": "Gemini",
+      "mbti": "INFP",
+      "height": "173cm",
+      "emoji": "🦊",
+      "nicknames": ["Prince", "Mole", "Fox", "Vampire Visual"],
+      "funFacts": [
+        "Known for his unique birthmark near his eye",
+        "Very quiet and introverted",
+        "His visuals are often called 'prince-like'",
+        "Was a Big Hit trainee before joining KQ",
+        "His smile transformation is iconic"
+      ],
+      "bio": "Yeosang is ATEEZ's prince-like visual with a distinctive birthmark near his eye. Despite being quiet, his stunning visuals speak volumes. His transformation from resting face to smile is legendary among fans."
+    },
+    {
+      "id": "san",
+      "nameKr": "산",
+      "nameEn": "San",
+      "realName": "Choi San (최산)",
+      "gender": "male",
+      "position": ["Main Vocalist", "Lead Dancer", "Center"],
+      "birthYear": 1999,
+      "birthday": "July 10",
+      "zodiac": "Cancer",
+      "mbti": "INFP",
+      "height": "175cm",
+      "emoji": "🐯",
+      "nicknames": ["Stage Genius", "Demon San", "Woosan", "Charisma King"],
+      "funFacts": [
+        "Known for his intense stage presence and expressions",
+        "Transforms completely on stage - called 'demon'",
+        "Very soft and affectionate off-stage",
+        "His fancams consistently go viral",
+        "Has a famous friendship with Wooyoung (Woosan)"
+      ],
+      "bio": "San is ATEEZ's center known for his legendary stage presence. He transforms into a 'demon' on stage with intense expressions, yet is incredibly soft off-stage. His fancams regularly go viral for his charisma."
+    },
+    {
+      "id": "mingi",
+      "nameKr": "민기",
+      "nameEn": "Mingi",
+      "realName": "Song Min-gi (송민기)",
+      "gender": "male",
+      "position": ["Main Rapper", "Sub Vocalist"],
+      "birthYear": 1999,
+      "birthday": "August 9",
+      "zodiac": "Leo",
+      "mbti": "ENTP",
+      "height": "183cm",
+      "emoji": "🔥",
+      "nicknames": ["Deep Voice", "Tall King", "Mingi-ya", "Power Rapper"],
+      "funFacts": [
+        "Known for his extremely deep voice",
+        "Second tallest member at 183cm",
+        "Took a mental health hiatus and returned stronger",
+        "His rap delivery is explosive",
+        "Very goofy and playful personality"
+      ],
+      "bio": "Mingi is ATEEZ's main rapper with an incredibly deep voice. His powerful rap and tall presence command attention. After taking a health break, he returned stronger, showing resilience and strength."
+    },
+    {
+      "id": "wooyoung",
+      "nameKr": "우영",
+      "nameEn": "Wooyoung",
+      "realName": "Jung Woo-young (정우영)",
+      "gender": "male",
+      "position": ["Main Dancer", "Lead Vocalist", "Sub Rapper"],
+      "birthYear": 1999,
+      "birthday": "November 26",
+      "zodiac": "Sagittarius",
+      "mbti": "ESFJ",
+      "height": "173cm",
+      "emoji": "🖤",
+      "nicknames": ["Woosan", "Dance King", "Woo-ya", "Mood Maker"],
+      "funFacts": [
+        "Known for his sharp, precise dancing",
+        "Famous friendship with San (Woosan)",
+        "Very playful and mischievous",
+        "His expressions during performances are iconic",
+        "Close friends with BTS's Jimin and Kang Daniel"
+      ],
+      "bio": "Wooyoung is ATEEZ's main dancer known for his sharp movements and expressions. His friendship with San ('Woosan') is beloved. His playful personality and connections with other idols make him a social butterfly."
+    },
+    {
+      "id": "jongho",
+      "nameKr": "종호",
+      "nameEn": "Jongho",
+      "realName": "Choi Jong-ho (최종호)",
+      "gender": "male",
+      "position": ["Main Vocalist", "Maknae"],
+      "birthYear": 2000,
+      "birthday": "October 12",
+      "zodiac": "Libra",
+      "mbti": "ESTJ",
+      "height": "176cm",
+      "emoji": "🍎",
+      "nicknames": ["Apple Crusher", "Vocal King", "Strong Maknae", "Power Vocals"],
+      "funFacts": [
+        "Famous for crushing apples with his bare hands",
+        "Known for his incredibly powerful vocals",
+        "Can hit high notes while doing intense choreo",
+        "Very strong physically despite being maknae",
+        "His live vocals are always stable and powerful"
+      ],
+      "bio": "Jongho is ATEEZ's maknae with one of the most powerful voices in K-Pop. He's famous for crushing apples with bare hands. His ability to hit high notes while dancing is unmatched."
+    }
   ],
   "pageTypes": ["name", "stage-name", "aesthetic"],
   "badge": "HOT",
@@ -27,4 +203,3 @@
     "keywords": ["ateez name generator", "ateez korean name", "atiny name generator", "ateez san name", "ateez hongjoong chemistry"]
   }
 }
-

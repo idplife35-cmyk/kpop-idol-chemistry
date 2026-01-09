@@ -10,11 +10,121 @@
   "logo": "/images/itzy_logo.png",
   "description": "ITZY is a girl group known for their self-confidence anthems, powerful choreography, and 'teen crush' concept that inspires young fans worldwide.",
   "members": [
-    { "id": "yeji", "nameKr": "예지", "nameEn": "Yeji", "gender": "female", "position": ["Leader", "Main Dancer", "Lead Vocalist", "Visual"], "birthYear": 2000 },
-    { "id": "lia", "nameKr": "리아", "nameEn": "Lia", "gender": "female", "position": ["Main Vocalist"], "birthYear": 2000 },
-    { "id": "ryujin", "nameKr": "류진", "nameEn": "Ryujin", "gender": "female", "position": ["Main Rapper", "Lead Dancer", "Sub Vocalist", "Center"], "birthYear": 2001 },
-    { "id": "chaeryeong", "nameKr": "채령", "nameEn": "Chaeryeong", "gender": "female", "position": ["Main Dancer", "Sub Vocalist", "Visual"], "birthYear": 2001 },
-    { "id": "yuna", "nameKr": "유나", "nameEn": "Yuna", "gender": "female", "position": ["Lead Rapper", "Sub Vocalist", "Visual", "Maknae"], "birthYear": 2003 }
+    {
+      "id": "yeji",
+      "nameKr": "예지",
+      "nameEn": "Yeji",
+      "realName": "Hwang Ye-ji (황예지)",
+      "gender": "female",
+      "position": ["Leader", "Main Dancer", "Lead Vocalist", "Visual"],
+      "birthYear": 2000,
+      "birthday": "May 26",
+      "zodiac": "Gemini",
+      "mbti": "INFJ",
+      "height": "167cm",
+      "emoji": "🐱",
+      "nicknames": ["Cat", "Yeji Hwang", "Girl Crush Queen", "Dance Genius"],
+      "funFacts": [
+        "Known for her cat-like sharp eyes and visuals",
+        "Exceptional dancer considered one of the best in 4th gen",
+        "Very caring leader who looks after members",
+        "Has a contrast between fierce stage presence and soft personality",
+        "Her cat eyes became her signature look"
+      ],
+      "bio": "Yeji is ITZY's leader and main dancer known for her fierce cat-like visuals. Her sharp eyes and powerful dance skills have made her a '4th gen girl crush.' Despite her intimidating stage presence, she's known as a caring, gentle leader."
+    },
+    {
+      "id": "lia",
+      "nameKr": "리아",
+      "nameEn": "Lia",
+      "realName": "Choi Ji-su (최지수) / Julia Choi",
+      "gender": "female",
+      "position": ["Main Vocalist"],
+      "birthYear": 2000,
+      "birthday": "July 21",
+      "zodiac": "Cancer",
+      "mbti": "INFJ",
+      "height": "162cm",
+      "emoji": "🐻",
+      "nicknames": ["Voice of ITZY", "Juliaaa", "Teddy Bear", "Powerful Vocalist"],
+      "funFacts": [
+        "Lived in Canada for several years, fluent in English",
+        "Known for her powerful, emotional vocals",
+        "Has a teddy bear-like cute appearance",
+        "Very honest and straightforward personality",
+        "Often shares her struggles openly with fans"
+      ],
+      "bio": "Lia is ITZY's main vocalist with powerful, emotional vocals. Having lived in Canada, she's fluent in English. Despite her cute teddy bear looks, she delivers surprisingly powerful vocals that anchor ITZY's sound."
+    },
+    {
+      "id": "ryujin",
+      "nameKr": "류진",
+      "nameEn": "Ryujin",
+      "realName": "Shin Ryu-jin (신류진)",
+      "gender": "female",
+      "position": ["Main Rapper", "Lead Dancer", "Sub Vocalist", "Center"],
+      "birthYear": 2001,
+      "birthday": "April 17",
+      "zodiac": "Aries",
+      "mbti": "INTJ",
+      "height": "164cm",
+      "emoji": "🦊",
+      "nicknames": ["4th Gen It Girl", "MITM Ryujin", "Shoulder Gangster", "Fox"],
+      "funFacts": [
+        "Her 'MITM' shoulder dance went viral globally",
+        "Was recruited after appearing on Got7's music video",
+        "Known for her sharp features and charismatic aura",
+        "Her 'shoulder gangster' moves are iconic",
+        "Very introverted but transforms on stage"
+      ],
+      "bio": "Ryujin is ITZY's center and the '4th gen it girl.' Her 'MITM' shoulder dance went viral and cemented her status. Her charismatic stage presence and sharp features have made her one of the most popular idols in K-pop."
+    },
+    {
+      "id": "chaeryeong",
+      "nameKr": "채령",
+      "nameEn": "Chaeryeong",
+      "realName": "Lee Chae-ryeong (이채령)",
+      "gender": "female",
+      "position": ["Main Dancer", "Sub Vocalist", "Visual"],
+      "birthYear": 2001,
+      "birthday": "June 5",
+      "zodiac": "Gemini",
+      "mbti": "ISFJ",
+      "height": "166cm",
+      "emoji": "🍒",
+      "nicknames": ["Dance Pro", "Cherry", "Sweet Girl", "Technical Queen"],
+      "funFacts": [
+        "Sister of IZ*ONE/LE SSERAFIM's Chaeyeon",
+        "Known for her technical, precise dancing",
+        "Appeared on K-Pop Star 3 as a child",
+        "Very sweet, gentle personality",
+        "Has been training since a very young age"
+      ],
+      "bio": "Chaeryeong is ITZY's main dancer known for her technical precision. She's the sister of dancer Chaeyeon (former IZ*ONE). Her sweet personality contrasts with her sharp, precise dance skills that make her moves stand out."
+    },
+    {
+      "id": "yuna",
+      "nameKr": "유나",
+      "nameEn": "Yuna",
+      "realName": "Shin Yu-na (신유나)",
+      "gender": "female",
+      "position": ["Lead Rapper", "Sub Vocalist", "Visual", "Maknae"],
+      "birthYear": 2003,
+      "birthday": "December 9",
+      "zodiac": "Sagittarius",
+      "mbti": "ENFP",
+      "height": "170cm",
+      "emoji": "🐶",
+      "nicknames": ["Tall Maknae", "Puppy", "Visual Queen", "Energy Ball"],
+      "funFacts": [
+        "Tallest member at 170cm",
+        "Known for her bright, energetic personality",
+        "Has puppy-like visuals and energy",
+        "Despite being maknae, very confident and outgoing",
+        "Her smile and energy are contagious"
+      ],
+      "bio": "Yuna is ITZY's tall maknae and visual queen. At 170cm, she stands out with her model-like proportions. Her bright, puppy-like energy and confident personality make her a beloved maknae who lights up every stage."
+    }
   ],
   "pageTypes": ["name", "stage-name", "aesthetic"],
   "badge": null,
@@ -24,4 +134,3 @@
     "keywords": ["itzy name generator", "itzy korean name", "midzy name generator", "itzy ryujin name", "itzy yeji chemistry"]
   }
 }
-
