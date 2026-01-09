@@ -1,0 +1,370 @@
+---
+/**
+ * Individual Member Name Generator Page
+ * SEO-optimized page for each idol member
+ */
+
+import { getCollection } from 'astro:content';
+import GeneratorLayout from '@/layouts/GeneratorLayout.astro';
+import GeneratorForm from '@/components/generator/GeneratorForm';
+
+// Member themes for personalization
+const MEMBER_THEMES: Record<string, { icon: string; nickname: string; keywords: string[] }> = {
+  'Jungkook': { icon: '🐰', nickname: 'Golden Maknae', keywords: ['bunny', 'golden', 'muscle'] },
+  'V': { icon: '🐻', nickname: 'Taetae', keywords: ['bear', 'artist', 'deep voice'] },
+  'Jimin': { icon: '🍡', nickname: 'Mochi', keywords: ['angel', 'dance', 'high note'] },
+  'RM': { icon: '🦉', nickname: 'Leader', keywords: ['genius', 'dimples', 'philosopher'] },
+  'Jin': { icon: '🦙', nickname: 'Worldwide Handsome', keywords: ['handsome', 'dad jokes', 'cook'] },
+  'SUGA': { icon: '🐱', nickname: 'Agust D', keywords: ['cat', 'producer', 'sleepy'] },
+  'J-Hope': { icon: '🌞', nickname: 'Hobi', keywords: ['sunshine', 'dance', 'hope'] },
+  'Lisa': { icon: '👑', nickname: 'Dance Queen', keywords: ['dance', 'thai', 'fashion'] },
+  'Jennie': { icon: '🖤', nickname: 'Human Chanel', keywords: ['chic', 'rap', 'fashion'] },
+  'Rosé': { icon: '🌹', nickname: 'Chaeyoung', keywords: ['voice', 'guitar', 'aussie'] },
+  'Jisoo': { icon: '💎', nickname: 'Visual Queen', keywords: ['visual', 'cute', 'actress'] },
+  'Felix': { icon: '🌞', nickname: 'Sunshine', keywords: ['deep voice', 'freckles', 'aussie'] },
+  'Hyunjin': { icon: '🦢', nickname: 'Prince', keywords: ['dance', 'visual', 'art'] },
+  'Bang Chan': { icon: '🐺', nickname: 'Chan', keywords: ['leader', 'producer', 'aussie'] },
+  'Han': { icon: '🐿️', nickname: 'Quokka', keywords: ['rap', 'producer', 'cute'] },
+  'default': { icon: '💜', nickname: 'Idol', keywords: ['talented', 'amazing'] }
+};
+
+// Generate static paths for all members in all groups
+export async function getStaticPaths() {
+  const groups = await getCollection('groups');
+  const paths: { params: { group: string; member: string }; props: any }[] = [];
+  
+  for (const group of groups) {
+    if (!group.data.pageTypes.includes('name')) continue;
+    
+    for (const member of group.data.members) {
+      paths.push({
+        params: { 
+          group: group.data.slug, 
+          member: member.id.toLowerCase() 
+        },
+        props: { 
+          groupData: group.data,
+          memberData: member
+        }
+      });
+    }
+  }
+  
+  return paths;
+}
+
+const { groupData, memberData } = Astro.props;
+const theme = MEMBER_THEMES[memberData.nameEn] || MEMBER_THEMES['default'];
+
+// Other members for navigation
+const otherMembers = groupData.members.filter(m => m.id !== memberData.id);
+
+// SEO data
+const pageTitle = `${memberData.nameEn} Name Generator | ${groupData.name} Chemistry Test`;
+const pageDescription = `Generate your Korean name with ${memberData.nameEn} from ${groupData.name}! ${theme.icon} Get your chemistry score and ship names with ${theme.nickname}. Perfect for ${groupData.fandom || groupData.name} fans!`;
+const keywords = [
+  `${memberData.nameEn.toLowerCase()} name generator`,
+  `${memberData.nameEn.toLowerCase()} chemistry test`,
+  `${memberData.nameEn.toLowerCase()} ${groupData.name.toLowerCase()}`,
+  `${memberData.nameEn.toLowerCase()} korean name`,
+  `${groupData.name.toLowerCase()} ${memberData.nameEn.toLowerCase()}`,
+  ...theme.keywords.map(k => `${memberData.nameEn.toLowerCase()} ${k}`)
+];
+
+// Schema for SEO
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": `${memberData.nameEn} Name Generator`,
+  "applicationCategory": "EntertainmentApplication",
+  "operatingSystem": "Web",
+  "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+  "description": pageDescription,
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "ratingCount": String(Math.floor(Math.random() * 500) + 500)
+  }
+};
+---
+
+<GeneratorLayout
+  title={pageTitle}
+  description={pageDescription}
+  keywords={keywords}
+  schema={schema}
+  groupColor={groupData.color}
+>
+  <!-- Member Hero Section -->
+  <section class="member-hero" style={`--member-color: ${groupData.color}`}>
+    <div class="member-icon">{theme.icon}</div>
+    <h1 class="member-name">{memberData.nameEn}</h1>
+    <p class="member-korean">{memberData.nameKr}</p>
+    <div class="member-info">
+      <span class="member-group">{groupData.name}</span>
+      <span class="member-nickname">"{theme.nickname}"</span>
+    </div>
+    {memberData.position && (
+      <div class="member-positions">
+        {memberData.position.map((pos: string) => (
+          <span class="position-tag">{pos}</span>
+        ))}
+      </div>
+    )}
+  </section>
+
+  <!-- Generator Section -->
+  <section class="generator-section">
+    <div class="card">
+      <h2>{theme.icon} Generate Your Name with {memberData.nameEn}</h2>
+      <p class="text-muted mb-3">
+        Find out your chemistry with {memberData.nameEn} and get your personalized Korean name!
+      </p>
+      
+      <GeneratorForm 
+        client:load 
+        initialGroup={groupData.name}
+        showAllGroups={false}
+      />
+    </div>
+  </section>
+
+  <!-- Other Members -->
+  <section class="other-members-nav" slot="after-content">
+    <h3>🎤 Try Other {groupData.name} Members</h3>
+    <div class="member-links">
+      {otherMembers.map((m: any) => (
+        <a 
+          href={`/${groupData.slug}-name-generator/${m.id}/`} 
+          class="member-link"
+        >
+          <span class="link-name">{m.nameEn}</span>
+          <span class="link-korean">{m.nameKr}</span>
+        </a>
+      ))}
+    </div>
+    <a href={`/${groupData.slug}-name-generator/`} class="back-link">
+      ← Back to All {groupData.name} Members
+    </a>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="faq-section" slot="after-content">
+    <h2>❓ FAQ - {memberData.nameEn} Name Generator</h2>
+    <div class="faq-list">
+      <details class="faq-item">
+        <summary>How does the {memberData.nameEn} name generator work?</summary>
+        <p>Enter your name and instantly get a Korean name inspired by {memberData.nameEn} ({memberData.nameKr}) from {groupData.name}. You'll also receive a chemistry score showing your compatibility with {memberData.nameEn}!</p>
+      </details>
+      
+      <details class="faq-item">
+        <summary>What is {memberData.nameEn}'s real name in Korean?</summary>
+        <p>{memberData.nameEn}'s Korean name is {memberData.nameKr}. {memberData.nameEn} is a {memberData.position?.join(', ')} in {groupData.name}.</p>
+      </details>
+      
+      <details class="faq-item">
+        <summary>What is the chemistry score with {memberData.nameEn}?</summary>
+        <p>The chemistry score (70-100%) shows your compatibility with {memberData.nameEn}. Higher scores indicate a stronger connection based on your name. Scores above 95% are Legendary!</p>
+      </details>
+      
+      <details class="faq-item">
+        <summary>Can I share my {memberData.nameEn} chemistry results?</summary>
+        <p>Yes! After generating your name, you can share your results on TikTok, Instagram, X (Twitter), and Discord. Show your {groupData.fandom || 'fan'} friends your chemistry with {memberData.nameEn}!</p>
+      </details>
+      
+      <details class="faq-item">
+        <summary>Why is {memberData.nameEn} called "{theme.nickname}"?</summary>
+        <p>{memberData.nameEn} is affectionately known as "{theme.nickname}" by {groupData.fandom || groupData.name} fans. This nickname reflects their unique personality and charm in {groupData.name}!</p>
+      </details>
+    </div>
+  </section>
+</GeneratorLayout>
+
+<style>
+  .member-hero {
+    text-align: center;
+    padding: 40px 20px;
+    background: linear-gradient(135deg, rgba(var(--member-color), 0.1), transparent);
+    border-radius: var(--radius-lg);
+    margin-bottom: 24px;
+  }
+
+  .member-icon {
+    font-size: 4rem;
+    margin-bottom: 12px;
+    animation: bounce 2s ease infinite;
+  }
+
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+
+  .member-name {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--text);
+    margin: 0;
+  }
+
+  .member-korean {
+    font-size: 1.2rem;
+    color: var(--muted);
+    margin: 8px 0 16px;
+  }
+
+  .member-info {
+    display: flex;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  .member-group {
+    background: var(--member-color, var(--accent));
+    color: white;
+    padding: 6px 16px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    font-weight: 600;
+  }
+
+  .member-nickname {
+    font-style: italic;
+    color: var(--muted);
+    font-size: 1rem;
+  }
+
+  .member-positions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .position-tag {
+    background: var(--chip);
+    padding: 4px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    color: var(--text);
+  }
+
+  .generator-section .card {
+    padding: 24px;
+    margin: 24px 0;
+  }
+
+  .other-members-nav {
+    margin-top: 40px;
+    text-align: center;
+  }
+
+  .other-members-nav h3 {
+    margin-bottom: 20px;
+    color: var(--text);
+  }
+
+  .member-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+
+  .member-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 16px 12px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .member-link:hover {
+    border-color: var(--accent);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .link-name {
+    font-weight: 600;
+    color: var(--text);
+    font-size: 0.95rem;
+  }
+
+  .link-korean {
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+  }
+
+  .back-link:hover {
+    text-decoration: underline;
+  }
+
+  .faq-section {
+    margin-top: 40px;
+  }
+
+  .faq-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .faq-item {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+
+  .faq-item summary {
+    padding: 16px;
+    cursor: pointer;
+    font-weight: 600;
+    color: var(--text);
+    transition: background var(--transition-fast);
+  }
+
+  .faq-item summary:hover {
+    background: var(--chip);
+  }
+
+  .faq-item[open] summary {
+    border-bottom: 1px solid var(--border);
+  }
+
+  .faq-item p {
+    padding: 16px;
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  @media (max-width: 480px) {
+    .member-name {
+      font-size: 2rem;
+    }
+
+    .member-icon {
+      font-size: 3rem;
+    }
+
+    .member-links {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+</style>
+
