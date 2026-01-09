@@ -12,7 +12,9 @@ import {
   checkChemistryBadges,
   checkGenerationBadges,
   addToHistory,
-  getLevelStats
+  getLevelStats,
+  trackIdolTest,
+  getGroupProgress
 } from '@/lib/gamification';
 import { showNotification } from '@/components/gamification/Notification';
 import idolsData from '@/data/idols.json';
@@ -57,6 +59,7 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
   const [recentIdols, setRecentIdols] = useState<Idol[]>([]);
   const [categoryFilter, setCategoryFilter] = useState<'all' | 'boy' | 'girl'>('all');
   const [isFirstResult, setIsFirstResult] = useState(true); // For animation control
+  const [groupProgress, setGroupProgress] = useState<{ tested: number; total: number; percentage: number } | null>(null);
 
   // Load recent idols from localStorage
   useEffect(() => {
@@ -241,6 +244,14 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
         badgeResult.unlocked.forEach(badge => {
           showNotification(`🏆 Badge: ${badge.name}`, 'badge', badge.icon);
         });
+
+        // Track idol collection
+        const collectionResult = trackIdolTest(selectedIdol.group, selectedIdol.name_en);
+        setGroupProgress(collectionResult.groupProgress);
+        
+        if (collectionResult.badgeUnlocked) {
+          showNotification(`🏆 ${collectionResult.badgeUnlocked.name}!`, 'badge', collectionResult.badgeUnlocked.icon);
+        }
 
         window.dispatchEvent(new Event('levelUpdate'));
       } catch (e) {
@@ -634,6 +645,64 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
             )}
           </div>
 
+          {/* Other Members Teaser with Collection Progress */}
+          {selectedIdol && (
+            <div className={`other-members-section ${isFirstResult ? 'fade-in' : ''}`} style={{ animationDelay: isFirstResult ? '0.45s' : '0s' }}>
+              {/* Collection Progress Bar */}
+              {groupProgress && (
+                <div className="collection-progress">
+                  <div className="collection-header">
+                    <span className="collection-title">🏆 {selectedIdol.group} Master</span>
+                    <span className="collection-count">{groupProgress.tested}/{groupProgress.total}</span>
+                  </div>
+                  <div className="collection-bar">
+                    <div 
+                      className="collection-fill" 
+                      style={{ width: `${groupProgress.percentage}%` }}
+                    />
+                  </div>
+                  {groupProgress.percentage >= 100 ? (
+                    <span className="collection-complete">✨ Complete! You're a {selectedIdol.group} Master!</span>
+                  ) : (
+                    <span className="collection-hint">Test {groupProgress.total - groupProgress.tested} more to unlock badge!</span>
+                  )}
+                </div>
+              )}
+
+              <div className="other-members-header">
+                <span>🤔</span> What about other members?
+              </div>
+              <div className="other-members-grid">
+                {idols
+                  .filter(idol => idol.group === selectedIdol.group && idol.name_en !== selectedIdol.name_en)
+                  .slice(0, 4)
+                  .map((idol) => (
+                    <button
+                      key={idol.name_en}
+                      className="other-member-card"
+                      onClick={() => {
+                        handleIdolSelect(idol);
+                        setIsFirstResult(false);
+                        setTimeout(() => handleGenerate(), 100);
+                      }}
+                    >
+                      <span className="other-member-name">{idol.name_en}</span>
+                      <span className="other-member-chemistry">??%</span>
+                      <span className="other-member-lock">🔒</span>
+                    </button>
+                  ))}
+              </div>
+              <button 
+                className="try-all-btn"
+                onClick={() => {
+                  setResult(null);
+                }}
+              >
+                ✨ Try All Members
+              </button>
+            </div>
+          )}
+
           {/* Sticky Bottom Action Bar */}
           <div className="sticky-action-bar">
             <button className="action-btn secondary" onClick={handleReset}>
@@ -924,6 +993,155 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
 
         .relation-text {
           font-size: 0.9rem;
+        }
+
+        /* Other Members Teaser */
+        .other-members-section {
+          margin-top: 20px;
+          padding: 20px;
+          background: linear-gradient(135deg, rgba(139, 92, 246, 0.08), rgba(236, 72, 153, 0.08));
+          border-radius: 16px;
+          border: 1px dashed var(--accent, #9c6bff);
+        }
+
+        /* Collection Progress */
+        .collection-progress {
+          margin-bottom: 20px;
+          padding-bottom: 16px;
+          border-bottom: 1px solid rgba(139, 92, 246, 0.2);
+        }
+
+        .collection-header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          margin-bottom: 8px;
+        }
+
+        .collection-title {
+          font-weight: 700;
+          font-size: 0.95rem;
+          color: var(--text);
+        }
+
+        .collection-count {
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: var(--accent);
+        }
+
+        .collection-bar {
+          height: 8px;
+          background: rgba(255, 255, 255, 0.5);
+          border-radius: 4px;
+          overflow: hidden;
+          margin-bottom: 8px;
+        }
+
+        .collection-fill {
+          height: 100%;
+          background: linear-gradient(90deg, var(--accent, #9c6bff), #ec4899);
+          border-radius: 4px;
+          transition: width 0.5s ease;
+        }
+
+        .collection-hint {
+          font-size: 0.8rem;
+          color: var(--muted);
+        }
+
+        .collection-complete {
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: #10B981;
+        }
+
+        .other-members-header {
+          font-size: 1rem;
+          font-weight: 600;
+          color: var(--text);
+          margin-bottom: 16px;
+          display: flex;
+          align-items: center;
+          gap: 8px;
+        }
+
+        .other-members-grid {
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 8px;
+          margin-bottom: 16px;
+        }
+
+        .other-member-card {
+          background: white;
+          border: 1px solid var(--border, #e5e5e5);
+          border-radius: 12px;
+          padding: 12px 8px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 4px;
+          cursor: pointer;
+          transition: all 0.2s ease;
+          position: relative;
+        }
+
+        .other-member-card:hover {
+          border-color: var(--accent);
+          transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(156, 107, 255, 0.2);
+        }
+
+        .other-member-card:hover .other-member-lock {
+          transform: scale(1.2);
+        }
+
+        .other-member-name {
+          font-size: 0.75rem;
+          font-weight: 600;
+          color: var(--text);
+          text-align: center;
+        }
+
+        .other-member-chemistry {
+          font-size: 1rem;
+          font-weight: 700;
+          color: var(--muted);
+          filter: blur(4px);
+        }
+
+        .other-member-lock {
+          font-size: 0.8rem;
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          transition: transform 0.2s ease;
+        }
+
+        .try-all-btn {
+          width: 100%;
+          padding: 12px;
+          background: linear-gradient(135deg, var(--accent, #9c6bff), #ec4899);
+          color: white;
+          border: none;
+          border-radius: 10px;
+          font-size: 0.9rem;
+          font-weight: 600;
+          cursor: pointer;
+          transition: all 0.2s ease;
+        }
+
+        .try-all-btn:hover {
+          transform: scale(1.02);
+          box-shadow: 0 4px 15px rgba(156, 107, 255, 0.4);
+        }
+
+        @media (max-width: 480px) {
+          .other-members-grid {
+            grid-template-columns: repeat(2, 1fr);
+          }
         }
 
         /* Sticky Bottom Action Bar */

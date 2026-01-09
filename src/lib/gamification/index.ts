@@ -35,7 +35,11 @@ export {
   checkChemistryBadges,
   checkVSBadges,
   checkShareBadges,
-  resetBadges
+  resetBadges,
+  // Collection tracking
+  trackIdolTest,
+  getGroupProgress,
+  getAllGroupProgress
 } from './badge-system';
 export type { Badge } from './badge-system';
 

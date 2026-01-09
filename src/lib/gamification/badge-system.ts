@@ -37,7 +37,17 @@ export const BADGES: Record<string, Badge> = {
 
   // Social badges
   share_first: { id: 'share_first', name: 'First Share', description: 'First share', icon: '📢', category: 'social', rarity: 'common' },
-  share_10: { id: 'share_10', name: 'Influencer', description: '10 shares', icon: '📣', category: 'social', rarity: 'uncommon' }
+  share_10: { id: 'share_10', name: 'Influencer', description: '10 shares', icon: '📣', category: 'social', rarity: 'uncommon' },
+
+  // Group Collection badges
+  group_master_bts: { id: 'group_master_bts', name: 'BTS Master', description: 'Test all BTS members', icon: '💜', category: 'collection', rarity: 'rare' },
+  group_master_blackpink: { id: 'group_master_blackpink', name: 'BLACKPINK Master', description: 'Test all BLACKPINK members', icon: '🖤', category: 'collection', rarity: 'rare' },
+  group_master_stray_kids: { id: 'group_master_stray_kids', name: 'Stray Kids Master', description: 'Test all SKZ members', icon: '🦊', category: 'collection', rarity: 'rare' },
+  group_master_newjeans: { id: 'group_master_newjeans', name: 'NewJeans Master', description: 'Test all NJ members', icon: '👖', category: 'collection', rarity: 'rare' },
+  group_master_twice: { id: 'group_master_twice', name: 'TWICE Master', description: 'Test all TWICE members', icon: '🍭', category: 'collection', rarity: 'rare' },
+  group_master_seventeen: { id: 'group_master_seventeen', name: 'SEVENTEEN Master', description: 'Test all SVT members', icon: '💎', category: 'collection', rarity: 'rare' },
+  multi_group_3: { id: 'multi_group_3', name: 'Group Explorer', description: 'Master 3 groups', icon: '🌍', category: 'collection', rarity: 'legendary' },
+  multi_group_5: { id: 'multi_group_5', name: 'K-Pop Encyclopedia', description: 'Master 5 groups', icon: '📚', category: 'collection', rarity: 'legendary' }
 };
 
 export const RARITY_CONFIG = {
@@ -56,7 +66,41 @@ interface BadgeData {
     shares: number;
     maxChemistry: number;
   };
+  // Collection tracking: group -> tested idol names
+  collections: Record<string, string[]>;
 }
+
+// Group member counts for collection tracking
+const GROUP_MEMBER_COUNTS: Record<string, number> = {
+  'BTS': 7,
+  'BLACKPINK': 4,
+  'Stray Kids': 8,
+  'NewJeans': 5,
+  'TWICE': 9,
+  'SEVENTEEN': 13,
+  'LE SSERAFIM': 5,
+  'aespa': 4,
+  'IVE': 6,
+  'ENHYPEN': 7,
+  'TXT': 5,
+  'EXO': 9,
+  'ITZY': 5,
+  '(G)I-DLE': 5,
+  'NCT 127': 10,
+  'Red Velvet': 5,
+  'ATEEZ': 8,
+  'RIIZE': 7,
+  'PLAVE': 5,
+};
+
+const GROUP_BADGE_MAP: Record<string, string> = {
+  'BTS': 'group_master_bts',
+  'BLACKPINK': 'group_master_blackpink',
+  'Stray Kids': 'group_master_stray_kids',
+  'NewJeans': 'group_master_newjeans',
+  'TWICE': 'group_master_twice',
+  'SEVENTEEN': 'group_master_seventeen',
+};
 
 const STORAGE_KEY = 'kpop-user-badges';
 
@@ -79,7 +123,8 @@ function getDefaultBadgeData(): BadgeData {
   return {
     badges: [],
     unlockedAt: {},
-    stats: { vsWins: 0, vsTotal: 0, shares: 0, maxChemistry: 0 }
+    stats: { vsWins: 0, vsTotal: 0, shares: 0, maxChemistry: 0 },
+    collections: {}
   };
 }
 
@@ -193,6 +238,97 @@ export function checkShareBadges(): void {
   
   if (data.stats.shares >= 1) unlockBadge('share_first');
   if (data.stats.shares >= 10) unlockBadge('share_10');
+}
+
+// Collection tracking functions
+export function trackIdolTest(groupName: string, idolName: string): { 
+  isNew: boolean; 
+  groupProgress: { tested: number; total: number; percentage: number };
+  badgeUnlocked?: Badge;
+} {
+  const data = getBadgeData();
+  
+  // Initialize collection for this group if not exists
+  if (!data.collections[groupName]) {
+    data.collections[groupName] = [];
+  }
+  
+  const isNew = !data.collections[groupName].includes(idolName);
+  
+  if (isNew) {
+    data.collections[groupName].push(idolName);
+    saveBadgeData(data);
+  }
+  
+  // Calculate progress
+  const total = GROUP_MEMBER_COUNTS[groupName] || 10;
+  const tested = data.collections[groupName].length;
+  const percentage = Math.round((tested / total) * 100);
+  
+  // Check for group master badge
+  let badgeUnlocked: Badge | undefined;
+  if (tested >= total) {
+    const badgeId = GROUP_BADGE_MAP[groupName];
+    if (badgeId) {
+      const result = unlockBadge(badgeId);
+      if (result.unlocked && result.badge) {
+        badgeUnlocked = result.badge;
+      }
+    }
+    
+    // Check for multi-group badges
+    checkMultiGroupBadges();
+  }
+  
+  return {
+    isNew,
+    groupProgress: { tested, total, percentage },
+    badgeUnlocked
+  };
+}
+
+export function getGroupProgress(groupName: string): { tested: number; total: number; members: string[]; percentage: number } {
+  const data = getBadgeData();
+  const members = data.collections[groupName] || [];
+  const total = GROUP_MEMBER_COUNTS[groupName] || 10;
+  
+  return {
+    tested: members.length,
+    total,
+    members,
+    percentage: Math.round((members.length / total) * 100)
+  };
+}
+
+export function getAllGroupProgress(): Record<string, { tested: number; total: number; percentage: number }> {
+  const data = getBadgeData();
+  const result: Record<string, { tested: number; total: number; percentage: number }> = {};
+  
+  Object.keys(GROUP_MEMBER_COUNTS).forEach(group => {
+    const tested = (data.collections[group] || []).length;
+    const total = GROUP_MEMBER_COUNTS[group];
+    result[group] = {
+      tested,
+      total,
+      percentage: Math.round((tested / total) * 100)
+    };
+  });
+  
+  return result;
+}
+
+function checkMultiGroupBadges(): void {
+  const data = getBadgeData();
+  let masteredGroups = 0;
+  
+  Object.keys(GROUP_MEMBER_COUNTS).forEach(group => {
+    const tested = (data.collections[group] || []).length;
+    const total = GROUP_MEMBER_COUNTS[group];
+    if (tested >= total) masteredGroups++;
+  });
+  
+  if (masteredGroups >= 3) unlockBadge('multi_group_3');
+  if (masteredGroups >= 5) unlockBadge('multi_group_5');
 }
 
 export function resetBadges(): void {
