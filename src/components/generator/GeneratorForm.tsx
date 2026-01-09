@@ -4,7 +4,7 @@
  */
 
 import { useState, useMemo, useEffect } from 'react';
-import { generate, getChemistryDescription, RELATION_OPTIONS, generateDeepAnalysis, generateCoupleNames, type RelationType, type GeneratorResult } from '@/lib/generator';
+import { generate, getChemistryDescription, RELATION_OPTIONS, generateDeepAnalysis, generateCoupleNames, getChemistryTier, type RelationType, type GeneratorResult, type ChemistryTier } from '@/lib/generator';
 import {
   addXP,
   XP_REWARDS,
@@ -282,6 +282,7 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
   };
 
   const chemistryInfo = result ? getChemistryDescription(result.chemistry) : null;
+  const chemistryTier = result ? getChemistryTier(result.chemistry) : null;
   const colors = groupColors as Record<string, GroupColor>;
   
   // Generate analysis and couple names when result exists
@@ -290,7 +291,7 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
     ? generateDeepAnalysis(myName, selectedIdol.name_en, selectedIdol.group, result.chemistry, variation)
     : null;
   const coupleNames = result && selectedIdol
-    ? generateCoupleNames(myName, selectedIdol.name_en, selectedIdol.name_kr)
+    ? generateCoupleNames(myName, selectedIdol.name_en, selectedIdol.name_kr, result.chemistry)
     : null;
 
   return (
@@ -506,15 +507,24 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
       ) : (
         // Result Display
         <div className="result-container">
-          {/* Header with Chemistry Score */}
-          <div className="result-header">
-            <span className="chemistry-emoji">{chemistryInfo?.emoji}</span>
-            <div className="chemistry-score" style={{ color: chemistryInfo?.color }}>
+          {/* Header with Chemistry Tier */}
+          <div 
+            className={`result-header tier-${chemistryTier?.name.toLowerCase()}`}
+            style={{ '--tier-gradient': chemistryTier?.bgGradient } as React.CSSProperties}
+          >
+            <div className="tier-badge">
+              <span className="tier-emoji">{chemistryTier?.emoji}</span>
+              <span className="tier-name">{chemistryTier?.name}</span>
+              {chemistryTier?.rarity && (
+                <span className="tier-rarity">{chemistryTier.rarity}</span>
+              )}
+            </div>
+            <div className="chemistry-score" style={{ color: chemistryTier?.color }}>
               {result.chemistry}%
             </div>
-            <span className="chemistry-text">{chemistryInfo?.text}</span>
+            <span className="chemistry-message">{chemistryTier?.message}</span>
             <p className="result-subtitle">
-              {myName} + {selectedIdol?.name_en} ({selectedIdol?.group})
+              {myName} 💕 {selectedIdol?.name_en} ({selectedIdol?.group})
             </p>
           </div>
 
@@ -576,36 +586,49 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
             {/* Section 3: Ship Names */}
             {coupleNames && (
               <div className={`section-card section-ship ${isFirstResult ? 'fade-in' : ''}`} style={{ animationDelay: isFirstResult ? '0.3s' : '0s' }}>
-                <div className="section-header">💑 Ship Names</div>
+                <div className="section-header">💑 Your Ship Names</div>
+
+                {/* Ship Motto - Highlighted */}
+                <div className="ship-motto">
+                  <span className="motto-text">"{coupleNames.shipMotto}"</span>
+                </div>
 
                 <div className="ship-names-grid">
-                  <div className="ship-item">
-                    <span className="ship-label">Korean</span>
-                    <span className="ship-value">{coupleNames.korean}</span>
+                  <div className="ship-item cute">
+                    <span className="ship-label">🎀 Cute</span>
+                    <span className="ship-value">{coupleNames.cute}</span>
                   </div>
-                  <div className="ship-item">
-                    <span className="ship-label">English</span>
-                    <span className="ship-value">{coupleNames.english}</span>
+                  <div className="ship-item chaos">
+                    <span className="ship-label">🔥 Chaos</span>
+                    <span className="ship-value">{coupleNames.chaos}</span>
                   </div>
                   <div className="ship-item highlight">
-                    <span className="ship-label">Hashtag</span>
+                    <span className="ship-label">📱 Insta Bio</span>
+                    <span className="ship-value">{coupleNames.instaBio}</span>
+                  </div>
+                  <div className="ship-item">
+                    <span className="ship-label"># Hashtag</span>
                     <span className="ship-value">{coupleNames.hashtag}</span>
                   </div>
                   <div className="ship-item">
-                    <span className="ship-label">Profile</span>
-                    <span className="ship-value">{coupleNames.profileName}</span>
+                    <span className="ship-label">🇰🇷 Korean</span>
+                    <span className="ship-value">{coupleNames.korean}</span>
+                  </div>
+                  <div className="ship-item">
+                    <span className="ship-label">📖 Fanfic</span>
+                    <span className="ship-value">{coupleNames.fanficName}</span>
                   </div>
                 </div>
 
                 <button 
                   className="btn-compact copy-ships-btn"
                   onClick={() => {
-                    const allNames = `${coupleNames.hashtag} | ${coupleNames.english} | ${coupleNames.korean}`;
+                    const allNames = `✨ ${coupleNames.shipMotto}\n\n🎀 ${coupleNames.cute}\n🔥 ${coupleNames.chaos}\n📱 ${coupleNames.instaBio}\n${coupleNames.hashtag}`;
                     navigator.clipboard.writeText(allNames);
-                    showNotification('Copied!', 'success', '📋');
+                    showNotification('All ship names copied! 💕', 'success', '📋');
                   }}
                 >
-                  📋 Copy Ship Names
+                  📋 Copy All Ship Names
                 </button>
               </div>
             )}
@@ -784,21 +807,72 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           margin-bottom: 24px;
         }
 
-        .chemistry-emoji {
-          font-size: 3rem;
-          display: block;
+        /* Tier Badge */
+        .tier-badge {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 8px;
           margin-bottom: 8px;
         }
 
-        .chemistry-score {
-          font-size: 3rem;
-          font-weight: 800;
-          font-family: var(--font-heading);
+        .tier-emoji {
+          font-size: 2rem;
+          animation: pulse 2s infinite;
         }
 
-        .chemistry-text {
+        @keyframes pulse {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.1); }
+        }
+
+        .tier-name {
           font-size: 1.2rem;
-          color: var(--muted);
+          font-weight: 800;
+          letter-spacing: 2px;
+          text-transform: uppercase;
+        }
+
+        .tier-rarity {
+          font-size: 0.75rem;
+          background: rgba(255,255,255,0.9);
+          color: #333;
+          padding: 4px 10px;
+          border-radius: 20px;
+          font-weight: 700;
+        }
+
+        .result-header.tier-mythical .tier-badge {
+          animation: rainbow 3s linear infinite;
+        }
+
+        @keyframes rainbow {
+          0% { filter: hue-rotate(0deg); }
+          100% { filter: hue-rotate(360deg); }
+        }
+
+        .result-header.tier-legendary .tier-emoji,
+        .result-header.tier-mythical .tier-emoji {
+          animation: pulse 1s infinite, glow 1.5s infinite alternate;
+        }
+
+        @keyframes glow {
+          from { filter: drop-shadow(0 0 5px currentColor); }
+          to { filter: drop-shadow(0 0 15px currentColor); }
+        }
+
+        .chemistry-score {
+          font-size: 3.5rem;
+          font-weight: 800;
+          font-family: var(--font-heading);
+          margin: 8px 0;
+        }
+
+        .chemistry-message {
+          font-size: 1.1rem;
+          font-weight: 600;
+          color: var(--text);
+          margin-bottom: 8px;
         }
 
         .result-names {
@@ -1144,6 +1218,22 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           border-bottom: 2px solid var(--border, #e5e5e5);
         }
 
+        /* Ship Motto */
+        .ship-motto {
+          background: linear-gradient(135deg, rgba(156, 107, 255, 0.15), rgba(255, 107, 156, 0.15));
+          padding: 16px;
+          border-radius: 12px;
+          text-align: center;
+          margin-bottom: 16px;
+        }
+
+        .motto-text {
+          font-size: 1rem;
+          font-style: italic;
+          color: var(--text);
+          font-weight: 500;
+        }
+
         /* Ship Names Grid */
         .ship-names-grid {
           display: grid;
@@ -1159,16 +1249,29 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           display: flex;
           flex-direction: column;
           gap: 4px;
+          transition: transform 0.2s ease;
+        }
+
+        .ship-item:hover {
+          transform: scale(1.02);
+        }
+
+        .ship-item.cute {
+          background: linear-gradient(135deg, #FECDD3, #FDF2F8);
+        }
+
+        .ship-item.chaos {
+          background: linear-gradient(135deg, #FED7AA, #FEF3C7);
         }
 
         .ship-item.highlight {
-          background: linear-gradient(135deg, rgba(156, 107, 255, 0.15), rgba(255, 107, 156, 0.15));
+          background: linear-gradient(135deg, rgba(156, 107, 255, 0.2), rgba(255, 107, 156, 0.2));
+          grid-column: span 2;
         }
 
         .ship-label {
           font-size: 0.7rem;
           color: var(--muted);
-          text-transform: uppercase;
           font-weight: 600;
         }
 
