@@ -17,7 +17,7 @@ import {
   getGroupProgress
 } from '@/lib/gamification';
 import { showNotification } from '@/components/gamification/Notification';
-import ShareCard from './ShareCard';
+import FlipCard from './FlipCard';
 import idolsData from '@/data/idols.json';
 import groupColors from '@/data/groupColors.json';
 import styles from './IdolSelector.module.css';
@@ -267,12 +267,17 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
       } catch (e) {
         console.error('Gamification error:', e);
       }
+
+      // Dispatch event for page to hide hero
+      window.dispatchEvent(new Event('kpop-result-generated'));
     }, 300);
   };
 
   const handleReset = () => {
     setResult(null);
     setVariation(0);
+    // Dispatch event for page to show hero
+    window.dispatchEvent(new Event('kpop-result-reset'));
   };
 
   const handleReroll = () => {
@@ -526,144 +531,96 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           </button>
         </div>
       ) : (
-        // Result Display
+        // Result Display with FlipCard
         <div className="result-container">
-          {/* Header with Chemistry Tier */}
-          <div 
-            className={`result-header tier-${chemistryTier?.name.toLowerCase()}`}
-            style={{ '--tier-gradient': chemistryTier?.bgGradient } as React.CSSProperties}
-          >
-            <div className="tier-badge">
-              <span className="tier-emoji">{chemistryTier?.emoji}</span>
-              <span className="tier-name">{chemistryTier?.name}</span>
-              {chemistryTier?.rarity && (
-                <span className="tier-rarity">{chemistryTier.rarity}</span>
-              )}
-            </div>
-            <div className="chemistry-score" style={{ color: chemistryTier?.color }}>
-              {result.chemistry}%
-            </div>
-            <span className="chemistry-message">{chemistryTier?.message}</span>
-            <p className="result-subtitle">
-              {myName} 💕 {selectedIdol?.name_en} ({selectedIdol?.group})
-            </p>
+          {/* FlipCard - Main Result Display */}
+          <FlipCard
+            userName={myName}
+            kpopName={result.styled}
+            sameName={result.sameName}
+            idol={{
+              name_en: selectedIdol?.name_en || '',
+              name_kr: selectedIdol?.name_kr || '',
+              group: selectedIdol?.group || '',
+              gender: selectedIdol?.gender || 'male'
+            }}
+            chemistry={result.chemistry}
+            chemistryTier={chemistryTier}
+            deepAnalysis={deepAnalysis}
+            coupleNames={coupleNames}
+            isFirstResult={isFirstResult}
+            onReroll={handleReroll}
+            onReset={handleReset}
+            isGenerating={isGenerating}
+          />
+
+          {/* View Profile Link */}
+          <div className="profile-link-section">
             <a 
-              href={`/${selectedIdol?.group.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '')}-name-generator/${selectedIdol?.name_en.toLowerCase().replace(/\s+/g, '-')}/`}
+              href={`/${selectedIdol?.group.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '')}-name-generator/${selectedIdol?.name_en.toLowerCase().replace(/\s+/g, '').replace(/\./g, '')}/`}
               className="view-profile-link"
             >
-              View {selectedIdol?.name_en}'s Profile →
+              💜 View {selectedIdol?.name_en}'s Profile →
             </a>
           </div>
 
-          {/* All-in-One Content (No Tabs) */}
-          <div className={`all-in-one-content ${isFirstResult ? 'animate' : ''}`}>
-            {/* Section 1: Names */}
-            <div className={`section-card section-name ${isFirstResult ? 'fade-in' : ''}`} style={{ animationDelay: isFirstResult ? '0s' : '0s' }}>
-              <div className="section-header">📝 Your K-Pop Names</div>
-              <div className="result-names">
-                <div className="result-card">
-                  <span className="result-label">Your K-Pop Name</span>
-                  <span className="result-name-kr">{result.styled.full_kr}</span>
-                  <span className="result-name-en">{result.styled.full_en}</span>
-                </div>
-
-                <div className="result-card secondary">
-                  <span className="result-label">Same Name as {selectedIdol?.name_en}</span>
-                  <span className="result-name-kr">{result.sameName.full_kr}</span>
-                  <span className="result-name-en">{result.sameName.full_en}</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Section 2: Analysis */}
+          {/* Detailed Results Section (Below ATF) */}
+          <div className="detailed-results">
+            {/* Deep Analysis */}
             {deepAnalysis && (
-              <div className={`section-card section-analysis ${isFirstResult ? 'fade-in' : ''}`} style={{ animationDelay: isFirstResult ? '0.15s' : '0s' }}>
-                <div className="section-header">💜 Chemistry Analysis</div>
-                
-                <div className="analysis-categories">
+              <div className="detail-section">
+                <div className="detail-header">💜 Chemistry Breakdown</div>
+                <div className="analysis-bars">
                   {deepAnalysis.categories.map((cat, idx) => (
-                    <div key={idx} className="analysis-category">
-                      <div className="category-header">
-                        <span>{cat.emoji} {cat.name}</span>
-                        <span className="category-score">{cat.score}%</span>
+                    <div key={idx} className="analysis-bar-row">
+                      <div className="bar-info">
+                        <span className="bar-name">{cat.emoji} {cat.name}</span>
+                        <span className="bar-score">{cat.score}%</span>
                       </div>
-                      <div className="category-bar">
-                        <div 
-                          className="category-fill" 
-                          style={{ 
-                            width: `${cat.score}%`,
-                            transition: isFirstResult ? 'width 0.6s ease-out' : 'width 0.15s ease-out',
-                            transitionDelay: isFirstResult ? `${0.3 + idx * 0.1}s` : '0s'
-                          }}
-                        />
+                      <div className="bar-track">
+                        <div className="bar-fill" style={{ width: `${cat.score}%` }} />
                       </div>
-                      <div className="category-desc">{cat.description}</div>
+                      <div className="bar-desc">{cat.description}</div>
                     </div>
                   ))}
                 </div>
-
-                <div className="analysis-extras compact">
+                <div className="lucky-items">
                   <span>🎨 {deepAnalysis.luckyColor}</span>
-                  <span>🔢 Lucky {deepAnalysis.luckyNumber}</span>
+                  <span>🔢 {deepAnalysis.luckyNumber}</span>
                   <span>🎵 {deepAnalysis.recommendedSong}</span>
                 </div>
               </div>
             )}
 
-            {/* Section 3: Ship Names */}
+            {/* Ship Names */}
             {coupleNames && (
-              <div className={`section-card section-ship ${isFirstResult ? 'fade-in' : ''}`} style={{ animationDelay: isFirstResult ? '0.3s' : '0s' }}>
-                <div className="section-header">💑 Your Ship Names</div>
-
-                {/* Ship Motto - Highlighted */}
-                <div className="ship-motto">
-                  <span className="motto-text">"{coupleNames.shipMotto}"</span>
+              <div className="detail-section">
+                <div className="detail-header">💑 All Ship Names</div>
+                <div className="ship-motto-box">"{coupleNames.shipMotto}"</div>
+                <div className="ship-tags">
+                  <div className="ship-tag cute">🎀 {coupleNames.cute}</div>
+                  <div className="ship-tag chaos">🔥 {coupleNames.chaos}</div>
+                  <div className="ship-tag insta">📱 {coupleNames.instaBio}</div>
+                  <div className="ship-tag hashtag">{coupleNames.hashtag}</div>
+                  <div className="ship-tag korean">🇰🇷 {coupleNames.korean}</div>
+                  <div className="ship-tag fanfic">📖 {coupleNames.fanficName}</div>
                 </div>
-
-                <div className="ship-names-grid">
-                  <div className="ship-item cute">
-                    <span className="ship-label">🎀 Cute</span>
-                    <span className="ship-value">{coupleNames.cute}</span>
-                  </div>
-                  <div className="ship-item chaos">
-                    <span className="ship-label">🔥 Chaos</span>
-                    <span className="ship-value">{coupleNames.chaos}</span>
-                  </div>
-                  <div className="ship-item highlight">
-                    <span className="ship-label">📱 Insta Bio</span>
-                    <span className="ship-value">{coupleNames.instaBio}</span>
-                  </div>
-                  <div className="ship-item">
-                    <span className="ship-label"># Hashtag</span>
-                    <span className="ship-value">{coupleNames.hashtag}</span>
-                  </div>
-                  <div className="ship-item">
-                    <span className="ship-label">🇰🇷 Korean</span>
-                    <span className="ship-value">{coupleNames.korean}</span>
-                  </div>
-                  <div className="ship-item">
-                    <span className="ship-label">📖 Fanfic</span>
-                    <span className="ship-value">{coupleNames.fanficName}</span>
-                  </div>
-                </div>
-
-                <button 
-                  className="btn-compact copy-ships-btn"
-                  onClick={() => {
-                    const allNames = `✨ ${coupleNames.shipMotto}\n\n🎀 ${coupleNames.cute}\n🔥 ${coupleNames.chaos}\n📱 ${coupleNames.instaBio}\n${coupleNames.hashtag}`;
-                    navigator.clipboard.writeText(allNames);
-                    showNotification('All ship names copied! 💕', 'success', '📋');
-                  }}
-                >
-                  📋 Copy All Ship Names
-                </button>
               </div>
             )}
+
+            {/* Same Name as Idol */}
+            <div className="detail-section same-name-section">
+              <div className="detail-header">🎤 Same Name as {selectedIdol?.name_en}</div>
+              <div className="same-name-display">
+                <span className="same-name-en">{result.sameName.full_en}</span>
+                <span className="same-name-kr">{result.sameName.full_kr}</span>
+              </div>
+            </div>
           </div>
 
           {/* Other Members Teaser with Collection Progress */}
           {selectedIdol && (
-            <div className={`other-members-section ${isFirstResult ? 'fade-in' : ''}`} style={{ animationDelay: isFirstResult ? '0.45s' : '0s' }}>
+            <div className={`other-members-section ${isFirstResult ? 'fade-in' : ''}`} style={{ animationDelay: isFirstResult ? '0.3s' : '0s' }}>
               {/* Collection Progress Bar */}
               {groupProgress && (
                 <div className="collection-progress">
@@ -719,83 +676,11 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
             </div>
           )}
 
-          {/* Sticky Bottom Action Bar */}
-          <div className="sticky-action-bar">
-            <button className="action-btn secondary" onClick={handleReset}>
-              ← New
-            </button>
-            <div className="action-bar-info">
-              <span className="action-bar-name">{result.styled.full_kr}</span>
-              <span className="action-bar-chemistry">{result.chemistry}%</span>
-            </div>
-            <button 
-              className="action-btn reroll" 
-              onClick={handleReroll}
-              disabled={isGenerating}
-            >
-              🎲 Re-roll
-            </button>
-          </div>
-          
-          {/* Share Buttons */}
-          <div className="share-section">
-            <span className="share-label">✨ Flex your K-Pop soulmate! ✨</span>
-            <div className="share-buttons">
+          {/* Quick Share Text Buttons */}
+          <div className="quick-share-section">
+            <div className="quick-share-buttons">
               <button 
-                className="share-btn native-share"
-                onClick={async () => {
-                  const shareData = {
-                    title: `My K-Pop Chemistry with ${selectedIdol?.name_en}`,
-                    text: `OMG! I got ${result.chemistry}% chemistry with ${selectedIdol?.name_en}! 💜 My K-Pop name is ${result.styled.full_kr} ✨ Can you beat my score?`,
-                    url: 'https://kpopnamegenerator.com'
-                  };
-                  
-                  if (navigator.share && navigator.canShare && navigator.canShare(shareData)) {
-                    try {
-                      await navigator.share(shareData);
-                      import('@/lib/gamification').then(({ checkShareBadges }) => checkShareBadges());
-                    } catch (err) {
-                      if ((err as Error).name !== 'AbortError') {
-                        console.log('Share failed:', err);
-                      }
-                    }
-                  } else {
-                    const text = `OMG! I got ${result.chemistry}% chemistry with ${selectedIdol?.name_en}! 💜 My K-Pop name is ${result.styled.full_kr} ✨\n\n🔗 kpopnamegenerator.com`;
-                    navigator.clipboard.writeText(text);
-                    showNotification('Copied to clipboard!', 'success', '📋');
-                    import('@/lib/gamification').then(({ checkShareBadges }) => checkShareBadges());
-                  }
-                }}
-                title="Share"
-              >
-                📤
-              </button>
-              <button 
-                className="share-btn tiktok"
-                onClick={() => {
-                  const text = `OMG I got ${result.chemistry}% chemistry with ${selectedIdol?.name_en}! 💜 My K-Pop name is ${result.styled.full_kr} ✨ Can you beat my score?\n\n🔗 kpopnamegenerator.com`;
-                  navigator.clipboard.writeText(text);
-                  showNotification('Copied! Paste in TikTok 🎵', 'success', '🎵');
-                  import('@/lib/gamification').then(({ checkShareBadges }) => checkShareBadges());
-                }}
-                title="Copy for TikTok"
-              >
-                <span className="tiktok-icon">♪</span>
-              </button>
-              <button 
-                className="share-btn instagram"
-                onClick={() => {
-                  const text = `${result.chemistry}% chemistry with ${selectedIdol?.name_en}?! 😱💜\n\nMy K-Pop name: ${result.styled.full_kr}\n\n✨ Get yours: kpopnamegenerator.com\n\n#kpop #${selectedIdol?.group.replace(/\s+/g, '')} #kpopnamegenerator #fyp`;
-                  navigator.clipboard.writeText(text);
-                  showNotification('Copied! Share to Story 📸', 'success', '📸');
-                  import('@/lib/gamification').then(({ checkShareBadges }) => checkShareBadges());
-                }}
-                title="Copy for Instagram"
-              >
-                📸
-              </button>
-              <button 
-                className="share-btn twitter"
+                className="quick-share-btn"
                 onClick={() => {
                   const text = `I got ${result.chemistry}% chemistry with ${selectedIdol?.name_en}! 💜✨ My K-Pop name is ${result.styled.full_kr}\n\nFind your idol soulmate 👇`;
                   const url = 'https://kpopnamegenerator.com';
@@ -804,47 +689,22 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
                 }}
                 title="Share on X"
               >
-                𝕏
+                𝕏 Share
               </button>
               <button 
-                className="share-btn discord"
+                className="quick-share-btn"
                 onClick={() => {
-                  const text = `**My K-Pop Chemistry Result** 💜\n\n🎤 Idol: ${selectedIdol?.name_en} (${selectedIdol?.group})\n💕 Chemistry: **${result.chemistry}%** ${chemistryInfo?.emoji}\n✨ My Name: ${result.styled.full_kr} (${result.styled.full_en})\n\nGet yours → <https://kpopnamegenerator.com>`;
+                  const text = `OMG I got ${result.chemistry}% chemistry with ${selectedIdol?.name_en}! 💜 My K-Pop name is ${result.styled.full_kr} ✨\n\n🔗 kpopnamegenerator.com\n\n#kpop #${selectedIdol?.group.replace(/\s+/g, '')}`;
                   navigator.clipboard.writeText(text);
-                  showNotification('Copied for Discord! 🎮', 'success', '🎮');
+                  showNotification('Copied! Paste anywhere 📋', 'success', '📋');
                   import('@/lib/gamification').then(({ checkShareBadges }) => checkShareBadges());
                 }}
-                title="Copy for Discord"
+                title="Copy Text"
               >
-                🎮
+                📋 Copy
               </button>
             </div>
-            <p className="share-challenge">Tag your friends & compare scores! 🏆</p>
           </div>
-
-          {/* Share Card Generator */}
-          {coupleNames && (
-            <div className={`share-card-section ${isFirstResult ? 'fade-in' : ''}`} style={{ animationDelay: isFirstResult ? '0.6s' : '0s' }}>
-              <div className="section-header">📸 Create Share Card</div>
-              <p className="share-card-desc">Download a beautiful card to share on social media!</p>
-              <ShareCard
-                result={result}
-                userName={myName}
-                koreanName={result.styled.full_kr}
-                idolName={selectedIdol?.name_en || ''}
-                idolNameKr={selectedIdol?.name_kr || ''}
-                groupName={selectedIdol?.group || ''}
-                chemistry={result.chemistry}
-                chemistryTier={chemistryTier?.name || 'Common'}
-                shipName={{
-                  korean: coupleNames.korean,
-                  english: coupleNames.cute || coupleNames.english,
-                  cute: coupleNames.cute
-                }}
-                memberEmoji={(groupColors as Record<string, GroupColor>)[selectedIdol?.group || '']?.emoji || '💜'}
-              />
-            </div>
-          )}
         </div>
       )}
 
@@ -984,25 +844,27 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           margin-bottom: 8px;
         }
 
+        .profile-link-section {
+          text-align: center;
+          margin-bottom: 20px;
+        }
+
         .view-profile-link {
           display: inline-block;
-          margin-top: 12px;
-          padding: 8px 16px;
-          background: var(--surface, #f5f5f5);
-          border: 1px solid var(--border);
-          border-radius: 20px;
-          color: var(--text);
+          padding: 10px 20px;
+          background: linear-gradient(135deg, #ff6b9d, #a855f7);
+          border-radius: 25px;
+          color: white;
           text-decoration: none;
-          font-size: 0.85rem;
-          font-weight: 500;
+          font-size: 0.9rem;
+          font-weight: 600;
           transition: all 0.2s ease;
+          box-shadow: 0 4px 15px rgba(168, 85, 247, 0.3);
         }
 
         .view-profile-link:hover {
-          background: var(--accent);
-          color: white;
-          border-color: var(--accent);
-          transform: scale(1.05);
+          transform: translateY(-2px);
+          box-shadow: 0 6px 20px rgba(168, 85, 247, 0.4);
         }
 
         .result-names {
@@ -1302,142 +1164,181 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           transform: none;
         }
 
-        /* Share Section */
-        .share-section {
-          text-align: center;
-          padding-top: 20px;
-          margin-top: 8px;
-          border-top: 1px solid var(--border, #e5e5e5);
+        /* Detailed Results Section */
+        .detailed-results {
+          margin-top: 24px;
+          display: flex;
+          flex-direction: column;
+          gap: 16px;
         }
 
-        .share-label {
-          display: block;
+        .detail-section {
+          background: var(--surface, #fff);
+          border-radius: 16px;
+          padding: 16px;
+          border: 1px solid var(--border, #e5e5e5);
+        }
+
+        .detail-header {
           font-size: 1rem;
-          font-weight: 600;
-          color: var(--text, #333);
-          margin-bottom: 16px;
+          font-weight: 700;
+          color: var(--text);
+          margin-bottom: 12px;
         }
 
-        .share-buttons {
+        .analysis-bars {
+          display: flex;
+          flex-direction: column;
+          gap: 12px;
+        }
+
+        .analysis-bar-row {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .bar-info {
+          display: flex;
+          justify-content: space-between;
+          font-size: 0.85rem;
+        }
+
+        .bar-name {
+          color: var(--text);
+        }
+
+        .bar-score {
+          font-weight: 700;
+          color: var(--accent, #a855f7);
+        }
+
+        .bar-track {
+          height: 8px;
+          background: var(--chip, #f0f0f0);
+          border-radius: 4px;
+          overflow: hidden;
+        }
+
+        .bar-fill {
+          height: 100%;
+          background: linear-gradient(90deg, #ff6b9d, #a855f7);
+          border-radius: 4px;
+          transition: width 0.5s ease-out;
+        }
+
+        .bar-desc {
+          font-size: 0.75rem;
+          color: var(--muted, #888);
+        }
+
+        .lucky-items {
+          display: flex;
+          gap: 12px;
+          flex-wrap: wrap;
+          margin-top: 12px;
+          padding-top: 12px;
+          border-top: 1px solid var(--border, #e5e5e5);
+          font-size: 0.85rem;
+          color: var(--muted);
+        }
+
+        .ship-motto-box {
+          background: linear-gradient(135deg, rgba(168, 85, 247, 0.1), rgba(236, 72, 153, 0.1));
+          padding: 12px;
+          border-radius: 12px;
+          text-align: center;
+          font-style: italic;
+          color: var(--text);
+          margin-bottom: 12px;
+        }
+
+        .ship-tags {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+
+        .ship-tag {
+          padding: 6px 12px;
+          border-radius: 20px;
+          font-size: 0.8rem;
+          background: var(--chip, #f0f0f0);
+          color: var(--text);
+        }
+
+        .ship-tag.cute {
+          background: rgba(236, 72, 153, 0.15);
+          color: #ec4899;
+        }
+
+        .ship-tag.chaos {
+          background: rgba(239, 68, 68, 0.15);
+          color: #ef4444;
+        }
+
+        .ship-tag.insta {
+          background: rgba(168, 85, 247, 0.15);
+          color: #a855f7;
+        }
+
+        .ship-tag.hashtag {
+          background: rgba(59, 130, 246, 0.15);
+          color: #3b82f6;
+        }
+
+        .same-name-section {
+          text-align: center;
+        }
+
+        .same-name-display {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .same-name-en {
+          font-size: 1.3rem;
+          font-weight: 700;
+          color: var(--text);
+        }
+
+        .same-name-kr {
+          font-size: 1rem;
+          color: var(--muted);
+        }
+
+        /* Quick Share Section */
+        .quick-share-section {
+          text-align: center;
+          padding: 16px 0;
+          margin-top: 8px;
+        }
+
+        .quick-share-buttons {
           display: flex;
           justify-content: center;
           gap: 10px;
-          flex-wrap: wrap;
         }
 
-        .share-btn {
-          width: 50px;
-          height: 50px;
-          border-radius: 14px;
-          border: none;
+        .quick-share-btn {
+          padding: 10px 20px;
+          border-radius: 25px;
+          border: 1px solid var(--border);
+          background: var(--surface, #fff);
+          color: var(--text);
+          font-size: 0.9rem;
+          font-weight: 600;
           cursor: pointer;
-          font-size: 1.3rem;
-          font-weight: bold;
-          transition: transform 0.2s, box-shadow 0.2s;
+          transition: all 0.2s;
           display: flex;
           align-items: center;
-          justify-content: center;
+          gap: 6px;
         }
 
-        .share-btn:hover {
-          transform: scale(1.1) translateY(-2px);
-        }
-
-        .share-btn:active {
-          transform: scale(0.95);
-        }
-
-        .share-btn.tiktok {
-          background: linear-gradient(135deg, #00f2ea, #ff0050);
-          color: #fff;
-        }
-
-        .share-btn.tiktok:hover {
-          box-shadow: 0 6px 20px rgba(255, 0, 80, 0.4);
-        }
-
-        .tiktok-icon {
-          font-family: sans-serif;
-          text-shadow: -1px -1px 0 #00f2ea, 1px 1px 0 #ff0050;
-        }
-
-        .share-btn.instagram {
-          background: linear-gradient(135deg, #833ab4, #fd1d1d, #fcb045);
-          color: #fff;
-        }
-
-        .share-btn.instagram:hover {
-          box-shadow: 0 6px 20px rgba(253, 29, 29, 0.4);
-        }
-
-        .share-btn.twitter {
-          background: #000;
-          color: #fff;
-        }
-
-        .share-btn.twitter:hover {
-          box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .share-btn.discord {
-          background: #5865F2;
-          color: #fff;
-        }
-
-        .share-btn.discord:hover {
-          box-shadow: 0 6px 20px rgba(88, 101, 242, 0.4);
-        }
-
-        .share-btn.native-share {
-          background: linear-gradient(135deg, #667eea, #764ba2);
-          color: #fff;
-        }
-
-        .share-btn.native-share:hover {
-          box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
-        }
-
-        @media (max-width: 768px) {
-          .share-btn.native-share {
-            order: -1;
-            width: 100%;
-            border-radius: 12px;
-            height: 48px;
-            margin-bottom: 8px;
-          }
-          
-          .share-btn.native-share::after {
-            content: ' Share';
-            font-weight: 600;
-            margin-left: 8px;
-          }
-        }
-
-        .share-challenge {
-          margin-top: 16px;
-          font-size: 0.85rem;
-          color: var(--muted, #888);
-          font-style: italic;
-        }
-
-        /* Share Card Section */
-        .share-card-section {
-          margin-top: 24px;
-          padding-top: 24px;
-          border-top: 1px solid var(--border, #e5e5e5);
-        }
-
-        .share-card-section .section-header {
-          font-size: 1.1rem;
-          font-weight: 700;
-          color: var(--text);
-          margin-bottom: 8px;
-        }
-
-        .share-card-desc {
-          font-size: 0.85rem;
-          color: var(--muted);
-          margin-bottom: 16px;
+        .quick-share-btn:hover {
+          background: var(--chip, #f0f0f0);
+          transform: translateY(-2px);
         }
 
         @media (max-width: 480px) {
@@ -1446,28 +1347,14 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
             gap: 8px;
           }
 
-          .sticky-action-bar {
-            padding: 10px 12px;
-            margin: 16px -16px -16px -16px;
-          }
-
-          .action-btn {
-            padding: 8px 12px;
-            font-size: 0.8rem;
-          }
-
-          .action-bar-name {
-            font-size: 0.8rem;
-          }
-
-          .share-buttons {
+          .quick-share-buttons {
+            flex-direction: column;
             gap: 8px;
           }
 
-          .share-btn {
-            width: 48px;
-            height: 48px;
-            font-size: 1.2rem;
+          .quick-share-btn {
+            width: 100%;
+            justify-content: center;
           }
         }
 

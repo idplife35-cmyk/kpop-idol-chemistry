@@ -44,11 +44,11 @@ const schema = generateHomePageSchema(
   keywords={keywords}
   schema={schema}
 >
-  <div class="home-page">
+  <div class="home-page" id="home-page">
     <div class="container">
       
-      <!-- Hero Section -->
-      <section class="hero">
+      <!-- Hero Section (Hidden when result is shown) -->
+      <section class="hero" id="hero-section">
         <h1 class="title-neon">KPOP Idol Chemistry</h1>
         <p class="hero-subtitle">Create your perfect Korean name with your favorite idols!</p>
         
@@ -66,8 +66,8 @@ const schema = generateHomePageSchema(
         </div>
       </section>
       
-      <!-- Group Stories (Instagram Style) -->
-      <section class="group-stories-section">
+      <!-- Group Stories (Instagram Style) - Hidden when result is shown -->
+      <section class="group-stories-section" id="group-stories-section">
         <div class="section-header">
           <span class="trending-label">🔥 Trending Now</span>
         </div>
@@ -166,6 +166,28 @@ const schema = generateHomePageSchema(
 <style>
   .home-page {
     padding: 24px 0;
+  }
+  
+  /* Result Mode - Hide Hero, Stories, and Ad */
+  .home-page.result-mode #hero-section,
+  .home-page.result-mode #group-stories-section,
+  .home-page.result-mode .ad-container {
+    display: none;
+  }
+  
+  .home-page.result-mode .generator-section {
+    margin-top: 0;
+  }
+  
+  .home-page.result-mode .generator-section .card {
+    border: none;
+    background: transparent;
+    padding: 0;
+  }
+  
+  .home-page.result-mode .generator-section .card > h2,
+  .home-page.result-mode .generator-section .card > p.text-muted {
+    display: none;
   }
   
   /* Hero */
@@ -419,6 +441,9 @@ const schema = generateHomePageSchema(
 </style>
 
 <script>
+  // Home page element
+  const homePage = document.getElementById('home-page');
+  
   // Scroll arrows
   const container = document.getElementById('group-stories');
   const leftBtn = document.getElementById('scroll-left');
@@ -455,6 +480,19 @@ const schema = generateHomePageSchema(
     if (e.key === 'Enter') {
       heroBtn?.click();
     }
+  });
+  
+  // Listen for result events from GeneratorForm
+  window.addEventListener('kpop-result-generated', () => {
+    homePage?.classList.add('result-mode');
+    // Scroll to top when result is shown
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+  
+  window.addEventListener('kpop-result-reset', () => {
+    homePage?.classList.remove('result-mode');
+    // Scroll to top when reset
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 </script>
 
