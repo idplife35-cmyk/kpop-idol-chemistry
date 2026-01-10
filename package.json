@@ -5,17 +5,23 @@
   "scripts": {
     "dev": "astro dev",
     "start": "astro dev",
-    "build": "astro build",
+    "build": "npm run generate:og && astro build",
+    "build:fast": "astro build",
+    "generate:og": "node scripts/generate-og-images.js",
     "preview": "astro preview",
     "astro": "astro"
   },
   "dependencies": {
     "@astrojs/react": "^3.6.0",
     "@astrojs/sitemap": "^3.2.0",
+    "@fontsource/rubik": "^5.2.8",
+    "@resvg/resvg-js": "^2.6.2",
     "astro": "^4.16.0",
     "html2canvas": "^1.4.1",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
+    "react-dom": "^18.3.1",
+    "satori": "^0.18.3",
+    "sharp": "^0.34.5"
   },
   "devDependencies": {
     "@types/react": "^18.3.0",

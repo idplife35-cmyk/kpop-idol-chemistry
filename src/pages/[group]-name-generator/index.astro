@@ -25,6 +25,9 @@ export async function getStaticPaths() {
 
 const { groupData } = Astro.props;
 
+// Dynamic OG image for this group
+const ogImage = `/og/groups/${groupData.slug}.png`;
+
 // Transform members for idols.json format compatibility
 const idolsForForm = groupData.members.map(m => ({
   group: groupData.name,
@@ -76,6 +79,7 @@ const pageSchema = generateGroupPageSchema({
   keywords={groupData.seo.keywords}
   schema={pageSchema}
   groupColor={groupData.color}
+  ogImage={ogImage}
 >
   <!-- Group Banner -->
   <GroupBanner

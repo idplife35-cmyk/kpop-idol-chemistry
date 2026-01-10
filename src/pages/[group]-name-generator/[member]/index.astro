@@ -35,6 +35,10 @@ export async function getStaticPaths() {
 
 const { groupData, memberData } = Astro.props;
 
+// Dynamic OG image for this member
+const memberSlug = memberData.id || memberData.nameEn.toLowerCase().replace(/\s+/g, '').replace(/\./g, '');
+const ogImage = `/og/members/${groupData.slug}/${memberSlug}.png`;
+
 // Extract member details with fallbacks
 const emoji = memberData.emoji || '💜';
 const nickname = memberData.nicknames?.[0] || 'Idol';
@@ -88,6 +92,7 @@ const schema = {
   keywords={keywords}
   schema={schema}
   groupColor={groupData.color}
+  ogImage={ogImage}
 >
   <!-- Member Hero Section -->
   <section class="member-hero" style={`--member-color: ${groupData.color}`}>
