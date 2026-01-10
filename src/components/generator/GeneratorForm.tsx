@@ -18,9 +18,18 @@ import {
 } from '@/lib/gamification';
 import { showNotification } from '@/components/gamification/Notification';
 import FlipCard from './FlipCard';
+import VSBattle from './VSBattle';
 import idolsData from '@/data/idols.json';
 import groupColors from '@/data/groupColors.json';
 import styles from './IdolSelector.module.css';
+import {
+  getChallengeFromUrl,
+  createChallengeUrl,
+  createShortChallengeUrl,
+  generateVSResult,
+  type ChallengeData,
+  type VSResult
+} from '@/lib/vs-challenge';
 
 interface Idol {
   group: string;
@@ -62,11 +71,41 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
   const [isFirstResult, setIsFirstResult] = useState(true); // For animation control
   const [groupProgress, setGroupProgress] = useState<{ tested: number; total: number; percentage: number } | null>(null);
   const [isMounted, setIsMounted] = useState(false); // For hydration safety
+  
+  // VS Mode state
+  const [vsChallenge, setVsChallenge] = useState<ChallengeData | null>(null);
+  const [vsResult, setVsResult] = useState<VSResult | null>(null);
+  const [showVSBattle, setShowVSBattle] = useState(false);
 
   // Set mounted state for hydration safety
   useEffect(() => {
     setIsMounted(true);
   }, []);
+
+  // Detect VS challenge from URL
+  useEffect(() => {
+    if (!isMounted) return;
+    
+    const challenge = getChallengeFromUrl();
+    if (challenge) {
+      setVsChallenge(challenge);
+      
+      // Find and auto-select the challenged idol
+      const challengedIdol = (idolsData as Idol[]).find(
+        idol => idol.name_en.toLowerCase() === challenge.idolNameEn.toLowerCase() &&
+                idol.group.toLowerCase() === challenge.idolGroup.toLowerCase()
+      );
+      
+      if (challengedIdol) {
+        setSelectedGroup(challengedIdol.group);
+        setSelectedIdol(challengedIdol);
+        showNotification(`⚔️ ${challenge.challengerName} challenged you!`, 'badge', '⚡');
+      }
+      
+      // Clean URL without reloading
+      window.history.replaceState({}, '', window.location.pathname);
+    }
+  }, [isMounted]);
 
   // Load recent idols from localStorage
   useEffect(() => {
@@ -268,6 +307,18 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
         console.error('Gamification error:', e);
       }
 
+      // Check if this is a VS challenge response
+      if (vsChallenge) {
+        const vsResultData = generateVSResult(
+          vsChallenge,
+          myName.trim(),
+          result.chemistry,
+          result.styled.full_kr
+        );
+        setVsResult(vsResultData);
+        setTimeout(() => setShowVSBattle(true), 500);
+      }
+
       // Dispatch event for page to hide hero
       window.dispatchEvent(new Event('kpop-result-generated'));
     }, 300);
@@ -276,8 +327,44 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
   const handleReset = () => {
     setResult(null);
     setVariation(0);
+    setVsChallenge(null);
+    setVsResult(null);
     // Dispatch event for page to show hero
     window.dispatchEvent(new Event('kpop-result-reset'));
+  };
+
+  // State for challenge link creation
+  const [isCreatingChallenge, setIsCreatingChallenge] = useState(false);
+
+  // Create VS Challenge link (with URL shortening)
+  const handleCreateChallenge = async () => {
+    if (!result || !selectedIdol) return;
+    
+    setIsCreatingChallenge(true);
+    
+    const challengeData: ChallengeData = {
+      challengerName: myName.trim(),
+      challengerScore: result.chemistry,
+      challengerKoreanName: result.styled.full_kr,
+      idolGroup: selectedIdol.group,
+      idolNameEn: selectedIdol.name_en,
+      idolNameKr: selectedIdol.name_kr,
+      timestamp: Date.now()
+    };
+    
+    try {
+      // Try to create short URL
+      const url = await createShortChallengeUrl(challengeData);
+      await navigator.clipboard.writeText(url);
+      showNotification('⚔️ Short link copied! Send to friend!', 'success', '⚡');
+    } catch (error) {
+      // Fallback to long URL
+      const url = createChallengeUrl(challengeData);
+      await navigator.clipboard.writeText(url);
+      showNotification('⚔️ Challenge link copied!', 'success', '⚡');
+    } finally {
+      setIsCreatingChallenge(false);
+    }
   };
 
   const handleReroll = () => {
@@ -324,6 +411,20 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
     <div className="generator-form">
       {!result ? (
         <div className="form-container">
+          {/* VS Challenge Banner */}
+          {vsChallenge && (
+            <div className="vs-challenge-banner">
+              <div className="vs-banner-icon">⚔️</div>
+              <div className="vs-banner-content">
+                <span className="vs-banner-title">Chemistry Battle!</span>
+                <span className="vs-banner-desc">
+                  <strong>{vsChallenge.challengerName}</strong> scored <strong>{vsChallenge.challengerScore}%</strong> with {vsChallenge.idolNameEn}
+                </span>
+                <span className="vs-banner-cta">Can you beat them?</span>
+              </div>
+            </div>
+          )}
+
           {/* Name Input */}
           <div className="form-group">
             <label htmlFor="name-input">Your Name</label>
@@ -677,6 +778,20 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           )}
 
           {/* Quick Share Text Buttons */}
+          {/* VS Challenge Section */}
+          <div className="vs-challenge-section">
+            <div className="vs-challenge-header">⚔️ Challenge a Friend!</div>
+            <p className="vs-challenge-desc">Who has better chemistry with {selectedIdol?.name_en}?</p>
+            <button 
+              className="vs-challenge-btn"
+              onClick={handleCreateChallenge}
+              disabled={isCreatingChallenge}
+            >
+              {isCreatingChallenge ? '⏳ Creating...' : '⚡ Create Challenge Link'}
+            </button>
+          </div>
+
+          {/* Quick Share Section */}
           <div className="quick-share-section">
             <div className="quick-share-buttons">
               <button 
@@ -706,6 +821,24 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
             </div>
           </div>
         </div>
+      )}
+
+      {/* VS Battle Modal */}
+      {showVSBattle && vsResult && (
+        <VSBattle
+          result={vsResult}
+          onClose={() => {
+            setShowVSBattle(false);
+            setVsChallenge(null);
+            setVsResult(null);
+          }}
+          onRematch={() => {
+            setShowVSBattle(false);
+            setVsChallenge(null);
+            setVsResult(null);
+            handleReset();
+          }}
+        />
       )}
 
       <style dangerouslySetInnerHTML={{ __html: `
@@ -1306,6 +1439,112 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
         .same-name-kr {
           font-size: 1rem;
           color: var(--muted);
+        }
+
+        /* VS Challenge Banner (when accepting challenge) */
+        .vs-challenge-banner {
+          background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+          border: 2px solid #ff6b9d;
+          border-radius: 16px;
+          padding: 16px 20px;
+          margin-bottom: 20px;
+          display: flex;
+          align-items: center;
+          gap: 16px;
+          animation: slideDown 0.3s ease;
+        }
+
+        @keyframes slideDown {
+          from { transform: translateY(-10px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+
+        .vs-banner-icon {
+          font-size: 2rem;
+          animation: bounce 1s ease infinite;
+        }
+
+        @keyframes bounce {
+          0%, 100% { transform: translateY(0); }
+          50% { transform: translateY(-5px); }
+        }
+
+        .vs-banner-content {
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+        }
+
+        .vs-banner-title {
+          color: #ff6b9d;
+          font-weight: 700;
+          font-size: 1.1rem;
+        }
+
+        .vs-banner-desc {
+          color: #fff;
+          font-size: 0.9rem;
+        }
+
+        .vs-banner-desc strong {
+          color: #ffd700;
+        }
+
+        .vs-banner-cta {
+          color: #4ade80;
+          font-size: 0.85rem;
+          font-weight: 600;
+        }
+
+        /* VS Challenge Section */
+        .vs-challenge-section {
+          background: linear-gradient(135deg, rgba(255, 107, 157, 0.1), rgba(168, 85, 247, 0.1));
+          border: 2px dashed var(--accent, #ff69b4);
+          border-radius: 16px;
+          padding: 20px;
+          text-align: center;
+          margin: 24px 0;
+        }
+
+        .vs-challenge-header {
+          font-size: 1.2rem;
+          font-weight: 700;
+          color: var(--text);
+          margin-bottom: 8px;
+        }
+
+        .vs-challenge-desc {
+          color: var(--muted);
+          font-size: 0.9rem;
+          margin-bottom: 16px;
+        }
+
+        .vs-challenge-btn {
+          background: linear-gradient(135deg, #ff6b9d, #c44569);
+          color: white;
+          border: none;
+          padding: 14px 28px;
+          border-radius: 30px;
+          font-size: 1rem;
+          font-weight: 700;
+          cursor: pointer;
+          transition: all 0.3s ease;
+          box-shadow: 0 4px 15px rgba(255, 107, 157, 0.4);
+        }
+
+        .vs-challenge-btn:hover {
+          transform: translateY(-3px);
+          box-shadow: 0 6px 20px rgba(255, 107, 157, 0.5);
+        }
+
+        .vs-challenge-btn:active {
+          transform: translateY(-1px);
+        }
+
+        .vs-challenge-btn:disabled {
+          opacity: 0.7;
+          cursor: not-allowed;
+          transform: none;
         }
 
         /* Quick Share Section */
