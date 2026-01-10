@@ -287,7 +287,7 @@ export default function ShareCard({
         {isGenerating ? '⏳ Generating...' : '📸 Download Image'}
       </button>
 
-      <style suppressHydrationWarning>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .share-card-container {
           margin-top: 24px;
           padding: 20px;
@@ -1082,7 +1082,7 @@ export default function ShareCard({
           font-size: 9px;
           color: #444;
         }
-      `}</style>
+      ` }} />
     </div>
   );
 }

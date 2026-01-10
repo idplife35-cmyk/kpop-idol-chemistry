@@ -848,7 +848,7 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
         </div>
       )}
 
-      <style suppressHydrationWarning>{`
+      <style dangerouslySetInnerHTML={{ __html: `
         .generator-form {
           width: 100%;
         }
@@ -1823,7 +1823,7 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
             grid-template-columns: repeat(2, 1fr);
           }
         }
-      `}</style>
+      ` }} />
     </div>
   );
 }
