@@ -13,8 +13,10 @@ export default function GamificationBar() {
   const [showStats, setShowStats] = useState(false);
   const [showHistory, setShowHistory] = useState(false);
   const [stats, setStats] = useState<ReturnType<typeof getLevelStats> | null>(null);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     setStats(getLevelStats());
     
     const handleUpdate = () => {
@@ -25,7 +27,8 @@ export default function GamificationBar() {
     return () => window.removeEventListener('levelUpdate', handleUpdate);
   }, []);
 
-  if (!stats) return null;
+  // Don't render anything until mounted to avoid hydration mismatch
+  if (!mounted || !stats) return null;
 
   return (
     <>

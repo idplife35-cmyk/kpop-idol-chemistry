@@ -17,6 +17,7 @@ import {
   getGroupProgress
 } from '@/lib/gamification';
 import { showNotification } from '@/components/gamification/Notification';
+import ShareCard from './ShareCard';
 import idolsData from '@/data/idols.json';
 import groupColors from '@/data/groupColors.json';
 import styles from './IdolSelector.module.css';
@@ -60,9 +61,16 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
   const [categoryFilter, setCategoryFilter] = useState<'all' | 'boy' | 'girl'>('all');
   const [isFirstResult, setIsFirstResult] = useState(true); // For animation control
   const [groupProgress, setGroupProgress] = useState<{ tested: number; total: number; percentage: number } | null>(null);
+  const [isMounted, setIsMounted] = useState(false); // For hydration safety
+
+  // Set mounted state for hydration safety
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   // Load recent idols from localStorage
   useEffect(() => {
+    if (!isMounted) return;
     try {
       const saved = localStorage.getItem(RECENT_IDOLS_KEY);
       if (saved) {
@@ -71,10 +79,12 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
     } catch (e) {
       console.error('Error loading recent idols:', e);
     }
-  }, []);
+  }, [isMounted]);
 
   // Listen for hero input from Astro page
   useEffect(() => {
+    if (!isMounted) return;
+    
     const savedName = localStorage.getItem('kpop-hero-name');
     if (savedName) {
       setMyName(savedName);
@@ -91,7 +101,7 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
     return () => {
       window.removeEventListener('hero-name-submitted', handleHeroName as EventListener);
     };
-  }, []);
+  }, [isMounted]);
 
   // Get idols data
   const idols = useMemo(() => {
@@ -322,8 +332,8 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
             />
           </div>
 
-          {/* Quick Pick - Recent Idols */}
-          {recentIdols.length > 0 && showAllGroups && (
+          {/* Quick Pick - Recent Idols (only after mount to avoid hydration mismatch) */}
+          {isMounted && recentIdols.length > 0 && showAllGroups && (
             <div className={styles.quickPick}>
               <div className={styles.quickPickHeader}>
                 <span>📍</span> Quick Pick
@@ -811,6 +821,30 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
             </div>
             <p className="share-challenge">Tag your friends & compare scores! 🏆</p>
           </div>
+
+          {/* Share Card Generator */}
+          {coupleNames && (
+            <div className={`share-card-section ${isFirstResult ? 'fade-in' : ''}`} style={{ animationDelay: isFirstResult ? '0.6s' : '0s' }}>
+              <div className="section-header">📸 Create Share Card</div>
+              <p className="share-card-desc">Download a beautiful card to share on social media!</p>
+              <ShareCard
+                result={result}
+                userName={myName}
+                koreanName={result.styled.full_kr}
+                idolName={selectedIdol?.name_en || ''}
+                idolNameKr={selectedIdol?.name_kr || ''}
+                groupName={selectedIdol?.group || ''}
+                chemistry={result.chemistry}
+                chemistryTier={chemistryTier?.name || 'Common'}
+                shipName={{
+                  korean: coupleNames.korean,
+                  english: coupleNames.cute || coupleNames.english,
+                  cute: coupleNames.cute
+                }}
+                memberEmoji={(groupColors as Record<string, GroupColor>)[selectedIdol?.group || '']?.emoji || '💜'}
+              />
+            </div>
+          )}
         </div>
       )}
 
@@ -1384,6 +1418,26 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
           font-size: 0.85rem;
           color: var(--muted, #888);
           font-style: italic;
+        }
+
+        /* Share Card Section */
+        .share-card-section {
+          margin-top: 24px;
+          padding-top: 24px;
+          border-top: 1px solid var(--border, #e5e5e5);
+        }
+
+        .share-card-section .section-header {
+          font-size: 1.1rem;
+          font-weight: 700;
+          color: var(--text);
+          margin-bottom: 8px;
+        }
+
+        .share-card-desc {
+          font-size: 0.85rem;
+          color: var(--muted);
+          margin-bottom: 16px;
         }
 
         @media (max-width: 480px) {

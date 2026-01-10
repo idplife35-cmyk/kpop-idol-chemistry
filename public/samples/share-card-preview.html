@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Share Card Samples - K-Pop Chemistry</title>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700;900&family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Outfit', 'Noto Sans KR', sans-serif;
+      background: #1a1a2e;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+    
+    h1 {
+      text-align: center;
+      color: white;
+      margin-bottom: 40px;
+      font-size: 2rem;
+    }
+    
+    .cards-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+    }
+    
+    .card-wrapper {
+      text-align: center;
+    }
+    
+    .card-label {
+      color: #888;
+      margin-bottom: 10px;
+      font-size: 14px;
+    }
+    
+    /* Base Card - 9:16 ratio (360x640) */
+    .share-card {
+      width: 360px;
+      height: 640px;
+      border-radius: 24px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 30px 24px;
+    }
+    
+    /* ========== BTS - Jungkook Theme ========== */
+    .card-jungkook {
+      background: linear-gradient(180deg, #4c1d95 0%, #7c3aed 50%, #a78bfa 100%);
+    }
+    
+    .card-jungkook::before {
+      content: '🐰';
+      position: absolute;
+      font-size: 200px;
+      opacity: 0.1;
+      top: -30px;
+      right: -40px;
+    }
+    
+    .card-jungkook .member-emoji {
+      font-size: 60px;
+      margin-bottom: 8px;
+      filter: drop-shadow(0 4px 20px rgba(167, 139, 250, 0.5));
+    }
+    
+    .card-jungkook .tier-badge {
+      background: linear-gradient(135deg, #fbbf24, #f59e0b);
+      color: #1a1a2e;
+    }
+    
+    /* ========== BLACKPINK - Lisa Theme ========== */
+    .card-lisa {
+      background: linear-gradient(180deg, #1a1a1a 0%, #3d0a0a 50%, #831843 100%);
+    }
+    
+    .card-lisa::before {
+      content: '👑';
+      position: absolute;
+      font-size: 180px;
+      opacity: 0.1;
+      top: -20px;
+      right: -30px;
+    }
+    
+    .card-lisa::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 200px;
+      background: linear-gradient(0deg, #ec4899 0%, transparent 100%);
+      opacity: 0.3;
+    }
+    
+    .card-lisa .member-emoji {
+      font-size: 60px;
+      margin-bottom: 8px;
+    }
+    
+    .card-lisa .tier-badge {
+      background: linear-gradient(135deg, #ec4899, #db2777);
+    }
+    
+    /* ========== Stray Kids - Felix Theme ========== */
+    .card-felix {
+      background: linear-gradient(180deg, #0f172a 0%, #1e3a5f 50%, #0ea5e9 100%);
+    }
+    
+    .card-felix::before {
+      content: '🌞';
+      position: absolute;
+      font-size: 200px;
+      opacity: 0.15;
+      top: -40px;
+      right: -50px;
+    }
+    
+    .card-felix .member-emoji {
+      font-size: 60px;
+      margin-bottom: 8px;
+      animation: glow 2s ease-in-out infinite;
+    }
+    
+    @keyframes glow {
+      0%, 100% { filter: drop-shadow(0 0 20px #fbbf24); }
+      50% { filter: drop-shadow(0 0 40px #fbbf24); }
+    }
+    
+    .card-felix .tier-badge {
+      background: linear-gradient(135deg, #f97316, #ea580c);
+    }
+    
+    /* ========== NewJeans - Hanni Theme ========== */
+    .card-hanni {
+      background: linear-gradient(180deg, #eff6ff 0%, #bfdbfe 50%, #60a5fa 100%);
+      color: #1e3a8a;
+    }
+    
+    .card-hanni::before {
+      content: '🐱';
+      position: absolute;
+      font-size: 180px;
+      opacity: 0.15;
+      top: -20px;
+      right: -30px;
+    }
+    
+    .card-hanni .member-emoji {
+      font-size: 60px;
+      margin-bottom: 8px;
+    }
+    
+    .card-hanni .tier-badge {
+      background: linear-gradient(135deg, #3b82f6, #2563eb);
+      color: white;
+    }
+    
+    .card-hanni .chemistry-score,
+    .card-hanni .user-name,
+    .card-hanni .member-name {
+      color: #1e3a8a;
+    }
+    
+    .card-hanni .ship-name-box {
+      background: rgba(255,255,255,0.8);
+      color: #1e3a8a;
+    }
+    
+    /* ========== Common Styles ========== */
+    .header-text {
+      font-size: 12px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 20px;
+    }
+    
+    .card-hanni .header-text {
+      color: rgba(30, 58, 138, 0.6);
+    }
+    
+    .member-emoji {
+      font-size: 60px;
+      margin-bottom: 8px;
+    }
+    
+    .tier-badge {
+      padding: 8px 20px;
+      border-radius: 30px;
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 2px;
+      margin-bottom: 24px;
+      text-transform: uppercase;
+    }
+    
+    .chemistry-label {
+      font-size: 14px;
+      color: rgba(255,255,255,0.8);
+      margin-bottom: 4px;
+    }
+    
+    .card-hanni .chemistry-label {
+      color: rgba(30, 58, 138, 0.7);
+    }
+    
+    .chemistry-score {
+      font-size: 80px;
+      font-weight: 900;
+      color: white;
+      line-height: 1;
+      margin-bottom: 8px;
+      text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+    }
+    
+    .chemistry-stars {
+      font-size: 24px;
+      margin-bottom: 24px;
+      letter-spacing: 4px;
+    }
+    
+    .names-section {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    
+    .user-name {
+      font-size: 24px;
+      font-weight: 700;
+      color: white;
+    }
+    
+    .heart-divider {
+      font-size: 28px;
+      margin: 8px 0;
+    }
+    
+    .member-name {
+      font-size: 28px;
+      font-weight: 800;
+      color: white;
+    }
+    
+    .member-kr {
+      font-size: 16px;
+      opacity: 0.8;
+      margin-top: 4px;
+    }
+    
+    .ship-name-section {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      width: 100%;
+    }
+    
+    .ship-label {
+      font-size: 12px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.6);
+      margin-bottom: 8px;
+    }
+    
+    .card-hanni .ship-label {
+      color: rgba(30, 58, 138, 0.6);
+    }
+    
+    .ship-name-box {
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 16px 20px;
+      margin-bottom: 12px;
+    }
+    
+    .ship-name-main {
+      font-size: 22px;
+      font-weight: 700;
+    }
+    
+    .ship-name-sub {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-top: 4px;
+    }
+    
+    .hashtags {
+      font-size: 13px;
+      opacity: 0.7;
+      margin-top: 8px;
+    }
+    
+    .footer {
+      margin-top: auto;
+      text-align: center;
+    }
+    
+    .site-url {
+      font-size: 12px;
+      opacity: 0.5;
+      letter-spacing: 1px;
+    }
+    
+    .fandom-message {
+      font-size: 14px;
+      opacity: 0.8;
+      margin-bottom: 8px;
+      font-style: italic;
+    }
+    
+    /* Decorative elements */
+    .sparkles {
+      position: absolute;
+      font-size: 20px;
+      opacity: 0.6;
+    }
+    
+    .sparkle-1 { top: 60px; left: 30px; }
+    .sparkle-2 { top: 120px; right: 40px; }
+    .sparkle-3 { bottom: 150px; left: 25px; }
+    .sparkle-4 { bottom: 200px; right: 30px; }
+  </style>
+</head>
+<body>
+  <h1>📸 Share Card Samples (9:16)</h1>
+  
+  <div class="cards-container">
+    
+    <!-- BTS Jungkook -->
+    <div class="card-wrapper">
+      <div class="card-label">BTS - Jungkook 🐰</div>
+      <div class="share-card card-jungkook">
+        <span class="sparkles sparkle-1">✨</span>
+        <span class="sparkles sparkle-2">💜</span>
+        <span class="sparkles sparkle-3">⭐</span>
+        <span class="sparkles sparkle-4">✨</span>
+        
+        <div class="header-text">K-Pop Chemistry Test</div>
+        
+        <div class="member-emoji">🐰</div>
+        
+        <div class="tier-badge">✨ LEGENDARY ✨</div>
+        
+        <div class="chemistry-label">Our Chemistry</div>
+        <div class="chemistry-score">94%</div>
+        <div class="chemistry-stars">⭐⭐⭐⭐⭐</div>
+        
+        <div class="names-section">
+          <div class="user-name">Sarah</div>
+          <div class="heart-divider">💜</div>
+          <div class="member-name">Jungkook</div>
+          <div class="member-kr">정국</div>
+        </div>
+        
+        <div class="ship-name-section">
+          <div class="ship-label">Our Ship Name</div>
+          <div class="ship-name-box">
+            <div class="ship-name-main">꾹이의 토끼 🐰</div>
+            <div class="ship-name-sub">Kookie's Bunny</div>
+          </div>
+          <div class="hashtags">#JungkookSoulmate #ARMYLove</div>
+        </div>
+        
+        <div class="footer">
+          <div class="fandom-message">보라해 💜 I Purple You</div>
+          <div class="site-url">kpopnamegenerator.com</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- BLACKPINK Lisa -->
+    <div class="card-wrapper">
+      <div class="card-label">BLACKPINK - Lisa 👑</div>
+      <div class="share-card card-lisa">
+        <span class="sparkles sparkle-1">✨</span>
+        <span class="sparkles sparkle-2">🖤</span>
+        <span class="sparkles sparkle-3">💗</span>
+        <span class="sparkles sparkle-4">✨</span>
+        
+        <div class="header-text">K-Pop Chemistry Test</div>
+        
+        <div class="member-emoji">👑</div>
+        
+        <div class="tier-badge">🔥 MYTHICAL 🔥</div>
+        
+        <div class="chemistry-label">Our Chemistry</div>
+        <div class="chemistry-score">98%</div>
+        <div class="chemistry-stars">⭐⭐⭐⭐⭐</div>
+        
+        <div class="names-section">
+          <div class="user-name">Emma</div>
+          <div class="heart-divider">🖤💗</div>
+          <div class="member-name">Lisa</div>
+          <div class="member-kr">리사</div>
+        </div>
+        
+        <div class="ship-name-section">
+          <div class="ship-label">Our Ship Name</div>
+          <div class="ship-name-box">
+            <div class="ship-name-main">리리의 퀸덤 👑</div>
+            <div class="ship-name-sub">Lili's Kingdom</div>
+          </div>
+          <div class="hashtags">#LisaSoulmate #BLINK4EVER</div>
+        </div>
+        
+        <div class="footer">
+          <div class="fandom-message">Born to be a BLINK 🖤💗</div>
+          <div class="site-url">kpopnamegenerator.com</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Stray Kids Felix -->
+    <div class="card-wrapper">
+      <div class="card-label">Stray Kids - Felix 🌞</div>
+      <div class="share-card card-felix">
+        <span class="sparkles sparkle-1">✨</span>
+        <span class="sparkles sparkle-2">❤️</span>
+        <span class="sparkles sparkle-3">⭐</span>
+        <span class="sparkles sparkle-4">✨</span>
+        
+        <div class="header-text">K-Pop Chemistry Test</div>
+        
+        <div class="member-emoji">🌞</div>
+        
+        <div class="tier-badge">⚡ EPIC ⚡</div>
+        
+        <div class="chemistry-label">Our Chemistry</div>
+        <div class="chemistry-score">91%</div>
+        <div class="chemistry-stars">⭐⭐⭐⭐⭐</div>
+        
+        <div class="names-section">
+          <div class="user-name">Mia</div>
+          <div class="heart-divider">❤️</div>
+          <div class="member-name">Felix</div>
+          <div class="member-kr">필릭스</div>
+        </div>
+        
+        <div class="ship-name-section">
+          <div class="ship-label">Our Ship Name</div>
+          <div class="ship-name-box">
+            <div class="ship-name-main">용복이의 햇살 🌞</div>
+            <div class="ship-name-sub">Yongbok's Sunshine</div>
+          </div>
+          <div class="hashtags">#FelixSoulmate #STAYForever</div>
+        </div>
+        
+        <div class="footer">
+          <div class="fandom-message">STAY with me forever ❤️</div>
+          <div class="site-url">kpopnamegenerator.com</div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- NewJeans Hanni -->
+    <div class="card-wrapper">
+      <div class="card-label">NewJeans - Hanni 🐱</div>
+      <div class="share-card card-hanni">
+        <span class="sparkles sparkle-1">✨</span>
+        <span class="sparkles sparkle-2">💙</span>
+        <span class="sparkles sparkle-3">🌟</span>
+        <span class="sparkles sparkle-4">✨</span>
+        
+        <div class="header-text">K-Pop Chemistry Test</div>
+        
+        <div class="member-emoji">🐱</div>
+        
+        <div class="tier-badge">💎 RARE 💎</div>
+        
+        <div class="chemistry-label">Our Chemistry</div>
+        <div class="chemistry-score">87%</div>
+        <div class="chemistry-stars">⭐⭐⭐⭐</div>
+        
+        <div class="names-section">
+          <div class="user-name">Lily</div>
+          <div class="heart-divider">💙</div>
+          <div class="member-name">Hanni</div>
+          <div class="member-kr">하니</div>
+        </div>
+        
+        <div class="ship-name-section">
+          <div class="ship-label">Our Ship Name</div>
+          <div class="ship-name-box">
+            <div class="ship-name-main">하니의 버니 🐰</div>
+            <div class="ship-name-sub">Hanni's Bunny</div>
+          </div>
+          <div class="hashtags">#HanniSoulmate #Bunnies</div>
+        </div>
+        
+        <div class="footer">
+          <div class="fandom-message">Get up, Bunnies! 🐰💙</div>
+          <div class="site-url">kpopnamegenerator.com</div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div style="text-align: center; margin-top: 60px; color: #666;">
+    <h2 style="color: white; margin-bottom: 20px;">📐 Card Size: 360 x 640px (9:16)</h2>
+    <p>Perfect for Instagram Stories, TikTok, and vertical social media</p>
+  </div>
+  
+</body>
+</html>
+
