@@ -848,7 +848,7 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
         </div>
       )}
 
-      <style>{`
+      <style suppressHydrationWarning>{`
         .generator-form {
           width: 100%;
         }

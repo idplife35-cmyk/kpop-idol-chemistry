@@ -287,7 +287,7 @@ export default function ShareCard({
         {isGenerating ? '⏳ Generating...' : '📸 Download Image'}
       </button>
 
-      <style>{`
+      <style suppressHydrationWarning>{`
         .share-card-container {
           margin-top: 24px;
           padding: 20px;
