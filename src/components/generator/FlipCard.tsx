@@ -150,33 +150,106 @@ export default function FlipCard({
     setIsFlipped(!isFlipped);
   };
 
+  // Check if mobile share is supported (mobile devices only)
+  const [canShareImage, setCanShareImage] = useState(false);
+  
+  useEffect(() => {
+    // Only enable share on actual mobile devices
+    const isMobileDevice = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) 
+      || (navigator.maxTouchPoints > 0 && window.innerWidth < 768);
+    
+    if (!isMobileDevice) {
+      setCanShareImage(false);
+      return;
+    }
+    
+    // Check Web Share API file support
+    const checkShareSupport = async () => {
+      if (navigator.canShare) {
+        try {
+          const testFile = new File(['test'], 'test.png', { type: 'image/png' });
+          const canShare = navigator.canShare({ files: [testFile] });
+          setCanShareImage(canShare);
+        } catch {
+          setCanShareImage(false);
+        }
+      }
+    };
+    checkShareSupport();
+  }, []);
+
+  // Generate image as blob
+  const generateImageBlob = useCallback(async (): Promise<Blob | null> => {
+    if (!shareCardRef.current) return null;
+    
+    const html2canvas = (await import('html2canvas')).default;
+    
+    const canvas = await html2canvas(shareCardRef.current, {
+      scale: 2,
+      backgroundColor: null,
+      useCORS: true,
+      logging: false,
+      allowTaint: true,
+    });
+    
+    return new Promise((resolve) => {
+      canvas.toBlob((blob) => resolve(blob), 'image/png');
+    });
+  }, []);
+
+  // Download card (fallback for desktop)
   const downloadCard = useCallback(async () => {
     if (!shareCardRef.current) return;
     
     setIsDownloading(true);
     
     try {
-      const html2canvas = (await import('html2canvas')).default;
+      const blob = await generateImageBlob();
+      if (!blob) throw new Error('Failed to generate image');
       
-      const canvas = await html2canvas(shareCardRef.current, {
-        scale: 2,
-        backgroundColor: null,
-        useCORS: true,
-        logging: false,
-        allowTaint: true,
-      });
-      
+      const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
       link.download = `${userName}-${idol.name_en}-chemistry.png`;
-      link.href = canvas.toDataURL('image/png');
+      link.href = url;
       link.click();
+      URL.revokeObjectURL(url);
     } catch (error) {
       console.error('Error generating image:', error);
       alert('Failed to generate image. Please try again.');
     } finally {
       setIsDownloading(false);
     }
-  }, [userName, idol.name_en]);
+  }, [userName, idol.name_en, generateImageBlob]);
+
+  // Share image directly (mobile)
+  const shareImage = useCallback(async () => {
+    if (!shareCardRef.current) return;
+    
+    setIsDownloading(true);
+    
+    try {
+      const blob = await generateImageBlob();
+      if (!blob) throw new Error('Failed to generate image');
+      
+      const file = new File([blob], `${userName}-${idol.name_en}-chemistry.png`, { 
+        type: 'image/png' 
+      });
+      
+      await navigator.share({
+        files: [file],
+        title: `My K-Pop Chemistry with ${idol.name_en}`,
+        text: `I got ${chemistry}% chemistry with ${idol.name_en}! 💜✨ My K-Pop name is ${kpopName.full_en} (${kpopName.full_kr})\n\nFind your idol soulmate 👇`,
+      });
+    } catch (error) {
+      if ((error as Error).name !== 'AbortError') {
+        console.error('Error sharing:', error);
+        // Fallback to download
+        downloadCard();
+      }
+    } finally {
+      setIsDownloading(false);
+    }
+  }, [userName, idol.name_en, chemistry, kpopName, generateImageBlob, downloadCard]);
 
   // Get highest analysis category
   const topCategory = deepAnalysis?.categories.reduce((max, cat) => 
@@ -381,13 +454,23 @@ export default function FlipCard({
 
             {/* Action Buttons */}
             <div className="back-actions">
-              <button 
-                className="download-btn"
-                onClick={downloadCard}
-                disabled={isDownloading || !fontsLoaded}
-              >
-                {isDownloading ? '⏳ Saving...' : '📸 Download'}
-              </button>
+              {canShareImage ? (
+                <button 
+                  className="download-btn share-btn-mobile"
+                  onClick={shareImage}
+                  disabled={isDownloading || !fontsLoaded}
+                >
+                  {isDownloading ? '⏳ Preparing...' : '📤 Share Image'}
+                </button>
+              ) : (
+                <button 
+                  className="download-btn"
+                  onClick={downloadCard}
+                  disabled={isDownloading || !fontsLoaded}
+                >
+                  {isDownloading ? '⏳ Saving...' : '📥 Download'}
+                </button>
+              )}
               <button 
                 className="flip-back-btn"
                 onClick={handleFlip}
@@ -1102,6 +1185,10 @@ export default function FlipCard({
           font-weight: 600;
           cursor: pointer;
           transition: all 0.2s;
+        }
+
+        .download-btn.share-btn-mobile {
+          background: linear-gradient(135deg, #3b82f6, #8b5cf6);
         }
 
         .download-btn:hover:not(:disabled) {
