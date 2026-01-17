@@ -19,6 +19,7 @@ import {
 import { showNotification } from '@/components/gamification/Notification';
 import FlipCard from './FlipCard';
 import VSBattle from './VSBattle';
+import DailyDestiny from './DailyDestiny';
 import idolsData from '@/data/idols.json';
 import groupColors from '@/data/groupColors.json';
 import styles from './IdolSelector.module.css';
@@ -30,6 +31,12 @@ import {
   type ChallengeData,
   type VSResult
 } from '@/lib/vs-challenge';
+import {
+  generateTwitterShareText,
+  generateCopyShareText,
+  generateKakaoShareText,
+  getShareUrl
+} from '@/lib/share-text';
 
 interface Idol {
   group: string;
@@ -407,10 +414,42 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
     ? generateCoupleNames(myName, selectedIdol.name_en, selectedIdol.name_kr, result.chemistry)
     : null;
 
+  // Prepare idols data for DailyDestiny
+  const dailyDestinyIdols = useMemo(() => {
+    return idols.map(idol => ({
+      id: `${idol.group}-${idol.name_en}`,
+      nameKr: idol.name_kr,
+      nameEn: idol.name_en,
+      emoji: (groupColors as Record<string, GroupColor>)[idol.group]?.emoji || '⭐',
+      group: idol.group,
+      groupSlug: idol.group.toLowerCase().replace(/\s+/g, '-').replace(/[()]/g, '')
+    }));
+  }, [idols]);
+
+  // Handle daily destiny idol selection
+  const handleDailyDestinySelect = (destinyIdol: { group: string; nameEn: string }) => {
+    const idol = idols.find(i => 
+      i.group === destinyIdol.group && i.name_en === destinyIdol.nameEn
+    );
+    if (idol) {
+      setSelectedGroup(idol.group);
+      setSelectedIdol(idol);
+      saveToRecent(idol);
+    }
+  };
+
   return (
     <div className="generator-form">
       {!result ? (
         <div className="form-container">
+          {/* Daily Destiny - Random Idol Recommendation */}
+          {showAllGroups && !vsChallenge && (
+            <DailyDestiny 
+              allIdols={dailyDestinyIdols}
+              onSelectIdol={(idol) => handleDailyDestinySelect({ group: idol.group, nameEn: idol.nameEn })}
+            />
+          )}
+
           {/* VS Challenge Banner */}
           {vsChallenge && (
             <div className="vs-challenge-banner">
@@ -793,30 +832,76 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
 
           {/* Quick Share Section */}
           <div className="quick-share-section">
+            <div className="quick-share-label">Share Your Result</div>
             <div className="quick-share-buttons">
               <button 
-                className="quick-share-btn"
+                className="quick-share-btn twitter"
                 onClick={() => {
-                  const text = `I got ${result.chemistry}% chemistry with ${selectedIdol?.name_en}! 💜✨ My K-Pop name is ${result.styled.full_kr}\n\nFind your idol soulmate 👇`;
-                  const url = 'https://kpopnamegenerator.com';
+                  const shareParams = {
+                    userName: myName,
+                    kpopNameKr: result.styled.full_kr,
+                    kpopNameEn: result.styled.full_en,
+                    idolNameEn: selectedIdol?.name_en || '',
+                    idolNameKr: selectedIdol?.name_kr || '',
+                    groupName: selectedIdol?.group || '',
+                    chemistry: result.chemistry,
+                    chemistryTier: chemistryTier?.id
+                  };
+                  const text = generateTwitterShareText(shareParams);
+                  const url = getShareUrl('twitter');
                   window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}&url=${encodeURIComponent(url)}`, '_blank');
                   import('@/lib/gamification').then(({ checkShareBadges }) => checkShareBadges());
                 }}
                 title="Share on X"
               >
-                𝕏 Share
+                <span className="share-icon">𝕏</span>
+                <span>Share</span>
               </button>
               <button 
-                className="quick-share-btn"
+                className="quick-share-btn copy"
                 onClick={() => {
-                  const text = `OMG I got ${result.chemistry}% chemistry with ${selectedIdol?.name_en}! 💜 My K-Pop name is ${result.styled.full_kr} ✨\n\n🔗 kpopnamegenerator.com\n\n#kpop #${selectedIdol?.group.replace(/\s+/g, '')}`;
+                  const shareParams = {
+                    userName: myName,
+                    kpopNameKr: result.styled.full_kr,
+                    kpopNameEn: result.styled.full_en,
+                    idolNameEn: selectedIdol?.name_en || '',
+                    idolNameKr: selectedIdol?.name_kr || '',
+                    groupName: selectedIdol?.group || '',
+                    chemistry: result.chemistry,
+                    chemistryTier: chemistryTier?.id
+                  };
+                  const text = generateCopyShareText(shareParams);
                   navigator.clipboard.writeText(text);
-                  showNotification('Copied! Paste anywhere 📋', 'success', '📋');
+                  showNotification('📋 Copied with hashtags!', 'success', '📋');
                   import('@/lib/gamification').then(({ checkShareBadges }) => checkShareBadges());
                 }}
-                title="Copy Text"
+                title="Copy with Hashtags"
               >
-                📋 Copy
+                <span className="share-icon">📋</span>
+                <span>Copy</span>
+              </button>
+              <button 
+                className="quick-share-btn kakao"
+                onClick={() => {
+                  const shareParams = {
+                    userName: myName,
+                    kpopNameKr: result.styled.full_kr,
+                    kpopNameEn: result.styled.full_en,
+                    idolNameEn: selectedIdol?.name_en || '',
+                    idolNameKr: selectedIdol?.name_kr || '',
+                    groupName: selectedIdol?.group || '',
+                    chemistry: result.chemistry,
+                    chemistryTier: chemistryTier?.id
+                  };
+                  const text = generateKakaoShareText(shareParams);
+                  navigator.clipboard.writeText(text);
+                  showNotification('📱 카카오용 복사 완료!', 'success', '💬');
+                  import('@/lib/gamification').then(({ checkShareBadges }) => checkShareBadges());
+                }}
+                title="Copy for KakaoTalk"
+              >
+                <span className="share-icon">💬</span>
+                <span>카카오</span>
               </button>
             </div>
           </div>
@@ -1550,34 +1635,83 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
         /* Quick Share Section */
         .quick-share-section {
           text-align: center;
-          padding: 16px 0;
+          padding: 20px;
           margin-top: 8px;
+          background: var(--surface, #fff);
+          border-radius: 16px;
+          border: 1px solid var(--border);
+        }
+
+        .quick-share-label {
+          font-size: 0.85rem;
+          font-weight: 600;
+          color: var(--muted);
+          margin-bottom: 12px;
+          text-transform: uppercase;
+          letter-spacing: 0.5px;
         }
 
         .quick-share-buttons {
           display: flex;
           justify-content: center;
           gap: 10px;
+          flex-wrap: wrap;
         }
 
         .quick-share-btn {
-          padding: 10px 20px;
-          border-radius: 25px;
+          padding: 10px 16px;
+          border-radius: 12px;
           border: 1px solid var(--border);
           background: var(--surface, #fff);
           color: var(--text);
-          font-size: 0.9rem;
+          font-size: 0.85rem;
           font-weight: 600;
           cursor: pointer;
           transition: all 0.2s;
           display: flex;
           align-items: center;
           gap: 6px;
+          min-width: 90px;
+          justify-content: center;
+        }
+
+        .quick-share-btn .share-icon {
+          font-size: 1rem;
         }
 
         .quick-share-btn:hover {
-          background: var(--chip, #f0f0f0);
           transform: translateY(-2px);
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .quick-share-btn.twitter {
+          background: #000;
+          color: #fff;
+          border-color: #000;
+        }
+
+        .quick-share-btn.twitter:hover {
+          background: #333;
+        }
+
+        .quick-share-btn.copy {
+          background: linear-gradient(135deg, #a855f7, #ec4899);
+          color: #fff;
+          border-color: transparent;
+        }
+
+        .quick-share-btn.copy:hover {
+          opacity: 0.9;
+        }
+
+        .quick-share-btn.kakao {
+          background: #FEE500;
+          color: #000;
+          border-color: #FEE500;
+        }
+
+        .quick-share-btn.kakao:hover {
+          background: #F5DC00;
         }
 
         @media (max-width: 480px) {

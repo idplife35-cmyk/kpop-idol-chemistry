@@ -38,6 +38,12 @@ const fullCanonicalUrl = canonicalUrl || new URL(Astro.url.pathname, siteUrl).to
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="theme-color" content="#ff8ad6" />
   
+  <!-- Performance: DNS Prefetch for external domains -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+  <link rel="dns-prefetch" href="https://pagead2.googlesyndication.com" />
+  
   <!-- Favicon -->
   <link rel="icon" type="image/x-icon" href="/favicon.ico" />
   <link rel="icon" type="image/svg+xml" href="/logo.svg" />
@@ -52,23 +58,18 @@ const fullCanonicalUrl = canonicalUrl || new URL(Astro.url.pathname, siteUrl).to
     noIndex={noIndex}
   />
   
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-K3G6XK3SXW"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-K3G6XK3SXW');
-  </script>
-  
-  <!-- AdSense -->
-  <meta name="google-adsense-account" content="ca-pub-9514930752765161" />
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9514930752765161" crossorigin="anonymous"></script>
-  
-  <!-- Fonts -->
+  <!-- Fonts - Optimized loading with display=swap -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Rubik:wght@400;600;700;800&family=Cherry+Bomb+One&display=swap" rel="stylesheet" />
+  <link 
+    href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Rubik:wght@400;600;700;800&family=Cherry+Bomb+One&display=swap" 
+    rel="stylesheet"
+    media="print"
+    onload="this.media='all'"
+  />
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@600;700&family=Rubik:wght@400;600;700;800&family=Cherry+Bomb+One&display=swap" rel="stylesheet" />
+  </noscript>
   
   <!-- Schema.org JSON-LD -->
   {schema && (
@@ -76,6 +77,16 @@ const fullCanonicalUrl = canonicalUrl || new URL(Astro.url.pathname, siteUrl).to
   )}
   
   <title>{title}</title>
+  
+  <!-- AdSense Account Verification -->
+  <meta name="google-adsense-account" content="ca-pub-9514930752765161" />
+  
+  <!-- Critical CSS for above-the-fold content -->
+  <style>
+    /* Prevent FOUT (Flash of Unstyled Text) */
+    html { visibility: visible; opacity: 1; }
+    body { margin: 0; font-family: 'Rubik', system-ui, sans-serif; }
+  </style>
 </head>
 <body>
   <Header />
@@ -89,11 +100,44 @@ const fullCanonicalUrl = canonicalUrl || new URL(Astro.url.pathname, siteUrl).to
   <!-- Global Notification Container -->
   <NotificationContainer client:load />
   
-  <!-- Theme Toggle Script -->
-  <script>
+  <!-- Theme Toggle Script (Critical - runs immediately) -->
+  <script is:inline>
     const theme = localStorage.getItem('kpop-theme') || 'light';
     document.documentElement.className = theme === 'dark' ? 'dark' : 'kitsch-light';
   </script>
+  
+  <!-- Deferred Analytics & Ads (Non-blocking) -->
+  <script is:inline>
+    // Defer loading of analytics and ads until after page load
+    window.addEventListener('load', function() {
+      // Google Analytics
+      setTimeout(function() {
+        var gaScript = document.createElement('script');
+        gaScript.async = true;
+        gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-K3G6XK3SXW';
+        document.head.appendChild(gaScript);
+        
+        gaScript.onload = function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          window.gtag = gtag;
+          gtag('js', new Date());
+          gtag('config', 'G-K3G6XK3SXW');
+        };
+      }, 100);
+      
+      // AdSense (defer by 2 seconds for better CWV)
+      setTimeout(function() {
+        var adScript = document.createElement('script');
+        adScript.async = true;
+        adScript.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9514930752765161';
+        adScript.crossOrigin = 'anonymous';
+        document.head.appendChild(adScript);
+      }, 2000);
+    });
+  </script>
+  
+  <!-- AdSense Account Verification (meta tag stays in head) -->
 </body>
 </html>
 

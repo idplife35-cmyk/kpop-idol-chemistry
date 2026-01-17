@@ -39,13 +39,33 @@ export default defineConfig({
   ],
   output: 'static',
   build: {
-    format: 'directory'  // /page/index.html format
+    format: 'directory',  // /page/index.html format
+    inlineStylesheets: 'auto' // Inline small CSS for better performance
+  },
+  image: {
+    // Enable image optimization
+    service: {
+      entrypoint: 'astro/assets/services/sharp'
+    }
   },
   vite: {
     build: {
       cssMinify: true,
-      minify: true
+      minify: true,
+      rollupOptions: {
+        output: {
+          // Better chunk splitting for caching
+          manualChunks: {
+            'react-vendor': ['react', 'react-dom'],
+          }
+        }
+      }
     }
+  },
+  // Prefetch optimization
+  prefetch: {
+    prefetchAll: false,
+    defaultStrategy: 'hover'
   }
 });
 
