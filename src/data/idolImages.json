@@ -1,0 +1,12 @@
+{
+  "BLACKPINK": {
+    "groupLogo": "/assets/logos/black_pink_logo2.png",
+    "members": {
+      "Jisoo": "/assets/idols/blackpink/jisoo.webp",
+      "Jennie": "/assets/idols/blackpink/jennie.webp",
+      "Rosé": "/assets/idols/blackpink/rose.webp",
+      "Lisa": "/assets/idols/blackpink/lisa.webp"
+    }
+  }
+}
+
