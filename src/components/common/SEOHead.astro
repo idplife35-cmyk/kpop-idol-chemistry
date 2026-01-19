@@ -29,11 +29,8 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
 <meta name="author" content="KPOP Idol Chemistry" />
 <meta name="robots" content={noIndex ? 'noindex, nofollow' : 'index, follow, max-image-preview:large'} />
 
-<!-- Canonical & Alternate -->
+<!-- Canonical -->
 <link rel="canonical" href={canonicalUrl} />
-<link rel="alternate" hreflang="en" href={canonicalUrl} />
-<link rel="alternate" hreflang="ko" href={`${canonicalUrl}?lang=ko`} />
-<link rel="alternate" hreflang="x-default" href={canonicalUrl} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
@@ -45,7 +42,6 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
 <meta property="og:image:height" content="630" />
 <meta property="og:site_name" content="KPOP Idol Chemistry" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:locale:alternate" content="ko_KR" />
 
 <!-- Twitter -->
 <meta name="twitter:card" content="summary_large_image" />
