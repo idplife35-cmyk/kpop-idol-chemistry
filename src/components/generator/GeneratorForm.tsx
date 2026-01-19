@@ -398,6 +398,25 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
       
       setResult(result);
       setIsGenerating(false);
+      
+      // Save re-roll result to history
+      addToHistory({
+        myName: myName.trim(),
+        idol: {
+          group: selectedIdol.group,
+          nameEn: selectedIdol.name_en,
+          nameKr: selectedIdol.name_kr
+        },
+        result: {
+          nameKr: result.styled.full_kr,
+          nameEn: result.styled.full_en,
+          chemistry: result.chemistry
+        },
+        relation
+      });
+      
+      // Dispatch event for history panel update
+      window.dispatchEvent(new CustomEvent('kpop-result-generated'));
     }, 200);
   };
 
