@@ -69,7 +69,9 @@ const keywords = [
   ...(nicknames.slice(0, 3).map(n => `${memberData.nameEn.toLowerCase()} ${n.toLowerCase()}`))
 ];
 
-// Schema for SEO
+// Schema for SEO — no aggregateRating. Random/un-verifiable ratings violated
+// Google's structured-data policy and caused this page family to be excluded
+// from the index.
 const schema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
@@ -78,10 +80,14 @@ const schema = {
   "operatingSystem": "Web",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
   "description": pageDescription,
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": "4.9",
-    "ratingCount": String(Math.floor(Math.random() * 500) + 500)
+  "about": {
+    "@type": "Person",
+    "name": memberData.nameEn,
+    "alternateName": memberData.nameKr,
+    "memberOf": {
+      "@type": "MusicGroup",
+      "name": groupData.name
+    }
   }
 };
 ---

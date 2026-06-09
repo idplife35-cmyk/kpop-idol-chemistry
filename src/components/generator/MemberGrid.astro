@@ -6,15 +6,32 @@ interface Member {
   gender: 'male' | 'female';
   position?: string[];
   image?: string;
+  emoji?: string;
 }
 
 interface Props {
   members: Member[];
   groupName: string;
   groupSlug: string;
+  groupColor?: string;
 }
 
-const { members, groupName, groupSlug } = Astro.props;
+// Image policy (per meetings/2026-06-09-image-strategy.md):
+// real-person photos and AI lookalikes are forbidden — abstract avatars
+// are the fallback that ships everywhere.
+const { members, groupName, groupSlug, groupColor } = Astro.props;
+
+function lighten(hex: string, amount = 0.25): string {
+  const c = hex.replace('#', '');
+  if (c.length !== 6) return hex;
+  const r = Math.min(255, parseInt(c.slice(0, 2), 16) + Math.round(255 * amount));
+  const g = Math.min(255, parseInt(c.slice(2, 4), 16) + Math.round(255 * amount));
+  const b = Math.min(255, parseInt(c.slice(4, 6), 16) + Math.round(255 * amount));
+  return `#${[r, g, b].map((x) => x.toString(16).padStart(2, '0')).join('')}`;
+}
+
+const gradientFrom = groupColor || 'var(--accent)';
+const gradientTo = groupColor ? lighten(groupColor, 0.25) : 'var(--accent-2)';
 ---
 
 <div class="member-grid">
@@ -22,13 +39,18 @@ const { members, groupName, groupSlug } = Astro.props;
   <p class="grid-subtitle">Click a member to test your chemistry!</p>
   <div class="members">
     {members.map((member) => (
-      <a 
+      <a
         href={`/${groupSlug}-name-generator/${member.id}/`}
         class="member-card"
       >
-        <div class="member-avatar">
+        <div
+          class="member-avatar"
+          style={`background: linear-gradient(135deg, ${gradientFrom}, ${gradientTo});`}
+        >
           {member.image ? (
-            <img src={member.image} alt={member.nameEn} />
+            <img src={member.image} alt={member.nameEn} loading="lazy" />
+          ) : member.emoji ? (
+            <span class="avatar-emoji" aria-hidden="true">{member.emoji}</span>
           ) : (
             <span class="avatar-initial">{member.nameEn[0]}</span>
           )}
@@ -108,12 +130,18 @@ const { members, groupName, groupSlug } = Astro.props;
     width: 56px;
     height: 56px;
     border-radius: 50%;
-    background: linear-gradient(135deg, var(--accent), var(--accent-2));
     display: flex;
     align-items: center;
     justify-content: center;
     overflow: hidden;
     transition: transform 0.2s ease;
+    box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.35);
+  }
+
+  .avatar-emoji {
+    font-size: 1.65rem;
+    line-height: 1;
+    filter: drop-shadow(0 1px 1px rgba(0, 0, 0, 0.25));
   }
 
   .member-card:hover .member-avatar {

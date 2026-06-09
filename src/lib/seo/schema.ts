@@ -41,6 +41,9 @@ export function generateWebAppSchema(options: {
   url: string;
   groupName?: string;
 }) {
+  // No aggregateRating — fake/un-verifiable ratings violate Google's
+  // structured-data policy and were causing 100+ pages to be excluded from
+  // the index (see meetings/2026-06-09-image-strategy.md follow-up).
   return {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -54,13 +57,6 @@ export function generateWebAppSchema(options: {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'USD'
-    },
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '4.8',
-      ratingCount: '12500',
-      bestRating: '5',
-      worstRating: '1'
     },
     ...(options.groupName && {
       about: {
