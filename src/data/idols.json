@@ -161,5 +161,18 @@
   { "group": "ZEROBASEONE", "name_kr": "리키", "name_en": "Ricky", "gender": "male" },
   { "group": "ZEROBASEONE", "name_kr": "김규빈", "name_en": "Kim Gyuvin", "gender": "male" },
   { "group": "ZEROBASEONE", "name_kr": "박건욱", "name_en": "Park Gunwook", "gender": "male" },
-  { "group": "ZEROBASEONE", "name_kr": "한유진", "name_en": "Han Yujin", "gender": "male" }
+  { "group": "ZEROBASEONE", "name_kr": "한유진", "name_en": "Han Yujin", "gender": "male" },
+
+  { "group": "KATSEYE", "name_kr": "소피아", "name_en": "Sophia", "gender": "female" },
+  { "group": "KATSEYE", "name_kr": "라라", "name_en": "Lara", "gender": "female" },
+  { "group": "KATSEYE", "name_kr": "마논", "name_en": "Manon", "gender": "female" },
+  { "group": "KATSEYE", "name_kr": "메간", "name_en": "Megan", "gender": "female" },
+  { "group": "KATSEYE", "name_kr": "다니엘라", "name_en": "Daniela", "gender": "female" },
+  { "group": "KATSEYE", "name_kr": "윤채", "name_en": "Yoonchae", "gender": "female" },
+
+  { "group": "ILLIT", "name_kr": "윤아", "name_en": "Yunah", "gender": "female" },
+  { "group": "ILLIT", "name_kr": "민주", "name_en": "Minju", "gender": "female" },
+  { "group": "ILLIT", "name_kr": "모카", "name_en": "Moka", "gender": "female" },
+  { "group": "ILLIT", "name_kr": "원희", "name_en": "Wonhee", "gender": "female" },
+  { "group": "ILLIT", "name_kr": "이로하", "name_en": "Iroha", "gender": "female" }
 ]

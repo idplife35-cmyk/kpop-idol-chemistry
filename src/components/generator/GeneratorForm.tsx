@@ -61,11 +61,11 @@ interface Props {
 }
 
 // Popular groups to show first.
-// Order = 1차 부족 결정 (meetings/2026-06-09-kickoff.md): 4·5세대 메가 팬덤 70% 우선,
-// 그 뒤로 1세대 30%. tribe/worldview-v1.md 가중치와 정합.
+// 매주 trend_pull 신호로 재정렬 (tribe/signal-{date}.md).
+// 2026-06-09 신호: LE SSERAFIM 18점 (콜라보 시즌), KATSEYE/ILLIT 신규 + 콜라보 동승.
 const POPULAR_GROUPS = [
-  'NewJeans', 'IVE', 'aespa', 'RIIZE', 'ZEROBASEONE', 'LE SSERAFIM',
-  'BTS', 'BLACKPINK', 'Stray Kids', 'SEVENTEEN',
+  'LE SSERAFIM', 'KATSEYE', 'ILLIT', 'NewJeans', 'IVE', 'aespa',
+  'RIIZE', 'ZEROBASEONE', 'BTS', 'BLACKPINK',
 ];
 const INITIAL_VISIBLE_GROUPS = 8;
 

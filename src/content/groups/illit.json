@@ -1,0 +1,114 @@
+{
+  "id": "illit",
+  "name": "ILLIT",
+  "nameKr": "아일릿",
+  "slug": "illit",
+  "fandom": "GLLIT",
+  "company": "Belift Lab (HYBE)",
+  "debutYear": 2024,
+  "color": "#FFD8E4",
+  "logo": "/images/illit_logo.png",
+  "description": "ILLIT is the five-member Korean-Japanese girl group under Belift Lab (HYBE), known for their soft pastel aesthetic, viral dance challenges, and a fresh take on Y2K K-Pop.",
+  "members": [
+    {
+      "id": "yunah",
+      "nameKr": "윤아",
+      "nameEn": "Yunah",
+      "realName": "Yunah",
+      "gender": "female",
+      "position": ["Leader", "Vocalist"],
+      "emoji": "🌷",
+      "nicknames": ["Yunah-ya", "Leader Unnie", "Eldest"],
+      "funFacts": [
+        "Korean — group's leader",
+        "Known for soft, steady stage presence",
+        "Trained at HYBE before ILLIT",
+        "Anchors the group's harmony"
+      ],
+      "bio": "Yunah is ILLIT's Korean leader. Her steady presence and warm vocals anchor the group's signature soft sound."
+    },
+    {
+      "id": "minju",
+      "nameKr": "민주",
+      "nameEn": "Minju",
+      "realName": "Minju",
+      "gender": "female",
+      "position": ["Visual", "Vocalist"],
+      "emoji": "🌷",
+      "nicknames": ["Minju-ya", "Visual Princess", "Pastel Aesthetic"],
+      "funFacts": [
+        "Korean — known for her doll-like visuals",
+        "Soft, refined image",
+        "Often viral on Korean SNS for her looks",
+        "Loves cute aesthetics and fashion"
+      ],
+      "bio": "Minju is ILLIT's Korean visual whose doll-like aesthetic defines the group's soft Y2K image and consistently trends on Korean SNS."
+    },
+    {
+      "id": "moka",
+      "nameKr": "모카",
+      "nameEn": "Moka",
+      "realName": "Moka (もか)",
+      "gender": "female",
+      "position": ["Vocalist"],
+      "emoji": "🍬",
+      "nicknames": ["Moka-chan", "Sweet Voice", "Japanese Charm"],
+      "funFacts": [
+        "Japanese member",
+        "Bilingual Japanese-Korean",
+        "Strong Japanese fandom from debut",
+        "Cheerful, energetic personality"
+      ],
+      "bio": "Moka is ILLIT's Japanese member whose cheerful energy and bilingual charm have built a strong base in the Japanese K-Pop market."
+    },
+    {
+      "id": "wonhee",
+      "nameKr": "원희",
+      "nameEn": "Wonhee",
+      "realName": "Wonhee",
+      "gender": "female",
+      "position": ["Main Dancer", "Vocalist"],
+      "emoji": "🦢",
+      "nicknames": ["Wonhee-ya", "Tall Visual", "Model Material"],
+      "funFacts": [
+        "Korean — among the tallest in ILLIT",
+        "Model-like proportions",
+        "Strong dance background",
+        "Praised for her elegant stage presence"
+      ],
+      "bio": "Wonhee is ILLIT's Korean dance lead with model-like proportions. Her elegant stage presence balances the group's softer aesthetic."
+    },
+    {
+      "id": "iroha",
+      "nameKr": "이로하",
+      "nameEn": "Iroha",
+      "realName": "Iroha (いろは)",
+      "gender": "female",
+      "position": ["Maknae", "Vocalist"],
+      "emoji": "🌸",
+      "nicknames": ["Iroha-chan", "Maknae", "Bunny Energy"],
+      "funFacts": [
+        "Japanese maknae",
+        "Cute, bunny-like energy",
+        "Bilingual Japanese-Korean",
+        "Known for her aegyo and stage cuteness"
+      ],
+      "bio": "Iroha is ILLIT's Japanese maknae whose bunny-like cute energy embodies the group's soft Y2K identity for the Japanese fandom."
+    }
+  ],
+  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "badge": "HOT",
+  "seo": {
+    "title": "ILLIT Name Generator | Get Your Korean Name with GLLIT",
+    "description": "Create your ILLIT Korean name with Yunah, Minju, Moka, Wonhee & Iroha! Instant chemistry scores for Belift Lab's hottest 4th-gen girl group. Perfect for GLLIT fanfiction.",
+    "keywords": [
+      "illit name generator",
+      "illit korean name",
+      "gllit name generator",
+      "illit chemistry",
+      "illit minju name",
+      "illit iroha chemistry",
+      "y2k kpop name generator"
+    ]
+  }
+}

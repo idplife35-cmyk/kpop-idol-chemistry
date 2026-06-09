@@ -43,6 +43,8 @@ const GROUP_HASHTAGS: Record<string, string[]> = {
   'RIIZE': ['#RIIZE', '#라이즈', '#BRIIZE'],
   'PLAVE': ['#PLAVE', '#플레이브'],
   'ZEROBASEONE': ['#ZEROBASEONE', '#ZB1', '#제로베이스원', '#ZEROSE'],
+  'KATSEYE': ['#KATSEYE', '#캣츠아이', '#EYEKONS', '#KATSEYE_DEBUT'],
+  'ILLIT': ['#ILLIT', '#아일릿', '#GLLIT', '#ILLIT_Comeback'],
 };
 
 // Emoji sets based on chemistry tier
