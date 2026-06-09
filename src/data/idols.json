@@ -151,5 +151,15 @@
   { "group": "Saja Boys", "name_kr": "애비", "name_en": "Abby", "gender": "male" },
   { "group": "Saja Boys", "name_kr": "미스테리", "name_en": "Mystery", "gender": "male" },
   { "group": "Saja Boys", "name_kr": "로맨스", "name_en": "Romance", "gender": "male" },
-  { "group": "Saja Boys", "name_kr": "베이비", "name_en": "Baby", "gender": "male" }
+  { "group": "Saja Boys", "name_kr": "베이비", "name_en": "Baby", "gender": "male" },
+
+  { "group": "ZEROBASEONE", "name_kr": "성한빈", "name_en": "Sung Hanbin", "gender": "male" },
+  { "group": "ZEROBASEONE", "name_kr": "김지웅", "name_en": "Kim Jiwoong", "gender": "male" },
+  { "group": "ZEROBASEONE", "name_kr": "장하오", "name_en": "Zhang Hao", "gender": "male" },
+  { "group": "ZEROBASEONE", "name_kr": "석매튜", "name_en": "Seok Matthew", "gender": "male" },
+  { "group": "ZEROBASEONE", "name_kr": "김태래", "name_en": "Kim Taerae", "gender": "male" },
+  { "group": "ZEROBASEONE", "name_kr": "리키", "name_en": "Ricky", "gender": "male" },
+  { "group": "ZEROBASEONE", "name_kr": "김규빈", "name_en": "Kim Gyuvin", "gender": "male" },
+  { "group": "ZEROBASEONE", "name_kr": "박건욱", "name_en": "Park Gunwook", "gender": "male" },
+  { "group": "ZEROBASEONE", "name_kr": "한유진", "name_en": "Han Yujin", "gender": "male" }
 ]

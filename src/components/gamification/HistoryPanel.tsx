@@ -16,6 +16,7 @@ import {
   type HistoryItem
 } from '../../lib/gamification';
 import { getChemistryTier } from '../../lib/generator';
+import { trackFavoriteAdded } from '../../lib/analytics';
 import groupColors from '../../data/groupColors.json';
 import styles from './HistoryPanel.module.css';
 
@@ -86,6 +87,11 @@ export default function HistoryPanel({ isOpen, onClose }: HistoryPanelProps) {
       removeFromFavorites(item.id);
     } else {
       addToFavorites(item);
+      trackFavoriteAdded({
+        group: item.idol.group,
+        idolName: item.idol.nameEn,
+        chemistry: item.result.chemistry,
+      });
     }
     refreshData();
   };

@@ -1,0 +1,121 @@
+name: Daily PDCA Brief
+
+on:
+  schedule:
+    # 00:00 UTC = 09:00 KST (Korea has no DST, so this is stable)
+    - cron: "0 0 * * *"
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "Why you are running this manually"
+        required: false
+        default: "ad-hoc"
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: daily-brief
+  cancel-in-progress: false
+
+jobs:
+  brief:
+    name: Pull GA4 and write briefing
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: npm
+          cache-dependency-path: analytics/package-lock.json
+
+      - name: Bail if secrets missing
+        env:
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+          GA_SERVICE_ACCOUNT_JSON: ${{ secrets.GA_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [[ -z "$GA4_PROPERTY_ID" || -z "$GA_SERVICE_ACCOUNT_JSON" ]]; then
+            echo "::warning::GA4_PROPERTY_ID or GA_SERVICE_ACCOUNT_JSON secret not set. Skipping run."
+            echo "skip=true" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+        id: gate
+
+      - name: Install analytics deps
+        if: steps.gate.outputs.skip != 'true'
+        working-directory: analytics
+        run: |
+          if [[ -f package-lock.json ]]; then
+            npm ci
+          else
+            npm install --no-audit --no-fund
+          fi
+
+      - name: Materialize service account
+        if: steps.gate.outputs.skip != 'true'
+        working-directory: analytics
+        env:
+          GA_SERVICE_ACCOUNT_JSON: ${{ secrets.GA_SERVICE_ACCOUNT_JSON }}
+        run: |
+          printf '%s' "$GA_SERVICE_ACCOUNT_JSON" > service-account.json
+          # sanity check it parses
+          node -e "JSON.parse(require('fs').readFileSync('service-account.json','utf8'))"
+
+      - name: Pull GA4 snapshot
+        if: steps.gate.outputs.skip != 'true'
+        working-directory: analytics
+        env:
+          GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
+        run: node ga_client.mjs
+
+      - name: Generate brief
+        if: steps.gate.outputs.skip != 'true'
+        id: brief
+        working-directory: analytics
+        run: |
+          set +e
+          node daily_brief.mjs
+          status=$?
+          today=$(date -u +%Y-%m-%d)
+          echo "today=$today" >> "$GITHUB_OUTPUT"
+          if [[ $status -eq 2 ]]; then
+            echo "triggers=true" >> "$GITHUB_OUTPUT"
+          elif [[ $status -ne 0 ]]; then
+            echo "::error::daily_brief failed with exit $status"
+            exit $status
+          fi
+
+      - name: Commit brief + snapshot
+        if: steps.gate.outputs.skip != 'true'
+        run: |
+          rm -f analytics/service-account.json
+          git config user.name "kpop-pdca-bot"
+          git config user.email "actions@users.noreply.github.com"
+          git add meetings/briefings/ analytics/daily/ || true
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+          else
+            git commit -m "chore(pdca): daily brief ${{ steps.brief.outputs.today }}"
+            git push
+          fi
+
+      - name: Open issue when self-correction triggers fired
+        if: steps.gate.outputs.skip != 'true' && steps.brief.outputs.triggers == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          today=${{ steps.brief.outputs.today }}
+          body_file=meetings/briefings/${today}.md
+          if [[ -f "$body_file" ]]; then
+            gh issue create \
+              --title "PDCA self-correction trigger fired (${today})" \
+              --label "pdca,seth-godin-review" \
+              --body-file "$body_file" || true
+          fi

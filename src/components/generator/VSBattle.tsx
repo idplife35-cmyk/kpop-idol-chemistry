@@ -7,6 +7,7 @@ import { useState, useEffect } from 'react';
 import type { VSResult } from '@/lib/vs-challenge';
 import { generateVSShareText } from '@/lib/vs-challenge';
 import { showNotification } from '@/components/gamification/Notification';
+import { trackVsBattleResolved, trackResultShared } from '@/lib/analytics';
 
 interface Props {
   result: VSResult;
@@ -22,7 +23,15 @@ export default function VSBattle({ result, onClose, onRematch }: Props) {
     // Animate scores
     const timer1 = setTimeout(() => setShowWinner(true), 1500);
     const timer2 = setTimeout(() => setAnimationDone(true), 2500);
-    
+
+    trackVsBattleResolved({
+      group: result.idol.group,
+      idolName: result.idol.nameEn,
+      challengerScore: result.challenger.score,
+      friendScore: result.friend.score,
+      winner: result.winner,
+    });
+
     return () => {
       clearTimeout(timer1);
       clearTimeout(timer2);
@@ -33,11 +42,21 @@ export default function VSBattle({ result, onClose, onRematch }: Props) {
     const text = generateVSShareText(result);
     navigator.clipboard.writeText(text);
     showNotification('Copied! Share on SNS 📋', 'success', '📋');
+    trackResultShared({
+      channel: 'link_copy',
+      group: result.idol.group,
+      idolName: result.idol.nameEn,
+    });
   };
 
   const handleShareX = () => {
     const text = generateVSShareText(result);
     window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank');
+    trackResultShared({
+      channel: 'twitter',
+      group: result.idol.group,
+      idolName: result.idol.nameEn,
+    });
   };
 
   const getWinnerEmoji = () => {

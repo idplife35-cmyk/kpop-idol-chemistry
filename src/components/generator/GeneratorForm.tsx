@@ -37,6 +37,11 @@ import {
   generateKakaoShareText,
   getShareUrl
 } from '@/lib/share-text';
+import {
+  trackNameGenerated,
+  trackVsChallengeCreated,
+  trackResultShared,
+} from '@/lib/analytics';
 
 interface Idol {
   group: string;
@@ -55,8 +60,13 @@ interface Props {
   showAllGroups?: boolean;
 }
 
-// Popular groups to show first
-const POPULAR_GROUPS = ['BTS', 'BLACKPINK', 'Stray Kids', 'TWICE', 'LE SSERAFIM', 'NewJeans', 'EXO', 'SEVENTEEN', 'TXT', 'ENHYPEN'];
+// Popular groups to show first.
+// Order = 1차 부족 결정 (meetings/2026-06-09-kickoff.md): 4·5세대 메가 팬덤 70% 우선,
+// 그 뒤로 1세대 30%. tribe/worldview-v1.md 가중치와 정합.
+const POPULAR_GROUPS = [
+  'NewJeans', 'IVE', 'aespa', 'RIIZE', 'ZEROBASEONE', 'LE SSERAFIM',
+  'BTS', 'BLACKPINK', 'Stray Kids', 'SEVENTEEN',
+];
 const INITIAL_VISIBLE_GROUPS = 8;
 
 // Recent idols storage key
@@ -257,6 +267,15 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
       setResult(result);
       setIsGenerating(false);
 
+      trackNameGenerated({
+        group: selectedIdol.group,
+        idolName: selectedIdol.name_en,
+        chemistry: result.chemistry,
+        tier: getChemistryTier(result.chemistry).name,
+        relation,
+        isReroll: false,
+      });
+
       // Gamification integration
       try {
         recordGeneration(
@@ -371,6 +390,16 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
       showNotification('⚔️ Challenge link copied!', 'success', '⚡');
     } finally {
       setIsCreatingChallenge(false);
+      trackVsChallengeCreated({
+        group: challengeData.idolGroup,
+        idolName: challengeData.idolNameEn,
+        challengerScore: challengeData.challengerScore,
+      });
+      trackResultShared({
+        channel: 'link_copy',
+        group: challengeData.idolGroup,
+        idolName: challengeData.idolNameEn,
+      });
     }
   };
 
@@ -398,7 +427,16 @@ export default function GeneratorForm({ initialGroup, showAllGroups = true }: Pr
       
       setResult(result);
       setIsGenerating(false);
-      
+
+      trackNameGenerated({
+        group: selectedIdol.group,
+        idolName: selectedIdol.name_en,
+        chemistry: result.chemistry,
+        tier: getChemistryTier(result.chemistry).name,
+        relation,
+        isReroll: true,
+      });
+
       // Save re-roll result to history
       addToHistory({
         myName: myName.trim(),

@@ -1,0 +1,18 @@
+{
+  "name": "kpop-name-generator-analytics",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Analytics & daily PDCA tooling for kpopnamegenerator.com — separate from the site build.",
+  "scripts": {
+    "ga:pull": "node ga_client.mjs",
+    "brief:daily": "node daily_brief.mjs",
+    "ga:scrape": "node ga_scraper.mjs"
+  },
+  "dependencies": {
+    "@google-analytics/data": "^4.12.1"
+  },
+  "optionalDependencies": {
+    "playwright": "^1.49.0"
+  }
+}

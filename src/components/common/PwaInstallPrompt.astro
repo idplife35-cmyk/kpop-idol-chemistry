@@ -1,0 +1,214 @@
+---
+/**
+ * PWA install prompt (Week 1 P0 — return-visit trigger).
+ * Captures Chrome/Edge/Android beforeinstallprompt and shows a bottom banner
+ * after the user generates at least one result. iOS Safari fallback shows
+ * a one-time "Add to Home Screen" tip.
+ *
+ * Fires GA event pwa_installed when the user accepts the prompt.
+ */
+---
+
+<div id="pwa-install-banner" role="region" aria-label="Install app" hidden>
+  <span class="pwa-text">
+    <strong>Save your K-Pop name</strong>
+    <small>Install the app to come back instantly.</small>
+  </span>
+  <div class="pwa-actions">
+    <button id="pwa-install-btn" type="button">Install</button>
+    <button id="pwa-dismiss-btn" type="button" aria-label="Dismiss">✕</button>
+  </div>
+</div>
+
+<script>
+  // Hide for users who dismissed in the last 7 days, or who already installed.
+  const DISMISS_KEY = 'kpop-pwa-dismissed-at';
+  const SEVEN_DAYS_MS = 7 * 24 * 60 * 60 * 1000;
+  const RESULT_EVENT = 'kpop-result-generated';
+
+  type BeforeInstallPromptEvent = Event & {
+    prompt: () => Promise<void>;
+    userChoice: Promise<{ outcome: 'accepted' | 'dismissed'; platform: string }>;
+  };
+
+  function dismissedRecently() {
+    try {
+      const raw = localStorage.getItem(DISMISS_KEY);
+      if (!raw) return false;
+      return Date.now() - Number(raw) < SEVEN_DAYS_MS;
+    } catch {
+      return false;
+    }
+  }
+
+  function isStandalone() {
+    return (
+      window.matchMedia('(display-mode: standalone)').matches ||
+      // iOS Safari
+      (window.navigator as any).standalone === true
+    );
+  }
+
+  function isIos() {
+    const ua = window.navigator.userAgent;
+    return /iPhone|iPad|iPod/.test(ua) && !/CriOS|FxiOS/.test(ua);
+  }
+
+  function track(eventName: string, params: Record<string, unknown>) {
+    const w = window as any;
+    if (typeof w.gtag === 'function') {
+      try {
+        w.gtag('event', eventName, params);
+      } catch (err) {
+        console.error('GA event failed:', eventName, err);
+      }
+    }
+  }
+
+  const banner = document.getElementById('pwa-install-banner');
+  const installBtn = document.getElementById('pwa-install-btn') as HTMLButtonElement | null;
+  const dismissBtn = document.getElementById('pwa-dismiss-btn') as HTMLButtonElement | null;
+  if (!banner || !installBtn || !dismissBtn) {
+    // banner not in DOM, nothing to do
+  } else if (!isStandalone() && !dismissedRecently()) {
+    let deferred: BeforeInstallPromptEvent | null = null;
+    let hasResult = false;
+
+    function maybeShow() {
+      if (!hasResult) return;
+      if (deferred || isIos()) {
+        banner!.hidden = false;
+      }
+    }
+
+    window.addEventListener('beforeinstallprompt', (e) => {
+      e.preventDefault();
+      deferred = e as BeforeInstallPromptEvent;
+      maybeShow();
+    });
+
+    window.addEventListener(RESULT_EVENT, () => {
+      hasResult = true;
+      // Wait for the result UI to settle before promoting install
+      setTimeout(maybeShow, 4000);
+    });
+
+    installBtn.addEventListener('click', async () => {
+      if (deferred) {
+        try {
+          await deferred.prompt();
+          const choice = await deferred.userChoice;
+          if (choice.outcome === 'accepted') {
+            track('pwa_installed', { source: 'prompt' });
+          }
+        } catch (err) {
+          console.error('PWA prompt failed:', err);
+        } finally {
+          deferred = null;
+          banner!.hidden = true;
+        }
+      } else if (isIos()) {
+        // No prompt API on iOS — explain the manual flow
+        alert("Tap the Share icon, then 'Add to Home Screen' to install.");
+        banner!.hidden = true;
+      }
+    });
+
+    dismissBtn.addEventListener('click', () => {
+      try {
+        localStorage.setItem(DISMISS_KEY, String(Date.now()));
+      } catch {}
+      banner!.hidden = true;
+    });
+
+    window.addEventListener('appinstalled', () => {
+      track('pwa_installed', { source: 'browser' });
+      banner!.hidden = true;
+    });
+  }
+</script>
+
+<style>
+  #pwa-install-banner {
+    position: fixed;
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    z-index: 9000;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 14px;
+    background: linear-gradient(135deg, #ff8ad6 0%, #a855f7 100%);
+    color: white;
+    border-radius: 14px;
+    box-shadow: 0 10px 30px rgba(168, 85, 247, 0.25);
+    font-family: 'Rubik', system-ui, sans-serif;
+    animation: pwa-rise 0.25s ease-out;
+  }
+
+  @keyframes pwa-rise {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+  }
+
+  .pwa-text {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.2;
+  }
+
+  .pwa-text strong {
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .pwa-text small {
+    font-size: 12px;
+    opacity: 0.9;
+    margin-top: 2px;
+  }
+
+  .pwa-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  #pwa-install-btn {
+    background: white;
+    color: #a855f7;
+    border: none;
+    border-radius: 10px;
+    padding: 8px 14px;
+    font-weight: 700;
+    font-size: 13px;
+    cursor: pointer;
+  }
+
+  #pwa-install-btn:hover {
+    background: #f5e8ff;
+  }
+
+  #pwa-dismiss-btn {
+    background: transparent;
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 999px;
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    font-size: 14px;
+    line-height: 1;
+  }
+
+  @media (min-width: 720px) {
+    #pwa-install-banner {
+      left: auto;
+      right: 24px;
+      bottom: 24px;
+      max-width: 380px;
+    }
+  }
+</style>

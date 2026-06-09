@@ -5,6 +5,7 @@
 
 import { useState, useRef, useCallback, useEffect } from 'react';
 import type { GeneratorResult } from '@/lib/generator';
+import { trackResultShared } from '@/lib/analytics';
 
 interface ShareCardProps {
   result: GeneratorResult;
@@ -179,13 +180,20 @@ export default function ShareCard({
       link.download = `${userName}-${idolName}-chemistry.png`;
       link.href = canvas.toDataURL('image/png');
       link.click();
+
+      trackResultShared({
+        channel: 'download_image',
+        cardStyle: selectedStyle,
+        group: groupName,
+        idolName,
+      });
     } catch (error) {
       console.error('Error generating image:', error);
       alert('Failed to generate image. Please try again.');
     } finally {
       setIsGenerating(false);
     }
-  }, [userName, idolName]);
+  }, [userName, idolName, selectedStyle, groupName]);
 
   return (
     <div className="share-card-container">
@@ -611,9 +619,10 @@ export default function ShareCard({
         }
 
         .classic-url {
-          font-size: 10px;
-          opacity: 0.5;
+          font-size: 12px;
+          opacity: 0.85;
           letter-spacing: 1px;
+          font-weight: 600;
         }
 
         /* ========== Dark Style ========== */
@@ -777,9 +786,11 @@ export default function ShareCard({
         }
 
         .dark-url {
-          font-size: 10px;
-          color: #333;
+          font-size: 12px;
+          color: #a855f7;
+          opacity: 0.85;
           margin-top: 4px;
+          font-weight: 600;
         }
 
         /* ========== Y2K Style ========== */
@@ -946,8 +957,9 @@ export default function ShareCard({
         }
 
         .y2k-url {
-          font-size: 10px;
-          color: rgba(255,255,255,0.3);
+          font-size: 12px;
+          color: rgba(255,255,255,0.85);
+          font-weight: 600;
         }
 
         /* ========== Meme Style ========== */

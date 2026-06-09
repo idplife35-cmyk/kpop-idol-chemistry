@@ -1,0 +1,26 @@
+{
+  "name": "K-Pop Idol Chemistry — Korean Name Generator",
+  "short_name": "K-Pop Chemistry",
+  "description": "Generate your Korean K-Pop name and chemistry score with your favorite idols.",
+  "start_url": "/?utm_source=pwa&utm_medium=installed&utm_campaign=launch",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#fff5f9",
+  "theme_color": "#ff8ad6",
+  "lang": "en",
+  "categories": ["entertainment", "lifestyle", "social"],
+  "icons": [
+    {
+      "src": "/logo.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    }
+  ]
+}

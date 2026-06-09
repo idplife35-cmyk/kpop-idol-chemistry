@@ -1,0 +1,4 @@
+node_modules/
+daily/
+service-account.json
+*.local

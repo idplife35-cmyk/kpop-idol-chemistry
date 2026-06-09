@@ -42,6 +42,7 @@ const GROUP_HASHTAGS: Record<string, string[]> = {
   'ATEEZ': ['#ATEEZ', '#에이티즈', '#ATINY'],
   'RIIZE': ['#RIIZE', '#라이즈', '#BRIIZE'],
   'PLAVE': ['#PLAVE', '#플레이브'],
+  'ZEROBASEONE': ['#ZEROBASEONE', '#ZB1', '#제로베이스원', '#ZEROSE'],
 };
 
 // Emoji sets based on chemistry tier
