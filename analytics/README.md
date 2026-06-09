@@ -9,6 +9,7 @@
 |------|-----|
 | `ga_client.mjs` | GA4 Data API로 7일 스냅샷 JSON 추출 (권장) |
 | `ga_scraper.mjs` | Playwright로 GA 홈 스크래핑 (API 셋업 전 임시) |
+| `trend_pull.mjs` | Reddit RSS + Wikipedia 컴백 + (옵션) YouTube/Twitter → 그룹 신호 점수 |
 | `daily_brief.mjs` | 스냅샷 → 마크다운 브리핑 + 자기수정 트리거 |
 | `run_daily.sh` | 위 3개를 순서대로 실행하는 cron 진입점 |
 | `package.json` | 의존성 격리 |

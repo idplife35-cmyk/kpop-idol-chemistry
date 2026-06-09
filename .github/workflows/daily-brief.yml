@@ -75,6 +75,14 @@ jobs:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: node ga_client.mjs
 
+      - name: Pull trend signals (Reddit + Wikipedia + optional YouTube)
+        if: steps.gate.outputs.skip != 'true'
+        working-directory: analytics
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        run: node trend_pull.mjs --no-twitter
+        continue-on-error: true
+
       - name: Generate brief
         if: steps.gate.outputs.skip != 'true'
         id: brief
