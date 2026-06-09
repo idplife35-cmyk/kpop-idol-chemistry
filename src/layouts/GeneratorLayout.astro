@@ -52,19 +52,19 @@ const finalSchema = schema || defaultSchema;
   <div class="generator-page" style={groupColor ? `--group-color: ${groupColor}` : ''}>
     <div class="container">
       <!-- 상단 광고 슬롯 -->
-      <AdSlot type="responsive" />
-      
+      <AdSlot type="responsive" slot="kpop-group-top" />
+
       <!-- 메인 콘텐츠 -->
       <slot />
-      
+
       <!-- 중간 광고 슬롯 -->
-      <AdSlot type="in-article" />
-      
+      <AdSlot type="in-article" slot="kpop-group-mid" />
+
       <!-- 추가 콘텐츠 (FAQ 등) -->
       <slot name="after-content" />
-      
+
       <!-- 하단 광고 슬롯 -->
-      <AdSlot type="responsive" />
+      <AdSlot type="responsive" slot="kpop-group-bottom" />
     </div>
   </div>
 </BaseLayout>

@@ -1,0 +1,9 @@
+{
+  "id": "enhypen-hero",
+  "out": "public/images/groups/enhypen-hero.png",
+  "size": "1792x1024",
+  "priority": "11",
+  "style": "Symbolic concept poster, no real-person likeness",
+  "prompt": "A concept illustration hero banner for the K-Pop group \"ENHYPEN\".\nSTRICT RULES (do not violate):\n- Absolutely NO depictions of real people, no faces resembling any real K-Pop idol.\n- No identifiable celebrity likeness. No text overlays.\n- Symbolic / abstract / world-building only — think album-cover artwork, not portraits.\nScene direction:\n- Group identity cues: 7 members. Fandom: ENGENE. Label: BELIFT LAB / HYBE.\n- Aesthetic & mood: Gothic ENGENE vampires, midnight crimson, candlelight\n- Primary brand color: #FF6B35 — make this dominant or recurring.\n- Story hook from canon: ENHYPEN is a 4th generation boy group formed through I-LAND, known for their vampire concepts, powerful choreography, and global popularity.\n- Composition: 1.91:1 widescreen, soft negative space on one side for future text overlay.\n- Render with a fan-zine / poster / dreamy illustration feel — slightly imperfect, hand-illustrated, not photo-realistic.\n- Include symbolic props or motifs (instruments, sparkles, fandom totems, scenery) rather than human figures.\nOutput: one image only.",
+  "notes": "Seeded 2026-06-09 from src/content/groups/enhypen.json. Image policy: meetings/2026-06-09-image-strategy.md."
+}

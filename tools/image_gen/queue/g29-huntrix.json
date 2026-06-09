@@ -1,0 +1,9 @@
+{
+  "id": "huntrix-hero",
+  "out": "public/images/groups/huntrix-hero.png",
+  "size": "1792x1024",
+  "priority": "29",
+  "style": "Symbolic concept poster, no real-person likeness",
+  "prompt": "A concept illustration hero banner for the K-Pop group \"HUNTR/X\".\nSTRICT RULES (do not violate):\n- Absolutely NO depictions of real people, no faces resembling any real K-Pop idol.\n- No identifiable celebrity likeness. No text overlays.\n- Symbolic / abstract / world-building only — think album-cover artwork, not portraits.\nScene direction:\n- Group identity cues: 3 members. Fandom: Hunters. Label: Netflix/Fictional.\n- Aesthetic & mood: Mythic predator silhouette, dark teal, hunter compass\n- Primary brand color: #00FFAA — make this dominant or recurring.\n- Story hook from canon: HUNTR/X is inspired by Netflix's K-Pop Demon Hunters anime, featuring fierce characters who fight supernatural threats with K-Pop power.\n- Composition: 1.91:1 widescreen, soft negative space on one side for future text overlay.\n- Render with a fan-zine / poster / dreamy illustration feel — slightly imperfect, hand-illustrated, not photo-realistic.\n- Include symbolic props or motifs (instruments, sparkles, fandom totems, scenery) rather than human figures.\nOutput: one image only.",
+  "notes": "Seeded 2026-06-09 from src/content/groups/huntrix.json. Image policy: meetings/2026-06-09-image-strategy.md."
+}

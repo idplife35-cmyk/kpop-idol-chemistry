@@ -1,0 +1,9 @@
+{
+  "id": "exo-hero",
+  "out": "public/images/groups/exo-hero.png",
+  "size": "1792x1024",
+  "priority": "27",
+  "style": "Symbolic concept poster, no real-person likeness",
+  "prompt": "A concept illustration hero banner for the K-Pop group \"EXO\".\nSTRICT RULES (do not violate):\n- Absolutely NO depictions of real people, no faces resembling any real K-Pop idol.\n- No identifiable celebrity likeness. No text overlays.\n- Symbolic / abstract / world-building only — think album-cover artwork, not portraits.\nScene direction:\n- Group identity cues: 9 members. Fandom: EXO-L. Label: SM Entertainment.\n- Aesthetic & mood: EXO-L silver moonlight, ancient symbols, regal aura\n- Primary brand color: #C0C0C0 — make this dominant or recurring.\n- Story hook from canon: EXO is a legendary K-Pop boy group known for their powerful vocals, synchronized performances, and groundbreaking concepts. They're one of the best-selling Korean artists of all time.\n- Composition: 1.91:1 widescreen, soft negative space on one side for future text overlay.\n- Render with a fan-zine / poster / dreamy illustration feel — slightly imperfect, hand-illustrated, not photo-realistic.\n- Include symbolic props or motifs (instruments, sparkles, fandom totems, scenery) rather than human figures.\nOutput: one image only.",
+  "notes": "Seeded 2026-06-09 from src/content/groups/exo.json. Image policy: meetings/2026-06-09-image-strategy.md."
+}

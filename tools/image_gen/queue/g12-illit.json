@@ -1,0 +1,9 @@
+{
+  "id": "illit-hero",
+  "out": "public/images/groups/illit-hero.png",
+  "size": "1792x1024",
+  "priority": "12",
+  "style": "Symbolic concept poster, no real-person likeness",
+  "prompt": "A concept illustration hero banner for the K-Pop group \"ILLIT\".\nSTRICT RULES (do not violate):\n- Absolutely NO depictions of real people, no faces resembling any real K-Pop idol.\n- No identifiable celebrity likeness. No text overlays.\n- Symbolic / abstract / world-building only — think album-cover artwork, not portraits.\nScene direction:\n- Group identity cues: 5 members. Fandom: GLLIT. Label: Belift Lab (HYBE).\n- Aesthetic & mood: Pastel Y2K soft-grunge, doll-house warmth, ribbons and stickers\n- Primary brand color: #FFD8E4 — make this dominant or recurring.\n- Story hook from canon: ILLIT is the five-member Korean-Japanese girl group under Belift Lab (HYBE), known for their soft pastel aesthetic, viral dance challenges, and a fresh take on Y2K K-Pop.\n- Composition: 1.91:1 widescreen, soft negative space on one side for future text overlay.\n- Render with a fan-zine / poster / dreamy illustration feel — slightly imperfect, hand-illustrated, not photo-realistic.\n- Include symbolic props or motifs (instruments, sparkles, fandom totems, scenery) rather than human figures.\nOutput: one image only.",
+  "notes": "Seeded 2026-06-09 from src/content/groups/illit.json. Image policy: meetings/2026-06-09-image-strategy.md."
+}

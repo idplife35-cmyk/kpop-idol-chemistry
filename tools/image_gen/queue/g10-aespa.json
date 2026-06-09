@@ -1,0 +1,9 @@
+{
+  "id": "aespa-hero",
+  "out": "public/images/groups/aespa-hero.png",
+  "size": "1792x1024",
+  "priority": "10",
+  "style": "Symbolic concept poster, no real-person likeness",
+  "prompt": "A concept illustration hero banner for the K-Pop group \"aespa\".\nSTRICT RULES (do not violate):\n- Absolutely NO depictions of real people, no faces resembling any real K-Pop idol.\n- No identifiable celebrity likeness. No text overlays.\n- Symbolic / abstract / world-building only — think album-cover artwork, not portraits.\nScene direction:\n- Group identity cues: 4 members. Fandom: MY. Label: SM Entertainment.\n- Aesthetic & mood: Synk cyber-fantasy, butterflies, dimensional portals, neo-future\n- Primary brand color: #8B00FF — make this dominant or recurring.\n- Story hook from canon: aespa is a unique K-Pop group featuring both real members and virtual AI avatars, known for their futuristic concept and powerful performances.\n- Composition: 1.91:1 widescreen, soft negative space on one side for future text overlay.\n- Render with a fan-zine / poster / dreamy illustration feel — slightly imperfect, hand-illustrated, not photo-realistic.\n- Include symbolic props or motifs (instruments, sparkles, fandom totems, scenery) rather than human figures.\nOutput: one image only.",
+  "notes": "Seeded 2026-06-09 from src/content/groups/aespa.json. Image policy: meetings/2026-06-09-image-strategy.md."
+}

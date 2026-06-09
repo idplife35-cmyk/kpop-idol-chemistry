@@ -1,0 +1,9 @@
+{
+  "id": "bts-hero",
+  "out": "public/images/groups/bts-hero.png",
+  "size": "1792x1024",
+  "priority": "22",
+  "style": "Symbolic concept poster, no real-person likeness",
+  "prompt": "A concept illustration hero banner for the K-Pop group \"BTS\".\nSTRICT RULES (do not violate):\n- Absolutely NO depictions of real people, no faces resembling any real K-Pop idol.\n- No identifiable celebrity likeness. No text overlays.\n- Symbolic / abstract / world-building only — think album-cover artwork, not portraits.\nScene direction:\n- Group identity cues: 7 members. Fandom: ARMY. Label: HYBE.\n- Aesthetic & mood: Purple cosmic dream, mature artistry, BTS Universe storytelling\n- Primary brand color: #7B2B8F — make this dominant or recurring.\n- Story hook from canon: BTS (방탄소년단) is a global K-Pop phenomenon known for their powerful performances, meaningful lyrics, and strong connection with fans worldwide.\n- Composition: 1.91:1 widescreen, soft negative space on one side for future text overlay.\n- Render with a fan-zine / poster / dreamy illustration feel — slightly imperfect, hand-illustrated, not photo-realistic.\n- Include symbolic props or motifs (instruments, sparkles, fandom totems, scenery) rather than human figures.\nOutput: one image only.",
+  "notes": "Seeded 2026-06-09 from src/content/groups/bts.json. Image policy: meetings/2026-06-09-image-strategy.md."
+}

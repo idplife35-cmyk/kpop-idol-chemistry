@@ -1,0 +1,9 @@
+{
+  "id": "itzy-hero",
+  "out": "public/images/groups/itzy-hero.png",
+  "size": "1792x1024",
+  "priority": "30",
+  "style": "Symbolic concept poster, no real-person likeness",
+  "prompt": "A concept illustration hero banner for the K-Pop group \"ITZY\".\nSTRICT RULES (do not violate):\n- Absolutely NO depictions of real people, no faces resembling any real K-Pop idol.\n- No identifiable celebrity likeness. No text overlays.\n- Symbolic / abstract / world-building only — think album-cover artwork, not portraits.\nScene direction:\n- Group identity cues: 5 members. Fandom: MIDZY. Label: JYP Entertainment.\n- Aesthetic & mood: Hot magenta confetti, exclamation marks, MIDZY hearts\n- Primary brand color: #FF3366 — make this dominant or recurring.\n- Story hook from canon: ITZY is a girl group known for their self-confidence anthems, powerful choreography, and 'teen crush' concept that inspires young fans worldwide.\n- Composition: 1.91:1 widescreen, soft negative space on one side for future text overlay.\n- Render with a fan-zine / poster / dreamy illustration feel — slightly imperfect, hand-illustrated, not photo-realistic.\n- Include symbolic props or motifs (instruments, sparkles, fandom totems, scenery) rather than human figures.\nOutput: one image only.",
+  "notes": "Seeded 2026-06-09 from src/content/groups/itzy.json. Image policy: meetings/2026-06-09-image-strategy.md."
+}

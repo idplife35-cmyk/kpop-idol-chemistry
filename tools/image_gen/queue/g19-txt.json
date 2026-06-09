@@ -1,0 +1,9 @@
+{
+  "id": "txt-hero",
+  "out": "public/images/groups/txt-hero.png",
+  "size": "1792x1024",
+  "priority": "19",
+  "style": "Symbolic concept poster, no real-person likeness",
+  "prompt": "A concept illustration hero banner for the K-Pop group \"TXT\".\nSTRICT RULES (do not violate):\n- Absolutely NO depictions of real people, no faces resembling any real K-Pop idol.\n- No identifiable celebrity likeness. No text overlays.\n- Symbolic / abstract / world-building only — think album-cover artwork, not portraits.\nScene direction:\n- Group identity cues: 5 members. Fandom: MOA. Label: HYBE.\n- Aesthetic & mood: MOA blue, dreamcatcher wings\n- Primary brand color: #0ABAB5 — make this dominant or recurring.\n- Story hook from canon: TXT (Tomorrow X Together) is HYBE's second boy group known for their creative concepts, youth-focused themes, and synchronized performances.\n- Composition: 1.91:1 widescreen, soft negative space on one side for future text overlay.\n- Render with a fan-zine / poster / dreamy illustration feel — slightly imperfect, hand-illustrated, not photo-realistic.\n- Include symbolic props or motifs (instruments, sparkles, fandom totems, scenery) rather than human figures.\nOutput: one image only.",
+  "notes": "Seeded 2026-06-09 from src/content/groups/txt.json. Image policy: meetings/2026-06-09-image-strategy.md."
+}
