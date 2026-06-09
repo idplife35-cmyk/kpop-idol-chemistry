@@ -1,0 +1,9 @@
+{
+  "id": "share-card-tiktok-template",
+  "out": "public/assets/share-card/tiktok-bg.png",
+  "size": "1080x1920",
+  "prompt": "A vertical 9:16 share card background for a K-Pop chemistry result, TikTok aesthetic. Deep magenta and electric purple gradient with glitch-art accents. Floating sparkle stickers in the corners, soft bokeh, faux scanline overlay. Center is intentionally empty for dynamic overlay text (name, score). Mood: Gen-Z viral, screenshot-bait, friend-tag energy. No text in image.",
+  "style": "Hyper-vivid TikTok poster aesthetic, Y2K-glitch, no text",
+  "priority": 2,
+  "notes": "Adds a 5th card style ('TikTok') to ShareCard.tsx — covers the missing channel where ZEROSE/Bunnies actually share."
+}

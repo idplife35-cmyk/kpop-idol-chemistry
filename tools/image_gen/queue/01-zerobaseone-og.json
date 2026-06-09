@@ -1,0 +1,9 @@
+{
+  "id": "zerobaseone-og",
+  "out": "public/og/groups/zerobaseone-hero.png",
+  "size": "1200x630",
+  "prompt": "A vibrant, modern K-Pop fan-art style hero banner for the boy group ZEROBASEONE (ZB1). Aesthetic: bright sapphire blue gradient background (#1F75FE) fading to soft cream, dynamic stage lighting with sparkles, central composition with floating diamond gems and a single neutral silhouette of a K-Pop group of nine performers (no facial detail). Text-free, clean negative space on the right third for overlay. Y2K-meets-modern poster vibe, glossy finish. Aspect ratio 1.91:1, optimized for social Open Graph share cards.",
+  "style": "Editorial K-Pop fan art, no real-person likeness, no text",
+  "priority": 1,
+  "notes": "Used by zerobaseone-name-generator page as og:image. Phase 1 4·5세대 메가 팬덤 push."
+}

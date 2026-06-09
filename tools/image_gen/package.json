@@ -1,0 +1,15 @@
+{
+  "name": "kpop-image-gen",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Playwright-driven ChatGPT image generation. Reads queue/*.json and saves images to dist locations.",
+  "scripts": {
+    "gen": "node image_gen.mjs",
+    "gen:queue": "node image_gen.mjs --queue queue",
+    "queue:list": "node -e \"import('node:fs/promises').then(fs => fs.readdir('queue').then(f => console.log(f.filter(x => x.endsWith('.json')).join('\\n'))))\""
+  },
+  "dependencies": {
+    "playwright": "^1.49.0"
+  }
+}

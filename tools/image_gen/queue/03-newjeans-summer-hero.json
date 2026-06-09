@@ -1,0 +1,9 @@
+{
+  "id": "newjeans-summer-hero",
+  "out": "public/og/blog/newjeans-summer-bunnies.png",
+  "size": "1200x630",
+  "prompt": "A bright, summery, Y2K-style hero banner evoking NewJeans Bunnies fandom. Pale blue sky gradient (#eff6ff → #60a5fa), retro polaroid frames floating, vintage 2000s sticker stack (rabbits, beach umbrellas, soda cans), denim texture corner accents. No real-person likeness. Leave the left third clear for a headline overlay. Wholesome, nostalgic, share-bait energy. No text in image.",
+  "style": "Y2K Bunnies aesthetic, pastel summer, no text",
+  "priority": 3,
+  "notes": "Blog post hero for 'Get up, Bunnies! Your summer 2026 K-name' content piece."
+}

@@ -1,0 +1,9 @@
+{
+  "id": "pwa-install-hero",
+  "out": "public/og/features/pwa-install.png",
+  "size": "1200x630",
+  "prompt": "A clean, friendly mobile-first illustration of a smartphone with the kpopnamegenerator.com web app installed as a PWA. The phone home screen shows a single glossy app icon with a pink-to-purple gradient and a 'K' monogram. Around the phone: a floating bookmark star, a heart emoji, and a small notification badge. Background: soft pink (#ff8ad6) → purple (#a855f7) gradient. Wholesome, low-friction onboarding vibe, no text.",
+  "style": "Friendly product illustration, soft gradients, flat icons, no text",
+  "priority": 5,
+  "notes": "Used in the PWA install banner microcopy area + 'Save your K-Pop name' marketing page."
+}

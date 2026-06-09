@@ -1,0 +1,9 @@
+{
+  "id": "vs-mode-promo",
+  "out": "public/og/features/vs-mode.png",
+  "size": "1200x630",
+  "prompt": "A split-screen versus-mode promotional banner. Left half deep purple with glowing '⚡ YOU' badge silhouette, right half hot pink with glowing '⚡ FRIEND' badge silhouette, a giant electric 'VS' centerpiece with lightning bolts. K-Pop arena spotlights, sparkle confetti, scoreboard frame. The whole thing reads as 'battle your friend over K-Pop chemistry'. No real-person likeness, no text other than the VS centerpiece if needed.",
+  "style": "Arena scoreboard meets K-Pop concert poster",
+  "priority": 4,
+  "notes": "Promo banner for VS Mode (key referral driver). Used as og:image on results page and as in-app teaser."
+}
