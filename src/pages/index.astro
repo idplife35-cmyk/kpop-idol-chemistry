@@ -4,6 +4,8 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import AdSlot from '@/components/common/AdSlot.astro';
 import GeneratorForm from '@/components/generator/GeneratorForm';
 import { generateHomePageSchema } from '@/lib/seo';
+import fs from 'node:fs/promises';
+import path from 'node:path';
 
 const title = "KPOP Idol Chemistry Name Generator | FREE Korean Name Maker";
 const description = "Create your perfect K-Pop name with BTS, BLACKPINK, aespa, NewJeans, PLAVE, RIIZE & more! Get instant chemistry scores with 65+ idols. Free Korean name generator for all K-Pop fans.";
@@ -36,6 +38,39 @@ const groups = groupsCollection
 const schema = generateHomePageSchema(
   groups.map(g => ({ name: g.name, slug: g.slug }))
 );
+
+// Trending groups — read latest trend_pull snapshot at build time.
+// Result shows up as a "Trending this week" tile row. Updated daily by the
+// GitHub Actions PDCA workflow (analytics/trends/YYYY-MM-DD.json).
+async function loadTrendingGroups(): Promise<{ name: string; slug: string; score: number }[]> {
+  try {
+    const trendsDir = path.resolve(process.cwd(), 'analytics/trends');
+    const files = (await fs.readdir(trendsDir).catch(() => []))
+      .filter((f) => /^\d{4}-\d{2}-\d{2}\.json$/.test(f))
+      .sort()
+      .reverse();
+    if (files.length === 0) return [];
+    const latest = JSON.parse(
+      await fs.readFile(path.join(trendsDir, files[0]), 'utf8')
+    );
+    const ranked = latest?.group_signal?.ranked ?? [];
+    const groupSlugByName: Record<string, string> = Object.fromEntries(
+      groups.map((g) => [g.name, g.slug])
+    );
+    return ranked
+      .map((r: { group: string; score: number }) => ({
+        name: r.group,
+        slug: groupSlugByName[r.group] ?? r.group.toLowerCase().replace(/\s+/g, '-'),
+        score: r.score,
+      }))
+      .filter((r: { slug: string }) => groups.some((g) => g.slug === r.slug))
+      .slice(0, 5);
+  } catch {
+    return [];
+  }
+}
+
+const trendingGroups = await loadTrendingGroups();
 ---
 
 <BaseLayout 
@@ -99,9 +134,31 @@ const schema = generateHomePageSchema(
         </div>
       </section>
       
+      {trendingGroups.length > 0 && (
+        <section class="trending-section" aria-label="Trending this week">
+          <h2 class="trending-title">🔥 Trending this week</h2>
+          <p class="trending-subtitle">
+            Auto-curated from K-Pop SNS signals — updated daily.
+          </p>
+          <div class="trending-tiles">
+            {trendingGroups.map((g, idx) => (
+              <a
+                href={`/${g.slug}-name-generator/`}
+                class="trending-tile"
+                data-rank={idx + 1}
+              >
+                <span class="trending-rank">{idx + 1}</span>
+                <span class="trending-name">{g.name}</span>
+                <span class="trending-score">signal {g.score}</span>
+              </a>
+            ))}
+          </div>
+        </section>
+      )}
+
       <!-- Ad Slot -->
       <AdSlot type="responsive" slot="kpop-home-mid" />
-      
+
       <!-- Main Generator Card -->
       <section class="generator-section">
         <div class="card">
@@ -352,6 +409,80 @@ const schema = generateHomePageSchema(
     transform: scale(1.05);
   }
   
+  /* Trending Section (auto-populated from analytics/trends/) */
+  .trending-section {
+    margin: 28px 0 12px;
+    padding: 18px 16px;
+    background: linear-gradient(135deg, rgba(255, 138, 214, 0.06), rgba(168, 85, 247, 0.06));
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+  }
+
+  .trending-title {
+    font-size: 1.05rem;
+    margin: 0 0 4px;
+    color: var(--text);
+  }
+
+  .trending-subtitle {
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin: 0 0 14px;
+  }
+
+  .trending-tiles {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 10px;
+  }
+
+  .trending-tile {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 12px 14px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+    transition: transform 0.15s ease, border-color 0.15s ease;
+    position: relative;
+  }
+
+  .trending-tile:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+  }
+
+  .trending-tile[data-rank="1"] {
+    border-color: var(--accent);
+    background: linear-gradient(135deg, rgba(255, 138, 214, 0.12), var(--surface));
+  }
+
+  .trending-rank {
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  .trending-tile[data-rank="1"] .trending-rank {
+    color: var(--accent);
+  }
+
+  .trending-name {
+    font-weight: 700;
+    font-size: 0.95rem;
+  }
+
+  .trending-score {
+    font-size: 0.7rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
   /* Generator Section */
   .generator-section .card {
     padding: 24px;

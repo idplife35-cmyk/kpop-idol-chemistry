@@ -1,6 +1,9 @@
 node_modules/
 daily/
-trends/
 .playwright-profile/
 service-account.json
 *.local
+
+# trends/ is tracked — index.astro reads the latest snapshot at build time
+# so the "Trending this week" homepage tile reflects current signal.
+# Daily GitHub Actions PDCA commits new snapshots here.
