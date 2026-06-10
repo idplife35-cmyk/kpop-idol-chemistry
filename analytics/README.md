@@ -16,36 +16,42 @@
 | `baseline-2026-06-09.md` | 미션 시작 시점 베이스라인 |
 | `adsense-baseline-2026-06-09.md` | 광고 인벤토리 + 100만원 모델 시뮬레이션 |
 
-## 1회성 셋업
+## 현재 운영 상태 (2026-06-10)
 
-### A. GA Data API 경로 (권장, 무료)
+- **trend_pull**: 매일 09:00 KST GitHub Actions 자동 가동 ✅
+- **GA Data API**: 조직 정책(`iam.disableServiceAccountKeyCreation`)으로 서비스 계정 키 발급 차단됨 → 폴백 경로 채택
+- **ga_scraper (Playwright)**: 로컬 실행 옵션. 데이터 필요 시 수동 또는 launchd 자동.
 
-```bash
-# 1) Google Cloud Console
-#    - 프로젝트 생성/선택
-#    - "Google Analytics Data API" 활성화
-#    - IAM → 서비스 계정 → "GA4 Reader" 생성 → 키 (JSON) 다운로드
-#    - 다운로드한 파일을 analytics/service-account.json 으로 저장
-
-# 2) GA4 Admin (property G-K3G6XK3SXW)
-#    - Property access management → 위 서비스 계정 이메일 추가, 역할: Viewer
-#    - Property Settings → "Property ID" 숫자값 복사 (G-XXXX 아님)
-
-# 3) 로컬 셋업
-cd ~/project/kpop-idol-chemistry/analytics
-cp .env.local.example .env.local   # 없으면 직접 작성
-echo 'GA4_PROPERTY_ID=숫자아이디' >> .env.local
-npm install
-node ga_client.mjs                 # daily/YYYY-MM-DD.json 생성 확인
-```
-
-### B. Playwright 폴백 경로 (즉시 가능)
+## A. GA 데이터가 필요할 때 — Playwright 폴백
 
 ```bash
 cd ~/project/kpop-idol-chemistry/analytics
 npm install playwright
 npx playwright install chromium
 node ga_scraper.mjs                # 첫 실행 시 Google 로그인 1회 — 세션 저장됨
+```
+
+이후 결과는 `analytics/daily/YYYY-MM-DD-scraped.json` + 스크린샷에 저장. 로컬 머신에서 매일 자동화하려면 macOS launchd LaunchAgent로 등록.
+
+## B. GA Data API 경로 (현재 차단, 우회 가능해지면)
+
+조직 정책이 해제되거나 별도 GCP 프로젝트(개인 계정)를 쓸 수 있게 되면:
+
+```bash
+# 1) Google Cloud Console
+#    - 프로젝트 선택 (개인 계정 권장)
+#    - "Google Analytics Data API" 활성화
+#    - IAM → 서비스 계정 생성 → 키 (JSON) 다운로드
+#    - analytics/service-account.json 으로 저장
+
+# 2) GA4 Admin (property G-K3G6XK3SXW, 숫자 ID 506354216)
+#    - Property access management → 서비스 계정 이메일에 Viewer 권한
+
+# 3) 환경변수
+cp .env.example .env.local
+# (GA4_PROPERTY_ID는 .env.example에 506354216 이미 기록되어 있음)
+npm install
+node ga_client.mjs
 ```
 
 ## 데일리 실행
