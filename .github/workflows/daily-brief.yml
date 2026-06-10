@@ -21,7 +21,7 @@ concurrency:
 
 jobs:
   brief:
-    name: Pull GA4 and write briefing
+    name: Pull signals + (optional) GA brief
     runs-on: ubuntu-latest
     timeout-minutes: 10
 
@@ -36,20 +36,24 @@ jobs:
           cache: npm
           cache-dependency-path: analytics/package-lock.json
 
-      - name: Bail if secrets missing
+      # Two-stage gate:
+      #   has_ga=true  → run GA snapshot + brief (requires both secrets)
+      #   has_ga=false → still run trend_pull (no auth needed) and commit
+      - name: Detect GA secrets
+        id: gate
         env:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
           GA_SERVICE_ACCOUNT_JSON: ${{ secrets.GA_SERVICE_ACCOUNT_JSON }}
         run: |
-          if [[ -z "$GA4_PROPERTY_ID" || -z "$GA_SERVICE_ACCOUNT_JSON" ]]; then
-            echo "::warning::GA4_PROPERTY_ID or GA_SERVICE_ACCOUNT_JSON secret not set. Skipping run."
-            echo "skip=true" >> "$GITHUB_OUTPUT"
-            exit 0
+          if [[ -n "$GA4_PROPERTY_ID" && -n "$GA_SERVICE_ACCOUNT_JSON" ]]; then
+            echo "has_ga=true" >> "$GITHUB_OUTPUT"
+            echo "GA secrets present — full PDCA run."
+          else
+            echo "has_ga=false" >> "$GITHUB_OUTPUT"
+            echo "::warning::GA secrets missing — trend_pull only. Set GA4_PROPERTY_ID + GA_SERVICE_ACCOUNT_JSON to unlock daily_brief."
           fi
-        id: gate
 
       - name: Install analytics deps
-        if: steps.gate.outputs.skip != 'true'
         working-directory: analytics
         run: |
           if [[ -f package-lock.json ]]; then
@@ -59,24 +63,22 @@ jobs:
           fi
 
       - name: Materialize service account
-        if: steps.gate.outputs.skip != 'true'
+        if: steps.gate.outputs.has_ga == 'true'
         working-directory: analytics
         env:
           GA_SERVICE_ACCOUNT_JSON: ${{ secrets.GA_SERVICE_ACCOUNT_JSON }}
         run: |
           printf '%s' "$GA_SERVICE_ACCOUNT_JSON" > service-account.json
-          # sanity check it parses
           node -e "JSON.parse(require('fs').readFileSync('service-account.json','utf8'))"
 
       - name: Pull GA4 snapshot
-        if: steps.gate.outputs.skip != 'true'
+        if: steps.gate.outputs.has_ga == 'true'
         working-directory: analytics
         env:
           GA4_PROPERTY_ID: ${{ secrets.GA4_PROPERTY_ID }}
         run: node ga_client.mjs
 
       - name: Pull trend signals (Reddit + Wikipedia + optional YouTube)
-        if: steps.gate.outputs.skip != 'true'
         working-directory: analytics
         env:
           YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
@@ -84,7 +86,7 @@ jobs:
         continue-on-error: true
 
       - name: Generate brief
-        if: steps.gate.outputs.skip != 'true'
+        if: steps.gate.outputs.has_ga == 'true'
         id: brief
         working-directory: analytics
         run: |
@@ -100,22 +102,26 @@ jobs:
             exit $status
           fi
 
-      - name: Commit brief + snapshot
-        if: steps.gate.outputs.skip != 'true'
+      - name: Commit signal/brief artifacts
         run: |
           rm -f analytics/service-account.json
           git config user.name "kpop-pdca-bot"
           git config user.email "actions@users.noreply.github.com"
-          git add meetings/briefings/ analytics/daily/ || true
+          today=$(date -u +%Y-%m-%d)
+          git add analytics/trends/ meetings/briefings/ analytics/daily/ || true
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
-            git commit -m "chore(pdca): daily brief ${{ steps.brief.outputs.today }}"
+            msg="chore(pdca): daily signals ${today}"
+            if [[ "${{ steps.gate.outputs.has_ga }}" == "true" ]]; then
+              msg="chore(pdca): daily brief + signals ${today}"
+            fi
+            git commit -m "${msg}"
             git push
           fi
 
       - name: Open issue when self-correction triggers fired
-        if: steps.gate.outputs.skip != 'true' && steps.brief.outputs.triggers == 'true'
+        if: steps.gate.outputs.has_ga == 'true' && steps.brief.outputs.triggers == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
