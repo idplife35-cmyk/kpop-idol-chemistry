@@ -7,7 +7,7 @@
   "company": "SM Entertainment",
   "debutYear": 2020,
   "color": "#8B00FF",
-  "logo": "/images/aespa_logo.png",
+  "logo": "/images/groups/aespa-logo.png",
   "description": "aespa is a unique K-Pop group featuring both real members and virtual AI avatars, known for their futuristic concept and powerful performances.",
   "members": [
     {
@@ -16,14 +16,24 @@
       "nameEn": "Karina",
       "realName": "Yoo Ji-min (유지민)",
       "gender": "female",
-      "position": ["Leader", "Main Dancer", "Lead Rapper", "Sub Vocalist"],
+      "position": [
+        "Leader",
+        "Main Dancer",
+        "Lead Rapper",
+        "Sub Vocalist"
+      ],
       "birthYear": 2000,
       "birthday": "April 11",
       "zodiac": "Aries",
       "mbti": "ESFJ",
       "height": "168cm",
       "emoji": "🦋",
-      "nicknames": ["Giant Baby", "Ace Karina", "Jimin-ie", "aespa's Duality Queen"],
+      "nicknames": [
+        "Giant Baby",
+        "Ace Karina",
+        "Jimin-ie",
+        "aespa's Duality Queen"
+      ],
       "funFacts": [
         "Was famous as 'Glass Bead Girl' pre-debut",
         "Known for her 'cute giant baby' personality off-stage",
@@ -31,7 +41,31 @@
         "Dating rumors with Lee Jae-wook were confirmed in 2024",
         "One of SM's most talented all-rounders"
       ],
-      "bio": "Karina is aespa's leader and the group's ultimate all-rounder. Despite her fierce on-stage persona, she's known as a 'giant baby' for her cute, friendly personality. She trained at SM for years and was famous even before debut."
+      "bio": "Karina is aespa's leader and the group's ultimate all-rounder. Despite her fierce on-stage persona, she's known as a 'giant baby' for her cute, friendly personality. She trained at SM for years and was famous even before debut.",
+      "popularSongs": [
+        {
+          "title": "Black Mamba",
+          "year": 2020,
+          "note": "aespa's debut single where Karina's lead-rap framed the SMCU concept."
+        },
+        {
+          "title": "Next Level",
+          "year": 2021,
+          "note": "Title where Karina's pre-chorus 'I'm on the next level' line went viral."
+        },
+        {
+          "title": "Savage",
+          "year": 2021,
+          "note": "Lead single from Savage EP that anchored Karina's center moments."
+        },
+        {
+          "title": "Drama",
+          "year": 2023,
+          "note": "Title where Karina's choreography break drives the song's bridge."
+        }
+      ],
+      "distinction": "Unlike other aespa members, Karina leads main-dance and lead-rap simultaneously — an ESFJ's group-first instinct that lets her direct stage formations while still hitting the camera as center.",
+      "fandomChant": "MY chant 'Yoo Jimin!' through her rap verses and tend to whisper 'next level' during the iconic pre-chorus."
     },
     {
       "id": "giselle",
@@ -39,14 +73,22 @@
       "nameEn": "Giselle",
       "realName": "Aeri Uchinaga (内永愛里) / Uchinaga Aeri",
       "gender": "female",
-      "position": ["Main Rapper", "Sub Vocalist"],
+      "position": [
+        "Main Rapper",
+        "Sub Vocalist"
+      ],
       "birthYear": 2000,
       "birthday": "October 30",
       "zodiac": "Scorpio",
       "mbti": "INFP",
       "height": "166cm",
       "emoji": "🎀",
-      "nicknames": ["Ae-ri", "Half-Japanese Princess", "Vocal Queen", "Fashion Icon"],
+      "nicknames": [
+        "Ae-ri",
+        "Half-Japanese Princess",
+        "Vocal Queen",
+        "Fashion Icon"
+      ],
       "funFacts": [
         "Half Korean, half Japanese",
         "Born and raised in Tokyo, Japan",
@@ -54,7 +96,31 @@
         "Had the shortest training period in aespa (11 months)",
         "Known for her unique fashion sense and style"
       ],
-      "bio": "Giselle is aespa's main rapper and the only member who is half-Japanese. Despite having the shortest training period, her natural talent and trilingual abilities have made her invaluable. She's known for her stylish fashion and friendly personality."
+      "bio": "Giselle is aespa's main rapper and the only member who is half-Japanese. Despite having the shortest training period, her natural talent and trilingual abilities have made her invaluable. She's known for her stylish fashion and friendly personality.",
+      "popularSongs": [
+        {
+          "title": "Black Mamba",
+          "year": 2020,
+          "note": "Debut single where Giselle's rap break introduced her trilingual flow."
+        },
+        {
+          "title": "Spicy",
+          "year": 2023,
+          "note": "Title from MY WORLD where Giselle's rap fronts the chorus drop."
+        },
+        {
+          "title": "Supernova",
+          "year": 2024,
+          "note": "Lead single from Armageddon where Giselle's hook delivery became the song's identity."
+        },
+        {
+          "title": "Armageddon",
+          "year": 2024,
+          "note": "Title track where Giselle's rap bars carry the cinematic build."
+        }
+      ],
+      "distinction": "Unlike other aespa members, Giselle moves between Japanese, Korean and English mid-line — an INFP's softness translated through a rapper's pen, which is why her verses scan as personal letters rather than aggression.",
+      "fandomChant": "MY chant 'Aeri Uchinaga!' through her rap section and break out the 'supernova' bridge sing-along on tour."
     },
     {
       "id": "winter",
@@ -62,14 +128,23 @@
       "nameEn": "Winter",
       "realName": "Kim Min-jeong (김민정)",
       "gender": "female",
-      "position": ["Lead Vocalist", "Lead Dancer", "Visual"],
+      "position": [
+        "Lead Vocalist",
+        "Lead Dancer",
+        "Visual"
+      ],
       "birthYear": 2001,
       "birthday": "January 1",
       "zodiac": "Capricorn",
       "mbti": "INFP",
       "height": "163cm",
       "emoji": "❄️",
-      "nicknames": ["Minjeong", "Baby Lion", "SM's Fairy", "New Year's Baby"],
+      "nicknames": [
+        "Minjeong",
+        "Baby Lion",
+        "SM's Fairy",
+        "New Year's Baby"
+      ],
       "funFacts": [
         "Born on January 1st - literally a New Year's baby",
         "Known for her baby lion-like visuals",
@@ -77,7 +152,31 @@
         "Very introverted but opens up to members",
         "Her stage name reflects her cool, mysterious image"
       ],
-      "bio": "Winter is aespa's visual and lead vocalist known for her fairy-like visuals and powerful voice. Born on New Year's Day, she brings a mysterious, cool charm to the group. Despite her cold stage name, she's warm with her members."
+      "bio": "Winter is aespa's visual and lead vocalist known for her fairy-like visuals and powerful voice. Born on New Year's Day, she brings a mysterious, cool charm to the group. Despite her cold stage name, she's warm with her members.",
+      "popularSongs": [
+        {
+          "title": "Next Level",
+          "year": 2021,
+          "note": "Title where Winter's bridge into the bass-drop became a karaoke staple."
+        },
+        {
+          "title": "Forever",
+          "year": 2021,
+          "note": "Solo cut where Winter's huskier register carried the ballad."
+        },
+        {
+          "title": "Drama",
+          "year": 2023,
+          "note": "Title where Winter's chorus melody anchors the song."
+        },
+        {
+          "title": "Whiplash",
+          "year": 2024,
+          "note": "Title where Winter's pre-chorus delivers the song's pivot."
+        }
+      ],
+      "distinction": "Unlike other aespa members, Winter pairs visual-line duties with a deeper husky tone — an INFP's introversion that reads on camera as composed mystery, which is why her solo cuts feel like quiet centerpieces.",
+      "fandomChant": "MY chant 'Kim Minjeong!' through her solo lines and whisper 'snowflake' during her ad-libs at fan meets."
     },
     {
       "id": "ningning",
@@ -85,14 +184,22 @@
       "nameEn": "Ningning",
       "realName": "Ning Yi-zhuo (宁艺卓)",
       "gender": "female",
-      "position": ["Main Vocalist", "Maknae"],
+      "position": [
+        "Main Vocalist",
+        "Maknae"
+      ],
       "birthYear": 2002,
       "birthday": "October 23",
       "zodiac": "Scorpio",
       "mbti": "ENFP",
       "height": "163cm",
       "emoji": "🐰",
-      "nicknames": ["Ningdori", "China's Gem", "Vocal Queen", "4D Maknae"],
+      "nicknames": [
+        "Ningdori",
+        "China's Gem",
+        "Vocal Queen",
+        "4D Maknae"
+      ],
       "funFacts": [
         "Born in Harbin, China",
         "Known for her extraordinary vocal range and power",
@@ -100,14 +207,49 @@
         "Trained at SM since 2016",
         "Her high notes are considered legendary"
       ],
-      "bio": "Ningning is aespa's main vocalist and maknae from China. Her powerful vocals and impressive range have made her one of the best 4th generation vocalists. Despite being the youngest, her confident and playful '4D' personality makes her stand out."
+      "bio": "Ningning is aespa's main vocalist and maknae from China. Her powerful vocals and impressive range have made her one of the best 4th generation vocalists. Despite being the youngest, her confident and playful '4D' personality makes her stand out.",
+      "popularSongs": [
+        {
+          "title": "Savage",
+          "year": 2021,
+          "note": "Title where Ningning's high note in the bridge anchored the EP's reception."
+        },
+        {
+          "title": "Welcome to MY World",
+          "year": 2023,
+          "note": "Title where Ningning's belt frames the song's drop."
+        },
+        {
+          "title": "Drama",
+          "year": 2023,
+          "note": "Title where Ningning's hook delivery carries the chorus."
+        },
+        {
+          "title": "Whiplash",
+          "year": 2024,
+          "note": "Title where Ningning's vocal break gives the song its release."
+        }
+      ],
+      "distinction": "Unlike other aespa members, Ningning combines main-vocal power with maknae playfulness — an ENFP that swings between technical belts and variety-show punchlines, which is why her livestream cuts go viral as fast as her stages.",
+      "fandomChant": "MY chant 'Ning Yizhuo!' during her belt sections and tend to clap along to her ad-libs in the chorus tail."
     }
   ],
-  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "pageTypes": [
+    "name",
+    "stage-name",
+    "aesthetic"
+  ],
   "badge": null,
   "seo": {
     "title": "aespa Name Generator | Create Your Korean Name with MY",
     "description": "Create your aespa name with Karina, Giselle, Winter & Ningning! Instant chemistry scores & Korean stage names. Perfect for MY fanfiction.",
-    "keywords": ["aespa name generator", "aespa korean name", "my name generator", "aespa karina chemistry", "aespa winter name"]
-  }
+    "keywords": [
+      "aespa name generator",
+      "aespa korean name",
+      "my name generator",
+      "aespa karina chemistry",
+      "aespa winter name"
+    ]
+  },
+  "heroImage": "/images/groups/aespa-hero.webp"
 }

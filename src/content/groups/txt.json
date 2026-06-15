@@ -7,7 +7,7 @@
   "company": "HYBE",
   "debutYear": 2019,
   "color": "#0ABAB5",
-  "logo": "/images/txt_logo.png",
+  "logo": "/images/groups/txt-logo.png",
   "description": "TXT (Tomorrow X Together) is HYBE's second boy group known for their creative concepts, youth-focused themes, and synchronized performances.",
   "members": [
     {
@@ -16,14 +16,25 @@
       "nameEn": "Yeonjun",
       "realName": "Choi Yeon-jun (최연준)",
       "gender": "male",
-      "position": ["Lead Dancer", "Lead Rapper", "Sub Vocalist", "Visual", "Center"],
+      "position": [
+        "Lead Dancer",
+        "Lead Rapper",
+        "Sub Vocalist",
+        "Visual",
+        "Center"
+      ],
       "birthYear": 1999,
       "birthday": "September 13",
       "zodiac": "Virgo",
       "mbti": "ENFP",
       "height": "181cm",
       "emoji": "🦊",
-      "nicknames": ["4th Gen It Boy", "Blue Hair Iconic", "Yeonjunie", "Dance King"],
+      "nicknames": [
+        "4th Gen It Boy",
+        "Blue Hair Iconic",
+        "Yeonjunie",
+        "Dance King"
+      ],
       "funFacts": [
         "First TXT member revealed, instantly went viral",
         "Known for his exceptional dancing and fashion",
@@ -39,14 +50,23 @@
       "nameEn": "Soobin",
       "realName": "Choi Soo-bin (최수빈)",
       "gender": "male",
-      "position": ["Leader", "Lead Vocalist", "Visual"],
+      "position": [
+        "Leader",
+        "Lead Vocalist",
+        "Visual"
+      ],
       "birthYear": 2000,
       "birthday": "December 5",
       "zodiac": "Sagittarius",
       "mbti": "INFP",
       "height": "185cm",
       "emoji": "🐰",
-      "nicknames": ["Tall Boy", "Dimple Prince", "Soob", "Gentle Giant"],
+      "nicknames": [
+        "Tall Boy",
+        "Dimple Prince",
+        "Soob",
+        "Gentle Giant"
+      ],
       "funFacts": [
         "One of the tallest K-Pop idols at 185cm",
         "Known for his dimples and bunny-like smile",
@@ -62,14 +82,23 @@
       "nameEn": "Beomgyu",
       "realName": "Choi Beom-gyu (최범규)",
       "gender": "male",
-      "position": ["Lead Dancer", "Lead Vocalist", "Visual"],
+      "position": [
+        "Lead Dancer",
+        "Lead Vocalist",
+        "Visual"
+      ],
       "birthYear": 2001,
       "birthday": "March 13",
       "zodiac": "Pisces",
       "mbti": "ENFP",
       "height": "180cm",
       "emoji": "🐻",
-      "nicknames": ["Baby Bear", "Beomie", "Guitar Boy", "4D Prince"],
+      "nicknames": [
+        "Baby Bear",
+        "Beomie",
+        "Guitar Boy",
+        "4D Prince"
+      ],
       "funFacts": [
         "Plays guitar and is very musically talented",
         "Known for his teddy bear-like visuals",
@@ -85,14 +114,21 @@
       "nameEn": "Taehyun",
       "realName": "Kang Tae-hyun (강태현)",
       "gender": "male",
-      "position": ["Main Vocalist"],
+      "position": [
+        "Main Vocalist"
+      ],
       "birthYear": 2002,
       "birthday": "February 5",
       "zodiac": "Aquarius",
       "mbti": "ESTP",
       "height": "177cm",
       "emoji": "🐿️",
-      "nicknames": ["4th Gen Vocal King", "Terry", "Big Brain", "Fitness King"],
+      "nicknames": [
+        "4th Gen Vocal King",
+        "Terry",
+        "Big Brain",
+        "Fitness King"
+      ],
       "funFacts": [
         "Known for his powerful, stable vocals",
         "Very logical and intelligent - always speaks his mind",
@@ -108,14 +144,24 @@
       "nameEn": "Huening Kai",
       "realName": "Kai Kamal Huening",
       "gender": "male",
-      "position": ["Lead Vocalist", "Lead Dancer", "Visual", "Maknae"],
+      "position": [
+        "Lead Vocalist",
+        "Lead Dancer",
+        "Visual",
+        "Maknae"
+      ],
       "birthYear": 2002,
       "birthday": "August 14",
       "zodiac": "Leo",
       "mbti": "ISFP",
       "height": "183cm",
       "emoji": "🐧",
-      "nicknames": ["Hyuka", "Plushie Collector", "Half-German Prince", "Penguin"],
+      "nicknames": [
+        "Hyuka",
+        "Plushie Collector",
+        "Half-German Prince",
+        "Penguin"
+      ],
       "funFacts": [
         "Half Korean, half German-American",
         "Has a famous sister (Lea of VCHA)",
@@ -126,11 +172,22 @@
       "bio": "Huening Kai is TXT's maknae with a unique multicultural background (Korean-German-American). His distinctive vocals, plushie collection, and playful personality make him special. He's known for his high notes and penguin-like cuteness."
     }
   ],
-  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "pageTypes": [
+    "name",
+    "stage-name",
+    "aesthetic"
+  ],
   "badge": null,
   "seo": {
     "title": "TXT Name Generator | Create Your Korean Name with MOA",
     "description": "Create your TXT name with Yeonjun, Soobin, Beomgyu, Taehyun & Huening Kai! Get instant chemistry scores and Korean stage names. Perfect for MOA.",
-    "keywords": ["txt name generator", "tomorrow x together name", "moa name generator", "txt yeonjun name", "txt soobin chemistry"]
-  }
+    "keywords": [
+      "txt name generator",
+      "tomorrow x together name",
+      "moa name generator",
+      "txt yeonjun name",
+      "txt soobin chemistry"
+    ]
+  },
+  "heroImage": "/images/groups/txt-hero.webp"
 }

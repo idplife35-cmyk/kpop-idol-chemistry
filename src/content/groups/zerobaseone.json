@@ -7,7 +7,7 @@
   "company": "WAKEONE Entertainment",
   "debutYear": 2023,
   "color": "#1F75FE",
-  "logo": "/images/zerobaseone_logo.png",
+  "logo": "/images/groups/zerobaseone-logo.png",
   "description": "ZEROBASEONE (ZB1) is a nine-member project boy group formed through Mnet's Boys Planet, known for their sweet concept, fresh energy, and explosive global rookie debut.",
   "members": [
     {
@@ -16,14 +16,22 @@
       "nameEn": "Sung Hanbin",
       "realName": "Sung Han-bin (성한빈)",
       "gender": "male",
-      "position": ["Leader", "Main Dancer"],
+      "position": [
+        "Leader",
+        "Main Dancer"
+      ],
       "birthYear": 2001,
       "birthday": "August 8",
       "zodiac": "Leo",
       "mbti": "INFP",
       "height": "183cm",
       "emoji": "🦁",
-      "nicknames": ["Hanbinie", "Center", "First Place", "Captain"],
+      "nicknames": [
+        "Hanbinie",
+        "Center",
+        "First Place",
+        "Captain"
+      ],
       "funFacts": [
         "Won first place on Boys Planet finale",
         "Known for his exceptional dance skills",
@@ -31,7 +39,26 @@
         "Has a soft and thoughtful personality",
         "Trained for years before debut"
       ],
-      "bio": "Hanbin is the leader and center of ZEROBASEONE after finishing first on Boys Planet. His powerful dancing and caring leadership keep the group grounded."
+      "bio": "Hanbin is the leader and center of ZEROBASEONE after finishing first on Boys Planet. His powerful dancing and caring leadership keep the group grounded.",
+      "popularSongs": [
+        {
+          "title": "In Bloom",
+          "year": 2023,
+          "note": "Debut title where Hanbin's center moments framed the group's first stage."
+        },
+        {
+          "title": "Crush",
+          "year": 2024,
+          "note": "Title where Hanbin's main-dancer break anchors the choreography climax."
+        },
+        {
+          "title": "Feel the POP",
+          "year": 2024,
+          "note": "Title where Hanbin's leader-facing camera holds carry the song's intro."
+        }
+      ],
+      "distinction": "Unlike other ZEROBASEONE members, Hanbin leads as the Boys Planet #1 finisher — an INFP's caretaker style packaged as main-dance center, which is why his center moments read as group-first rather than solo spotlight.",
+      "fandomChant": "ZEROSE chant 'Sung Hanbin!' through his dance breaks and pull out the lion hand-sign during his solo lines."
     },
     {
       "id": "kim-jiwoong",
@@ -39,14 +66,22 @@
       "nameEn": "Kim Jiwoong",
       "realName": "Kim Ji-woong (김지웅)",
       "gender": "male",
-      "position": ["Visual", "Vocalist"],
+      "position": [
+        "Visual",
+        "Vocalist"
+      ],
       "birthYear": 1998,
       "birthday": "June 8",
       "zodiac": "Gemini",
       "mbti": "INFJ",
       "height": "180cm",
       "emoji": "🌹",
-      "nicknames": ["Manga Visual", "Hyung", "Prince Jiwoong", "Eldest"],
+      "nicknames": [
+        "Manga Visual",
+        "Hyung",
+        "Prince Jiwoong",
+        "Eldest"
+      ],
       "funFacts": [
         "Oldest member of the group",
         "Worked as an actor before joining ZB1",
@@ -54,7 +89,26 @@
         "Speaks softly with a warm presence",
         "Known for his thoughtful interview answers"
       ],
-      "bio": "Jiwoong is ZB1's oldest member and visual, often compared to a manhwa protagonist. His acting background gives him stage presence and a quiet, warm charisma."
+      "bio": "Jiwoong is ZB1's oldest member and visual, often compared to a manhwa protagonist. His acting background gives him stage presence and a quiet, warm charisma.",
+      "popularSongs": [
+        {
+          "title": "In Bloom",
+          "year": 2023,
+          "note": "Debut where Jiwoong's visual moments anchored the MV's emotional cut."
+        },
+        {
+          "title": "Crush",
+          "year": 2024,
+          "note": "Title where Jiwoong's hyung-line composure carries the bridge."
+        },
+        {
+          "title": "Feel the POP",
+          "year": 2024,
+          "note": "Title where Jiwoong's slower phrasing balances the song's tempo."
+        }
+      ],
+      "distinction": "Unlike other ZEROBASEONE members, Jiwoong brings acting-trained stage presence as the eldest — an INFJ's interior reading channelled into camera holds, which is why his MV scenes do narrative work even without his vocal lines.",
+      "fandomChant": "ZEROSE chant 'Kim Jiwoong!' through his solo lines and shout 'hyung jjang' during his quieter ad-libs."
     },
     {
       "id": "zhang-hao",
@@ -62,14 +116,21 @@
       "nameEn": "Zhang Hao",
       "realName": "Zhang Hao (张颢)",
       "gender": "male",
-      "position": ["Main Vocalist"],
+      "position": [
+        "Main Vocalist"
+      ],
       "birthYear": 2001,
       "birthday": "March 25",
       "zodiac": "Aries",
       "mbti": "INFJ",
       "height": "183cm",
       "emoji": "🎻",
-      "nicknames": ["Violinist", "Hao", "Chinese Prince", "Vocal Powerhouse"],
+      "nicknames": [
+        "Violinist",
+        "Hao",
+        "Chinese Prince",
+        "Vocal Powerhouse"
+      ],
       "funFacts": [
         "From Qingdao, China",
         "Classically trained violinist",
@@ -77,7 +138,26 @@
         "Has stable, soaring vocals",
         "Speaks Korean and Chinese fluently"
       ],
-      "bio": "Hao is ZB1's main vocalist from China, a classically trained violinist with stable and soaring vocals. He brings instrumental depth and emotion to the group's sound."
+      "bio": "Hao is ZB1's main vocalist from China, a classically trained violinist with stable and soaring vocals. He brings instrumental depth and emotion to the group's sound.",
+      "popularSongs": [
+        {
+          "title": "In Bloom",
+          "year": 2023,
+          "note": "Debut title where Hao's main-vocal bridge defined the song's emotional payoff."
+        },
+        {
+          "title": "Crush",
+          "year": 2024,
+          "note": "Title where Hao's belt sequence anchors the chorus build."
+        },
+        {
+          "title": "Feel the POP",
+          "year": 2024,
+          "note": "Title where Hao's main-vocal hook carries the song's central melody."
+        }
+      ],
+      "distinction": "Unlike other ZEROBASEONE members, Hao combines classically trained violin technique with main-vocal duties — an INFJ's pursuit of precision that shows up in clean vibrato and long-held notes, which is why his live versions sound nearly identical to studio cuts.",
+      "fandomChant": "ZEROSE chant 'Zhang Hao!' through his high notes and switch to Mandarin 'Hao ge ge' calls on China stops."
     },
     {
       "id": "seok-matthew",
@@ -85,14 +165,22 @@
       "nameEn": "Seok Matthew",
       "realName": "Matthew Seok (석매튜)",
       "gender": "male",
-      "position": ["Vocalist", "Visual"],
+      "position": [
+        "Vocalist",
+        "Visual"
+      ],
       "birthYear": 2002,
       "birthday": "April 19",
       "zodiac": "Aries",
       "mbti": "ESFJ",
       "height": "183cm",
       "emoji": "🍯",
-      "nicknames": ["Matty", "Canadian Boy", "Honey Voice", "Bright Smile"],
+      "nicknames": [
+        "Matty",
+        "Canadian Boy",
+        "Honey Voice",
+        "Bright Smile"
+      ],
       "funFacts": [
         "Korean-Canadian, raised in Vancouver",
         "Fluent in English and Korean",
@@ -100,7 +188,26 @@
         "Known for his soft, honey-toned voice",
         "Loves connecting with international fans"
       ],
-      "bio": "Matthew is ZB1's Korean-Canadian vocalist with a soft, honey-toned voice and warm bright energy. He often interacts in English with global fans."
+      "bio": "Matthew is ZB1's Korean-Canadian vocalist with a soft, honey-toned voice and warm bright energy. He often interacts in English with global fans.",
+      "popularSongs": [
+        {
+          "title": "In Bloom",
+          "year": 2023,
+          "note": "Debut where Matthew's tone framed the gentler verses."
+        },
+        {
+          "title": "Crush",
+          "year": 2024,
+          "note": "Title where Matthew's English ad-libs anchor the song's bridge."
+        },
+        {
+          "title": "Feel the POP",
+          "year": 2024,
+          "note": "Title where Matthew's warm-tone delivery balances the chorus burst."
+        }
+      ],
+      "distinction": "Unlike other ZEROBASEONE members, Matthew handles English-language fan engagement as a Korean-Canadian — an ESFJ's connector instinct that translates short-form streams into international reach, which is why his vlives often outpace the group's official channels.",
+      "fandomChant": "ZEROSE chant 'Seok Matthew!' through his solo lines and respond to his English greetings with the loudest chorus on tour stops."
     },
     {
       "id": "kim-taerae",
@@ -108,14 +215,21 @@
       "nameEn": "Kim Taerae",
       "realName": "Kim Tae-rae (김태래)",
       "gender": "male",
-      "position": ["Main Vocalist"],
+      "position": [
+        "Main Vocalist"
+      ],
       "birthYear": 2004,
       "birthday": "November 3",
       "zodiac": "Scorpio",
       "mbti": "INFP",
       "height": "176cm",
       "emoji": "🐬",
-      "nicknames": ["Vocal Genius", "Taeraebabe", "Soft Voice", "High Notes"],
+      "nicknames": [
+        "Vocal Genius",
+        "Taeraebabe",
+        "Soft Voice",
+        "High Notes"
+      ],
       "funFacts": [
         "Praised as a vocal prodigy on Boys Planet",
         "Has an unusually emotive tone",
@@ -123,7 +237,26 @@
         "Shy but expressive on stage",
         "Loves composing in his free time"
       ],
-      "bio": "Taerae is ZB1's vocal prodigy, with an emotive tone that earned him \"vocal genius\" reputation on Boys Planet. He composes in his spare time."
+      "bio": "Taerae is ZB1's vocal prodigy, with an emotive tone that earned him \"vocal genius\" reputation on Boys Planet. He composes in his spare time.",
+      "popularSongs": [
+        {
+          "title": "In Bloom",
+          "year": 2023,
+          "note": "Debut title where Taerae's bridge belt cemented his 'vocal genius' tag."
+        },
+        {
+          "title": "Crush",
+          "year": 2024,
+          "note": "Title where Taerae's pre-chorus delivery defines the song's recognition cue."
+        },
+        {
+          "title": "Feel the POP",
+          "year": 2024,
+          "note": "Title where Taerae's tone smooths the chorus harmonies."
+        }
+      ],
+      "distinction": "Unlike other ZEROBASEONE members, Taerae writes his own compositions alongside main-vocal duties — an INFP's interior writing voice that shapes how his lines sit in the arrangement, which is why his bridges often feel like solo cuts inserted mid-song.",
+      "fandomChant": "ZEROSE chant 'Kim Taerae!' through his vocal runs and tend to stay silent through his high notes to preserve the live mix."
     },
     {
       "id": "ricky",
@@ -131,14 +264,22 @@
       "nameEn": "Ricky",
       "realName": "Shen Quanrui (沈泉睿)",
       "gender": "male",
-      "position": ["Vocalist", "Visual"],
+      "position": [
+        "Vocalist",
+        "Visual"
+      ],
       "birthYear": 2005,
       "birthday": "February 6",
       "zodiac": "Aquarius",
       "mbti": "ENFP",
       "height": "180cm",
       "emoji": "🐯",
-      "nicknames": ["Ricky-ya", "Chinese Visual", "Tiger Cub", "Sweet Boy"],
+      "nicknames": [
+        "Ricky-ya",
+        "Chinese Visual",
+        "Tiger Cub",
+        "Sweet Boy"
+      ],
       "funFacts": [
         "From Zhejiang, China",
         "Has soft visual energy with sharp features",
@@ -146,7 +287,26 @@
         "Bilingual Chinese-Korean",
         "Loves food and cooking"
       ],
-      "bio": "Ricky is ZB1's Chinese member known for soft yet sharp visuals and an outgoing, playful energy. His bilingual charm bridges Korean and Chinese fans."
+      "bio": "Ricky is ZB1's Chinese member known for soft yet sharp visuals and an outgoing, playful energy. His bilingual charm bridges Korean and Chinese fans.",
+      "popularSongs": [
+        {
+          "title": "In Bloom",
+          "year": 2023,
+          "note": "Debut where Ricky's visual cuts paired with the group's introduction."
+        },
+        {
+          "title": "Crush",
+          "year": 2024,
+          "note": "Title where Ricky's playful ad-libs lighten the chorus tone."
+        },
+        {
+          "title": "Feel the POP",
+          "year": 2024,
+          "note": "Title where Ricky's bridge framing carries the song's pop-forward identity."
+        }
+      ],
+      "distinction": "Unlike other ZEROBASEONE members, Ricky channels Chinese-Korean bilingual playfulness through visual-line duties — an ENFP's social warmth that scales fan engagement across two language markets, which is why his fan-meets in China and Korea both feel like home shows.",
+      "fandomChant": "ZEROSE chant 'Shen Quanrui!' through his solo lines and switch to Mandarin 'Ricky-ge' calls on China stops."
     },
     {
       "id": "kim-gyuvin",
@@ -154,14 +314,22 @@
       "nameEn": "Kim Gyuvin",
       "realName": "Kim Gyu-vin (김규빈)",
       "gender": "male",
-      "position": ["Dancer", "Vocalist"],
+      "position": [
+        "Dancer",
+        "Vocalist"
+      ],
       "birthYear": 2005,
       "birthday": "December 26",
       "zodiac": "Capricorn",
       "mbti": "ESFP",
       "height": "184cm",
       "emoji": "🦒",
-      "nicknames": ["Mood Maker", "Tall Maknae Line", "Gyubin", "Sunshine"],
+      "nicknames": [
+        "Mood Maker",
+        "Tall Maknae Line",
+        "Gyubin",
+        "Sunshine"
+      ],
       "funFacts": [
         "One of the tallest in the group at 184cm",
         "Known as the mood maker",
@@ -169,7 +337,26 @@
         "Loves making members laugh",
         "Strong on-stage presence"
       ],
-      "bio": "Gyuvin is ZB1's mood maker — tall, energetic, and quick to make members laugh. His outgoing energy is felt on and off stage."
+      "bio": "Gyuvin is ZB1's mood maker — tall, energetic, and quick to make members laugh. His outgoing energy is felt on and off stage.",
+      "popularSongs": [
+        {
+          "title": "In Bloom",
+          "year": 2023,
+          "note": "Debut where Gyuvin's height frames many of the group formation shots."
+        },
+        {
+          "title": "Crush",
+          "year": 2024,
+          "note": "Title where Gyuvin's dance break adds the energy spike."
+        },
+        {
+          "title": "Feel the POP",
+          "year": 2024,
+          "note": "Title where Gyuvin's mood-making ad-libs lift the chorus."
+        }
+      ],
+      "distinction": "Unlike other ZEROBASEONE members, Gyuvin works the mood-maker role on top of dancer-vocalist duties — an ESFP's spotlight comfort that turns variety-show segments into clips that get pinned, which is why his off-stage edits trend faster than his stages.",
+      "fandomChant": "ZEROSE chant 'Kim Gyuvin!' through his dance-break sections and tend to laugh-chant during his variety-show punchlines."
     },
     {
       "id": "park-gunwook",
@@ -177,14 +364,22 @@
       "nameEn": "Park Gunwook",
       "realName": "Park Gun-wook (박건욱)",
       "gender": "male",
-      "position": ["Rapper", "Dancer"],
+      "position": [
+        "Rapper",
+        "Dancer"
+      ],
       "birthYear": 2005,
       "birthday": "October 9",
       "zodiac": "Libra",
       "mbti": "ISFP",
       "height": "182cm",
       "emoji": "🌌",
-      "nicknames": ["Quiet Rapper", "Gunwookie", "Cool Boy", "Star Eyes"],
+      "nicknames": [
+        "Quiet Rapper",
+        "Gunwookie",
+        "Cool Boy",
+        "Star Eyes"
+      ],
       "funFacts": [
         "Quiet and reserved personality",
         "Has a distinctive rap tone",
@@ -192,7 +387,26 @@
         "Strong stage charisma despite shy nature",
         "Improves rapidly with practice"
       ],
-      "bio": "Gunwook is ZB1's reserved rapper with a distinctive tone and sparkly star-like eyes. His on-stage charisma surprises fans who only know his shy off-stage side."
+      "bio": "Gunwook is ZB1's reserved rapper with a distinctive tone and sparkly star-like eyes. His on-stage charisma surprises fans who only know his shy off-stage side.",
+      "popularSongs": [
+        {
+          "title": "In Bloom",
+          "year": 2023,
+          "note": "Debut title where Gunwook's rap section reframes the verses."
+        },
+        {
+          "title": "Crush",
+          "year": 2024,
+          "note": "Title where Gunwook's rap break carries the song's pivot."
+        },
+        {
+          "title": "Feel the POP",
+          "year": 2024,
+          "note": "Title where Gunwook's rap-tone delivery contrasts the bright chorus."
+        }
+      ],
+      "distinction": "Unlike other ZEROBASEONE members, Gunwook delivers rap parts with an ISFP's introspective restraint — his bars feel pulled in rather than projected outward, which is why his sections often function as the song's reset rather than its peak.",
+      "fandomChant": "ZEROSE chant 'Park Gunwook!' through his rap bars and tend to wave star-themed fan kits during his close-ups."
     },
     {
       "id": "han-yujin",
@@ -200,14 +414,22 @@
       "nameEn": "Han Yujin",
       "realName": "Han Yu-jin (한유진)",
       "gender": "male",
-      "position": ["Maknae", "Vocalist"],
+      "position": [
+        "Maknae",
+        "Vocalist"
+      ],
       "birthYear": 2007,
       "birthday": "October 21",
       "zodiac": "Libra",
       "mbti": "ESTP",
       "height": "182cm",
       "emoji": "🐶",
-      "nicknames": ["Maknae", "Yujin-ah", "Puppy Boy", "Smart Maknae"],
+      "nicknames": [
+        "Maknae",
+        "Yujin-ah",
+        "Puppy Boy",
+        "Smart Maknae"
+      ],
       "funFacts": [
         "Youngest member of ZB1",
         "Tall maknae at 182cm",
@@ -215,14 +437,45 @@
         "Known for puppy-like charm",
         "Hyungs adore him"
       ],
-      "bio": "Yujin is ZB1's youngest member — a tall maknae with a puppy-like charm and surprising thoughtfulness for his age. The hyungs dote on him constantly."
+      "bio": "Yujin is ZB1's youngest member — a tall maknae with a puppy-like charm and surprising thoughtfulness for his age. The hyungs dote on him constantly.",
+      "popularSongs": [
+        {
+          "title": "In Bloom",
+          "year": 2023,
+          "note": "Debut where Yujin's maknae moments anchored the MV's gentler scenes."
+        },
+        {
+          "title": "Crush",
+          "year": 2024,
+          "note": "Title where Yujin's chorus delivery adds the song's emotional cushion."
+        },
+        {
+          "title": "Feel the POP",
+          "year": 2024,
+          "note": "Title where Yujin's bright delivery rounds out the harmonies."
+        }
+      ],
+      "distinction": "Unlike other ZEROBASEONE members, Yujin balances maknae duties with an ESTP's quick-reaction stage instinct — he's the youngest but his timing on camera is the surest, which is why he's often used as the chorus's recurring camera anchor.",
+      "fandomChant": "ZEROSE chant 'Han Yujin!' through his solo lines and switch to 'puppy maknae!' calls during his soft-tone bridges."
     }
   ],
-  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "pageTypes": [
+    "name",
+    "stage-name",
+    "aesthetic"
+  ],
   "badge": "NEW",
   "seo": {
     "title": "ZEROBASEONE Name Generator | Create Your Korean Name with ZEROSE",
     "description": "Create your ZEROBASEONE name with Sung Hanbin, Zhang Hao, Han Yujin & all 9 members! Instant chemistry scores & Korean stage names. Perfect for ZEROSE fanfiction.",
-    "keywords": ["zerobaseone name generator", "zb1 name generator", "zerose name generator", "sung hanbin chemistry", "zerobaseone korean name", "zb1 korean name"]
-  }
+    "keywords": [
+      "zerobaseone name generator",
+      "zb1 name generator",
+      "zerose name generator",
+      "sung hanbin chemistry",
+      "zerobaseone korean name",
+      "zb1 korean name"
+    ]
+  },
+  "heroImage": "/images/groups/zerobaseone-hero.webp"
 }

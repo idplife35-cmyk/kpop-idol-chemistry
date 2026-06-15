@@ -7,7 +7,7 @@
   "company": "Cube Entertainment",
   "debutYear": 2018,
   "color": "#9B59B6",
-  "logo": "/images/gidle_logo.png",
+  "logo": "/images/groups/g-idle-logo.png",
   "description": "(G)I-DLE is a self-producing girl group known for their unique concepts, powerful performances, and member Soyeon's songwriting and producing skills.",
   "members": [
     {
@@ -16,14 +16,22 @@
       "nameEn": "Miyeon",
       "realName": "Cho Mi-yeon (조미연)",
       "gender": "female",
-      "position": ["Main Vocalist", "Visual"],
+      "position": [
+        "Main Vocalist",
+        "Visual"
+      ],
       "birthYear": 1997,
       "birthday": "January 31",
       "zodiac": "Aquarius",
       "mbti": "ENFP",
       "height": "160cm",
       "emoji": "🌸",
-      "nicknames": ["Visual Queen", "Little Deer", "Vocal Queen", "Miyeonnie"],
+      "nicknames": [
+        "Visual Queen",
+        "Little Deer",
+        "Vocal Queen",
+        "Miyeonnie"
+      ],
       "funFacts": [
         "Was a YG trainee for years before joining Cube",
         "Almost debuted with BLACKPINK",
@@ -39,14 +47,21 @@
       "nameEn": "Minnie",
       "realName": "Nicha Yontararak (ณิชา ยนตรรักษ์)",
       "gender": "female",
-      "position": ["Main Vocalist"],
+      "position": [
+        "Main Vocalist"
+      ],
       "birthYear": 1997,
       "birthday": "October 23",
       "zodiac": "Scorpio",
       "mbti": "INFP",
       "height": "164cm",
       "emoji": "🎀",
-      "nicknames": ["Thai Princess", "Sexy Voice", "Songwriting Queen", "Minniee"],
+      "nicknames": [
+        "Thai Princess",
+        "Sexy Voice",
+        "Songwriting Queen",
+        "Minniee"
+      ],
       "funFacts": [
         "Born and raised in Thailand",
         "Known for her unique, husky voice",
@@ -62,14 +77,25 @@
       "nameEn": "Soyeon",
       "realName": "Jeon So-yeon (전소연)",
       "gender": "female",
-      "position": ["Leader", "Main Rapper", "Lead Dancer", "Sub Vocalist", "Center"],
+      "position": [
+        "Leader",
+        "Main Rapper",
+        "Lead Dancer",
+        "Sub Vocalist",
+        "Center"
+      ],
       "birthYear": 1998,
       "birthday": "August 26",
       "zodiac": "Virgo",
       "mbti": "ENTJ",
       "height": "156cm",
       "emoji": "🔥",
-      "nicknames": ["Genius Producer", "4th Gen Ace", "Boss", "Tiny but Mighty"],
+      "nicknames": [
+        "Genius Producer",
+        "4th Gen Ace",
+        "Boss",
+        "Tiny but Mighty"
+      ],
       "funFacts": [
         "Writes and produces almost all (G)I-DLE songs",
         "Competed on Produce 101 and Unpretty Rapstar",
@@ -85,14 +111,22 @@
       "nameEn": "Yuqi",
       "realName": "Song Yuqi (宋雨琦)",
       "gender": "female",
-      "position": ["Lead Vocalist", "Lead Rapper"],
+      "position": [
+        "Lead Vocalist",
+        "Lead Rapper"
+      ],
       "birthYear": 1999,
       "birthday": "September 23",
       "zodiac": "Libra",
       "mbti": "ENFJ",
       "height": "161cm",
       "emoji": "🐻",
-      "nicknames": ["China's Pride", "Deep Voice", "Variety Queen", "Song Yuqi"],
+      "nicknames": [
+        "China's Pride",
+        "Deep Voice",
+        "Variety Queen",
+        "Song Yuqi"
+      ],
       "funFacts": [
         "Born in Beijing, China",
         "Known for her surprisingly deep, husky voice",
@@ -108,14 +142,23 @@
       "nameEn": "Shuhua",
       "realName": "Yeh Shuhua (葉舒華)",
       "gender": "female",
-      "position": ["Sub Vocalist", "Visual", "Maknae"],
+      "position": [
+        "Sub Vocalist",
+        "Visual",
+        "Maknae"
+      ],
       "birthYear": 2000,
       "birthday": "January 6",
       "zodiac": "Capricorn",
       "mbti": "INFP",
       "height": "163cm",
       "emoji": "🌙",
-      "nicknames": ["Taiwanese Princess", "Savage Queen", "Maknae on Top", "Shuhua-ya"],
+      "nicknames": [
+        "Taiwanese Princess",
+        "Savage Queen",
+        "Maknae on Top",
+        "Shuhua-ya"
+      ],
       "funFacts": [
         "Born in Tainan, Taiwan",
         "Known for her savage, fearless personality",
@@ -126,11 +169,21 @@
       "bio": "Shuhua is (G)I-DLE's Taiwanese maknae and visual. Despite struggling with Korean initially, her savage personality and blunt honesty won fans over. She's known for her fearless attitude and stunning visuals."
     }
   ],
-  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "pageTypes": [
+    "name",
+    "stage-name",
+    "aesthetic"
+  ],
   "badge": null,
   "seo": {
     "title": "(G)I-DLE Name Generator | Create Your Korean Name with NEVERLAND",
     "description": "Create your (G)I-DLE name with Miyeon, Minnie, Soyeon, Yuqi & Shuhua! Get instant chemistry scores and Korean stage names. Perfect for NEVERLAND.",
-    "keywords": ["gidle name generator", "g idle korean name", "neverland name generator", "gidle soyeon name", "yuqi name generator"]
+    "keywords": [
+      "gidle name generator",
+      "g idle korean name",
+      "neverland name generator",
+      "gidle soyeon name",
+      "yuqi name generator"
+    ]
   }
 }

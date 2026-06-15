@@ -7,7 +7,7 @@
   "company": "VLAST",
   "debutYear": 2023,
   "color": "#00D4FF",
-  "logo": "/images/plave_logo.png",
+  "logo": "/images/groups/plave-logo.png",
   "description": "PLAVE is a virtual K-Pop idol group featuring AI-generated avatars with real vocalists, pioneering the future of K-Pop entertainment.",
   "members": [
     {
@@ -16,14 +16,22 @@
       "nameEn": "Yejun",
       "realName": "Virtual Identity",
       "gender": "male",
-      "position": ["Leader", "Main Vocalist"],
+      "position": [
+        "Leader",
+        "Main Vocalist"
+      ],
       "birthYear": 1998,
       "birthday": "April 14",
       "zodiac": "Aries",
       "mbti": "ENFJ",
       "height": "182cm",
       "emoji": "💙",
-      "nicknames": ["Virtual Leader", "Blue Prince", "Yejunnie", "Caring Captain"],
+      "nicknames": [
+        "Virtual Leader",
+        "Blue Prince",
+        "Yejunnie",
+        "Caring Captain"
+      ],
       "funFacts": [
         "The reliable leader of PLAVE",
         "Known for his soothing vocal tone",
@@ -39,14 +47,22 @@
       "nameEn": "Noah",
       "realName": "Virtual Identity",
       "gender": "male",
-      "position": ["Lead Vocalist", "Visual"],
+      "position": [
+        "Lead Vocalist",
+        "Visual"
+      ],
       "birthYear": 1999,
       "birthday": "August 8",
       "zodiac": "Leo",
       "mbti": "INFP",
       "height": "180cm",
       "emoji": "💜",
-      "nicknames": ["Purple Visual", "Dreamy Boy", "Noah-ya", "Visual King"],
+      "nicknames": [
+        "Purple Visual",
+        "Dreamy Boy",
+        "Noah-ya",
+        "Visual King"
+      ],
       "funFacts": [
         "The visual of PLAVE",
         "Known for his dreamy, ethereal appearance",
@@ -62,14 +78,22 @@
       "nameEn": "Bamby",
       "realName": "Virtual Identity",
       "gender": "male",
-      "position": ["Main Dancer", "Lead Rapper"],
+      "position": [
+        "Main Dancer",
+        "Lead Rapper"
+      ],
       "birthYear": 2000,
       "birthday": "November 22",
       "zodiac": "Sagittarius",
       "mbti": "ESTP",
       "height": "178cm",
       "emoji": "💚",
-      "nicknames": ["Green Dancer", "Deer Boy", "Bamby-ya", "Energy King"],
+      "nicknames": [
+        "Green Dancer",
+        "Deer Boy",
+        "Bamby-ya",
+        "Energy King"
+      ],
       "funFacts": [
         "The main dancer of PLAVE",
         "Known for his energetic performances",
@@ -85,14 +109,22 @@
       "nameEn": "Eunho",
       "realName": "Virtual Identity",
       "gender": "male",
-      "position": ["Lead Dancer", "Sub Vocalist"],
+      "position": [
+        "Lead Dancer",
+        "Sub Vocalist"
+      ],
       "birthYear": 2001,
       "birthday": "March 3",
       "zodiac": "Pisces",
       "mbti": "ISFP",
       "height": "176cm",
       "emoji": "🩷",
-      "nicknames": ["Pink Prince", "Soft Boy", "Eunho-ya", "Gentle Soul"],
+      "nicknames": [
+        "Pink Prince",
+        "Soft Boy",
+        "Eunho-ya",
+        "Gentle Soul"
+      ],
       "funFacts": [
         "Known for his soft, gentle image",
         "Represents the color pink",
@@ -108,14 +140,22 @@
       "nameEn": "Hamin",
       "realName": "Virtual Identity",
       "gender": "male",
-      "position": ["Sub Vocalist", "Maknae"],
+      "position": [
+        "Sub Vocalist",
+        "Maknae"
+      ],
       "birthYear": 2002,
       "birthday": "June 15",
       "zodiac": "Gemini",
       "mbti": "ENFP",
       "height": "175cm",
       "emoji": "💛",
-      "nicknames": ["Yellow Maknae", "Bright Boy", "Hamin-ie", "Sunshine"],
+      "nicknames": [
+        "Yellow Maknae",
+        "Bright Boy",
+        "Hamin-ie",
+        "Sunshine"
+      ],
       "funFacts": [
         "The maknae of PLAVE",
         "Known for his bright, sunny personality",
@@ -126,11 +166,22 @@
       "bio": "Hamin is PLAVE's bright maknae whose sunshine personality brings joy to the group. His youthful energy and cheerful demeanor make him the mood maker."
     }
   ],
-  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "pageTypes": [
+    "name",
+    "stage-name",
+    "aesthetic"
+  ],
   "badge": "NEW",
   "seo": {
     "title": "PLAVE Name Generator | Create Your Virtual K-Pop Name with PLLI",
     "description": "Create your PLAVE name with Yejun, Noah, Bamby, Eunho & Hamin! Instant chemistry scores with the virtual idols. Perfect for PLLI fanfiction.",
-    "keywords": ["plave name generator", "plave korean name", "plli name generator", "virtual idol name", "plave yejun chemistry"]
-  }
+    "keywords": [
+      "plave name generator",
+      "plave korean name",
+      "plli name generator",
+      "virtual idol name",
+      "plave yejun chemistry"
+    ]
+  },
+  "heroImage": "/images/groups/plave-hero.webp"
 }

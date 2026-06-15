@@ -7,7 +7,7 @@
   "company": "HYBE",
   "debutYear": 2013,
   "color": "#7B2B8F",
-  "logo": "/images/bts_logo.png",
+  "logo": "/images/groups/bts-logo.png",
   "description": "BTS (방탄소년단) is a global K-Pop phenomenon known for their powerful performances, meaningful lyrics, and strong connection with fans worldwide.",
   "members": [
     {
@@ -16,14 +16,24 @@
       "nameEn": "Jungkook",
       "realName": "Jeon Jung-kook (전정국)",
       "gender": "male",
-      "position": ["Main Vocalist", "Lead Dancer", "Sub Rapper", "Center"],
+      "position": [
+        "Main Vocalist",
+        "Lead Dancer",
+        "Sub Rapper",
+        "Center"
+      ],
       "birthYear": 1997,
       "birthday": "September 1",
       "zodiac": "Virgo",
       "mbti": "INTP",
       "height": "179cm",
       "emoji": "🐰",
-      "nicknames": ["Golden Maknae", "Kookie", "JK", "Muscle Bunny"],
+      "nicknames": [
+        "Golden Maknae",
+        "Kookie",
+        "JK",
+        "Muscle Bunny"
+      ],
       "funFacts": [
         "Called 'Golden Maknae' because he excels at everything",
         "Has a extensive tattoo sleeve on his right arm",
@@ -31,7 +41,31 @@
         "Released solo hit 'Seven' featuring Latto in 2023",
         "His favorite number is 1"
       ],
-      "bio": "Jungkook is the youngest member (maknae) of BTS and is often called the 'Golden Maknae' for his exceptional talents in singing, dancing, and athletics. Since debuting at just 15 years old, he has grown into one of the most beloved K-Pop idols worldwide."
+      "bio": "Jungkook is the youngest member (maknae) of BTS and is often called the 'Golden Maknae' for his exceptional talents in singing, dancing, and athletics. Since debuting at just 15 years old, he has grown into one of the most beloved K-Pop idols worldwide.",
+      "popularSongs": [
+        {
+          "title": "Seven (feat. Latto)",
+          "year": 2023,
+          "note": "Jungkook's solo debut single that topped the Billboard Hot 100."
+        },
+        {
+          "title": "Euphoria",
+          "year": 2018,
+          "note": "Solo intro track of LOVE YOURSELF: Answer that became a fan anthem."
+        },
+        {
+          "title": "My Time",
+          "year": 2020,
+          "note": "Solo track on Map of the Soul: 7 written about growing up under the spotlight."
+        },
+        {
+          "title": "Standing Next to You",
+          "year": 2023,
+          "note": "Lead single from his solo album GOLDEN."
+        }
+      ],
+      "distinction": "Unlike other BTS members, Jungkook combines main vocals with center-position athleticism — an INTP introspection paired with stage instinct that lets him pivot between intimate ballads and high-energy choreography in the same set.",
+      "fandomChant": "ARMY chant 'Jeon Jungkook!' three times during his solo lines, syncing purple light sticks to his vocal runs."
     },
     {
       "id": "jimin",
@@ -39,14 +73,22 @@
       "nameEn": "Jimin",
       "realName": "Park Ji-min (박지민)",
       "gender": "male",
-      "position": ["Main Dancer", "Lead Vocalist"],
+      "position": [
+        "Main Dancer",
+        "Lead Vocalist"
+      ],
       "birthYear": 1995,
       "birthday": "October 13",
       "zodiac": "Libra",
       "mbti": "ESTP",
       "height": "173cm",
       "emoji": "🍡",
-      "nicknames": ["Mochi", "ChimChim", "Baby Mochi", "Park Jiminnie"],
+      "nicknames": [
+        "Mochi",
+        "ChimChim",
+        "Baby Mochi",
+        "Park Jiminnie"
+      ],
       "funFacts": [
         "Studied contemporary dance before joining BTS",
         "First BTS member to have a solo song reach #1 on Billboard Hot 100 with 'Like Crazy'",
@@ -54,7 +96,31 @@
         "Often gives members surprise back hugs",
         "His solo album 'FACE' topped charts worldwide"
       ],
-      "bio": "Jimin is known for his graceful contemporary dance background and powerful vocals. His charismatic stage presence and sweet personality have earned him the nickname 'Mochi' from fans who adore his soft, squishy cheeks and caring nature."
+      "bio": "Jimin is known for his graceful contemporary dance background and powerful vocals. His charismatic stage presence and sweet personality have earned him the nickname 'Mochi' from fans who adore his soft, squishy cheeks and caring nature.",
+      "popularSongs": [
+        {
+          "title": "Like Crazy",
+          "year": 2023,
+          "note": "His solo single that became the first BTS solo song to top the Billboard Hot 100."
+        },
+        {
+          "title": "Filter",
+          "year": 2020,
+          "note": "Solo track on Map of the Soul: 7 known for its Latin-flavored choreography."
+        },
+        {
+          "title": "Set Me Free Pt.2",
+          "year": 2023,
+          "note": "Pre-release from FACE that fans treat as his stylistic statement."
+        },
+        {
+          "title": "Lie",
+          "year": 2016,
+          "note": "Solo from WINGS that showcased his contemporary-dance training."
+        }
+      ],
+      "distinction": "Unlike other BTS members, Jimin leads as main dancer while delivering lead vocals — an ESTP boldness channeled through contemporary technique, which is why his stages feel both technically exact and emotionally exposed.",
+      "fandomChant": "ARMY chant 'Park Jimin!' followed by 'jjang!' during his dance breaks, often dropping to a whisper when his ballad lines hit."
     },
     {
       "id": "v",
@@ -62,14 +128,23 @@
       "nameEn": "V",
       "realName": "Kim Tae-hyung (김태형)",
       "gender": "male",
-      "position": ["Lead Dancer", "Vocalist", "Visual"],
+      "position": [
+        "Lead Dancer",
+        "Vocalist",
+        "Visual"
+      ],
       "birthYear": 1995,
       "birthday": "December 30",
       "zodiac": "Capricorn",
       "mbti": "INFP",
       "height": "179cm",
       "emoji": "🐻",
-      "nicknames": ["Taetae", "CGV", "Good Boy", "Tata"],
+      "nicknames": [
+        "Taetae",
+        "CGV",
+        "Good Boy",
+        "Tata"
+      ],
       "funFacts": [
         "Was a 'hidden member' revealed only at BTS's debut",
         "Known for his unique, deep baritone voice",
@@ -77,7 +152,31 @@
         "Created the phrase 'I purple you' (보라해) meaning eternal love",
         "His song 'Christmas Tree' was OST for 'Our Beloved Summer'"
       ],
-      "bio": "V, also known as Taehyung, is famous for his unique deep voice and artistic soul. He coined the phrase 'I purple you' which has become a symbol of BTS and ARMY's eternal bond. His eccentric personality and fashion sense have made him a global icon."
+      "bio": "V, also known as Taehyung, is famous for his unique deep voice and artistic soul. He coined the phrase 'I purple you' which has become a symbol of BTS and ARMY's eternal bond. His eccentric personality and fashion sense have made him a global icon.",
+      "popularSongs": [
+        {
+          "title": "Christmas Tree",
+          "year": 2021,
+          "note": "OST for the K-drama 'Our Beloved Summer' that charted globally."
+        },
+        {
+          "title": "Slow Dancing",
+          "year": 2023,
+          "note": "Lead single from his solo album Layover."
+        },
+        {
+          "title": "Singularity",
+          "year": 2018,
+          "note": "Solo intro of LOVE YOURSELF: Tear that turned his baritone into a signature."
+        },
+        {
+          "title": "Inner Child",
+          "year": 2020,
+          "note": "Solo from Map of the Soul: 7 addressed to his younger self."
+        }
+      ],
+      "distinction": "Unlike other BTS members, V channels an INFP artist's lens through his deep baritone — his stages feel like film stills, which is why his solo cuts read as moody photography even before the choreography starts.",
+      "fandomChant": "ARMY chant 'Kim Taehyung!' and pair it with the 'borahae' (I purple you) hand sign during his solo lines."
     },
     {
       "id": "jin",
@@ -85,14 +184,22 @@
       "nameEn": "Jin",
       "realName": "Kim Seok-jin (김석진)",
       "gender": "male",
-      "position": ["Vocalist", "Visual"],
+      "position": [
+        "Vocalist",
+        "Visual"
+      ],
       "birthYear": 1992,
       "birthday": "December 4",
       "zodiac": "Sagittarius",
       "mbti": "INTP",
       "height": "179cm",
       "emoji": "🦙",
-      "nicknames": ["Worldwide Handsome", "Car Door Guy", "Third One From The Left", "Eat Jin"],
+      "nicknames": [
+        "Worldwide Handsome",
+        "Car Door Guy",
+        "Third One From The Left",
+        "Eat Jin"
+      ],
       "funFacts": [
         "Went viral as 'Third One From The Left' at 2017 BBMAs",
         "Studied acting at Konkuk University",
@@ -100,7 +207,31 @@
         "Completed military service in 2024",
         "Loves cooking and has his own mukbang series 'Eat Jin'"
       ],
-      "bio": "Jin is the eldest member of BTS and is known for his stunning visuals, earning him the nickname 'Worldwide Handsome.' His warm personality, hilarious dad jokes, and caring nature as the group's eldest make him the beloved 'mom' of BTS."
+      "bio": "Jin is the eldest member of BTS and is known for his stunning visuals, earning him the nickname 'Worldwide Handsome.' His warm personality, hilarious dad jokes, and caring nature as the group's eldest make him the beloved 'mom' of BTS.",
+      "popularSongs": [
+        {
+          "title": "The Astronaut",
+          "year": 2022,
+          "note": "Pre-enlistment solo co-written with Coldplay."
+        },
+        {
+          "title": "Epiphany",
+          "year": 2018,
+          "note": "Solo intro from LOVE YOURSELF: Answer that became a karaoke staple."
+        },
+        {
+          "title": "Moon",
+          "year": 2020,
+          "note": "Solo from Map of the Soul: 7 written as a love letter to ARMY."
+        },
+        {
+          "title": "Super Tuna",
+          "year": 2021,
+          "note": "Birthday upload that went viral on TikTok with its dance."
+        }
+      ],
+      "distinction": "Unlike other BTS members, Jin balances main vocals with the eldest-brother role — his INTP wit shows up as deadpan timing in variety, which is why his ballads land harder against his usual comic register.",
+      "fandomChant": "ARMY chant 'Kim Seokjin!' twice during his solo lines, often pairing it with windshield-wiper laughs as inside-joke callbacks."
     },
     {
       "id": "rm",
@@ -108,14 +239,22 @@
       "nameEn": "RM",
       "realName": "Kim Nam-joon (김남준)",
       "gender": "male",
-      "position": ["Leader", "Main Rapper"],
+      "position": [
+        "Leader",
+        "Main Rapper"
+      ],
       "birthYear": 1994,
       "birthday": "September 12",
       "zodiac": "Virgo",
       "mbti": "ENFP",
       "height": "181cm",
       "emoji": "🦉",
-      "nicknames": ["God of Destruction", "Brain of BTS", "Namjoonie", "Joon"],
+      "nicknames": [
+        "God of Destruction",
+        "Brain of BTS",
+        "Namjoonie",
+        "Joon"
+      ],
       "funFacts": [
         "Learned English by watching 'Friends' TV show",
         "Has an IQ of 148",
@@ -123,7 +262,31 @@
         "Passionate about art and visits museums worldwide",
         "Gave historic speech at United Nations"
       ],
-      "bio": "RM is the leader of BTS and the group's main rapper. Known for his incredible intelligence (IQ 148) and self-taught English skills, he serves as BTS's spokesperson and has addressed the United Nations multiple times about youth issues."
+      "bio": "RM is the leader of BTS and the group's main rapper. Known for his incredible intelligence (IQ 148) and self-taught English skills, he serves as BTS's spokesperson and has addressed the United Nations multiple times about youth issues.",
+      "popularSongs": [
+        {
+          "title": "Indigo",
+          "year": 2022,
+          "note": "Solo album described by RM as an archive of his twenties."
+        },
+        {
+          "title": "Wild Flower (with youjeen)",
+          "year": 2022,
+          "note": "Lead single from Indigo about quiet ambition."
+        },
+        {
+          "title": "Right Place, Wrong Person",
+          "year": 2024,
+          "note": "Solo album exploring displacement and identity."
+        },
+        {
+          "title": "Persona",
+          "year": 2019,
+          "note": "Solo intro from Map of the Soul: Persona built around a Jungian frame."
+        }
+      ],
+      "distinction": "Unlike other BTS members, RM writes long-form lyrics with an ENFP curiosity — he's the group's translator across cultures and the reason BTS's discography reads as a coherent multi-album narrative.",
+      "fandomChant": "ARMY chant 'Kim Namjoon!' across his verses and tend to keep light sticks high during his closing English lines at world tours."
     },
     {
       "id": "suga",
@@ -131,14 +294,22 @@
       "nameEn": "SUGA",
       "realName": "Min Yoon-gi (민윤기)",
       "gender": "male",
-      "position": ["Lead Rapper", "Producer"],
+      "position": [
+        "Lead Rapper",
+        "Producer"
+      ],
       "birthYear": 1993,
       "birthday": "March 9",
       "zodiac": "Pisces",
       "mbti": "ISTP",
       "height": "174cm",
       "emoji": "🐱",
-      "nicknames": ["Agust D", "Min PD", "Lil Meow Meow", "Grandpa"],
+      "nicknames": [
+        "Agust D",
+        "Min PD",
+        "Lil Meow Meow",
+        "Grandpa"
+      ],
       "funFacts": [
         "Has solo project 'Agust D' with chart-topping albums",
         "Was an underground rapper before BTS",
@@ -146,7 +317,31 @@
         "Produced songs for many artists including IU",
         "Loves basketball and his cat-like personality earned him 'Lil Meow Meow'"
       ],
-      "bio": "SUGA is BTS's lead rapper and a prolific producer under his solo alias 'Agust D'. Despite his seemingly cold exterior, he's known for his thoughtful and caring nature. His honest lyrics about mental health have resonated with millions worldwide."
+      "bio": "SUGA is BTS's lead rapper and a prolific producer under his solo alias 'Agust D'. Despite his seemingly cold exterior, he's known for his thoughtful and caring nature. His honest lyrics about mental health have resonated with millions worldwide.",
+      "popularSongs": [
+        {
+          "title": "Haegeum",
+          "year": 2023,
+          "note": "Lead single from D-DAY using traditional haegeum strings in a hip-hop frame."
+        },
+        {
+          "title": "Daechwita",
+          "year": 2020,
+          "note": "Agust D track that fused court music with trap and became a viral phenomenon."
+        },
+        {
+          "title": "That That (with PSY)",
+          "year": 2022,
+          "note": "Co-produced single that introduced his Agust D persona to a new audience."
+        },
+        {
+          "title": "Seesaw",
+          "year": 2018,
+          "note": "Solo from LOVE YOURSELF: Answer about emotional fatigue."
+        }
+      ],
+      "distinction": "Unlike other BTS members, SUGA producers most of his own catalog with an ISTP's hands-on minimalism — he tends to strip arrangements down until only the load-bearing element remains, which is why his hooks sound deceptively simple.",
+      "fandomChant": "ARMY chant 'Min Yoongi!' across his fast verses and tend to drop into a softer 'genius' chant during slower production-heavy sections."
     },
     {
       "id": "jhope",
@@ -154,14 +349,23 @@
       "nameEn": "J-Hope",
       "realName": "Jung Ho-seok (정호석)",
       "gender": "male",
-      "position": ["Main Dancer", "Sub Rapper", "Sub Vocalist"],
+      "position": [
+        "Main Dancer",
+        "Sub Rapper",
+        "Sub Vocalist"
+      ],
       "birthYear": 1994,
       "birthday": "February 18",
       "zodiac": "Aquarius",
       "mbti": "INFJ",
       "height": "177cm",
       "emoji": "🌞",
-      "nicknames": ["Hobi", "Sunshine", "Hope", "Dance Machine"],
+      "nicknames": [
+        "Hobi",
+        "Sunshine",
+        "Hope",
+        "Dance Machine"
+      ],
       "funFacts": [
         "Named himself J-Hope to be a source of hope for fans",
         "Was a street dancer before joining BTS",
@@ -169,14 +373,50 @@
         "Known as the mood maker of the group",
         "His smile is said to be contagious"
       ],
-      "bio": "J-Hope is BTS's main dancer and the group's eternal sunshine. He chose his stage name to represent hope for fans. His incredible dance skills, positive energy, and bright personality make him the mood maker of BTS."
+      "bio": "J-Hope is BTS's main dancer and the group's eternal sunshine. He chose his stage name to represent hope for fans. His incredible dance skills, positive energy, and bright personality make him the mood maker of BTS.",
+      "popularSongs": [
+        {
+          "title": "Chicken Noodle Soup (feat. Becky G)",
+          "year": 2019,
+          "note": "Solo single that revived a 2000s dance track for a new generation."
+        },
+        {
+          "title": "MORE",
+          "year": 2022,
+          "note": "Lead single from Jack In The Box leaning into rock-infused hip-hop."
+        },
+        {
+          "title": "On the Street (with J. Cole)",
+          "year": 2023,
+          "note": "Solo single released before his enlistment."
+        },
+        {
+          "title": "Daydream",
+          "year": 2018,
+          "note": "Lead single from Hope World, his solo mixtape."
+        }
+      ],
+      "distinction": "Unlike other BTS members, J-Hope leads choreography while delivering rap verses — an INFJ's quiet planning meets street-dance precision, which is why his stages feel both meticulously blocked and effortlessly joyful.",
+      "fandomChant": "ARMY chant 'Jung Hoseok!' during his dance breaks and often answer his 'are you ready?' callouts with collective screams."
     }
   ],
-  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "pageTypes": [
+    "name",
+    "stage-name",
+    "aesthetic"
+  ],
   "badge": null,
   "seo": {
     "title": "BTS Name Generator | Create Your Korean Name with ARMY",
     "description": "Create your BTS name with all 7 members - Jungkook, Jimin, V, Jin, RM, SUGA & J-Hope! Get instant chemistry scores and Korean stage names. Perfect for ARMY fanfiction.",
-    "keywords": ["bts name generator", "bts korean name", "army name generator", "bts jungkook name", "bts jimin chemistry", "bts fan name"]
-  }
+    "keywords": [
+      "bts name generator",
+      "bts korean name",
+      "army name generator",
+      "bts jungkook name",
+      "bts jimin chemistry",
+      "bts fan name"
+    ]
+  },
+  "heroImage": "/images/groups/bts-hero.webp"
 }

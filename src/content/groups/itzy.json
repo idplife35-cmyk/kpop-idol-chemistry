@@ -7,7 +7,7 @@
   "company": "JYP Entertainment",
   "debutYear": 2019,
   "color": "#FF3366",
-  "logo": "/images/itzy_logo.png",
+  "logo": "/images/groups/itzy-logo.png",
   "description": "ITZY is a girl group known for their self-confidence anthems, powerful choreography, and 'teen crush' concept that inspires young fans worldwide.",
   "members": [
     {
@@ -16,14 +16,24 @@
       "nameEn": "Yeji",
       "realName": "Hwang Ye-ji (황예지)",
       "gender": "female",
-      "position": ["Leader", "Main Dancer", "Lead Vocalist", "Visual"],
+      "position": [
+        "Leader",
+        "Main Dancer",
+        "Lead Vocalist",
+        "Visual"
+      ],
       "birthYear": 2000,
       "birthday": "May 26",
       "zodiac": "Gemini",
       "mbti": "INFJ",
       "height": "167cm",
       "emoji": "🐱",
-      "nicknames": ["Cat", "Yeji Hwang", "Girl Crush Queen", "Dance Genius"],
+      "nicknames": [
+        "Cat",
+        "Yeji Hwang",
+        "Girl Crush Queen",
+        "Dance Genius"
+      ],
       "funFacts": [
         "Known for her cat-like sharp eyes and visuals",
         "Exceptional dancer considered one of the best in 4th gen",
@@ -39,14 +49,21 @@
       "nameEn": "Lia",
       "realName": "Choi Ji-su (최지수) / Julia Choi",
       "gender": "female",
-      "position": ["Main Vocalist"],
+      "position": [
+        "Main Vocalist"
+      ],
       "birthYear": 2000,
       "birthday": "July 21",
       "zodiac": "Cancer",
       "mbti": "INFJ",
       "height": "162cm",
       "emoji": "🐻",
-      "nicknames": ["Voice of ITZY", "Juliaaa", "Teddy Bear", "Powerful Vocalist"],
+      "nicknames": [
+        "Voice of ITZY",
+        "Juliaaa",
+        "Teddy Bear",
+        "Powerful Vocalist"
+      ],
       "funFacts": [
         "Lived in Canada for several years, fluent in English",
         "Known for her powerful, emotional vocals",
@@ -62,14 +79,24 @@
       "nameEn": "Ryujin",
       "realName": "Shin Ryu-jin (신류진)",
       "gender": "female",
-      "position": ["Main Rapper", "Lead Dancer", "Sub Vocalist", "Center"],
+      "position": [
+        "Main Rapper",
+        "Lead Dancer",
+        "Sub Vocalist",
+        "Center"
+      ],
       "birthYear": 2001,
       "birthday": "April 17",
       "zodiac": "Aries",
       "mbti": "INTJ",
       "height": "164cm",
       "emoji": "🦊",
-      "nicknames": ["4th Gen It Girl", "MITM Ryujin", "Shoulder Gangster", "Fox"],
+      "nicknames": [
+        "4th Gen It Girl",
+        "MITM Ryujin",
+        "Shoulder Gangster",
+        "Fox"
+      ],
       "funFacts": [
         "Her 'MITM' shoulder dance went viral globally",
         "Was recruited after appearing on Got7's music video",
@@ -85,14 +112,23 @@
       "nameEn": "Chaeryeong",
       "realName": "Lee Chae-ryeong (이채령)",
       "gender": "female",
-      "position": ["Main Dancer", "Sub Vocalist", "Visual"],
+      "position": [
+        "Main Dancer",
+        "Sub Vocalist",
+        "Visual"
+      ],
       "birthYear": 2001,
       "birthday": "June 5",
       "zodiac": "Gemini",
       "mbti": "ISFJ",
       "height": "166cm",
       "emoji": "🍒",
-      "nicknames": ["Dance Pro", "Cherry", "Sweet Girl", "Technical Queen"],
+      "nicknames": [
+        "Dance Pro",
+        "Cherry",
+        "Sweet Girl",
+        "Technical Queen"
+      ],
       "funFacts": [
         "Sister of IZ*ONE/LE SSERAFIM's Chaeyeon",
         "Known for her technical, precise dancing",
@@ -108,14 +144,24 @@
       "nameEn": "Yuna",
       "realName": "Shin Yu-na (신유나)",
       "gender": "female",
-      "position": ["Lead Rapper", "Sub Vocalist", "Visual", "Maknae"],
+      "position": [
+        "Lead Rapper",
+        "Sub Vocalist",
+        "Visual",
+        "Maknae"
+      ],
       "birthYear": 2003,
       "birthday": "December 9",
       "zodiac": "Sagittarius",
       "mbti": "ENFP",
       "height": "170cm",
       "emoji": "🐶",
-      "nicknames": ["Tall Maknae", "Puppy", "Visual Queen", "Energy Ball"],
+      "nicknames": [
+        "Tall Maknae",
+        "Puppy",
+        "Visual Queen",
+        "Energy Ball"
+      ],
       "funFacts": [
         "Tallest member at 170cm",
         "Known for her bright, energetic personality",
@@ -126,11 +172,22 @@
       "bio": "Yuna is ITZY's tall maknae and visual queen. At 170cm, she stands out with her model-like proportions. Her bright, puppy-like energy and confident personality make her a beloved maknae who lights up every stage."
     }
   ],
-  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "pageTypes": [
+    "name",
+    "stage-name",
+    "aesthetic"
+  ],
   "badge": null,
   "seo": {
     "title": "ITZY Name Generator | Create Your Korean Name with MIDZY",
     "description": "Create your ITZY name with Yeji, Lia, Ryujin, Chaeryeong & Yuna! Get instant chemistry scores and Korean stage names. Perfect for MIDZY fans.",
-    "keywords": ["itzy name generator", "itzy korean name", "midzy name generator", "itzy ryujin name", "itzy yeji chemistry"]
-  }
+    "keywords": [
+      "itzy name generator",
+      "itzy korean name",
+      "midzy name generator",
+      "itzy ryujin name",
+      "itzy yeji chemistry"
+    ]
+  },
+  "heroImage": "/images/groups/itzy-hero.webp"
 }

@@ -1,0 +1,600 @@
+{
+  "ts": "2026-06-15T05:14:03.539Z",
+  "pc": [
+    {
+      "slug": "gen-bts",
+      "gaEvents": [
+        {
+          "name": "gtm.dom",
+          "params": {
+            "event": "gtm.dom",
+            "gtm.uniqueEventId": 12
+          }
+        },
+        {
+          "name": "gtm.load",
+          "params": {
+            "event": "gtm.load",
+            "gtm.uniqueEventId": 13
+          }
+        },
+        {
+          "name": "name_generated",
+          "params": {
+            "group": "BTS",
+            "idol_name": "Jungkook",
+            "chemistry": 78,
+            "chemistry_tier": "RARE",
+            "relation": "lover",
+            "is_reroll": 0
+          }
+        }
+      ],
+      "notes": [],
+      "steps": {
+        "fillName": "ok",
+        "selectIdol": "ok",
+        "clickGenerate": "ok",
+        "clickShare": "ok",
+        "clickVS": "ok",
+        "clickFavorite": "no-favorite-button"
+      },
+      "gaEventNames": [
+        "gtm.dom",
+        "gtm.load",
+        "name_generated"
+      ],
+      "pwaBannerVisible": false,
+      "pwaBannerHiddenAttr": true,
+      "gaEventsFinal": [
+        "gtm.dom",
+        "gtm.load",
+        "name_generated",
+        "vs_challenge_created",
+        "result_shared"
+      ],
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "pageerror: Y",
+        "pageerror: Y",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "pageerror: Failed to execute 'writeText' on 'Clipboard': Write permission denied."
+      ]
+    },
+    {
+      "slug": "gen-blackpink",
+      "gaEvents": [
+        {
+          "name": "gtm.dom",
+          "params": {
+            "event": "gtm.dom",
+            "gtm.uniqueEventId": 12
+          }
+        },
+        {
+          "name": "gtm.load",
+          "params": {
+            "event": "gtm.load",
+            "gtm.uniqueEventId": 13
+          }
+        },
+        {
+          "name": "name_generated",
+          "params": {
+            "group": "BLACKPINK",
+            "idol_name": "Jisoo",
+            "chemistry": 84,
+            "chemistry_tier": "RARE",
+            "relation": "lover",
+            "is_reroll": 0
+          }
+        }
+      ],
+      "notes": [],
+      "steps": {
+        "fillName": "ok",
+        "selectIdol": "ok",
+        "clickGenerate": "ok",
+        "clickShare": "ok",
+        "clickVS": "ok",
+        "clickFavorite": "no-favorite-button"
+      },
+      "gaEventNames": [
+        "gtm.dom",
+        "gtm.load",
+        "name_generated"
+      ],
+      "pwaBannerVisible": false,
+      "pwaBannerHiddenAttr": true,
+      "gaEventsFinal": [
+        "gtm.dom",
+        "gtm.load",
+        "name_generated",
+        "vs_challenge_created",
+        "result_shared"
+      ],
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "pageerror: Y",
+        "pageerror: Y",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "pageerror: Failed to execute 'writeText' on 'Clipboard': Write permission denied."
+      ]
+    },
+    {
+      "slug": "gen-zerobaseone",
+      "gaEvents": [
+        {
+          "name": "gtm.dom",
+          "params": {
+            "event": "gtm.dom",
+            "gtm.uniqueEventId": 12
+          }
+        },
+        {
+          "name": "gtm.load",
+          "params": {
+            "event": "gtm.load",
+            "gtm.uniqueEventId": 13
+          }
+        },
+        {
+          "name": "name_generated",
+          "params": {
+            "group": "ZEROBASEONE",
+            "idol_name": "Sung Hanbin",
+            "chemistry": 86,
+            "chemistry_tier": "EPIC",
+            "relation": "lover",
+            "is_reroll": 0
+          }
+        }
+      ],
+      "notes": [],
+      "steps": {
+        "fillName": "ok",
+        "selectIdol": "ok",
+        "clickGenerate": "ok",
+        "clickShare": "ok",
+        "clickVS": "ok",
+        "clickFavorite": "no-favorite-button"
+      },
+      "gaEventNames": [
+        "gtm.dom",
+        "gtm.load",
+        "name_generated"
+      ],
+      "pwaBannerVisible": false,
+      "pwaBannerHiddenAttr": true,
+      "gaEventsFinal": [
+        "gtm.dom",
+        "gtm.load",
+        "name_generated",
+        "vs_challenge_created",
+        "result_shared"
+      ],
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "pageerror: Y",
+        "pageerror: Y",
+        "pageerror: Failed to execute 'writeText' on 'Clipboard': Write permission denied."
+      ]
+    },
+    {
+      "slug": "gen-aespa",
+      "gaEvents": [
+        {
+          "name": "gtm.dom",
+          "params": {
+            "event": "gtm.dom",
+            "gtm.uniqueEventId": 12
+          }
+        },
+        {
+          "name": "gtm.load",
+          "params": {
+            "event": "gtm.load",
+            "gtm.uniqueEventId": 13
+          }
+        },
+        {
+          "name": "name_generated",
+          "params": {
+            "group": "aespa",
+            "idol_name": "Karina",
+            "chemistry": 91,
+            "chemistry_tier": "EPIC",
+            "relation": "lover",
+            "is_reroll": 0
+          }
+        }
+      ],
+      "notes": [],
+      "steps": {
+        "fillName": "ok",
+        "selectIdol": "ok",
+        "clickGenerate": "ok",
+        "clickShare": "ok",
+        "clickVS": "ok",
+        "clickFavorite": "no-favorite-button"
+      },
+      "gaEventNames": [
+        "gtm.dom",
+        "gtm.load",
+        "name_generated"
+      ],
+      "pwaBannerVisible": false,
+      "pwaBannerHiddenAttr": true,
+      "gaEventsFinal": [
+        "gtm.dom",
+        "gtm.load",
+        "name_generated",
+        "vs_challenge_created",
+        "result_shared"
+      ],
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "pageerror: Y",
+        "pageerror: Y",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "pageerror: Failed to execute 'writeText' on 'Clipboard': Write permission denied."
+      ]
+    },
+    {
+      "slug": "gen-twice",
+      "gaEvents": [
+        {
+          "name": "gtm.dom",
+          "params": {
+            "event": "gtm.dom",
+            "gtm.uniqueEventId": 12
+          }
+        },
+        {
+          "name": "gtm.load",
+          "params": {
+            "event": "gtm.load",
+            "gtm.uniqueEventId": 13
+          }
+        },
+        {
+          "name": "name_generated",
+          "params": {
+            "group": "TWICE",
+            "idol_name": "Nayeon",
+            "chemistry": 83,
+            "chemistry_tier": "RARE",
+            "relation": "lover",
+            "is_reroll": 0
+          }
+        }
+      ],
+      "notes": [],
+      "steps": {
+        "fillName": "ok",
+        "selectIdol": "ok",
+        "clickGenerate": "ok",
+        "clickShare": "ok",
+        "clickVS": "ok",
+        "clickFavorite": "no-favorite-button"
+      },
+      "gaEventNames": [
+        "gtm.dom",
+        "gtm.load",
+        "name_generated"
+      ],
+      "pwaBannerVisible": false,
+      "pwaBannerHiddenAttr": true,
+      "gaEventsFinal": [
+        "gtm.dom",
+        "gtm.load",
+        "name_generated"
+      ],
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "pageerror: Y",
+        "pageerror: Y",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ]
+    }
+  ],
+  "mobile": [
+    {
+      "slug": "gen-bts",
+      "gaEvents": [
+        {
+          "name": "gtm.dom",
+          "params": {
+            "event": "gtm.dom",
+            "gtm.uniqueEventId": 12
+          }
+        },
+        {
+          "name": "gtm.load",
+          "params": {
+            "event": "gtm.load",
+            "gtm.uniqueEventId": 13
+          }
+        },
+        {
+          "name": "name_generated",
+          "params": {
+            "group": "BTS",
+            "idol_name": "Jungkook",
+            "chemistry": 78,
+            "chemistry_tier": "RARE",
+            "relation": "lover",
+            "is_reroll": 0
+          }
+        }
+      ],
+      "notes": [],
+      "steps": {
+        "fillName": "ok",
+        "selectIdol": "ok",
+        "clickGenerate": "ok",
+        "clickShare": "ok",
+        "clickVS": "ok",
+        "clickFavorite": "no-favorite-button"
+      },
+      "gaEventNames": [
+        "gtm.dom",
+        "gtm.load",
+        "name_generated"
+      ],
+      "pwaBannerVisible": true,
+      "pwaBannerHiddenAttr": false,
+      "gaEventsFinal": [
+        "gtm.dom",
+        "gtm.load",
+        "name_generated",
+        "vs_challenge_created",
+        "result_shared"
+      ],
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "pageerror: adsbygoogle.push() error: No slot size for availableWidth=0",
+        "pageerror: adsbygoogle.push() error: No slot size for availableWidth=0",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "pageerror: Failed to execute 'writeText' on 'Clipboard': Write permission denied."
+      ]
+    },
+    {
+      "slug": "gen-blackpink",
+      "gaEvents": [
+        {
+          "name": "gtm.dom",
+          "params": {
+            "event": "gtm.dom",
+            "gtm.uniqueEventId": 12
+          }
+        },
+        {
+          "name": "gtm.load",
+          "params": {
+            "event": "gtm.load",
+            "gtm.uniqueEventId": 13
+          }
+        },
+        {
+          "name": "name_generated",
+          "params": {
+            "group": "BLACKPINK",
+            "idol_name": "Jisoo",
+            "chemistry": 84,
+            "chemistry_tier": "RARE",
+            "relation": "lover",
+            "is_reroll": 0
+          }
+        }
+      ],
+      "notes": [],
+      "steps": {
+        "fillName": "ok",
+        "selectIdol": "ok",
+        "clickGenerate": "ok",
+        "clickShare": "ok",
+        "clickVS": "ok",
+        "clickFavorite": "no-favorite-button"
+      },
+      "gaEventNames": [
+        "gtm.dom",
+        "gtm.load",
+        "name_generated"
+      ],
+      "pwaBannerVisible": true,
+      "pwaBannerHiddenAttr": false,
+      "gaEventsFinal": [
+        "gtm.dom",
+        "gtm.load",
+        "name_generated",
+        "vs_challenge_created",
+        "result_shared"
+      ],
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "pageerror: adsbygoogle.push() error: No slot size for availableWidth=0",
+        "pageerror: adsbygoogle.push() error: No slot size for availableWidth=0",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "pageerror: Failed to execute 'writeText' on 'Clipboard': Write permission denied."
+      ]
+    },
+    {
+      "slug": "gen-zerobaseone",
+      "gaEvents": [
+        {
+          "name": "gtm.dom",
+          "params": {
+            "event": "gtm.dom",
+            "gtm.uniqueEventId": 12
+          }
+        },
+        {
+          "name": "gtm.load",
+          "params": {
+            "event": "gtm.load",
+            "gtm.uniqueEventId": 13
+          }
+        },
+        {
+          "name": "name_generated",
+          "params": {
+            "group": "ZEROBASEONE",
+            "idol_name": "Sung Hanbin",
+            "chemistry": 86,
+            "chemistry_tier": "EPIC",
+            "relation": "lover",
+            "is_reroll": 0
+          }
+        }
+      ],
+      "notes": [],
+      "steps": {
+        "fillName": "ok",
+        "selectIdol": "ok",
+        "clickGenerate": "ok",
+        "clickShare": "ok",
+        "clickVS": "ok",
+        "clickFavorite": "no-favorite-button"
+      },
+      "gaEventNames": [
+        "gtm.dom",
+        "gtm.load",
+        "name_generated"
+      ],
+      "pwaBannerVisible": true,
+      "pwaBannerHiddenAttr": false,
+      "gaEventsFinal": [
+        "gtm.dom",
+        "gtm.load",
+        "name_generated"
+      ],
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "pageerror: adsbygoogle.push() error: No slot size for availableWidth=0",
+        "pageerror: adsbygoogle.push() error: No slot size for availableWidth=0",
+        "Failed to load resource: the server responded with a status of 400 ()"
+      ]
+    },
+    {
+      "slug": "gen-aespa",
+      "gaEvents": [
+        {
+          "name": "gtm.dom",
+          "params": {
+            "event": "gtm.dom",
+            "gtm.uniqueEventId": 12
+          }
+        },
+        {
+          "name": "gtm.load",
+          "params": {
+            "event": "gtm.load",
+            "gtm.uniqueEventId": 13
+          }
+        },
+        {
+          "name": "name_generated",
+          "params": {
+            "group": "aespa",
+            "idol_name": "Karina",
+            "chemistry": 91,
+            "chemistry_tier": "EPIC",
+            "relation": "lover",
+            "is_reroll": 0
+          }
+        }
+      ],
+      "notes": [],
+      "steps": {
+        "fillName": "ok",
+        "selectIdol": "ok",
+        "clickGenerate": "ok",
+        "clickShare": "ok",
+        "clickVS": "ok",
+        "clickFavorite": "no-favorite-button"
+      },
+      "gaEventNames": [
+        "gtm.dom",
+        "gtm.load",
+        "name_generated"
+      ],
+      "pwaBannerVisible": true,
+      "pwaBannerHiddenAttr": false,
+      "gaEventsFinal": [
+        "gtm.dom",
+        "gtm.load",
+        "name_generated",
+        "vs_challenge_created",
+        "result_shared"
+      ],
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "pageerror: adsbygoogle.push() error: No slot size for availableWidth=0",
+        "pageerror: adsbygoogle.push() error: No slot size for availableWidth=0",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "pageerror: Failed to execute 'writeText' on 'Clipboard': Write permission denied."
+      ]
+    },
+    {
+      "slug": "gen-twice",
+      "gaEvents": [
+        {
+          "name": "gtm.dom",
+          "params": {
+            "event": "gtm.dom",
+            "gtm.uniqueEventId": 12
+          }
+        },
+        {
+          "name": "gtm.load",
+          "params": {
+            "event": "gtm.load",
+            "gtm.uniqueEventId": 13
+          }
+        },
+        {
+          "name": "name_generated",
+          "params": {
+            "group": "TWICE",
+            "idol_name": "Nayeon",
+            "chemistry": 83,
+            "chemistry_tier": "RARE",
+            "relation": "lover",
+            "is_reroll": 0
+          }
+        }
+      ],
+      "notes": [],
+      "steps": {
+        "fillName": "ok",
+        "selectIdol": "ok",
+        "clickGenerate": "ok",
+        "clickShare": "ok",
+        "clickVS": "ok",
+        "clickFavorite": "no-favorite-button"
+      },
+      "gaEventNames": [
+        "gtm.dom",
+        "gtm.load",
+        "name_generated"
+      ],
+      "pwaBannerVisible": true,
+      "pwaBannerHiddenAttr": false,
+      "gaEventsFinal": [
+        "gtm.dom",
+        "gtm.load",
+        "name_generated",
+        "vs_challenge_created",
+        "result_shared"
+      ],
+      "consoleErrors": [
+        "Failed to load resource: the server responded with a status of 404 ()",
+        "pageerror: adsbygoogle.push() error: No slot size for availableWidth=0",
+        "pageerror: adsbygoogle.push() error: No slot size for availableWidth=0",
+        "Failed to load resource: the server responded with a status of 400 ()",
+        "pageerror: Failed to execute 'writeText' on 'Clipboard': Write permission denied."
+      ]
+    }
+  ]
+}

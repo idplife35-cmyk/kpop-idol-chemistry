@@ -7,7 +7,7 @@
   "company": "JYP Entertainment",
   "debutYear": 2015,
   "color": "#FF5FA2",
-  "logo": "/images/twice_logo.png",
+  "logo": "/images/groups/twice-logo.png",
   "description": "TWICE is one of the best-selling K-Pop girl groups, known for their catchy songs, synchronized choreography, and nine talented members from Korea, Japan, and Taiwan.",
   "members": [
     {
@@ -16,14 +16,23 @@
       "nameEn": "Nayeon",
       "realName": "Im Na-yeon (임나연)",
       "gender": "female",
-      "position": ["Lead Vocalist", "Lead Dancer", "Center"],
+      "position": [
+        "Lead Vocalist",
+        "Lead Dancer",
+        "Center"
+      ],
       "birthYear": 1995,
       "birthday": "September 22",
       "zodiac": "Virgo",
       "mbti": "ISTP",
       "height": "163cm",
       "emoji": "🐰",
-      "nicknames": ["Bunny", "Nation's Center", "Im Naeng-mi", "Nabongs"],
+      "nicknames": [
+        "Bunny",
+        "Nation's Center",
+        "Im Naeng-mi",
+        "Nabongs"
+      ],
       "funFacts": [
         "First TWICE member to have a solo debut with 'POP!'",
         "Known for her signature bunny teeth",
@@ -39,14 +48,21 @@
       "nameEn": "Jeongyeon",
       "realName": "Yoo Jeong-yeon (유정연)",
       "gender": "female",
-      "position": ["Lead Vocalist"],
+      "position": [
+        "Lead Vocalist"
+      ],
       "birthYear": 1996,
       "birthday": "November 1",
       "zodiac": "Scorpio",
       "mbti": "ISFJ",
       "height": "167cm",
       "emoji": "🐸",
-      "nicknames": ["No Jam Brother", "Mom of TWICE", "Yoo Leader", "Jeongie"],
+      "nicknames": [
+        "No Jam Brother",
+        "Mom of TWICE",
+        "Yoo Leader",
+        "Jeongie"
+      ],
       "funFacts": [
         "Sister of actress Gong Seung-yeon",
         "Known as TWICE's 'mom' for taking care of members",
@@ -62,14 +78,23 @@
       "nameEn": "Momo",
       "realName": "Hirai Momo (平井もも)",
       "gender": "female",
-      "position": ["Main Dancer", "Sub Vocalist", "Sub Rapper"],
+      "position": [
+        "Main Dancer",
+        "Sub Vocalist",
+        "Sub Rapper"
+      ],
       "birthYear": 1996,
       "birthday": "November 9",
       "zodiac": "Scorpio",
       "mbti": "ISFP",
       "height": "162cm",
       "emoji": "🍑",
-      "nicknames": ["Dance Machine", "Momoring", "Peach", "Moguri"],
+      "nicknames": [
+        "Dance Machine",
+        "Momoring",
+        "Peach",
+        "Moguri"
+      ],
       "funFacts": [
         "From Kyoto, Japan",
         "Known as one of the best dancers in K-Pop",
@@ -85,14 +110,21 @@
       "nameEn": "Sana",
       "realName": "Minatozaki Sana (湊崎紗夏)",
       "gender": "female",
-      "position": ["Sub Vocalist"],
+      "position": [
+        "Sub Vocalist"
+      ],
       "birthYear": 1996,
       "birthday": "December 29",
       "zodiac": "Capricorn",
       "mbti": "ENFP",
       "height": "164cm",
       "emoji": "🦊",
-      "nicknames": ["Squirrel", "Shiba Inu", "Sana-Chan", "Aegyo Queen"],
+      "nicknames": [
+        "Squirrel",
+        "Shiba Inu",
+        "Sana-Chan",
+        "Aegyo Queen"
+      ],
       "funFacts": [
         "From Osaka, Japan",
         "Famous for her 'Shy Shy Shy' aegyo that went viral",
@@ -108,14 +140,22 @@
       "nameEn": "Jihyo",
       "realName": "Park Ji-hyo (박지효)",
       "gender": "female",
-      "position": ["Leader", "Main Vocalist"],
+      "position": [
+        "Leader",
+        "Main Vocalist"
+      ],
       "birthYear": 1997,
       "birthday": "February 1",
       "zodiac": "Aquarius",
       "mbti": "ESTP",
       "height": "162cm",
       "emoji": "🦌",
-      "nicknames": ["God Jihyo", "Shoulder Fairy", "Deer", "10-Year Trainee"],
+      "nicknames": [
+        "God Jihyo",
+        "Shoulder Fairy",
+        "Deer",
+        "10-Year Trainee"
+      ],
       "funFacts": [
         "Trained for 10 years at JYP before debut",
         "Known for her powerful vocals and leadership",
@@ -131,14 +171,22 @@
       "nameEn": "Mina",
       "realName": "Myoui Mina (名井南)",
       "gender": "female",
-      "position": ["Main Dancer", "Sub Vocalist"],
+      "position": [
+        "Main Dancer",
+        "Sub Vocalist"
+      ],
       "birthYear": 1997,
       "birthday": "March 24",
       "zodiac": "Aries",
       "mbti": "ISFP",
       "height": "163cm",
       "emoji": "🐧",
-      "nicknames": ["Black Swan", "Penguin", "Mina Sharon", "Ballet Queen"],
+      "nicknames": [
+        "Black Swan",
+        "Penguin",
+        "Mina Sharon",
+        "Ballet Queen"
+      ],
       "funFacts": [
         "From Kobe, Japan with 11 years of ballet training",
         "Known as the 'Black Swan' for her elegant dancing",
@@ -154,14 +202,22 @@
       "nameEn": "Dahyun",
       "realName": "Kim Da-hyun (김다현)",
       "gender": "female",
-      "position": ["Lead Rapper", "Sub Vocalist"],
+      "position": [
+        "Lead Rapper",
+        "Sub Vocalist"
+      ],
       "birthYear": 1998,
       "birthday": "May 28",
       "zodiac": "Gemini",
       "mbti": "ESFJ",
       "height": "158cm",
       "emoji": "🦅",
-      "nicknames": ["Tofu", "Eagle", "Dubu", "Variety Queen"],
+      "nicknames": [
+        "Tofu",
+        "Eagle",
+        "Dubu",
+        "Variety Queen"
+      ],
       "funFacts": [
         "Went viral pre-debut for 'Eagle Dance' at church",
         "Known for her pale 'tofu' skin",
@@ -177,14 +233,22 @@
       "nameEn": "Chaeyoung",
       "realName": "Son Chae-young (손채영)",
       "gender": "female",
-      "position": ["Main Rapper", "Sub Vocalist"],
+      "position": [
+        "Main Rapper",
+        "Sub Vocalist"
+      ],
       "birthYear": 1999,
       "birthday": "April 23",
       "zodiac": "Taurus",
       "mbti": "INFP",
       "height": "159cm",
       "emoji": "🍓",
-      "nicknames": ["Baby Beast", "Strawberry", "Art Fairy", "Chaeng"],
+      "nicknames": [
+        "Baby Beast",
+        "Strawberry",
+        "Art Fairy",
+        "Chaeng"
+      ],
       "funFacts": [
         "Known for her artistic talents - draws and paints",
         "Has numerous tattoos despite conservative K-Pop industry",
@@ -200,14 +264,23 @@
       "nameEn": "Tzuyu",
       "realName": "Chou Tzu-yu (周子瑜)",
       "gender": "female",
-      "position": ["Lead Dancer", "Sub Vocalist", "Visual"],
+      "position": [
+        "Lead Dancer",
+        "Sub Vocalist",
+        "Visual"
+      ],
       "birthYear": 1999,
       "birthday": "June 14",
       "zodiac": "Gemini",
       "mbti": "ISTP",
       "height": "172cm",
       "emoji": "🐶",
-      "nicknames": ["Yoda", "Chewy", "Taiwan Princess", "Visual Queen"],
+      "nicknames": [
+        "Yoda",
+        "Chewy",
+        "Taiwan Princess",
+        "Visual Queen"
+      ],
       "funFacts": [
         "From Tainan, Taiwan - TWICE's only Taiwanese member",
         "Named 'Most Beautiful Face 2019' by TC Candler",
@@ -218,11 +291,23 @@
       "bio": "Tzuyu is TWICE's Taiwanese visual and maknae. Her stunning visuals have earned her numerous 'most beautiful' titles globally. Despite her goddess-like appearance, she's known for being shy, quiet, and adorably clumsy."
     }
   ],
-  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "pageTypes": [
+    "name",
+    "stage-name",
+    "aesthetic"
+  ],
   "badge": null,
   "seo": {
     "title": "TWICE Name Generator | Create Your Korean Name with ONCE",
     "description": "Create your TWICE name with all 9 members - Nayeon, Jeongyeon, Momo, Sana, Jihyo, Mina, Dahyun, Chaeyoung & Tzuyu! Get instant chemistry scores and Korean names.",
-    "keywords": ["twice name generator", "twice korean name", "once name generator", "twice nayeon name", "twice tzuyu chemistry", "twice fan name"]
-  }
+    "keywords": [
+      "twice name generator",
+      "twice korean name",
+      "once name generator",
+      "twice nayeon name",
+      "twice tzuyu chemistry",
+      "twice fan name"
+    ]
+  },
+  "heroImage": "/images/groups/twice-hero.webp"
 }

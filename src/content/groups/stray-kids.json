@@ -7,7 +7,7 @@
   "company": "JYP Entertainment",
   "debutYear": 2018,
   "color": "#FF0000",
-  "logo": "/images/straykids_logo.png",
+  "logo": "/images/groups/stray-kids-logo.png",
   "description": "Stray Kids is a self-producing K-Pop group known for their powerful performances, unique sound, and deep involvement in music production.",
   "members": [
     {
@@ -16,14 +16,24 @@
       "nameEn": "Bang Chan",
       "realName": "Christopher Bang (방찬)",
       "gender": "male",
-      "position": ["Leader", "Producer", "Main Rapper", "Lead Vocalist"],
+      "position": [
+        "Leader",
+        "Producer",
+        "Main Rapper",
+        "Lead Vocalist"
+      ],
       "birthYear": 1997,
       "birthday": "October 3",
       "zodiac": "Libra",
       "mbti": "ENFJ",
       "height": "171cm",
       "emoji": "🐺",
-      "nicknames": ["Chan", "CB97", "Chris", "Father of Stray Kids"],
+      "nicknames": [
+        "Chan",
+        "CB97",
+        "Chris",
+        "Father of Stray Kids"
+      ],
       "funFacts": [
         "Born in South Korea, raised in Sydney, Australia",
         "Trained at JYP for 7 years before debut",
@@ -39,14 +49,23 @@
       "nameEn": "Lee Know",
       "realName": "Lee Min-ho (이민호)",
       "gender": "male",
-      "position": ["Main Dancer", "Sub Rapper", "Sub Vocalist"],
+      "position": [
+        "Main Dancer",
+        "Sub Rapper",
+        "Sub Vocalist"
+      ],
       "birthYear": 1998,
       "birthday": "October 25",
       "zodiac": "Scorpio",
       "mbti": "ISFP",
       "height": "172cm",
       "emoji": "🐈",
-      "nicknames": ["Minho", "Cat Mom", "Dance Genius", "King of Sass"],
+      "nicknames": [
+        "Minho",
+        "Cat Mom",
+        "Dance Genius",
+        "King of Sass"
+      ],
       "funFacts": [
         "Has three cats: Soonie, Doongie, and Dori",
         "Was a backup dancer for BTS before joining JYP",
@@ -62,14 +81,22 @@
       "nameEn": "Changbin",
       "realName": "Seo Chang-bin (서창빈)",
       "gender": "male",
-      "position": ["Producer", "Main Rapper"],
+      "position": [
+        "Producer",
+        "Main Rapper"
+      ],
       "birthYear": 1999,
       "birthday": "August 11",
       "zodiac": "Leo",
       "mbti": "ENFP",
       "height": "167cm",
       "emoji": "🐰",
-      "nicknames": ["Binnie", "SpearB", "Dark Changbin", "Muscular Rabbit"],
+      "nicknames": [
+        "Binnie",
+        "SpearB",
+        "Dark Changbin",
+        "Muscular Rabbit"
+      ],
       "funFacts": [
         "Raps under stage name SpearB in 3RACHA",
         "Known for his dark, powerful rapping style",
@@ -85,14 +112,23 @@
       "nameEn": "Hyunjin",
       "realName": "Hwang Hyun-jin (황현진)",
       "gender": "male",
-      "position": ["Main Dancer", "Lead Rapper", "Visual"],
+      "position": [
+        "Main Dancer",
+        "Lead Rapper",
+        "Visual"
+      ],
       "birthYear": 2000,
       "birthday": "March 20",
       "zodiac": "Pisces",
       "mbti": "INFP",
       "height": "179cm",
       "emoji": "🦙",
-      "nicknames": ["Jinnie", "Prince", "Hwang Hyunjin", "Art Fairy"],
+      "nicknames": [
+        "Jinnie",
+        "Prince",
+        "Hwang Hyunjin",
+        "Art Fairy"
+      ],
       "funFacts": [
         "Known for his elegant, artistic dancing style",
         "Passionate about painting and visual art",
@@ -108,14 +144,23 @@
       "nameEn": "Han",
       "realName": "Han Ji-sung (한지성)",
       "gender": "male",
-      "position": ["Producer", "Main Rapper", "Lead Vocalist"],
+      "position": [
+        "Producer",
+        "Main Rapper",
+        "Lead Vocalist"
+      ],
       "birthYear": 2000,
       "birthday": "September 14",
       "zodiac": "Virgo",
       "mbti": "ISTP",
       "height": "169cm",
       "emoji": "🐿️",
-      "nicknames": ["Jisung", "J.One", "Quokka", "Han Squirrel"],
+      "nicknames": [
+        "Jisung",
+        "J.One",
+        "Quokka",
+        "Han Squirrel"
+      ],
       "funFacts": [
         "Known as the 'Quokka' for his resemblance to the animal",
         "Part of producing unit 3RACHA as J.One",
@@ -131,14 +176,22 @@
       "nameEn": "Felix",
       "realName": "Lee Felix (이필릭스) / Felix Lee",
       "gender": "male",
-      "position": ["Lead Dancer", "Lead Rapper"],
+      "position": [
+        "Lead Dancer",
+        "Lead Rapper"
+      ],
       "birthYear": 2000,
       "birthday": "September 15",
       "zodiac": "Virgo",
       "mbti": "ENFP",
       "height": "171cm",
       "emoji": "🌞",
-      "nicknames": ["Sunshine", "Yongbok", "Deep Voice", "Pixie"],
+      "nicknames": [
+        "Sunshine",
+        "Yongbok",
+        "Deep Voice",
+        "Pixie"
+      ],
       "funFacts": [
         "Born and raised in Sydney, Australia",
         "Famous for his extremely deep voice contrast with cute looks",
@@ -154,14 +207,21 @@
       "nameEn": "Seungmin",
       "realName": "Kim Seung-min (김승민)",
       "gender": "male",
-      "position": ["Lead Vocalist"],
+      "position": [
+        "Lead Vocalist"
+      ],
       "birthYear": 2000,
       "birthday": "September 22",
       "zodiac": "Virgo",
       "mbti": "ESFJ",
       "height": "178cm",
       "emoji": "🐶",
-      "nicknames": ["Sunshine", "Baby Bread", "Dog Seungmin", "Sky"],
+      "nicknames": [
+        "Sunshine",
+        "Baby Bread",
+        "Dog Seungmin",
+        "Sky"
+      ],
       "funFacts": [
         "Has perfect pitch and stable vocals",
         "Big fan of Day6 before debut",
@@ -177,14 +237,22 @@
       "nameEn": "I.N",
       "realName": "Yang Jeong-in (양정인)",
       "gender": "male",
-      "position": ["Sub Vocalist", "Maknae"],
+      "position": [
+        "Sub Vocalist",
+        "Maknae"
+      ],
       "birthYear": 2001,
       "birthday": "February 8",
       "zodiac": "Aquarius",
       "mbti": "ISFJ",
       "height": "172cm",
       "emoji": "🦊",
-      "nicknames": ["Jeongin", "Fox", "Maknae On Top", "Bread Cheeks"],
+      "nicknames": [
+        "Jeongin",
+        "Fox",
+        "Maknae On Top",
+        "Bread Cheeks"
+      ],
       "funFacts": [
         "Known for his fox-like visuals and smile",
         "Had braces during debut, removed in 2020",
@@ -195,11 +263,22 @@
       "bio": "I.N is the maknae of Stray Kids with signature fox-like visuals and bread cheeks. Despite being the youngest, he's known for his witty comebacks to his hyungs. His vocal improvement over the years has been praised by fans."
     }
   ],
-  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "pageTypes": [
+    "name",
+    "stage-name",
+    "aesthetic"
+  ],
   "badge": null,
   "seo": {
     "title": "Stray Kids Name Generator | Create Your Korean Name with STAY",
     "description": "Create your Stray Kids name with Bang Chan, Felix, Hyunjin & all 8 members! Get instant chemistry scores and Korean stage names. Perfect for STAY fanfiction.",
-    "keywords": ["stray kids name generator", "skz korean name", "stay name generator", "stray kids felix name", "skz hyunjin chemistry"]
-  }
+    "keywords": [
+      "stray kids name generator",
+      "skz korean name",
+      "stay name generator",
+      "stray kids felix name",
+      "skz hyunjin chemistry"
+    ]
+  },
+  "heroImage": "/images/groups/stray-kids-hero.webp"
 }

@@ -25,7 +25,8 @@ const groups = groupsCollection
     id: g.data.id,
     name: g.data.name,
     slug: g.data.slug,
-    badge: g.data.badge || null
+    badge: g.data.badge || null,
+    heroImage: g.data.heroImage || null
   }))
   .sort((a, b) => {
     // HOT과 NEW 배지가 있는 그룹을 앞으로
@@ -117,7 +118,11 @@ const trendingGroups = await loadTrendingGroups();
               <a href={`/${group.slug}-name-generator/`} class="group-story" data-badge={group.badge}>
                 <div class={`group-story-ring ${group.badge ? 'has-badge' : ''}`}>
                   <div class="group-story-inner">
-                    <span class="group-initial">{group.name[0]}</span>
+                    {group.heroImage ? (
+                      <img src={group.heroImage} alt="" class="group-story-img" loading="lazy" decoding="async" />
+                    ) : (
+                      <span class="group-initial">{group.name[0]}</span>
+                    )}
                   </div>
                 </div>
                 {group.badge && (
@@ -356,12 +361,6 @@ const trendingGroups = await loadTrendingGroups();
       var(--accent) 240deg,
       var(--accent-2) 360deg
     );
-    animation: ring-rotate 3s linear infinite;
-  }
-  
-  @keyframes ring-rotate {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(360deg); }
   }
   
   .group-story-inner {
@@ -372,6 +371,14 @@ const trendingGroups = await loadTrendingGroups();
     display: flex;
     align-items: center;
     justify-content: center;
+    overflow: hidden;
+  }
+
+  .group-story-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
   }
   
   .group-initial {

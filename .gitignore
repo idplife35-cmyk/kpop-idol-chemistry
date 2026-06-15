@@ -21,3 +21,7 @@ dist/
 # OS
 .DS_Store
 Thumbs.db
+
+# ChatGPT image bot (Playwright persistent profile)
+tools/.chrome-profile/
+tools/.chrome-chatgpt-profile/

@@ -7,7 +7,7 @@
   "company": "KQ Entertainment",
   "debutYear": 2018,
   "color": "#0066CC",
-  "logo": "/images/ateez_logo.png",
+  "logo": "/images/groups/ateez-logo.png",
   "description": "ATEEZ is known for their powerful performances, pirate-themed storylines, and explosive stage presence that has earned them a massive global following.",
   "members": [
     {
@@ -16,14 +16,23 @@
       "nameEn": "Hongjoong",
       "realName": "Kim Hong-joong (김홍중)",
       "gender": "male",
-      "position": ["Leader", "Main Rapper", "Sub Vocalist"],
+      "position": [
+        "Leader",
+        "Main Rapper",
+        "Sub Vocalist"
+      ],
       "birthYear": 1998,
       "birthday": "November 7",
       "zodiac": "Scorpio",
       "mbti": "INFP",
       "height": "171cm",
       "emoji": "🏴‍☠️",
-      "nicknames": ["Captain", "Producer Hongjoong", "Fashion Icon", "Tiny Giant"],
+      "nicknames": [
+        "Captain",
+        "Producer Hongjoong",
+        "Fashion Icon",
+        "Tiny Giant"
+      ],
       "funFacts": [
         "Writes and produces many ATEEZ songs",
         "Known for his unique fashion sense and DIY styling",
@@ -39,14 +48,22 @@
       "nameEn": "Seonghwa",
       "realName": "Park Seong-hwa (박성화)",
       "gender": "male",
-      "position": ["Lead Vocalist", "Visual"],
+      "position": [
+        "Lead Vocalist",
+        "Visual"
+      ],
       "birthYear": 1998,
       "birthday": "April 3",
       "zodiac": "Aries",
       "mbti": "INFJ",
       "height": "178cm",
       "emoji": "🌙",
-      "nicknames": ["Mars", "Neat Freak", "Visual King", "Cleaning Fairy"],
+      "nicknames": [
+        "Mars",
+        "Neat Freak",
+        "Visual King",
+        "Cleaning Fairy"
+      ],
       "funFacts": [
         "Known for being extremely clean and organized",
         "His stage name was almost 'Mars'",
@@ -62,14 +79,23 @@
       "nameEn": "Yunho",
       "realName": "Jeong Yun-ho (정윤호)",
       "gender": "male",
-      "position": ["Main Dancer", "Sub Vocalist", "Sub Rapper"],
+      "position": [
+        "Main Dancer",
+        "Sub Vocalist",
+        "Sub Rapper"
+      ],
       "birthYear": 1999,
       "birthday": "March 23",
       "zodiac": "Aries",
       "mbti": "ENFP",
       "height": "184cm",
       "emoji": "🐶",
-      "nicknames": ["Golden Retriever", "Tall Baby", "Happy Virus", "Yunho-ya"],
+      "nicknames": [
+        "Golden Retriever",
+        "Tall Baby",
+        "Happy Virus",
+        "Yunho-ya"
+      ],
       "funFacts": [
         "One of the tallest K-Pop idols at 184cm",
         "Known for his golden retriever personality",
@@ -85,14 +111,23 @@
       "nameEn": "Yeosang",
       "realName": "Kang Yeo-sang (강여상)",
       "gender": "male",
-      "position": ["Lead Dancer", "Sub Vocalist", "Visual"],
+      "position": [
+        "Lead Dancer",
+        "Sub Vocalist",
+        "Visual"
+      ],
       "birthYear": 1999,
       "birthday": "June 15",
       "zodiac": "Gemini",
       "mbti": "INFP",
       "height": "173cm",
       "emoji": "🦊",
-      "nicknames": ["Prince", "Mole", "Fox", "Vampire Visual"],
+      "nicknames": [
+        "Prince",
+        "Mole",
+        "Fox",
+        "Vampire Visual"
+      ],
       "funFacts": [
         "Known for his unique birthmark near his eye",
         "Very quiet and introverted",
@@ -108,14 +143,23 @@
       "nameEn": "San",
       "realName": "Choi San (최산)",
       "gender": "male",
-      "position": ["Main Vocalist", "Lead Dancer", "Center"],
+      "position": [
+        "Main Vocalist",
+        "Lead Dancer",
+        "Center"
+      ],
       "birthYear": 1999,
       "birthday": "July 10",
       "zodiac": "Cancer",
       "mbti": "INFP",
       "height": "175cm",
       "emoji": "🐯",
-      "nicknames": ["Stage Genius", "Demon San", "Woosan", "Charisma King"],
+      "nicknames": [
+        "Stage Genius",
+        "Demon San",
+        "Woosan",
+        "Charisma King"
+      ],
       "funFacts": [
         "Known for his intense stage presence and expressions",
         "Transforms completely on stage - called 'demon'",
@@ -131,14 +175,22 @@
       "nameEn": "Mingi",
       "realName": "Song Min-gi (송민기)",
       "gender": "male",
-      "position": ["Main Rapper", "Sub Vocalist"],
+      "position": [
+        "Main Rapper",
+        "Sub Vocalist"
+      ],
       "birthYear": 1999,
       "birthday": "August 9",
       "zodiac": "Leo",
       "mbti": "ENTP",
       "height": "183cm",
       "emoji": "🔥",
-      "nicknames": ["Deep Voice", "Tall King", "Mingi-ya", "Power Rapper"],
+      "nicknames": [
+        "Deep Voice",
+        "Tall King",
+        "Mingi-ya",
+        "Power Rapper"
+      ],
       "funFacts": [
         "Known for his extremely deep voice",
         "Second tallest member at 183cm",
@@ -154,14 +206,23 @@
       "nameEn": "Wooyoung",
       "realName": "Jung Woo-young (정우영)",
       "gender": "male",
-      "position": ["Main Dancer", "Lead Vocalist", "Sub Rapper"],
+      "position": [
+        "Main Dancer",
+        "Lead Vocalist",
+        "Sub Rapper"
+      ],
       "birthYear": 1999,
       "birthday": "November 26",
       "zodiac": "Sagittarius",
       "mbti": "ESFJ",
       "height": "173cm",
       "emoji": "🖤",
-      "nicknames": ["Woosan", "Dance King", "Woo-ya", "Mood Maker"],
+      "nicknames": [
+        "Woosan",
+        "Dance King",
+        "Woo-ya",
+        "Mood Maker"
+      ],
       "funFacts": [
         "Known for his sharp, precise dancing",
         "Famous friendship with San (Woosan)",
@@ -177,14 +238,22 @@
       "nameEn": "Jongho",
       "realName": "Choi Jong-ho (최종호)",
       "gender": "male",
-      "position": ["Main Vocalist", "Maknae"],
+      "position": [
+        "Main Vocalist",
+        "Maknae"
+      ],
       "birthYear": 2000,
       "birthday": "October 12",
       "zodiac": "Libra",
       "mbti": "ESTJ",
       "height": "176cm",
       "emoji": "🍎",
-      "nicknames": ["Apple Crusher", "Vocal King", "Strong Maknae", "Power Vocals"],
+      "nicknames": [
+        "Apple Crusher",
+        "Vocal King",
+        "Strong Maknae",
+        "Power Vocals"
+      ],
       "funFacts": [
         "Famous for crushing apples with his bare hands",
         "Known for his incredibly powerful vocals",
@@ -195,11 +264,22 @@
       "bio": "Jongho is ATEEZ's maknae with one of the most powerful voices in K-Pop. He's famous for crushing apples with bare hands. His ability to hit high notes while dancing is unmatched."
     }
   ],
-  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "pageTypes": [
+    "name",
+    "stage-name",
+    "aesthetic"
+  ],
   "badge": "HOT",
   "seo": {
     "title": "ATEEZ Name Generator | Create Your Korean Name with ATINY",
     "description": "Create your ATEEZ name with Hongjoong, Seonghwa, San, Wooyoung, Jongho & more! Get instant chemistry scores and Korean names. Perfect for ATINY.",
-    "keywords": ["ateez name generator", "ateez korean name", "atiny name generator", "ateez san name", "ateez hongjoong chemistry"]
-  }
+    "keywords": [
+      "ateez name generator",
+      "ateez korean name",
+      "atiny name generator",
+      "ateez san name",
+      "ateez hongjoong chemistry"
+    ]
+  },
+  "heroImage": "/images/groups/ateez-hero.webp"
 }

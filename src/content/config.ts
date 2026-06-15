@@ -22,7 +22,20 @@ const memberSchema = z.object({
   nicknames: z.array(z.string()).optional(),
   funFacts: z.array(z.string()).optional(),
   bio: z.string().optional(),
-  image: z.string().optional()
+  image: z.string().optional(),
+  // SEO unique-signal fields (2026-06-15, see product/seo-coverage-2026-06-15.md)
+  // All optional — pages render fallback text when missing.
+  popularSongs: z.array(z.object({
+    title: z.string(),
+    year: z.number().optional(),
+    note: z.string().optional()
+  })).optional(),
+  trivia: z.array(z.string()).optional(),
+  fandomChant: z.string().optional(),
+  distinction: z.string().optional(),
+  // Per-relation chemistry line. Keys are RelationType values:
+  // lover, friend, soulmate, partner, drama, rival, sibling, classmate
+  chemistryByRelation: z.record(z.string()).optional()
 });
 
 // Group schema
@@ -36,6 +49,7 @@ const groupSchema = z.object({
   debutYear: z.number().optional(),
   color: z.string().optional(),
   logo: z.string().optional(),
+  heroImage: z.string().optional(),
   description: z.string().optional(),
   members: z.array(memberSchema),
   pageTypes: z.array(z.enum(['name', 'stage-name', 'aesthetic'])),

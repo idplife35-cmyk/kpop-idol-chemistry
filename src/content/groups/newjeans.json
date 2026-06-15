@@ -7,7 +7,7 @@
   "company": "ADOR/HYBE",
   "debutYear": 2022,
   "color": "#0066FF",
-  "logo": "/images/newjeans_logo.png",
+  "logo": "/images/groups/newjeans-logo.png",
   "description": "NewJeans is a trendsetting K-Pop girl group known for their fresh, Y2K-inspired aesthetic and catchy music that blends various genres.",
   "members": [
     {
@@ -16,14 +16,23 @@
       "nameEn": "Minji",
       "realName": "Kim Min-ji (김민지)",
       "gender": "female",
-      "position": ["Leader", "Lead Dancer", "Sub Vocalist"],
+      "position": [
+        "Leader",
+        "Lead Dancer",
+        "Sub Vocalist"
+      ],
       "birthYear": 2004,
       "birthday": "May 7",
       "zodiac": "Taurus",
       "mbti": "ESTJ",
       "height": "169cm",
       "emoji": "🐻",
-      "nicknames": ["Bear", "Jin", "Kim Minji", "Reliable Leader"],
+      "nicknames": [
+        "Bear",
+        "Jin",
+        "Kim Minji",
+        "Reliable Leader"
+      ],
       "funFacts": [
         "Known for her mature, reliable leadership",
         "Has a 'girl crush' image with soft personality",
@@ -31,7 +40,31 @@
         "Speaks fluent Japanese",
         "Known for her powerful stage presence and duality"
       ],
-      "bio": "Minji is NewJeans' leader despite being one of the youngest K-pop group leaders. Her mature personality and reliable nature earned her the leader position. She's known for her 'duality' - fierce on stage but adorable off-stage."
+      "bio": "Minji is NewJeans' leader despite being one of the youngest K-pop group leaders. Her mature personality and reliable nature earned her the leader position. She's known for her 'duality' - fierce on stage but adorable off-stage.",
+      "popularSongs": [
+        {
+          "title": "Attention",
+          "year": 2022,
+          "note": "NewJeans' pre-debut single where Minji's opening verse set the group tone."
+        },
+        {
+          "title": "Hype Boy",
+          "year": 2022,
+          "note": "Multi-MV debut track that anchored Minji's leader-as-center positioning."
+        },
+        {
+          "title": "Super Shy",
+          "year": 2023,
+          "note": "Pre-release that became a global TikTok phenomenon."
+        },
+        {
+          "title": "Bubble Gum",
+          "year": 2024,
+          "note": "Pre-release where Minji's vocal warmth carries the bossa-flavored hook."
+        }
+      ],
+      "distinction": "Unlike other NewJeans members, Minji carries leader duties with an ESTJ's quiet operational discipline — her stage presence reads as composed front-line authority, which is why her lead lines often land before the choreography catches up.",
+      "fandomChant": "Bunnies chant 'Kim Minji!' twice during her solo lines and synchronize light sticks to her opening note on Hype Boy."
     },
     {
       "id": "hanni",
@@ -39,14 +72,22 @@
       "nameEn": "Hanni",
       "realName": "Hanni Pham (팜응옥한)",
       "gender": "female",
-      "position": ["Lead Vocalist", "Lead Dancer"],
+      "position": [
+        "Lead Vocalist",
+        "Lead Dancer"
+      ],
       "birthYear": 2004,
       "birthday": "October 6",
       "zodiac": "Libra",
       "mbti": "INFP",
       "height": "162cm",
       "emoji": "🐱",
-      "nicknames": ["Pham Hanni", "Vietnamese Princess", "Haribo", "Cutie"],
+      "nicknames": [
+        "Pham Hanni",
+        "Vietnamese Princess",
+        "Haribo",
+        "Cutie"
+      ],
       "funFacts": [
         "Born in Vietnam, raised in Melbourne, Australia",
         "Only Vietnamese K-pop idol in a major group",
@@ -54,7 +95,31 @@
         "Speaks Vietnamese, English, and Korean fluently",
         "Her aegyo (cuteness) is legendary among fans"
       ],
-      "bio": "Hanni is the Vietnamese-Australian member of NewJeans. Born in Vietnam and raised in Australia, she brings a unique multicultural perspective to the group. Her adorable personality and genuine reactions have made her a viral sensation."
+      "bio": "Hanni is the Vietnamese-Australian member of NewJeans. Born in Vietnam and raised in Australia, she brings a unique multicultural perspective to the group. Her adorable personality and genuine reactions have made her a viral sensation.",
+      "popularSongs": [
+        {
+          "title": "Hype Boy",
+          "year": 2022,
+          "note": "Hanni's pre-chorus is the part that broke through algorithm-wide."
+        },
+        {
+          "title": "Cool With You",
+          "year": 2023,
+          "note": "Title track where Hanni's airy delivery anchors the verses."
+        },
+        {
+          "title": "OMG",
+          "year": 2023,
+          "note": "Pre-release single with a viral choreography Hanni leads in dance practice clips."
+        },
+        {
+          "title": "Veronica Mars (cover)",
+          "year": 2023,
+          "note": "Hanni's 'Sandy from Grease' viral cover that re-introduced her as a soloist online."
+        }
+      ],
+      "distinction": "Unlike other NewJeans members, Hanni layers an INFP's earnest emotionality on top of Y2K bubblegum production — her ad-libs feel like personal asides, which is why her parts trend on short-form video faster than the choruses they sit in.",
+      "fandomChant": "Bunnies chant 'Pham Hanni!' through her pre-choruses and respond to her 'I'm in love' line with a collective sing-along."
     },
     {
       "id": "danielle",
@@ -62,14 +127,22 @@
       "nameEn": "Danielle",
       "realName": "Danielle Marsh (다니엘 마쉬) / Mo Ji-hye (모지혜)",
       "gender": "female",
-      "position": ["Sub Vocalist", "Sub Rapper"],
+      "position": [
+        "Sub Vocalist",
+        "Sub Rapper"
+      ],
       "birthYear": 2005,
       "birthday": "April 11",
       "zodiac": "Aries",
       "mbti": "ENFP",
       "height": "165cm",
       "emoji": "🐿️",
-      "nicknames": ["Dani", "Squirrel", "Mo Danielle", "Marshmallow"],
+      "nicknames": [
+        "Dani",
+        "Squirrel",
+        "Mo Danielle",
+        "Marshmallow"
+      ],
       "funFacts": [
         "Half Korean, half Australian",
         "Known for her unique, versatile vocal color",
@@ -77,7 +150,31 @@
         "Went viral for her 'Hype Boy' pronunciation coaching",
         "Has lived in both Korea and Australia"
       ],
-      "bio": "Danielle is a half-Korean, half-Australian member known for her bright energy and unique vocal tone. She's the group's mood maker and her bilingual skills have made her popular in both Korean and international markets."
+      "bio": "Danielle is a half-Korean, half-Australian member known for her bright energy and unique vocal tone. She's the group's mood maker and her bilingual skills have made her popular in both Korean and international markets.",
+      "popularSongs": [
+        {
+          "title": "Ditto",
+          "year": 2022,
+          "note": "Title track where Danielle's tone defines the nostalgic chorus."
+        },
+        {
+          "title": "Super Shy",
+          "year": 2023,
+          "note": "Danielle's English ad-libs became the social-clip go-to for the song."
+        },
+        {
+          "title": "ETA",
+          "year": 2023,
+          "note": "iPhone-shot MV title track that leans on Danielle's playful delivery."
+        },
+        {
+          "title": "How Sweet",
+          "year": 2024,
+          "note": "Title track where Danielle's bright tone carries the hook."
+        }
+      ],
+      "distinction": "Unlike other NewJeans members, Danielle's ENFP brightness shows up as bilingual code-switching mid-line — her English ad-libs land with native fluency, which is why her parts get clipped for global short-form first.",
+      "fandomChant": "Bunnies chant 'Mo Danielle!' and often join her on the famous 'Ditto-yo' tag during live versions."
     },
     {
       "id": "haerin",
@@ -85,14 +182,22 @@
       "nameEn": "Haerin",
       "realName": "Kang Hae-rin (강해린)",
       "gender": "female",
-      "position": ["Lead Vocalist", "Visual"],
+      "position": [
+        "Lead Vocalist",
+        "Visual"
+      ],
       "birthYear": 2006,
       "birthday": "May 15",
       "zodiac": "Taurus",
       "mbti": "ISTP",
       "height": "165cm",
       "emoji": "🐱",
-      "nicknames": ["Cat", "Kitty", "Quiet Cat", "Haerini"],
+      "nicknames": [
+        "Cat",
+        "Kitty",
+        "Quiet Cat",
+        "Haerini"
+      ],
       "funFacts": [
         "Known for her cat-like visuals and personality",
         "Very quiet and introverted off-stage",
@@ -100,7 +205,31 @@
         "Loves cats and has a pet cat",
         "Her duality between performances is extreme"
       ],
-      "bio": "Haerin is NewJeans' visual known for her striking cat-like features. Despite her quiet, introverted personality off-stage, she transforms into a powerful performer. Her mysterious aura has captivated fans worldwide."
+      "bio": "Haerin is NewJeans' visual known for her striking cat-like features. Despite her quiet, introverted personality off-stage, she transforms into a powerful performer. Her mysterious aura has captivated fans worldwide.",
+      "popularSongs": [
+        {
+          "title": "Cool With You",
+          "year": 2023,
+          "note": "Title track whose MV centered Haerin's gaze in the most-clipped scene."
+        },
+        {
+          "title": "OMG",
+          "year": 2023,
+          "note": "Pre-release where Haerin's whisper hook became a fan-imitation moment."
+        },
+        {
+          "title": "Get Up (intro)",
+          "year": 2023,
+          "note": "Short interlude that highlighted Haerin's lower-register restraint."
+        },
+        {
+          "title": "Right Now",
+          "year": 2024,
+          "note": "Promotional single where Haerin's chorus tone reframes the song's tempo."
+        }
+      ],
+      "distinction": "Unlike other NewJeans members, Haerin pairs ISTP coolness with a visual-heavy stage role — her stillness on camera does more work than choreography, which is why fan-cams of her standing still still trend.",
+      "fandomChant": "Bunnies chant 'Kang Haerin!' three times during her solo lines and tend to hold breath during her close-ups in the MV cuts."
     },
     {
       "id": "hyein",
@@ -108,14 +237,23 @@
       "nameEn": "Hyein",
       "realName": "Lee Hye-in (이혜인)",
       "gender": "female",
-      "position": ["Main Rapper", "Sub Vocalist", "Maknae"],
+      "position": [
+        "Main Rapper",
+        "Sub Vocalist",
+        "Maknae"
+      ],
       "birthYear": 2008,
       "birthday": "April 21",
       "zodiac": "Taurus",
       "mbti": "INFP",
       "height": "170cm",
       "emoji": "🐶",
-      "nicknames": ["Puppy", "Tall Maknae", "Hyeinie", "Young Boss"],
+      "nicknames": [
+        "Puppy",
+        "Tall Maknae",
+        "Hyeinie",
+        "Young Boss"
+      ],
       "funFacts": [
         "Youngest K-pop idol in a major group (debuted at 14)",
         "Already 170cm tall and still growing",
@@ -123,14 +261,49 @@
         "Very playful and energetic despite being the youngest",
         "Known for her unexpectedly deep voice"
       ],
-      "bio": "Hyein is NewJeans' maknae who debuted at just 14 years old. Despite her young age, her rap skills and stage presence are remarkably mature. She's one of the tallest members and brings youthful energy to the group."
+      "bio": "Hyein is NewJeans' maknae who debuted at just 14 years old. Despite her young age, her rap skills and stage presence are remarkably mature. She's one of the tallest members and brings youthful energy to the group.",
+      "popularSongs": [
+        {
+          "title": "Hype Boy",
+          "year": 2022,
+          "note": "Hyein's rap section gave the song its mid-track lift."
+        },
+        {
+          "title": "ASAP",
+          "year": 2023,
+          "note": "Title track on Get Up where Hyein's bridge anchors the song's shift."
+        },
+        {
+          "title": "New Jeans (track)",
+          "year": 2023,
+          "note": "Maknae-led cheerleader-themed track that became a stadium anthem."
+        },
+        {
+          "title": "Supernatural",
+          "year": 2024,
+          "note": "Title with city-pop sheen where Hyein's bright tone lifts the chorus."
+        }
+      ],
+      "distinction": "Unlike other NewJeans members, Hyein delivers main-rapper verses as the maknae — an INFP softness wrapped around surprisingly deep flow, which is why her short bars often steal the chorus credit from the singers.",
+      "fandomChant": "Bunnies chant 'Lee Hyein!' through her rap section and pull out the puppy hand-sign during her solo lines."
     }
   ],
-  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "pageTypes": [
+    "name",
+    "stage-name",
+    "aesthetic"
+  ],
   "badge": "HOT",
   "seo": {
     "title": "NewJeans Name Generator | Create Your Korean Name with Bunnies",
     "description": "Create your NewJeans name with Minji, Hanni, Danielle, Haerin & Hyein! Instant chemistry scores & Korean names. Perfect for Bunnies fanfiction.",
-    "keywords": ["newjeans name generator", "newjeans korean name", "bunnies name generator", "newjeans minji chemistry", "newjeans hanni name"]
-  }
+    "keywords": [
+      "newjeans name generator",
+      "newjeans korean name",
+      "bunnies name generator",
+      "newjeans minji chemistry",
+      "newjeans hanni name"
+    ]
+  },
+  "heroImage": "/images/groups/newjeans-hero.webp"
 }

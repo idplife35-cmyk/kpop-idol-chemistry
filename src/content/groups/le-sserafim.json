@@ -7,7 +7,7 @@
   "company": "Source Music / HYBE",
   "debutYear": 2022,
   "color": "#000000",
-  "logo": "/images/lesserafim_logo.png",
+  "logo": "/images/groups/le-sserafim-logo.png",
   "description": "LE SSERAFIM is a powerful 4th generation girl group known for their fierce performances, bold concepts, and athletic choreography.",
   "members": [
     {
@@ -16,14 +16,23 @@
       "nameEn": "Sakura",
       "realName": "Miyawaki Sakura (宮脇咲良)",
       "gender": "female",
-      "position": ["Lead Dancer", "Sub Vocalist", "Visual"],
+      "position": [
+        "Lead Dancer",
+        "Sub Vocalist",
+        "Visual"
+      ],
       "birthYear": 1998,
       "birthday": "March 19",
       "zodiac": "Pisces",
       "mbti": "ESTJ",
       "height": "163cm",
       "emoji": "🌸",
-      "nicknames": ["Kkura", "Cherry Blossom", "Gaming Queen", "HKT48 Ace"],
+      "nicknames": [
+        "Kkura",
+        "Cherry Blossom",
+        "Gaming Queen",
+        "HKT48 Ace"
+      ],
       "funFacts": [
         "Former IZ*ONE and HKT48 member",
         "One of the most followed K-pop idols from Japan",
@@ -31,7 +40,31 @@
         "Has been in the industry since 2011",
         "Her fans are called 'Sakura Trees'"
       ],
-      "bio": "Sakura is a Japanese idol veteran who rose to fame in HKT48 before joining IZ*ONE through Produce 48. With over a decade of experience, she brings unmatched professionalism to LE SSERAFIM. She's known for her gaming streams and elegant presence."
+      "bio": "Sakura is a Japanese idol veteran who rose to fame in HKT48 before joining IZ*ONE through Produce 48. With over a decade of experience, she brings unmatched professionalism to LE SSERAFIM. She's known for her gaming streams and elegant presence.",
+      "popularSongs": [
+        {
+          "title": "FEARLESS",
+          "year": 2022,
+          "note": "Debut title where Sakura's center moment anchored the choreography."
+        },
+        {
+          "title": "ANTIFRAGILE",
+          "year": 2022,
+          "note": "Mini-album title where Sakura's pre-chorus delivers the song's lift."
+        },
+        {
+          "title": "UNFORGIVEN (feat. Nile Rodgers)",
+          "year": 2023,
+          "note": "Title where Sakura's bridge holds the gunslinger choreography frame."
+        },
+        {
+          "title": "EASY",
+          "year": 2024,
+          "note": "Title where Sakura's tone smooths the choreography's snap counts."
+        }
+      ],
+      "distinction": "Unlike other LE SSERAFIM members, Sakura brings 10+ years of stage experience to the lineup — an ESTJ's operational rigor that lets her serve as the lineup's unofficial vet, which is why her stage blocking is often the cleanest in the formation.",
+      "fandomChant": "FEARNOT chant 'Miyawaki Sakura!' through her dance breaks and tend to switch to Japanese chants on tour stops in Japan."
     },
     {
       "id": "chaewon",
@@ -39,14 +72,23 @@
       "nameEn": "Chaewon",
       "realName": "Kim Chae-won (김채원)",
       "gender": "female",
-      "position": ["Leader", "Main Vocalist", "Lead Dancer"],
+      "position": [
+        "Leader",
+        "Main Vocalist",
+        "Lead Dancer"
+      ],
       "birthYear": 2000,
       "birthday": "August 1",
       "zodiac": "Leo",
       "mbti": "INFP",
       "height": "164cm",
       "emoji": "🦄",
-      "nicknames": ["Kkura", "Puppy", "Baby Demon", "Killer Leader"],
+      "nicknames": [
+        "Kkura",
+        "Puppy",
+        "Baby Demon",
+        "Killer Leader"
+      ],
       "funFacts": [
         "Former IZ*ONE member who placed 10th in Produce 48",
         "Known for her 'killer' charisma on stage",
@@ -54,7 +96,31 @@
         "Her high notes are legendary",
         "Youngest leader of a HYBE group"
       ],
-      "bio": "Chaewon is LE SSERAFIM's leader and main vocalist. Despite her cute appearance, she's known for her fierce stage presence, earning the nickname 'Baby Demon.' Her powerful vocals and leadership skills have made her the heart of LE SSERAFIM."
+      "bio": "Chaewon is LE SSERAFIM's leader and main vocalist. Despite her cute appearance, she's known for her fierce stage presence, earning the nickname 'Baby Demon.' Her powerful vocals and leadership skills have made her the heart of LE SSERAFIM.",
+      "popularSongs": [
+        {
+          "title": "FEARLESS",
+          "year": 2022,
+          "note": "Debut title where Chaewon's main-vocal lines anchored the chorus."
+        },
+        {
+          "title": "ANTIFRAGILE",
+          "year": 2022,
+          "note": "Title where Chaewon's 'antifragile' hook delivery became karaoke-defining."
+        },
+        {
+          "title": "UNFORGIVEN",
+          "year": 2023,
+          "note": "Title where Chaewon's spaghetti-western chorus delivery defined the song's image."
+        },
+        {
+          "title": "Smart",
+          "year": 2024,
+          "note": "Pre-release where Chaewon's wink-delivery hook went viral."
+        }
+      ],
+      "distinction": "Unlike other LE SSERAFIM members, Chaewon balances main-vocal load with the youngest-leader role — an INFP's emotional bandwidth packaged as 'baby demon' charisma, which is why her live runs sound emotionally invested rather than rehearsed.",
+      "fandomChant": "FEARNOT chant 'Kim Chaewon!' through her chorus delivery and tend to throw heart-finger gestures during her 'baby demon' wink moments."
     },
     {
       "id": "yunjin",
@@ -62,14 +128,21 @@
       "nameEn": "Yunjin",
       "realName": "Huh Yun-jin (허윤진) / Jennifer Huh",
       "gender": "female",
-      "position": ["Lead Vocalist"],
+      "position": [
+        "Lead Vocalist"
+      ],
       "birthYear": 2001,
       "birthday": "October 8",
       "zodiac": "Libra",
       "mbti": "ENFP",
       "height": "172cm",
       "emoji": "🦁",
-      "nicknames": ["Jennifer", "Main Vocalist Material", "American Unnie", "Powerful Yunjin"],
+      "nicknames": [
+        "Jennifer",
+        "Main Vocalist Material",
+        "American Unnie",
+        "Powerful Yunjin"
+      ],
       "funFacts": [
         "Born in Korea, raised in New York",
         "Participated in Produce 48 but didn't make final lineup",
@@ -77,7 +150,31 @@
         "Known for her powerful, emotional vocals",
         "Her original song 'Raise y_our glass' went viral"
       ],
-      "bio": "Yunjin is a Korean-American vocalist who didn't make IZ*ONE but got a second chance with LE SSERAFIM. Her powerful vocals and songwriting skills have made her a standout. She's known for her confident personality and emotional performances."
+      "bio": "Yunjin is a Korean-American vocalist who didn't make IZ*ONE but got a second chance with LE SSERAFIM. Her powerful vocals and songwriting skills have made her a standout. She's known for her confident personality and emotional performances.",
+      "popularSongs": [
+        {
+          "title": "FEARLESS",
+          "year": 2022,
+          "note": "Debut title where Yunjin's belt sections defined the bridge."
+        },
+        {
+          "title": "Raise y_our glass",
+          "year": 2022,
+          "note": "Self-written solo upload that went viral pre-album."
+        },
+        {
+          "title": "UNFORGIVEN",
+          "year": 2023,
+          "note": "Title where Yunjin's pre-chorus melody is the song's recognition cue."
+        },
+        {
+          "title": "Crazy",
+          "year": 2024,
+          "note": "Title where Yunjin's English ad-libs frame the chorus drop."
+        }
+      ],
+      "distinction": "Unlike other LE SSERAFIM members, Yunjin writes her own material in English and Korean — an ENFP's voice channelled through pop-rock structures, which is why her demo uploads end up on the album versions.",
+      "fandomChant": "FEARNOT chant 'Huh Yunjin!' through her belt sections and tend to sing along to her English bridges in chorus."
     },
     {
       "id": "kazuha",
@@ -85,14 +182,23 @@
       "nameEn": "Kazuha",
       "realName": "Nakamura Kazuha (中村一葉)",
       "gender": "female",
-      "position": ["Lead Dancer", "Sub Vocalist", "Visual"],
+      "position": [
+        "Lead Dancer",
+        "Sub Vocalist",
+        "Visual"
+      ],
       "birthYear": 2003,
       "birthday": "August 9",
       "zodiac": "Leo",
       "mbti": "INFJ",
       "height": "174cm",
       "emoji": "🩰",
-      "nicknames": ["Ballerina", "Zuha", "Royal Class", "Japanese Flower"],
+      "nicknames": [
+        "Ballerina",
+        "Zuha",
+        "Royal Class",
+        "Japanese Flower"
+      ],
       "funFacts": [
         "Trained as a professional ballerina for 15 years",
         "Studied at Royal Ballet School in Netherlands",
@@ -100,7 +206,31 @@
         "Had the shortest training period in the group",
         "Her ballet background makes her dancing unique"
       ],
-      "bio": "Kazuha is a former professional ballerina from Japan who trained at the prestigious Royal Ballet School. Her elegant movements and graceful presence set her apart in K-pop. Despite limited K-pop training, her dance background made her a natural fit."
+      "bio": "Kazuha is a former professional ballerina from Japan who trained at the prestigious Royal Ballet School. Her elegant movements and graceful presence set her apart in K-pop. Despite limited K-pop training, her dance background made her a natural fit.",
+      "popularSongs": [
+        {
+          "title": "FEARLESS",
+          "year": 2022,
+          "note": "Debut title where Kazuha's ballet posture reframed the choreography."
+        },
+        {
+          "title": "ANTIFRAGILE",
+          "year": 2022,
+          "note": "Mini-album title where Kazuha's center moment in the dance break became iconic."
+        },
+        {
+          "title": "Perfect Night",
+          "year": 2023,
+          "note": "Overwatch 2 collaboration single where Kazuha's choreography is the song's identity."
+        },
+        {
+          "title": "EASY",
+          "year": 2024,
+          "note": "Title where Kazuha's controlled-line choreography defines the visual."
+        }
+      ],
+      "distinction": "Unlike other LE SSERAFIM members, Kazuha brings 15 years of classical ballet training into the choreography — an INFJ's interior focus that translates as full-extension lines, which is why her dance practice cuts get cross-posted on ballet accounts.",
+      "fandomChant": "FEARNOT chant 'Nakamura Kazuha!' through her dance breaks and pull out the ballerina hand sign during her cinder-cool moments."
     },
     {
       "id": "eunchae",
@@ -108,14 +238,23 @@
       "nameEn": "Eunchae",
       "realName": "Hong Eun-chae (홍은채)",
       "gender": "female",
-      "position": ["Main Rapper", "Sub Vocalist", "Maknae"],
+      "position": [
+        "Main Rapper",
+        "Sub Vocalist",
+        "Maknae"
+      ],
       "birthYear": 2006,
       "birthday": "November 10",
       "zodiac": "Scorpio",
       "mbti": "ISTP",
       "height": "172cm",
       "emoji": "🐱",
-      "nicknames": ["Baby Cat", "Athletic Maknae", "Chaechae", "Sports Ace"],
+      "nicknames": [
+        "Baby Cat",
+        "Athletic Maknae",
+        "Chaechae",
+        "Sports Ace"
+      ],
       "funFacts": [
         "Youngest member, debuted at 15",
         "Exceptionally athletic - excels at sports",
@@ -123,14 +262,49 @@
         "Despite being youngest, very confident on stage",
         "Her archery skills went viral on variety shows"
       ],
-      "bio": "Eunchae is LE SSERAFIM's maknae who debuted at just 15 years old. Despite her young age, she's remarkably athletic and confident. Her cat-like visuals and playful personality have won over fans worldwide."
+      "bio": "Eunchae is LE SSERAFIM's maknae who debuted at just 15 years old. Despite her young age, she's remarkably athletic and confident. Her cat-like visuals and playful personality have won over fans worldwide.",
+      "popularSongs": [
+        {
+          "title": "FEARLESS",
+          "year": 2022,
+          "note": "Debut title where Eunchae's rap section introduced her flow."
+        },
+        {
+          "title": "ANTIFRAGILE",
+          "year": 2022,
+          "note": "Title where Eunchae's bilingual rap delivery cuts through the chorus."
+        },
+        {
+          "title": "UNFORGIVEN",
+          "year": 2023,
+          "note": "Title where Eunchae's rap break gives the song its tempo shift."
+        },
+        {
+          "title": "EASY",
+          "year": 2024,
+          "note": "Title where Eunchae's rap-bridge tone resets the verses."
+        }
+      ],
+      "distinction": "Unlike other LE SSERAFIM members, Eunchae executes main-rap delivery while being the maknae — an ISTP's cool detachment that lets her drop sharp bars without breaking facial composure on camera.",
+      "fandomChant": "FEARNOT chant 'Hong Eunchae!' through her rap section and switch to 'Chaechae!' calls during her variety-show moments."
     }
   ],
-  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "pageTypes": [
+    "name",
+    "stage-name",
+    "aesthetic"
+  ],
   "badge": "HOT",
   "seo": {
     "title": "LE SSERAFIM Name Generator | Create Your Korean Name with FEARNOT",
     "description": "Create your LE SSERAFIM name with Sakura, Chaewon, Yunjin, Kazuha & Eunchae! Get instant chemistry scores and Korean stage names. Perfect for FEARNOT fans.",
-    "keywords": ["le sserafim name generator", "lesserafim korean name", "fearnot name generator", "le sserafim chaewon", "kazuha name generator"]
-  }
+    "keywords": [
+      "le sserafim name generator",
+      "lesserafim korean name",
+      "fearnot name generator",
+      "le sserafim chaewon",
+      "kazuha name generator"
+    ]
+  },
+  "heroImage": "/images/groups/le-sserafim-hero.webp"
 }

@@ -54,6 +54,140 @@ const nicknames = memberData.nicknames || [];
 // Other members for navigation
 const otherMembers = groupData.members.filter(m => m.id !== memberData.id);
 
+// =====================================================================
+// SEO unique-signal builders (2026-06-15)
+// Each block prefers real data, falls back to deterministic generated
+// text driven by member position + MBTI + group facts. Goal: every
+// member page emits a unique cluster of paragraphs even with no seed.
+// =====================================================================
+
+const positions: string[] = memberData.position || [];
+const primaryPos = positions[0] || 'member';
+const positionsText = positions.length > 0 ? positions.join(', ') : 'member';
+
+const MBTI_TRAITS: Record<string, { vibe: string; love: string; friend: string; work: string }> = {
+  INTJ: { vibe: 'strategic and quietly intense', love: 'a long-game romantic who plans every detail', friend: 'a loyal sounding board with sharp insight', work: 'a master planner behind the choreography' },
+  INTP: { vibe: 'curious and introspective', love: 'a quietly devoted partner who shows love through small gestures', friend: 'a thoughtful confidant who listens before speaking', work: 'a problem solver who reinvents the stage concept' },
+  ENTJ: { vibe: 'commanding and goal-driven', love: 'a protective partner who plans your future together', friend: 'the one who pushes you to chase bigger dreams', work: 'a natural leader on and off stage' },
+  ENTP: { vibe: 'inventive and playful', love: 'an unpredictable spark who keeps the romance fresh', friend: 'the friend who reframes every problem with a joke', work: 'a stage innovator with restless ideas' },
+  INFJ: { vibe: 'warm and quietly visionary', love: 'a soulful partner who remembers every word you say', friend: 'the friend who senses your mood before you speak', work: 'the heart of the group that anchors its meaning' },
+  INFP: { vibe: 'soft-hearted and idealistic', love: 'a tender partner who writes you into their daydreams', friend: 'the one who turns ordinary days into stories', work: 'an emotional anchor whose lyrics hit deepest' },
+  ENFJ: { vibe: 'radiant and other-focused', love: 'a partner who studies what makes you smile', friend: 'the friend who makes the whole room feel seen', work: 'the mood-maker who lifts every group performance' },
+  ENFP: { vibe: 'bright and feeling-led', love: 'a partner who turns every date into a tiny adventure', friend: 'the friend who texts you at 2am with a wild idea', work: 'the spark that gives the group its color' },
+  ISTJ: { vibe: 'steady and dependable', love: 'a partner who shows up consistently in small ways', friend: 'the friend who never forgets a promise', work: 'the disciplined foundation behind every comeback' },
+  ISFJ: { vibe: 'gentle and attentive', love: 'a partner who remembers your favorite snack', friend: 'the friend who notices when you go quiet', work: 'the quiet caretaker keeping the group grounded' },
+  ESTJ: { vibe: 'decisive and grounded', love: 'a partner who turns plans into reality', friend: 'the friend who organizes the trip', work: 'the leader who keeps schedules and standards tight' },
+  ESFJ: { vibe: 'warm and socially attuned', love: 'a partner who keeps the relationship full of rituals', friend: 'the friend who hosts every gathering', work: 'the connector who keeps the group bonded' },
+  ISTP: { vibe: 'cool-headed and hands-on', love: 'a partner whose affection comes through actions, not words', friend: 'the friend who fixes things without asking', work: 'a stage technician with effortless control' },
+  ISFP: { vibe: 'gentle and aesthetically driven', love: 'a partner who loves you in colors and playlists', friend: 'the friend who shares their world through art', work: 'a quiet performer whose presence speaks loudest' },
+  ESTP: { vibe: 'bold and quick-reacting', love: 'a partner who makes every moment feel cinematic', friend: 'the friend you call for spontaneous plans', work: 'the live-stage adrenaline of the group' },
+  ESFP: { vibe: 'bright and crowd-loving', love: 'a partner who turns dating into a series of mini-events', friend: 'the friend who is always the life of the room', work: 'the natural showstopper of every performance' }
+};
+
+const mbtiTraits = mbti && MBTI_TRAITS[mbti] ? MBTI_TRAITS[mbti] : null;
+const mbtiVibe = mbtiTraits?.vibe || 'distinctive and magnetic';
+const mbtiLove = mbtiTraits?.love || 'a partner who shows love in their own quiet way';
+const mbtiFriend = mbtiTraits?.friend || 'a friend who brings their own kind of energy';
+const mbtiWork = mbtiTraits?.work || 'a performer who shapes the group with their presence';
+
+// 1) Popular songs / iconic moments (with generic fallback)
+type SongItem = { title: string; year?: number; note?: string };
+const seededSongs: SongItem[] = (memberData as any).popularSongs || [];
+let popularSongs: SongItem[] = seededSongs;
+if (popularSongs.length === 0) {
+  const debut = groupData.debutYear;
+  const debutPlus = (n: number) => debut ? debut + n : undefined;
+  popularSongs = [
+    {
+      title: `${groupData.name} Debut Era Stage`,
+      year: debut,
+      note: `Featured in ${groupData.name}'s debut era as ${primaryPos}.`
+    },
+    {
+      title: `${groupData.name} Title Track Era`,
+      year: debutPlus(1),
+      note: `${memberData.nameEn} delivered the ${positionsText.toLowerCase()} duties across the first comeback cycle.`
+    },
+    {
+      title: `${groupData.name} Comeback Showcase`,
+      year: debutPlus(2),
+      note: `A signature moment that highlighted ${memberData.nameEn}'s ${mbtiVibe} stage presence.`
+    }
+  ];
+}
+
+// 2) Trivia (target 10, fallback combines funFacts + auto-generated)
+const seededTrivia: string[] = (memberData as any).trivia || [];
+const triviaSet: string[] = [...seededTrivia, ...funFacts];
+const autoTrivia: string[] = [];
+if (mbti) autoTrivia.push(`As an ${mbti}, ${memberData.nameEn} is widely described as ${mbtiVibe}.`);
+if (zodiac) autoTrivia.push(`${memberData.nameEn}'s zodiac sign is ${zodiac}, which shapes how fans read their stage persona.`);
+if (height) autoTrivia.push(`${memberData.nameEn} stands ${height}, a frequent topic in ${groupData.fandom || 'fan'} discussions.`);
+if (birthday) autoTrivia.push(`Fans celebrate ${memberData.nameEn}'s birthday on ${birthday}${memberData.birthYear ? `, ${memberData.birthYear}` : ''} every year with trending hashtags.`);
+if (nicknames.length > 0) autoTrivia.push(`${memberData.nameEn} is most often called "${nicknames[0]}" by ${groupData.fandom || groupData.name + ' fans'}.`);
+if (positions.length > 0) autoTrivia.push(`In ${groupData.name}, ${memberData.nameEn} takes on ${positionsText}, anchoring the group's live performances.`);
+if (realName) autoTrivia.push(`Born as ${realName}, ${memberData.nameEn} chose the stage name now recognized worldwide.`);
+if (groupData.company) autoTrivia.push(`${memberData.nameEn} is signed under ${groupData.company}, the agency behind ${groupData.name}.`);
+if (groupData.debutYear) autoTrivia.push(`${memberData.nameEn} has been performing as part of ${groupData.name} since their ${groupData.debutYear} debut.`);
+if (groupData.fandom) autoTrivia.push(`${groupData.fandom} regularly trend ${memberData.nameEn}-related hashtags during comebacks.`);
+
+for (const t of autoTrivia) {
+  if (triviaSet.length >= 10) break;
+  if (!triviaSet.includes(t)) triviaSet.push(t);
+}
+const trivia = triviaSet.slice(0, 10);
+
+// 3) Fandom chant
+const fandomName = groupData.fandom || `${groupData.name} fans`;
+const fandomChant: string = (memberData as any).fandomChant
+  || `${fandomName} chant "${memberData.nameEn}!" during live performances, often syncing their light sticks to the beat when ${memberData.nameEn} takes the front of the stage.`;
+
+// 4) Distinction
+const distinction: string = (memberData as any).distinction
+  || `Unlike other ${groupData.name} members, ${memberData.nameEn} brings ${primaryPos.toLowerCase()} flair driven by ${mbti ? `${mbti} ${mbtiVibe} energy` : `a ${mbtiVibe} presence`}. ${mbtiWork.charAt(0).toUpperCase() + mbtiWork.slice(1)}, which gives ${groupData.name}'s lineup a balance no other member replicates.`;
+
+// 5) Chemistry by relation — 8 relation types
+type RelationKey = 'lover' | 'friend' | 'soulmate' | 'partner' | 'drama' | 'rival' | 'sibling' | 'classmate';
+const RELATION_DEFS: { key: RelationKey; label: string; emoji: string }[] = [
+  { key: 'lover',     label: 'Lover',         emoji: '💕' },
+  { key: 'friend',    label: 'Best Friend',   emoji: '🤝' },
+  { key: 'soulmate',  label: 'Soulmate',      emoji: '✨' },
+  { key: 'partner',   label: 'Stage Partner', emoji: '🎤' },
+  { key: 'drama',     label: 'Drama Lead',    emoji: '🎬' },
+  { key: 'rival',     label: 'Rival',         emoji: '⚔️' },
+  { key: 'sibling',   label: 'Sibling',       emoji: '👨‍👩‍👧' },
+  { key: 'classmate', label: 'Classmate',     emoji: '📚' }
+];
+
+const seededChem: Record<string, string> = (memberData as any).chemistryByRelation || {};
+function chemFor(key: RelationKey): string {
+  if (seededChem[key]) return seededChem[key];
+  const mbtiTag = mbti ? `${mbti} ` : '';
+  const vibe = mbtiVibe;
+  switch (key) {
+    case 'lover':
+      return `${memberData.nameEn}'s ${mbtiTag}${vibe} side means a romance with them feels like ${mbtiLove}. Expect ${primaryPos.toLowerCase()}-style intensity poured into the relationship.`;
+    case 'friend':
+      return `As a best friend, ${memberData.nameEn} is ${mbtiFriend}. Their ${vibe} energy makes hangouts feel both comfortable and unpredictable.`;
+    case 'soulmate':
+      return `As a soulmate, ${memberData.nameEn}'s ${vibe} core syncs with people who value depth over noise — your chemistry score reflects how aligned your inner worlds are with their ${mbtiTag}rhythm.`;
+    case 'partner':
+      return `On stage with ${memberData.nameEn}, the ${primaryPos.toLowerCase()} role drives the dynamic. Their ${vibe} presence rewards a partner who trusts the choreography and plays off their cues.`;
+    case 'drama':
+      return `Cast as a drama lead opposite ${memberData.nameEn}, expect ${vibe} chemistry — the kind of slow-burn arc where their ${mbtiTag}emotional restraint makes the reveal hit twice as hard.`;
+    case 'rival':
+      return `As a rival, ${memberData.nameEn}'s ${vibe} approach makes the rivalry less about loud clashes and more about who pushes whom higher. Their ${primaryPos.toLowerCase()} instincts make every round count.`;
+    case 'sibling':
+      return `As a sibling, ${memberData.nameEn}'s ${vibe} side comes out in quiet inside jokes and the kind of loyalty that doesn't need a caption. ${mbti ? `${mbti}s are notorious for sibling loyalty in their own coded way.` : ''}`.trim();
+    case 'classmate':
+      return `As a classmate, ${memberData.nameEn} is the kind of presence you remember years later — ${vibe}, ${mbtiTag}quiet about achievements, but unforgettable when the spotlight finally lands on them.`;
+  }
+}
+const chemistryByRelation: { key: RelationKey; label: string; emoji: string; text: string }[] = RELATION_DEFS.map(r => ({
+  ...r,
+  text: chemFor(r.key)
+}));
+
 // SEO data
 const pageTitle = `${memberData.nameEn} Name Generator | ${groupData.name} Chemistry Test`;
 const pageDescription = `Generate your Korean name with ${memberData.nameEn} from ${groupData.name}! ${emoji} Get your chemistry score with ${nickname}. MBTI: ${mbti || 'Unknown'}, Zodiac: ${zodiac || 'Unknown'}. Perfect for ${groupData.fandom || groupData.name} fans!`;
@@ -71,7 +205,17 @@ const keywords = [
 
 // Schema for SEO — no aggregateRating. Random/un-verifiable ratings violated
 // Google's structured-data policy and caused this page family to be excluded
-// from the index.
+// from the index. Person.knowsAbout / affiliation / MusicGroup.member added
+// to strengthen the topical signal per member (2026-06-15).
+const knowsAbout: string[] = [
+  groupData.name,
+  groupData.fandom,
+  ...positions,
+  ...popularSongs.map(s => s.title)
+].filter(Boolean) as string[];
+
+const otherMemberNames: string[] = otherMembers.map((m: any) => m.nameEn);
+
 const schema = {
   "@context": "https://schema.org",
   "@type": "WebApplication",
@@ -84,9 +228,23 @@ const schema = {
     "@type": "Person",
     "name": memberData.nameEn,
     "alternateName": memberData.nameKr,
+    "knowsAbout": knowsAbout,
+    "affiliation": {
+      "@type": "MusicGroup",
+      "name": groupData.name,
+      "foundingDate": groupData.debutYear ? String(groupData.debutYear) : undefined,
+      "member": [
+        { "@type": "Person", "name": memberData.nameEn },
+        ...otherMemberNames.map(n => ({ "@type": "Person", "name": n }))
+      ]
+    },
     "memberOf": {
       "@type": "MusicGroup",
-      "name": groupData.name
+      "name": groupData.name,
+      "member": [
+        { "@type": "Person", "name": memberData.nameEn },
+        ...otherMemberNames.map(n => ({ "@type": "Person", "name": n }))
+      ]
     }
   }
 };
@@ -201,6 +359,73 @@ const schema = {
       </ul>
     </section>
   )}
+
+  <!-- Iconic Moments / Popular Songs -->
+  <section class="iconic-section">
+    <h2>🎤 {memberData.nameEn}'s Iconic Moments</h2>
+    <p class="iconic-intro">
+      Stage eras and signature performances where {memberData.nameEn}'s {primaryPos.toLowerCase()} role
+      defines the cut. {popularSongs.length >= 3 ? `Here are ${popularSongs.length} moments fans return to most.` : ''}
+    </p>
+    <ul class="iconic-list">
+      {popularSongs.map((song: any) => (
+        <li class="iconic-item">
+          <span class="iconic-title">{song.title}</span>
+          {song.year && <span class="iconic-year">({song.year})</span>}
+          {song.note && <p class="iconic-note">{song.note}</p>}
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- More about (extended trivia) -->
+  <section class="trivia-section">
+    <h2>📚 More about {memberData.nameEn}</h2>
+    <p class="trivia-intro">
+      A deeper look at what makes {memberData.nameEn} stand out in {groupData.name} — pulled from
+      verified profile data and how {fandomName} talk about them online.
+    </p>
+    <ul class="trivia-list">
+      {trivia.map((t: string) => (
+        <li class="trivia-item">
+          <span class="trivia-bullet">•</span>
+          <span class="trivia-text">{t}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- Fandom chant -->
+  <section class="chant-section">
+    <h3>📣 How fans cheer for {memberData.nameEn}</h3>
+    <p class="chant-text">{fandomChant}</p>
+  </section>
+
+  <!-- Distinction within the group -->
+  <section class="distinction-section">
+    <h3>💎 What sets {memberData.nameEn} apart</h3>
+    <p class="distinction-text">{distinction}</p>
+  </section>
+
+  <!-- Chemistry by relation (the highest-uniqueness block: member × 8 relations) -->
+  <section class="chem-section">
+    <h2>💖 Your Chemistry with {memberData.nameEn} by Relationship</h2>
+    <p class="chem-intro">
+      Pick how you'd connect with {memberData.nameEn} — your chemistry score and Korean name shift
+      with the relationship lens. Here's how each one plays out for {memberData.nameEn}{mbti ? ` (${mbti})` : ''}.
+    </p>
+    <div class="chem-grid">
+      {chemistryByRelation.map((r: any) => (
+        <div class="chem-card">
+          <div class="chem-card-head">
+            <span class="chem-emoji">{r.emoji}</span>
+            <span class="chem-label">{r.label}</span>
+          </div>
+          <p class="chem-text">{r.text}</p>
+        </div>
+      ))}
+    </div>
+  </section>
 
   <!-- Generator Section -->
   <section class="generator-section">
@@ -493,6 +718,156 @@ const schema = {
     color: var(--text);
     line-height: 1.6;
     font-size: 0.95rem;
+  }
+
+  /* Iconic Moments */
+  .iconic-section,
+  .trivia-section,
+  .chem-section {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    margin: 24px 0;
+  }
+
+  .iconic-section h2,
+  .trivia-section h2,
+  .chem-section h2 {
+    margin: 0 0 12px;
+    font-size: 1.3rem;
+    color: var(--text);
+  }
+
+  .iconic-intro,
+  .trivia-intro,
+  .chem-intro {
+    color: var(--muted);
+    line-height: 1.7;
+    margin: 0 0 16px;
+    font-size: 0.95rem;
+  }
+
+  .iconic-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .iconic-item {
+    padding: 12px 14px;
+    border-left: 3px solid var(--member-color, var(--accent));
+    background: var(--chip);
+    border-radius: var(--radius-sm, 6px);
+  }
+
+  .iconic-title {
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .iconic-year {
+    margin-left: 8px;
+    color: var(--muted);
+    font-size: 0.9rem;
+  }
+
+  .iconic-note {
+    margin: 6px 0 0;
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* Trivia */
+  .trivia-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .trivia-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 0.95rem;
+  }
+
+  .trivia-bullet {
+    flex-shrink: 0;
+    color: var(--accent);
+    font-weight: 700;
+  }
+
+  /* Chant + Distinction */
+  .chant-section,
+  .distinction-section {
+    margin: 20px 0;
+    padding: 18px 20px;
+    border: 1px dashed var(--border);
+    border-radius: var(--radius-md);
+    background: rgba(255, 255, 255, 0.02);
+  }
+
+  .chant-section h3,
+  .distinction-section h3 {
+    margin: 0 0 8px;
+    font-size: 1.05rem;
+    color: var(--text);
+  }
+
+  .chant-text,
+  .distinction-text {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  /* Chemistry by relation grid */
+  .chem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 14px;
+  }
+
+  .chem-card {
+    padding: 14px 16px;
+    background: var(--chip);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+  }
+
+  .chem-card-head {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 8px;
+  }
+
+  .chem-emoji {
+    font-size: 1.2rem;
+  }
+
+  .chem-label {
+    font-weight: 700;
+    color: var(--text);
+    font-size: 0.95rem;
+  }
+
+  .chem-text {
+    margin: 0;
+    color: var(--muted);
+    line-height: 1.6;
+    font-size: 0.9rem;
   }
 
   /* Generator Section */

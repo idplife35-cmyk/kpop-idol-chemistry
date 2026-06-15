@@ -7,7 +7,7 @@
   "company": "Pledis/HYBE",
   "debutYear": 2015,
   "color": "#F5C9D0",
-  "logo": "/images/seventeen_logo.png",
+  "logo": "/images/groups/seventeen-logo.png",
   "description": "SEVENTEEN is a 13-member K-Pop group known for their self-producing abilities, synchronized performances, and three specialized units.",
   "members": [
     {
@@ -16,14 +16,23 @@
       "nameEn": "S.Coups",
       "realName": "Choi Seung-cheol (최승철)",
       "gender": "male",
-      "position": ["Leader", "Hip-hop Unit Leader", "Main Rapper"],
+      "position": [
+        "Leader",
+        "Hip-hop Unit Leader",
+        "Main Rapper"
+      ],
       "birthYear": 1995,
       "birthday": "August 8",
       "zodiac": "Leo",
       "mbti": "INFP",
       "height": "178cm",
       "emoji": "🐺",
-      "nicknames": ["Coups", "Father of SVT", "Cheol", "Reliable Leader"],
+      "nicknames": [
+        "Coups",
+        "Father of SVT",
+        "Cheol",
+        "Reliable Leader"
+      ],
       "funFacts": [
         "Leader of both SEVENTEEN and Hip-hop Unit",
         "Known for taking care of all 12 members",
@@ -39,14 +48,22 @@
       "nameEn": "Jeonghan",
       "realName": "Yoon Jeong-han (윤정한)",
       "gender": "male",
-      "position": ["Vocal Unit", "Lead Vocalist"],
+      "position": [
+        "Vocal Unit",
+        "Lead Vocalist"
+      ],
       "birthYear": 1995,
       "birthday": "October 4",
       "zodiac": "Libra",
       "mbti": "INFP",
       "height": "178cm",
       "emoji": "👼",
-      "nicknames": ["Angel", "Trickster", "Lazy Genius", "Yoon Jeonghan"],
+      "nicknames": [
+        "Angel",
+        "Trickster",
+        "Lazy Genius",
+        "Yoon Jeonghan"
+      ],
       "funFacts": [
         "Known for his angelic visuals",
         "Actually a master prankster and trickster",
@@ -62,14 +79,22 @@
       "nameEn": "Joshua",
       "realName": "Hong Ji-soo (홍지수) / Joshua Hong",
       "gender": "male",
-      "position": ["Vocal Unit", "Lead Vocalist"],
+      "position": [
+        "Vocal Unit",
+        "Lead Vocalist"
+      ],
       "birthYear": 1995,
       "birthday": "December 30",
       "zodiac": "Capricorn",
       "mbti": "ISFJ",
       "height": "177cm",
       "emoji": "🎸",
-      "nicknames": ["Gentleman Josh", "LA Boy", "Shua", "Church Oppa"],
+      "nicknames": [
+        "Gentleman Josh",
+        "LA Boy",
+        "Shua",
+        "Church Oppa"
+      ],
       "funFacts": [
         "From Los Angeles, USA",
         "Known as the 'gentleman' of SEVENTEEN",
@@ -85,14 +110,22 @@
       "nameEn": "Jun",
       "realName": "Wen Junhui (文俊辉)",
       "gender": "male",
-      "position": ["Performance Unit", "Lead Dancer"],
+      "position": [
+        "Performance Unit",
+        "Lead Dancer"
+      ],
       "birthYear": 1996,
       "birthday": "June 10",
       "zodiac": "Gemini",
       "mbti": "INFP",
       "height": "182cm",
       "emoji": "🐱",
-      "nicknames": ["Cat", "China Line", "Junhui", "Actor Jun"],
+      "nicknames": [
+        "Cat",
+        "China Line",
+        "Junhui",
+        "Actor Jun"
+      ],
       "funFacts": [
         "From Shenzhen, China",
         "Was a child actor in China",
@@ -108,14 +141,22 @@
       "nameEn": "Hoshi",
       "realName": "Kwon Soon-young (권순영)",
       "gender": "male",
-      "position": ["Performance Unit Leader", "Main Dancer"],
+      "position": [
+        "Performance Unit Leader",
+        "Main Dancer"
+      ],
       "birthYear": 1996,
       "birthday": "June 15",
       "zodiac": "Gemini",
       "mbti": "ESFJ",
       "height": "177cm",
       "emoji": "🐯",
-      "nicknames": ["Tiger", "10:10", "Horanghae", "Hamster Tiger"],
+      "nicknames": [
+        "Tiger",
+        "10:10",
+        "Horanghae",
+        "Hamster Tiger"
+      ],
       "funFacts": [
         "Choreographs most SEVENTEEN performances",
         "Obsessed with tigers - 'Horanghae' is his thing",
@@ -131,14 +172,22 @@
       "nameEn": "Wonwoo",
       "realName": "Jeon Won-woo (전원우)",
       "gender": "male",
-      "position": ["Hip-hop Unit", "Lead Rapper"],
+      "position": [
+        "Hip-hop Unit",
+        "Lead Rapper"
+      ],
       "birthYear": 1996,
       "birthday": "July 17",
       "zodiac": "Cancer",
       "mbti": "ISFP",
       "height": "182cm",
       "emoji": "🐱",
-      "nicknames": ["Emo Boy", "Deep Voice", "Bookworm", "Jeon Wonwoo"],
+      "nicknames": [
+        "Emo Boy",
+        "Deep Voice",
+        "Bookworm",
+        "Jeon Wonwoo"
+      ],
       "funFacts": [
         "Known for his deep voice and cold image",
         "Actually a huge bookworm and gamer",
@@ -154,14 +203,23 @@
       "nameEn": "Woozi",
       "realName": "Lee Ji-hoon (이지훈)",
       "gender": "male",
-      "position": ["Vocal Unit Leader", "Main Vocalist", "Producer"],
+      "position": [
+        "Vocal Unit Leader",
+        "Main Vocalist",
+        "Producer"
+      ],
       "birthYear": 1996,
       "birthday": "November 22",
       "zodiac": "Sagittarius",
       "mbti": "INFJ",
       "height": "164cm",
       "emoji": "🎹",
-      "nicknames": ["Genius Producer", "Uri Jihoon", "Tiny but Mighty", "Woozi God"],
+      "nicknames": [
+        "Genius Producer",
+        "Uri Jihoon",
+        "Tiny but Mighty",
+        "Woozi God"
+      ],
       "funFacts": [
         "Produces almost all SEVENTEEN music",
         "Shortest member but huge musical genius",
@@ -177,14 +235,22 @@
       "nameEn": "DK",
       "realName": "Lee Seok-min (이석민)",
       "gender": "male",
-      "position": ["Vocal Unit", "Main Vocalist"],
+      "position": [
+        "Vocal Unit",
+        "Main Vocalist"
+      ],
       "birthYear": 1997,
       "birthday": "February 18",
       "zodiac": "Aquarius",
       "mbti": "ENFP",
       "height": "179cm",
       "emoji": "☀️",
-      "nicknames": ["Seokmin", "Sunshine", "Vocal King", "Dokyeom"],
+      "nicknames": [
+        "Seokmin",
+        "Sunshine",
+        "Vocal King",
+        "Dokyeom"
+      ],
       "funFacts": [
         "Known for his powerful vocals",
         "The mood maker of SEVENTEEN",
@@ -200,14 +266,23 @@
       "nameEn": "Mingyu",
       "realName": "Kim Min-gyu (김민규)",
       "gender": "male",
-      "position": ["Hip-hop Unit", "Lead Rapper", "Visual"],
+      "position": [
+        "Hip-hop Unit",
+        "Lead Rapper",
+        "Visual"
+      ],
       "birthYear": 1997,
       "birthday": "April 6",
       "zodiac": "Aries",
       "mbti": "ENTJ",
       "height": "187cm",
       "emoji": "🐶",
-      "nicknames": ["Tall Visual", "Chef Mingyu", "Puppy", "Kim Mingyu"],
+      "nicknames": [
+        "Tall Visual",
+        "Chef Mingyu",
+        "Puppy",
+        "Kim Mingyu"
+      ],
       "funFacts": [
         "One of the tallest K-Pop idols at 187cm",
         "Known for his cooking skills",
@@ -223,14 +298,22 @@
       "nameEn": "The8",
       "realName": "Xu Ming-hao (徐明浩)",
       "gender": "male",
-      "position": ["Performance Unit", "Lead Dancer"],
+      "position": [
+        "Performance Unit",
+        "Lead Dancer"
+      ],
       "birthYear": 1997,
       "birthday": "November 7",
       "zodiac": "Scorpio",
       "mbti": "INFP",
       "height": "178cm",
       "emoji": "🎨",
-      "nicknames": ["Fairy", "Art Boy", "Minghao", "B-boy King"],
+      "nicknames": [
+        "Fairy",
+        "Art Boy",
+        "Minghao",
+        "B-boy King"
+      ],
       "funFacts": [
         "From Anshan, China",
         "Known for his unique b-boy style dancing",
@@ -246,14 +329,22 @@
       "nameEn": "Seungkwan",
       "realName": "Boo Seung-kwan (부승관)",
       "gender": "male",
-      "position": ["Vocal Unit", "Lead Vocalist"],
+      "position": [
+        "Vocal Unit",
+        "Lead Vocalist"
+      ],
       "birthYear": 1998,
       "birthday": "January 16",
       "zodiac": "Capricorn",
       "mbti": "ESFJ",
       "height": "174cm",
       "emoji": "🎤",
-      "nicknames": ["Boo", "Variety King", "Jeju Boy", "Seungkwan Boo"],
+      "nicknames": [
+        "Boo",
+        "Variety King",
+        "Jeju Boy",
+        "Seungkwan Boo"
+      ],
       "funFacts": [
         "From Jeju Island",
         "Known as the best variety star in SEVENTEEN",
@@ -269,14 +360,22 @@
       "nameEn": "Vernon",
       "realName": "Chwe Han-sol (최한솔) / Vernon Chwe",
       "gender": "male",
-      "position": ["Hip-hop Unit", "Main Rapper"],
+      "position": [
+        "Hip-hop Unit",
+        "Main Rapper"
+      ],
       "birthYear": 1998,
       "birthday": "February 18",
       "zodiac": "Aquarius",
       "mbti": "ENTP",
       "height": "178cm",
       "emoji": "🎧",
-      "nicknames": ["Half American", "Memesol", "Hansol", "Vernon Chwe"],
+      "nicknames": [
+        "Half American",
+        "Memesol",
+        "Hansol",
+        "Vernon Chwe"
+      ],
       "funFacts": [
         "Half Korean, half American",
         "From New York",
@@ -292,14 +391,23 @@
       "nameEn": "Dino",
       "realName": "Lee Chan (이찬)",
       "gender": "male",
-      "position": ["Performance Unit", "Main Dancer", "Maknae"],
+      "position": [
+        "Performance Unit",
+        "Main Dancer",
+        "Maknae"
+      ],
       "birthYear": 1999,
       "birthday": "February 11",
       "zodiac": "Aquarius",
       "mbti": "ISFJ",
       "height": "173cm",
       "emoji": "🦖",
-      "nicknames": ["Maknae on Top", "Chan", "Dance Prodigy", "Lee Chan"],
+      "nicknames": [
+        "Maknae on Top",
+        "Chan",
+        "Dance Prodigy",
+        "Lee Chan"
+      ],
       "funFacts": [
         "Stage name 'Dino' means dinosaur",
         "Known for his incredible dancing",
@@ -310,11 +418,22 @@
       "bio": "Dino is SEVENTEEN's maknae and dance prodigy. His name means dinosaur, reflecting his powerful presence. He's grown from cute maknae to one of K-Pop's best dancers."
     }
   ],
-  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "pageTypes": [
+    "name",
+    "stage-name",
+    "aesthetic"
+  ],
   "badge": null,
   "seo": {
     "title": "SEVENTEEN Name Generator | Create Your Korean Name with CARAT",
     "description": "Create your SEVENTEEN name with all 13 members - S.Coups, Jeonghan, Joshua, Jun, Hoshi & more! Instant chemistry scores. Perfect for CARAT fanfiction.",
-    "keywords": ["seventeen name generator", "seventeen korean name", "carat name generator", "seventeen mingyu chemistry", "svt name generator"]
-  }
+    "keywords": [
+      "seventeen name generator",
+      "seventeen korean name",
+      "carat name generator",
+      "seventeen mingyu chemistry",
+      "svt name generator"
+    ]
+  },
+  "heroImage": "/images/groups/seventeen-hero.webp"
 }

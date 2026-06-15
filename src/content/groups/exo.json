@@ -16,14 +16,22 @@
       "nameEn": "Xiumin",
       "realName": "Kim Min-seok (김민석)",
       "gender": "male",
-      "position": ["Lead Vocalist", "Lead Dancer"],
+      "position": [
+        "Lead Vocalist",
+        "Lead Dancer"
+      ],
       "birthYear": 1990,
       "birthday": "March 26",
       "zodiac": "Aries",
       "mbti": "INTJ",
       "height": "173cm",
       "emoji": "☕",
-      "nicknames": ["Baozi", "Coffee Oppa", "Eldest Hyung", "Forever Young"],
+      "nicknames": [
+        "Baozi",
+        "Coffee Oppa",
+        "Eldest Hyung",
+        "Forever Young"
+      ],
       "funFacts": [
         "Oldest EXO member but looks the youngest",
         "Known for his 'baozi' (steamed bun) cheeks",
@@ -39,14 +47,23 @@
       "nameEn": "Suho",
       "realName": "Kim Jun-myeon (김준면)",
       "gender": "male",
-      "position": ["Leader", "Lead Vocalist", "Visual"],
+      "position": [
+        "Leader",
+        "Lead Vocalist",
+        "Visual"
+      ],
       "birthYear": 1991,
       "birthday": "May 22",
       "zodiac": "Gemini",
       "mbti": "ENFJ",
       "height": "173cm",
       "emoji": "💎",
-      "nicknames": ["Guardian", "Mom of EXO", "Rich Man", "Actor Suho"],
+      "nicknames": [
+        "Guardian",
+        "Mom of EXO",
+        "Rich Man",
+        "Actor Suho"
+      ],
       "funFacts": [
         "His stage name 'Suho' means guardian",
         "Known for taking care of members like a mother",
@@ -62,14 +79,22 @@
       "nameEn": "Lay",
       "realName": "Zhang Yixing (张艺兴)",
       "gender": "male",
-      "position": ["Main Dancer", "Vocalist"],
+      "position": [
+        "Main Dancer",
+        "Vocalist"
+      ],
       "birthYear": 1991,
       "birthday": "October 7",
       "zodiac": "Libra",
       "mbti": "ISFP",
       "height": "177cm",
       "emoji": "🦄",
-      "nicknames": ["Healing Unicorn", "Hardworking King", "Yixing", "Chinese Superstar"],
+      "nicknames": [
+        "Healing Unicorn",
+        "Hardworking King",
+        "Yixing",
+        "Chinese Superstar"
+      ],
       "funFacts": [
         "Hugely successful solo career in China",
         "Known for his incredible work ethic",
@@ -85,14 +110,21 @@
       "nameEn": "Baekhyun",
       "realName": "Byun Baek-hyun (변백현)",
       "gender": "male",
-      "position": ["Main Vocalist"],
+      "position": [
+        "Main Vocalist"
+      ],
       "birthYear": 1992,
       "birthday": "May 6",
       "zodiac": "Taurus",
       "mbti": "ENFP",
       "height": "174cm",
       "emoji": "🐶",
-      "nicknames": ["Beagle", "Bacon", "Best Vocalist", "Million Seller"],
+      "nicknames": [
+        "Beagle",
+        "Bacon",
+        "Best Vocalist",
+        "Million Seller"
+      ],
       "funFacts": [
         "His solo albums have sold millions",
         "Known as one of the best vocalists in K-Pop",
@@ -108,14 +140,21 @@
       "nameEn": "Chen",
       "realName": "Kim Jong-dae (김종대)",
       "gender": "male",
-      "position": ["Main Vocalist"],
+      "position": [
+        "Main Vocalist"
+      ],
       "birthYear": 1992,
       "birthday": "September 21",
       "zodiac": "Virgo",
       "mbti": "INFP",
       "height": "173cm",
       "emoji": "🎤",
-      "nicknames": ["Ballad King", "Jongdae", "OST Prince", "Vocal Legend"],
+      "nicknames": [
+        "Ballad King",
+        "Jongdae",
+        "OST Prince",
+        "Vocal Legend"
+      ],
       "funFacts": [
         "Known for his emotional ballad vocals",
         "Has sung numerous popular OSTs",
@@ -131,14 +170,23 @@
       "nameEn": "Chanyeol",
       "realName": "Park Chan-yeol (박찬열)",
       "gender": "male",
-      "position": ["Main Rapper", "Vocalist", "Visual"],
+      "position": [
+        "Main Rapper",
+        "Vocalist",
+        "Visual"
+      ],
       "birthYear": 1992,
       "birthday": "November 27",
       "zodiac": "Sagittarius",
       "mbti": "ENFJ",
       "height": "185cm",
       "emoji": "🎸",
-      "nicknames": ["Giant Baby", "Happy Virus", "Loey", "Multi-Instrumentalist"],
+      "nicknames": [
+        "Giant Baby",
+        "Happy Virus",
+        "Loey",
+        "Multi-Instrumentalist"
+      ],
       "funFacts": [
         "One of the tallest K-Pop idols at 185cm",
         "Plays multiple instruments including drums and guitar",
@@ -154,14 +202,21 @@
       "nameEn": "D.O.",
       "realName": "Do Kyung-soo (도경수)",
       "gender": "male",
-      "position": ["Main Vocalist"],
+      "position": [
+        "Main Vocalist"
+      ],
       "birthYear": 1993,
       "birthday": "January 12",
       "zodiac": "Capricorn",
       "mbti": "ISFJ",
       "height": "172cm",
       "emoji": "🐧",
-      "nicknames": ["Penguin", "Actor D.O.", "Squishy", "Kyungsoo"],
+      "nicknames": [
+        "Penguin",
+        "Actor D.O.",
+        "Squishy",
+        "Kyungsoo"
+      ],
       "funFacts": [
         "Highly acclaimed actor with multiple movie roles",
         "Known for his powerful, emotional vocals",
@@ -177,14 +232,24 @@
       "nameEn": "Kai",
       "realName": "Kim Jong-in (김종인)",
       "gender": "male",
-      "position": ["Main Dancer", "Lead Vocalist", "Visual", "Center"],
+      "position": [
+        "Main Dancer",
+        "Lead Vocalist",
+        "Visual",
+        "Center"
+      ],
       "birthYear": 1994,
       "birthday": "January 14",
       "zodiac": "Capricorn",
       "mbti": "ISFP",
       "height": "182cm",
       "emoji": "🐻",
-      "nicknames": ["Dancing King", "Teddy Bear", "Gucci Model", "Stage Genius"],
+      "nicknames": [
+        "Dancing King",
+        "Teddy Bear",
+        "Gucci Model",
+        "Stage Genius"
+      ],
       "funFacts": [
         "Considered one of the best dancers in K-Pop history",
         "Global ambassador for Gucci",
@@ -200,14 +265,24 @@
       "nameEn": "Sehun",
       "realName": "Oh Se-hun (오세훈)",
       "gender": "male",
-      "position": ["Lead Dancer", "Lead Rapper", "Visual", "Maknae"],
+      "position": [
+        "Lead Dancer",
+        "Lead Rapper",
+        "Visual",
+        "Maknae"
+      ],
       "birthYear": 1994,
       "birthday": "April 12",
       "zodiac": "Aries",
       "mbti": "INTJ",
       "height": "183cm",
       "emoji": "🦌",
-      "nicknames": ["Maknae on Top", "Wind Prince", "Oh Sehun", "Model Material"],
+      "nicknames": [
+        "Maknae on Top",
+        "Wind Prince",
+        "Oh Sehun",
+        "Model Material"
+      ],
       "funFacts": [
         "Known for his striking visuals and proportions",
         "Has a confident 'maknae on top' personality",
@@ -218,11 +293,23 @@
       "bio": "Sehun is EXO's maknae and visual known for his stunning proportions and cold beauty. Despite seeming aloof, he's deeply attached to his members. His 'maknae on top' confidence and striking looks are iconic."
     }
   ],
-  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "pageTypes": [
+    "name",
+    "stage-name",
+    "aesthetic"
+  ],
   "badge": null,
   "seo": {
     "title": "EXO Name Generator | Create Your Korean Name with EXO-L",
     "description": "Create your EXO name with Baekhyun, Chanyeol, Kai, D.O., Sehun & more! Get instant chemistry scores and Korean stage names. Perfect for EXO-L fanfiction.",
-    "keywords": ["exo name generator", "exo korean name", "exo-l name generator", "exo baekhyun name", "exo kai chemistry", "exo fan name"]
-  }
+    "keywords": [
+      "exo name generator",
+      "exo korean name",
+      "exo-l name generator",
+      "exo baekhyun name",
+      "exo kai chemistry",
+      "exo fan name"
+    ]
+  },
+  "heroImage": "/images/groups/exo-hero.webp"
 }

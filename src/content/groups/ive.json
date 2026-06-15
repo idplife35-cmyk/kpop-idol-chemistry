@@ -7,7 +7,7 @@
   "company": "Starship Entertainment",
   "debutYear": 2021,
   "color": "#FFD700",
-  "logo": "/images/Ive_logo_(Black).svg",
+  "logo": "/images/groups/ive-logo.png",
   "description": "IVE is a 4th generation K-Pop girl group known for their confident concept, powerful vocals, and elegant performances.",
   "members": [
     {
@@ -16,14 +16,23 @@
       "nameEn": "Yujin",
       "realName": "Ahn Yu-jin (안유진)",
       "gender": "female",
-      "position": ["Leader", "Lead Vocalist", "Center"],
+      "position": [
+        "Leader",
+        "Lead Vocalist",
+        "Center"
+      ],
       "birthYear": 2003,
       "birthday": "September 1",
       "zodiac": "Virgo",
       "mbti": "ENFP",
       "height": "173cm",
       "emoji": "🐶",
-      "nicknames": ["Puppy", "IZ*ONE Yujin", "Ahn Leader", "Starship Princess"],
+      "nicknames": [
+        "Puppy",
+        "IZ*ONE Yujin",
+        "Ahn Leader",
+        "Starship Princess"
+      ],
       "funFacts": [
         "Former IZ*ONE member who placed 5th in Produce 48",
         "Known for her variety show skills and quick wit",
@@ -31,7 +40,31 @@
         "Appeared in Running Man as a guest multiple times",
         "Her energy and leadership earned her the leader position"
       ],
-      "bio": "Yujin is IVE's leader and one of two former IZ*ONE members. Her bright personality, hosting skills, and natural leadership make her a beloved idol. She's known for her puppy-like charm and exceptional variety show presence."
+      "bio": "Yujin is IVE's leader and one of two former IZ*ONE members. Her bright personality, hosting skills, and natural leadership make her a beloved idol. She's known for her puppy-like charm and exceptional variety show presence.",
+      "popularSongs": [
+        {
+          "title": "ELEVEN",
+          "year": 2021,
+          "note": "IVE's debut single where Yujin's tone established the title-track formula."
+        },
+        {
+          "title": "LOVE DIVE",
+          "year": 2022,
+          "note": "Title track that cemented Yujin's center-and-leader presence."
+        },
+        {
+          "title": "After LIKE",
+          "year": 2022,
+          "note": "Disco-revival title where Yujin's pre-chorus carries the song."
+        },
+        {
+          "title": "I AM",
+          "year": 2023,
+          "note": "Lead single from I've IVE where her opening vocal sets the empowerment tone."
+        }
+      ],
+      "distinction": "Unlike other IVE members, Yujin couples leader duties with hosting-veteran composure — an ENFP's social fluency that translates into music-show MC work, which is why her stage banter never loses pace.",
+      "fandomChant": "DIVE chant 'Ahn Yujin!' through her chorus runs and pair it with puppy-finger hand signs at fan meets."
     },
     {
       "id": "wonyoung",
@@ -39,14 +72,23 @@
       "nameEn": "Wonyoung",
       "realName": "Jang Won-young (장원영)",
       "gender": "female",
-      "position": ["Lead Vocalist", "Visual", "Center"],
+      "position": [
+        "Lead Vocalist",
+        "Visual",
+        "Center"
+      ],
       "birthYear": 2004,
       "birthday": "August 31",
       "zodiac": "Virgo",
       "mbti": "ESFJ",
       "height": "173cm",
       "emoji": "🦋",
-      "nicknames": ["Wonjjangi", "Princess", "Giant Baby", "Produce 48 Winner"],
+      "nicknames": [
+        "Wonjjangi",
+        "Princess",
+        "Giant Baby",
+        "Produce 48 Winner"
+      ],
       "funFacts": [
         "Won 1st place on Produce 48, becoming IZ*ONE center",
         "Known for her 'princess' visuals and elegant aura",
@@ -54,7 +96,31 @@
         "Youngest member to win Produce series at age 13",
         "Her mukbang content is extremely popular"
       ],
-      "bio": "Wonyoung is IVE's visual and former IZ*ONE center. She made history by winning Produce 48 at just 13 years old. Her elegant visuals, graceful presence, and brand power have made her one of K-pop's top idols."
+      "bio": "Wonyoung is IVE's visual and former IZ*ONE center. She made history by winning Produce 48 at just 13 years old. Her elegant visuals, graceful presence, and brand power have made her one of K-pop's top idols.",
+      "popularSongs": [
+        {
+          "title": "LOVE DIVE",
+          "year": 2022,
+          "note": "Title track whose 'narcissistic, my god I love it' hook anchors Wonyoung's center moments."
+        },
+        {
+          "title": "Kitsch",
+          "year": 2023,
+          "note": "Pre-release where Wonyoung's runway-walk choreography dominated the MV."
+        },
+        {
+          "title": "I AM",
+          "year": 2023,
+          "note": "Title from I've IVE built around Wonyoung's high-confidence chorus."
+        },
+        {
+          "title": "Baddie",
+          "year": 2023,
+          "note": "Title from I've MINE where Wonyoung's strut frames the choreography."
+        }
+      ],
+      "distinction": "Unlike other IVE members, Wonyoung leads as the brand-facing visual — an ESFJ's audience awareness that turns endorsement schedules into stage extensions, which is why her press cycles feel like sustained narrative rather than ad spots.",
+      "fandomChant": "DIVE chant 'Jang Wonyoung!' twice through her center beats and break into 'lucky vicky' calls during interviews."
     },
     {
       "id": "gaeul",
@@ -62,14 +128,22 @@
       "nameEn": "Gaeul",
       "realName": "Kim Ga-eul (김가을)",
       "gender": "female",
-      "position": ["Main Rapper", "Lead Dancer"],
+      "position": [
+        "Main Rapper",
+        "Lead Dancer"
+      ],
       "birthYear": 2002,
       "birthday": "September 24",
       "zodiac": "Libra",
       "mbti": "ESFJ",
       "height": "164cm",
       "emoji": "🍂",
-      "nicknames": ["Autumn", "Unnie", "Kim Gaeul", "IVE's Hidden Gem"],
+      "nicknames": [
+        "Autumn",
+        "Unnie",
+        "Kim Gaeul",
+        "IVE's Hidden Gem"
+      ],
       "funFacts": [
         "Her name 'Gaeul' means 'autumn' in Korean",
         "Oldest member of IVE",
@@ -77,7 +151,31 @@
         "Trained for 4 years before debut",
         "Often called the 'hidden gem' for her underrated talents"
       ],
-      "bio": "Gaeul is IVE's eldest member and main rapper. Her name means 'autumn' in Korean. Despite being overshadowed initially, her sharp rap skills and charismatic performances have gained her a dedicated fanbase."
+      "bio": "Gaeul is IVE's eldest member and main rapper. Her name means 'autumn' in Korean. Despite being overshadowed initially, her sharp rap skills and charismatic performances have gained her a dedicated fanbase.",
+      "popularSongs": [
+        {
+          "title": "ELEVEN",
+          "year": 2021,
+          "note": "Debut single where Gaeul's rap break introduced her flow."
+        },
+        {
+          "title": "After LIKE",
+          "year": 2022,
+          "note": "Disco title where Gaeul's mid-song rap raises the song's bpm feel."
+        },
+        {
+          "title": "Kitsch",
+          "year": 2023,
+          "note": "Pre-release whose rap section frames the runway choreography."
+        },
+        {
+          "title": "Off The Record",
+          "year": 2024,
+          "note": "Pre-release where Gaeul's verse takes the spotlight."
+        }
+      ],
+      "distinction": "Unlike other IVE members, Gaeul threads main-rap delivery through what is otherwise a vocal-heavy lineup — an ESFJ warmth wrapped around a sharper flow, which is why her parts function as the song's pivot point.",
+      "fandomChant": "DIVE chant 'Kim Gaeul!' through her rap bars and tend to wave autumn-leaf fan kits during her parts."
     },
     {
       "id": "rei",
@@ -85,14 +183,22 @@
       "nameEn": "Rei",
       "realName": "Naoi Rei (直井怜)",
       "gender": "female",
-      "position": ["Lead Dancer", "Sub Rapper"],
+      "position": [
+        "Lead Dancer",
+        "Sub Rapper"
+      ],
       "birthYear": 2004,
       "birthday": "February 3",
       "zodiac": "Aquarius",
       "mbti": "INFP",
       "height": "169cm",
       "emoji": "🦊",
-      "nicknames": ["Japanese Princess", "Rei-nim", "Fox", "Elegant Rei"],
+      "nicknames": [
+        "Japanese Princess",
+        "Rei-nim",
+        "Fox",
+        "Elegant Rei"
+      ],
       "funFacts": [
         "Born in Tokyo, Japan",
         "Known for her elegant, fox-like visuals",
@@ -100,7 +206,31 @@
         "Very quiet and introverted off-stage",
         "Her focus cam videos are extremely popular"
       ],
-      "bio": "Rei is IVE's Japanese member known for her elegant visuals and quiet personality. Originally from Tokyo, she brings a unique charm to the group. Her sophisticated aura and dance skills have made her a fan favorite."
+      "bio": "Rei is IVE's Japanese member known for her elegant visuals and quiet personality. Originally from Tokyo, she brings a unique charm to the group. Her sophisticated aura and dance skills have made her a fan favorite.",
+      "popularSongs": [
+        {
+          "title": "After LIKE",
+          "year": 2022,
+          "note": "Title where Rei's rap bridge adds a Japanese-tinged delivery."
+        },
+        {
+          "title": "Either Way",
+          "year": 2023,
+          "note": "Mid-album cut from I've IVE where Rei's tone leads the verses."
+        },
+        {
+          "title": "Baddie",
+          "year": 2023,
+          "note": "Title from I've MINE where Rei's rap break punctuates the chorus."
+        },
+        {
+          "title": "Heya",
+          "year": 2024,
+          "note": "Title built on Korean-traditional samples where Rei's bridge stands out."
+        }
+      ],
+      "distinction": "Unlike other IVE members, Rei contributes Japanese-language ad-libs and rap-leaning bridges from an INFP introspection — her parts read as private monologues inserted into otherwise extroverted titles.",
+      "fandomChant": "DIVE chant 'Naoi Rei!' through her rap sections and switch to softer 'Rei-nim!' calls for her solo moments."
     },
     {
       "id": "liz",
@@ -108,14 +238,21 @@
       "nameEn": "Liz",
       "realName": "Kim Ji-won (김지원)",
       "gender": "female",
-      "position": ["Main Vocalist"],
+      "position": [
+        "Main Vocalist"
+      ],
       "birthYear": 2004,
       "birthday": "November 21",
       "zodiac": "Scorpio",
       "mbti": "ISFJ",
       "height": "170cm",
       "emoji": "🐰",
-      "nicknames": ["Main Vocal Queen", "Jiwonnie", "Powerful Liz", "IVE's Voice"],
+      "nicknames": [
+        "Main Vocal Queen",
+        "Jiwonnie",
+        "Powerful Liz",
+        "IVE's Voice"
+      ],
       "funFacts": [
         "Known for her powerful, stable vocals",
         "Can hit incredibly high notes live",
@@ -123,7 +260,31 @@
         "Her high note in 'LOVE DIVE' is iconic",
         "Often praised for her live singing ability"
       ],
-      "bio": "Liz is IVE's main vocalist with powerful, stable vocals. Her high notes are legendary among fans. Despite her quiet personality, she shines on stage with her incredible vocal abilities."
+      "bio": "Liz is IVE's main vocalist with powerful, stable vocals. Her high notes are legendary among fans. Despite her quiet personality, she shines on stage with her incredible vocal abilities.",
+      "popularSongs": [
+        {
+          "title": "LOVE DIVE",
+          "year": 2022,
+          "note": "Title where Liz's high note has become a karaoke benchmark."
+        },
+        {
+          "title": "I AM",
+          "year": 2023,
+          "note": "Title from I've IVE where Liz's main-vocal bridge anchors the chorus payoff."
+        },
+        {
+          "title": "Either Way",
+          "year": 2023,
+          "note": "Ballad cut showcasing Liz's quieter dynamics."
+        },
+        {
+          "title": "Accendio",
+          "year": 2024,
+          "note": "Title from IVE SWITCH where Liz's belt drives the climax."
+        }
+      ],
+      "distinction": "Unlike other IVE members, Liz handles main-vocal load with an ISFJ's quiet preparation — her live high notes hit cleanly because she stays composed off-camera, which is why her ballad performances become tour-clip highlights.",
+      "fandomChant": "DIVE chant 'Kim Jiwon!' during her solo lines and tend to stay silent through her high notes to preserve the recording."
     },
     {
       "id": "leeseo",
@@ -131,14 +292,23 @@
       "nameEn": "Leeseo",
       "realName": "Lee Hyun-seo (이현서)",
       "gender": "female",
-      "position": ["Lead Dancer", "Sub Vocalist", "Maknae"],
+      "position": [
+        "Lead Dancer",
+        "Sub Vocalist",
+        "Maknae"
+      ],
       "birthYear": 2007,
       "birthday": "February 21",
       "zodiac": "Pisces",
       "mbti": "ENFP",
       "height": "165cm",
       "emoji": "🐥",
-      "nicknames": ["Baby", "Maknae On Top", "Hyunseo", "Tiny Dancer"],
+      "nicknames": [
+        "Baby",
+        "Maknae On Top",
+        "Hyunseo",
+        "Tiny Dancer"
+      ],
       "funFacts": [
         "Youngest 4th gen idol from a major group (debuted at 14)",
         "Despite being the youngest, she's very mature",
@@ -146,14 +316,49 @@
         "Has been training since elementary school",
         "Her confidence on stage surprises many given her age"
       ],
-      "bio": "Leeseo is IVE's maknae who debuted at just 14 years old. Despite her young age, her dance skills and stage presence are remarkably mature. She's known as 'maknae on top' for her confident personality."
+      "bio": "Leeseo is IVE's maknae who debuted at just 14 years old. Despite her young age, her dance skills and stage presence are remarkably mature. She's known as 'maknae on top' for her confident personality.",
+      "popularSongs": [
+        {
+          "title": "ELEVEN",
+          "year": 2021,
+          "note": "Debut single where Leeseo became the youngest center moment in IVE."
+        },
+        {
+          "title": "LOVE DIVE",
+          "year": 2022,
+          "note": "Title where Leeseo's chorus part anchors the choreography climax."
+        },
+        {
+          "title": "Kitsch",
+          "year": 2023,
+          "note": "Pre-release where Leeseo's dance break became a fan-clip favorite."
+        },
+        {
+          "title": "Heya",
+          "year": 2024,
+          "note": "Title where Leeseo's bridge gives the song its lift."
+        }
+      ],
+      "distinction": "Unlike other IVE members, Leeseo carries lead-dance duties as the maknae — an ENFP's spotlight comfort that lets her hold center for the youngest-member sequences without losing precision.",
+      "fandomChant": "DIVE chant 'Lee Hyunseo!' during her dance breaks and call 'Leeseo babe!' through her solo lines."
     }
   ],
-  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "pageTypes": [
+    "name",
+    "stage-name",
+    "aesthetic"
+  ],
   "badge": null,
   "seo": {
     "title": "IVE Name Generator | Create Your Korean Name with DIVE",
     "description": "Create your IVE name with Wonyoung, Yujin, Gaeul, Rei, Liz & Leeseo! Instant chemistry scores & Korean stage names. Perfect for DIVE fanfiction.",
-    "keywords": ["ive name generator", "ive korean name", "dive name generator", "ive wonyoung chemistry", "ive yujin name"]
-  }
+    "keywords": [
+      "ive name generator",
+      "ive korean name",
+      "dive name generator",
+      "ive wonyoung chemistry",
+      "ive yujin name"
+    ]
+  },
+  "heroImage": "/images/groups/ive-hero.webp"
 }

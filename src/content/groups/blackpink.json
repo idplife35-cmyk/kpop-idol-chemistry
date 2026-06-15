@@ -7,7 +7,7 @@
   "company": "YG Entertainment",
   "debutYear": 2016,
   "color": "#FF007F",
-  "logo": "/images/black_pink_logo2.png",
+  "logo": "/images/groups/blackpink-logo.png",
   "description": "BLACKPINK is a global girl group known for their powerful performances, fashion influence, and record-breaking achievements.",
   "members": [
     {
@@ -16,14 +16,22 @@
       "nameEn": "Jisoo",
       "realName": "Kim Ji-soo (김지수)",
       "gender": "female",
-      "position": ["Lead Vocalist", "Visual"],
+      "position": [
+        "Lead Vocalist",
+        "Visual"
+      ],
       "birthYear": 1995,
       "birthday": "January 3",
       "zodiac": "Capricorn",
       "mbti": "INTJ",
       "height": "162cm",
       "emoji": "🐢",
-      "nicknames": ["Jichu", "Chuchu", "Turtle Rabbit Kim", "4D Jisoo"],
+      "nicknames": [
+        "Jichu",
+        "Chuchu",
+        "Turtle Rabbit Kim",
+        "4D Jisoo"
+      ],
       "funFacts": [
         "Lead actress in K-drama 'Snowdrop' (2021-2022)",
         "Known for her '4D' quirky personality",
@@ -31,7 +39,31 @@
         "Has a unique way of eating - 'Jisoo way'",
         "Trained for 5 years before debuting"
       ],
-      "bio": "Jisoo is BLACKPINK's eldest member and visual. Despite her stunning looks, she's known for her hilarious '4D' personality and gaming skills. She expanded into acting with the lead role in 'Snowdrop' and released her solo album 'ME' in 2023."
+      "bio": "Jisoo is BLACKPINK's eldest member and visual. Despite her stunning looks, she's known for her hilarious '4D' personality and gaming skills. She expanded into acting with the lead role in 'Snowdrop' and released her solo album 'ME' in 2023.",
+      "popularSongs": [
+        {
+          "title": "Flower",
+          "year": 2023,
+          "note": "Solo single from her ME album that topped global iTunes."
+        },
+        {
+          "title": "All Eyes On Me",
+          "year": 2023,
+          "note": "B-side from ME that became a streaming favorite."
+        },
+        {
+          "title": "Pink Venom",
+          "year": 2022,
+          "note": "BLACKPINK lead single where Jisoo's opening vocal sets the tone."
+        },
+        {
+          "title": "Lovesick Girls",
+          "year": 2020,
+          "note": "BLACKPINK title where Jisoo's chorus delivery defines the hook."
+        }
+      ],
+      "distinction": "Unlike other BLACKPINK members, Jisoo balances eldest-member visuals with an INTJ's measured strategy — she leans into restraint when others go loud, which is why her solo pivots into ballads and K-drama work read as deliberate rather than reactive.",
+      "fandomChant": "BLINK chant 'Kim Jisoo!' through her solo lines and tend to scream during her 'Flower' hand-cut choreography."
     },
     {
       "id": "jennie",
@@ -39,14 +71,22 @@
       "nameEn": "Jennie",
       "realName": "Jennie Kim (김제니)",
       "gender": "female",
-      "position": ["Main Rapper", "Lead Vocalist"],
+      "position": [
+        "Main Rapper",
+        "Lead Vocalist"
+      ],
       "birthYear": 1996,
       "birthday": "January 16",
       "zodiac": "Capricorn",
       "mbti": "ENFP",
       "height": "163cm",
       "emoji": "🐻",
-      "nicknames": ["NiNi", "Human Chanel", "Jendeuk", "Jendeukie"],
+      "nicknames": [
+        "NiNi",
+        "Human Chanel",
+        "Jendeuk",
+        "Jendeukie"
+      ],
       "funFacts": [
         "Lived in New Zealand for 5 years during childhood",
         "First BLACKPINK member to debut solo with 'SOLO' (2018)",
@@ -54,7 +94,31 @@
         "Known for her duality - fierce on stage, cute off stage",
         "Her cat's name is Kuma"
       ],
-      "bio": "Jennie is BLACKPINK's main rapper and a fashion icon. Having studied abroad in New Zealand, she's fluent in English and known for her versatile talents. She became the first member to go solo with the hit 'SOLO' and is Chanel's global ambassador."
+      "bio": "Jennie is BLACKPINK's main rapper and a fashion icon. Having studied abroad in New Zealand, she's fluent in English and known for her versatile talents. She became the first member to go solo with the hit 'SOLO' and is Chanel's global ambassador.",
+      "popularSongs": [
+        {
+          "title": "SOLO",
+          "year": 2018,
+          "note": "First BLACKPINK solo single, breaking K-pop solo records."
+        },
+        {
+          "title": "You & Me",
+          "year": 2023,
+          "note": "Solo single first performed on the Born Pink tour."
+        },
+        {
+          "title": "One of the Girls (with The Weeknd)",
+          "year": 2023,
+          "note": "OST single from The Idol that re-introduced her vocal range."
+        },
+        {
+          "title": "Mantra",
+          "year": 2024,
+          "note": "Solo single under her own label that pivoted to confident pop-rap."
+        }
+      ],
+      "distinction": "Unlike other BLACKPINK members, Jennie merges main-rap delivery with luxury-brand visual codes — her ENFP whimsy reframes high-fashion as approachable, which is why her solo work moves between brand campaigns and chart pop without friction.",
+      "fandomChant": "BLINK chant 'Kim Jennie!' twice through her rap verses and shout 'Cha cha cha!' during the Pink Venom break."
     },
     {
       "id": "rose",
@@ -62,14 +126,22 @@
       "nameEn": "Rosé",
       "realName": "Park Chae-young (박채영) / Roseanne Park",
       "gender": "female",
-      "position": ["Main Vocalist", "Lead Dancer"],
+      "position": [
+        "Main Vocalist",
+        "Lead Dancer"
+      ],
       "birthYear": 1997,
       "birthday": "February 11",
       "zodiac": "Aquarius",
       "mbti": "ISTP",
       "height": "168cm",
       "emoji": "🌹",
-      "nicknames": ["Rosie", "Pasta", "Chipmunk", "Park Chaeyoung"],
+      "nicknames": [
+        "Rosie",
+        "Pasta",
+        "Chipmunk",
+        "Park Chaeyoung"
+      ],
       "funFacts": [
         "Born in New Zealand, raised in Australia",
         "Her solo 'On The Ground' broke multiple records",
@@ -77,7 +149,31 @@
         "Plays guitar and piano",
         "First Korean solo artist to reach #1 on Billboard Global 200"
       ],
-      "bio": "Rosé is BLACKPINK's main vocalist with a distinctive, emotive voice. Born in New Zealand and raised in Melbourne, Australia, she brings a unique tone to the group. Her solo debut 'R' featured hits like 'On The Ground' and 'Gone.'"
+      "bio": "Rosé is BLACKPINK's main vocalist with a distinctive, emotive voice. Born in New Zealand and raised in Melbourne, Australia, she brings a unique tone to the group. Her solo debut 'R' featured hits like 'On The Ground' and 'Gone.'",
+      "popularSongs": [
+        {
+          "title": "APT. (with Bruno Mars)",
+          "year": 2024,
+          "note": "Solo single that became a global #1 with a karaoke-game hook."
+        },
+        {
+          "title": "On The Ground",
+          "year": 2021,
+          "note": "Solo debut single from her R album that broke YouTube records."
+        },
+        {
+          "title": "Gone",
+          "year": 2021,
+          "note": "Acoustic-leaning B-side from R that became a fan favorite."
+        },
+        {
+          "title": "Number One Girl",
+          "year": 2024,
+          "note": "rosie album lead that leaned into stripped-down vocal arrangement."
+        }
+      ],
+      "distinction": "Unlike other BLACKPINK members, Rosé builds her solo identity around live-band, acoustic textures — an ISTP's hands-on minimalism that fits her husky tone, which is why her solo tracks read as singer-songwriter rather than pop spectacle.",
+      "fandomChant": "BLINK chant 'Park Chaeyoung!' during her solo runs and pull out the heart-finger sign during 'APT.' chants live."
     },
     {
       "id": "lisa",
@@ -85,14 +181,24 @@
       "nameEn": "Lisa",
       "realName": "Lalisa Manobal (ลลิษา มโนบาล) / Pranpriya Manobal",
       "gender": "female",
-      "position": ["Main Dancer", "Lead Rapper", "Sub Vocalist", "Maknae"],
+      "position": [
+        "Main Dancer",
+        "Lead Rapper",
+        "Sub Vocalist",
+        "Maknae"
+      ],
       "birthYear": 1997,
       "birthday": "March 27",
       "zodiac": "Aries",
       "mbti": "ENFP",
       "height": "167cm",
       "emoji": "🐱",
-      "nicknames": ["Lalisa", "Lili", "Thai Princess", "Dancing Machine"],
+      "nicknames": [
+        "Lalisa",
+        "Lili",
+        "Thai Princess",
+        "Dancing Machine"
+      ],
       "funFacts": [
         "Only Thai member, from Buriram Province",
         "Most-followed K-pop idol on Instagram (100M+)",
@@ -100,14 +206,49 @@
         "Won 'Best K-Pop' at 2022 VMAs for 'LALISA'",
         "Known for her incredible dance covers and versatility"
       ],
-      "bio": "Lisa is BLACKPINK's main dancer and the only non-Korean member. Originally from Thailand, she's become one of the most influential K-pop idols globally with the most Instagram followers. Her solo debut 'LALISA' broke multiple YouTube records."
+      "bio": "Lisa is BLACKPINK's main dancer and the only non-Korean member. Originally from Thailand, she's become one of the most influential K-pop idols globally with the most Instagram followers. Her solo debut 'LALISA' broke multiple YouTube records.",
+      "popularSongs": [
+        {
+          "title": "LALISA",
+          "year": 2021,
+          "note": "Solo debut whose MV passed 73 million views in 24 hours."
+        },
+        {
+          "title": "MONEY",
+          "year": 2021,
+          "note": "B-side from LALISA that became her first Billboard Hot 100 entry."
+        },
+        {
+          "title": "Rockstar",
+          "year": 2024,
+          "note": "Solo single under LLOUD that pivoted into hip-hop-pop."
+        },
+        {
+          "title": "New Woman (with Rosalía)",
+          "year": 2024,
+          "note": "Cross-language collab that anchored her global solo run."
+        }
+      ],
+      "distinction": "Unlike other BLACKPINK members, Lisa centers main-dancer choreography while delivering rap verses — an ENFP's high-energy adaptability that scales from stage to short-form, which is why her dance practice clips outperform some music videos.",
+      "fandomChant": "BLINK chant 'Lalisa Manobal!' through her dance breaks and join the 'la la la lisa' call during the LALISA intro live."
     }
   ],
-  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "pageTypes": [
+    "name",
+    "stage-name",
+    "aesthetic"
+  ],
   "badge": null,
   "seo": {
     "title": "BLACKPINK Name Generator | Create Your Korean Name with BLINK",
     "description": "Create your BLACKPINK name with Jennie, Jisoo, Rosé & Lisa! Get instant chemistry scores and Korean stage names. Perfect for BLINK fanfiction and roleplay.",
-    "keywords": ["blackpink name generator", "blackpink korean name", "blink name generator", "blackpink jennie name", "blackpink lisa chemistry"]
-  }
+    "keywords": [
+      "blackpink name generator",
+      "blackpink korean name",
+      "blink name generator",
+      "blackpink jennie name",
+      "blackpink lisa chemistry"
+    ]
+  },
+  "heroImage": "/images/groups/blackpink-hero.webp"
 }

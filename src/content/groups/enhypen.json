@@ -7,7 +7,7 @@
   "company": "BELIFT LAB / HYBE",
   "debutYear": 2020,
   "color": "#FF6B35",
-  "logo": "/images/enhypen_logo.png",
+  "logo": "/images/groups/enhypen-logo.png",
   "description": "ENHYPEN is a 4th generation boy group formed through I-LAND, known for their vampire concepts, powerful choreography, and global popularity.",
   "members": [
     {
@@ -16,14 +16,23 @@
       "nameEn": "Jungwon",
       "realName": "Yang Jeong-won (양정원)",
       "gender": "male",
-      "position": ["Leader", "Main Vocalist", "Lead Dancer"],
+      "position": [
+        "Leader",
+        "Main Vocalist",
+        "Lead Dancer"
+      ],
       "birthYear": 2004,
       "birthday": "February 9",
       "zodiac": "Aquarius",
       "mbti": "ESTJ",
       "height": "174cm",
       "emoji": "🐱",
-      "nicknames": ["Garden", "Leader Won", "Kitten", "Yang Cat"],
+      "nicknames": [
+        "Garden",
+        "Leader Won",
+        "Kitten",
+        "Yang Cat"
+      ],
       "funFacts": [
         "Youngest leader in HYBE family",
         "Known for his cat-like visuals and dimples",
@@ -39,14 +48,23 @@
       "nameEn": "Heeseung",
       "realName": "Lee Hee-seung (이희승)",
       "gender": "male",
-      "position": ["Main Vocalist", "Lead Dancer", "Visual"],
+      "position": [
+        "Main Vocalist",
+        "Lead Dancer",
+        "Visual"
+      ],
       "birthYear": 2001,
       "birthday": "October 15",
       "zodiac": "Libra",
       "mbti": "INFJ",
       "height": "183cm",
       "emoji": "🦌",
-      "nicknames": ["Ace", "Deer", "Heehee", "Big Hit's Hidden Gem"],
+      "nicknames": [
+        "Ace",
+        "Deer",
+        "Heehee",
+        "Big Hit's Hidden Gem"
+      ],
       "funFacts": [
         "Trained at Big Hit for 3 years before I-LAND",
         "Known as the 'ace' for his all-rounder abilities",
@@ -62,14 +80,22 @@
       "nameEn": "Jay",
       "realName": "Park Jong-seong (박종성) / Jay Park",
       "gender": "male",
-      "position": ["Lead Rapper", "Sub Vocalist"],
+      "position": [
+        "Lead Rapper",
+        "Sub Vocalist"
+      ],
       "birthYear": 2002,
       "birthday": "April 20",
       "zodiac": "Taurus",
       "mbti": "ENFJ",
       "height": "180cm",
       "emoji": "🔥",
-      "nicknames": ["Fashion Icon", "Chef Jay", "4th Gen It Boy", "Jongseong"],
+      "nicknames": [
+        "Fashion Icon",
+        "Chef Jay",
+        "4th Gen It Boy",
+        "Jongseong"
+      ],
       "funFacts": [
         "Lived in USA until age 9",
         "Known for his exceptional fashion sense",
@@ -85,14 +111,23 @@
       "nameEn": "Jake",
       "realName": "Sim Jae-yun (심재윤) / Jake Sim",
       "gender": "male",
-      "position": ["Lead Rapper", "Lead Dancer", "Sub Vocalist"],
+      "position": [
+        "Lead Rapper",
+        "Lead Dancer",
+        "Sub Vocalist"
+      ],
       "birthYear": 2002,
       "birthday": "November 15",
       "zodiac": "Scorpio",
       "mbti": "ISTJ",
       "height": "176cm",
       "emoji": "🐶",
-      "nicknames": ["Puppy", "Australian Boy", "Layla's Dad", "Golden Retriever"],
+      "nicknames": [
+        "Puppy",
+        "Australian Boy",
+        "Layla's Dad",
+        "Golden Retriever"
+      ],
       "funFacts": [
         "Born in Korea, raised in Australia",
         "Has a dog named Layla he loves dearly",
@@ -108,14 +143,23 @@
       "nameEn": "Sunghoon",
       "realName": "Park Sung-hoon (박성훈)",
       "gender": "male",
-      "position": ["Lead Dancer", "Sub Vocalist", "Visual"],
+      "position": [
+        "Lead Dancer",
+        "Sub Vocalist",
+        "Visual"
+      ],
       "birthYear": 2002,
       "birthday": "December 8",
       "zodiac": "Sagittarius",
       "mbti": "INFP",
       "height": "177cm",
       "emoji": "⛸️",
-      "nicknames": ["Ice Prince", "Former Figure Skater", "Visual King", "Hoonie"],
+      "nicknames": [
+        "Ice Prince",
+        "Former Figure Skater",
+        "Visual King",
+        "Hoonie"
+      ],
       "funFacts": [
         "Was a competitive figure skater before becoming an idol",
         "Won numerous skating competitions nationally",
@@ -131,14 +175,22 @@
       "nameEn": "Sunoo",
       "realName": "Kim Sun-woo (김선우)",
       "gender": "male",
-      "position": ["Lead Vocalist", "Visual"],
+      "position": [
+        "Lead Vocalist",
+        "Visual"
+      ],
       "birthYear": 2003,
       "birthday": "June 24",
       "zodiac": "Cancer",
       "mbti": "ENFP",
       "height": "174cm",
       "emoji": "🌻",
-      "nicknames": ["Sunshine", "Mochi", "Sunflower", "Aegyo King"],
+      "nicknames": [
+        "Sunshine",
+        "Mochi",
+        "Sunflower",
+        "Aegyo King"
+      ],
       "funFacts": [
         "Known for his bright, sunshine personality",
         "Best friends with TXT's Taehyun and Stray Kids' Hyunjin",
@@ -154,14 +206,23 @@
       "nameEn": "Ni-ki",
       "realName": "Nishimura Riki (西村力)",
       "gender": "male",
-      "position": ["Main Dancer", "Sub Vocalist", "Maknae"],
+      "position": [
+        "Main Dancer",
+        "Sub Vocalist",
+        "Maknae"
+      ],
       "birthYear": 2005,
       "birthday": "December 9",
       "zodiac": "Sagittarius",
       "mbti": "ENTP",
       "height": "183cm",
       "emoji": "🐆",
-      "nicknames": ["Dance Prodigy", "Niki", "Maknae on Top", "Japanese Prince"],
+      "nicknames": [
+        "Dance Prodigy",
+        "Niki",
+        "Maknae on Top",
+        "Japanese Prince"
+      ],
       "funFacts": [
         "From Okayama, Japan",
         "Was a backup dancer for SHINee as a child",
@@ -172,11 +233,22 @@
       "bio": "Ni-ki is ENHYPEN's Japanese maknae and main dancer, known as a dance prodigy. He danced for SHINee as a child and has been training since young. Despite being the youngest, his dance skills rival professionals."
     }
   ],
-  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "pageTypes": [
+    "name",
+    "stage-name",
+    "aesthetic"
+  ],
   "badge": "HOT",
   "seo": {
     "title": "ENHYPEN Name Generator | Create Your Korean Name with ENGENE",
     "description": "Create your ENHYPEN name with Jungwon, Heeseung, Jay, Jake, Sunghoon, Sunoo & Ni-ki! Get instant chemistry scores and Korean names for ENGENE.",
-    "keywords": ["enhypen name generator", "enhypen korean name", "engene name generator", "enhypen jake name", "enhypen ni-ki chemistry"]
-  }
+    "keywords": [
+      "enhypen name generator",
+      "enhypen korean name",
+      "engene name generator",
+      "enhypen jake name",
+      "enhypen ni-ki chemistry"
+    ]
+  },
+  "heroImage": "/images/groups/enhypen-hero.webp"
 }

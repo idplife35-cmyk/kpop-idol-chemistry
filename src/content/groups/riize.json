@@ -7,7 +7,7 @@
   "company": "SM Entertainment",
   "debutYear": 2023,
   "color": "#FF6B35",
-  "logo": "/images/riize_logo.png",
+  "logo": "/images/groups/riize-logo.png",
   "description": "RIIZE is SM Entertainment's newest boy group, known for their fresh concept, powerful performances, and instant rookie success.",
   "members": [
     {
@@ -16,14 +16,22 @@
       "nameEn": "Shotaro",
       "realName": "Osaki Shotaro (大崎将太郎)",
       "gender": "male",
-      "position": ["Leader", "Main Dancer"],
+      "position": [
+        "Leader",
+        "Main Dancer"
+      ],
       "birthYear": 2000,
       "birthday": "November 25",
       "zodiac": "Sagittarius",
       "mbti": "ESFP",
       "height": "178cm",
       "emoji": "🐹",
-      "nicknames": ["Dance Machine", "Taro", "Hamster", "Smiley Boy"],
+      "nicknames": [
+        "Dance Machine",
+        "Taro",
+        "Hamster",
+        "Smiley Boy"
+      ],
       "funFacts": [
         "From Kanagawa, Japan",
         "Was in NCT before joining RIIZE",
@@ -39,14 +47,22 @@
       "nameEn": "Eunseok",
       "realName": "Song Eun-seok (송은석)",
       "gender": "male",
-      "position": ["Lead Dancer", "Visual"],
+      "position": [
+        "Lead Dancer",
+        "Visual"
+      ],
       "birthYear": 2001,
       "birthday": "November 19",
       "zodiac": "Scorpio",
       "mbti": "INTJ",
       "height": "180cm",
       "emoji": "🦋",
-      "nicknames": ["Visual King", "Cold Prince", "Song Eunseok", "Model Material"],
+      "nicknames": [
+        "Visual King",
+        "Cold Prince",
+        "Song Eunseok",
+        "Model Material"
+      ],
       "funFacts": [
         "Known for his striking visuals",
         "Has a cold, chic image on stage",
@@ -62,14 +78,22 @@
       "nameEn": "Sungchan",
       "realName": "Jung Sung-chan (정성찬)",
       "gender": "male",
-      "position": ["Lead Rapper", "Sub Vocalist"],
+      "position": [
+        "Lead Rapper",
+        "Sub Vocalist"
+      ],
       "birthYear": 2001,
       "birthday": "September 13",
       "zodiac": "Virgo",
       "mbti": "ESTP",
       "height": "186cm",
       "emoji": "🦌",
-      "nicknames": ["Tall Boy", "Deer", "NCT Graduate", "Gentle Giant"],
+      "nicknames": [
+        "Tall Boy",
+        "Deer",
+        "NCT Graduate",
+        "Gentle Giant"
+      ],
       "funFacts": [
         "One of the tallest K-Pop idols at 186cm",
         "Was in NCT before joining RIIZE",
@@ -85,14 +109,22 @@
       "nameEn": "Wonbin",
       "realName": "Park Won-bin (박원빈)",
       "gender": "male",
-      "position": ["Lead Vocalist", "Visual"],
+      "position": [
+        "Lead Vocalist",
+        "Visual"
+      ],
       "birthYear": 2003,
       "birthday": "September 6",
       "zodiac": "Virgo",
       "mbti": "ISFP",
       "height": "176cm",
       "emoji": "🐰",
-      "nicknames": ["Prince Charming", "Viral Boy", "Bunny", "Visual Fairy"],
+      "nicknames": [
+        "Prince Charming",
+        "Viral Boy",
+        "Bunny",
+        "Visual Fairy"
+      ],
       "funFacts": [
         "Went viral pre-debut for his visuals",
         "Named after actor Won Bin",
@@ -108,14 +140,21 @@
       "nameEn": "Sohee",
       "realName": "Park So-hee (박소희)",
       "gender": "male",
-      "position": ["Main Vocalist"],
+      "position": [
+        "Main Vocalist"
+      ],
       "birthYear": 2003,
       "birthday": "August 21",
       "zodiac": "Leo",
       "mbti": "ENFP",
       "height": "175cm",
       "emoji": "🎤",
-      "nicknames": ["Vocal King", "Main Vocal", "Sohee-ya", "Power Voice"],
+      "nicknames": [
+        "Vocal King",
+        "Main Vocal",
+        "Sohee-ya",
+        "Power Voice"
+      ],
       "funFacts": [
         "Known for his powerful, stable vocals",
         "His high notes are impressive",
@@ -131,14 +170,22 @@
       "nameEn": "Anton",
       "realName": "Lee Sung-chan (이성찬) / Anton Lee",
       "gender": "male",
-      "position": ["Sub Vocalist", "Maknae"],
+      "position": [
+        "Sub Vocalist",
+        "Maknae"
+      ],
       "birthYear": 2004,
       "birthday": "March 21",
       "zodiac": "Aries",
       "mbti": "ISFP",
       "height": "187cm",
       "emoji": "🐻",
-      "nicknames": ["Giant Baby", "Teddy Bear", "NY Prince", "Half Korean"],
+      "nicknames": [
+        "Giant Baby",
+        "Teddy Bear",
+        "NY Prince",
+        "Half Korean"
+      ],
       "funFacts": [
         "Half Korean, half American (father is Yoon Sang)",
         "Tallest member at 187cm",
@@ -149,11 +196,22 @@
       "bio": "Anton is RIIZE's maknae and tallest member at 187cm. Half-Korean and raised in New York, he's fluent in both languages. His 'giant baby' charm and musical heritage (son of composer Yoon Sang) make him special."
     }
   ],
-  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "pageTypes": [
+    "name",
+    "stage-name",
+    "aesthetic"
+  ],
   "badge": "NEW",
   "seo": {
     "title": "RIIZE Name Generator | Create Your Korean Name with BRIIZE",
     "description": "Create your RIIZE name with Shotaro, Wonbin, Anton & all 6 members! Instant chemistry scores & Korean stage names. Perfect for BRIIZE fanfiction.",
-    "keywords": ["riize name generator", "riize korean name", "briize name generator", "riize wonbin chemistry", "riize anton name"]
-  }
+    "keywords": [
+      "riize name generator",
+      "riize korean name",
+      "briize name generator",
+      "riize wonbin chemistry",
+      "riize anton name"
+    ]
+  },
+  "heroImage": "/images/groups/riize-hero.webp"
 }

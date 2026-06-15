@@ -7,7 +7,7 @@
   "company": "Hybe x Geffen Records",
   "debutYear": 2024,
   "color": "#FF4F8B",
-  "logo": "/images/katseye_logo.png",
+  "logo": "/images/groups/katseye-logo.png",
   "description": "KATSEYE is the global girl group formed by HYBE and Geffen Records through the Dream Academy survival series, featuring six members from across the world.",
   "members": [
     {
@@ -16,16 +16,42 @@
       "nameEn": "Sophia",
       "realName": "Sophia Laforteza",
       "gender": "female",
-      "position": ["Leader", "Vocalist"],
+      "position": [
+        "Leader",
+        "Vocalist"
+      ],
       "emoji": "🌟",
-      "nicknames": ["Sophia Unnie", "Filipino Power", "Leader-nim"],
+      "nicknames": [
+        "Sophia Unnie",
+        "Filipino Power",
+        "Leader-nim"
+      ],
       "funFacts": [
         "From the Philippines — strong Filipino fandom backbone",
         "Took the leader role on Dream Academy",
         "Bilingual English-Tagalog, learning Korean rapidly",
         "Known for her composed stage presence"
       ],
-      "bio": "Sophia is KATSEYE's Filipino leader from Dream Academy. She anchors the group's energy with calm leadership and strong vocals, bridging the global fandom."
+      "bio": "Sophia is KATSEYE's Filipino leader from Dream Academy. She anchors the group's energy with calm leadership and strong vocals, bridging the global fandom.",
+      "popularSongs": [
+        {
+          "title": "Debut Single",
+          "year": 2024,
+          "note": "Group debut where Sophia's calm vocal anchors the verses."
+        },
+        {
+          "title": "Touch",
+          "year": 2024,
+          "note": "Pre-debut release that introduced Sophia as the group's vocal grounding point."
+        },
+        {
+          "title": "Gnarly",
+          "year": 2025,
+          "note": "Title where Sophia's leader presence frames the chorus formation."
+        }
+      ],
+      "distinction": "Unlike other KATSEYE members, Sophia anchors the group as the Filipino-born leader — her composed stage presence reads as steady-hand vocal direction rather than spotlight grabbing, which is why her parts often function as the song's emotional baseline.",
+      "fandomChant": "EYEKONS chant 'Sophia Laforteza!' through her solo lines and switch to Tagalog 'mahal kita' calls on Manila stops."
     },
     {
       "id": "lara",
@@ -33,16 +59,41 @@
       "nameEn": "Lara",
       "realName": "Lara Raj",
       "gender": "female",
-      "position": ["Main Vocalist"],
+      "position": [
+        "Main Vocalist"
+      ],
       "emoji": "🪷",
-      "nicknames": ["Lara-ya", "Vocal Powerhouse", "Indian Princess"],
+      "nicknames": [
+        "Lara-ya",
+        "Vocal Powerhouse",
+        "Indian Princess"
+      ],
       "funFacts": [
         "Indian-American heritage",
         "Trained in classical and contemporary vocal styles",
         "Highest-belting vocalist of the group",
         "Strong social media presence"
       ],
-      "bio": "Lara brings vocal range and emotional depth to KATSEYE, with Indian-American heritage. Her belting moments often go viral on TikTok."
+      "bio": "Lara brings vocal range and emotional depth to KATSEYE, with Indian-American heritage. Her belting moments often go viral on TikTok.",
+      "popularSongs": [
+        {
+          "title": "Debut Single",
+          "year": 2024,
+          "note": "Group debut where Lara's belt sequence broke through algorithm-wide on short-form."
+        },
+        {
+          "title": "Touch",
+          "year": 2024,
+          "note": "Pre-debut release where Lara's hook delivery established her main-vocal role."
+        },
+        {
+          "title": "Gnarly",
+          "year": 2025,
+          "note": "Title where Lara's bridge belt anchors the climax."
+        }
+      ],
+      "distinction": "Unlike other KATSEYE members, Lara leans into main-vocal belt sequences trained in both Indian classical and contemporary technique — her runs read as technically dense rather than purely emotional, which is why her short-form clips travel through vocal-coach reaction accounts.",
+      "fandomChant": "EYEKONS chant 'Lara Raj!' through her belt moments and keep silent during her high-note holds to preserve the live recording."
     },
     {
       "id": "manon",
@@ -50,16 +101,42 @@
       "nameEn": "Manon",
       "realName": "Manon Bannerman",
       "gender": "female",
-      "position": ["Lead Dancer", "Rapper"],
+      "position": [
+        "Lead Dancer",
+        "Rapper"
+      ],
       "emoji": "🦋",
-      "nicknames": ["Manon-ie", "Swiss Charm", "Cool Girl"],
+      "nicknames": [
+        "Manon-ie",
+        "Swiss Charm",
+        "Cool Girl"
+      ],
       "funFacts": [
         "Swiss-Ghanaian heritage",
         "Multilingual: English, French, German",
         "Brings a chic European style to the group",
         "Quick wit and dry humor"
       ],
-      "bio": "Manon is KATSEYE's multilingual member with Swiss-Ghanaian roots. Her chic European style and dry humor have built a strong European fanbase."
+      "bio": "Manon is KATSEYE's multilingual member with Swiss-Ghanaian roots. Her chic European style and dry humor have built a strong European fanbase.",
+      "popularSongs": [
+        {
+          "title": "Debut Single",
+          "year": 2024,
+          "note": "Group debut where Manon's rap section gives the song its tempo lift."
+        },
+        {
+          "title": "Touch",
+          "year": 2024,
+          "note": "Pre-debut release where Manon's bilingual ad-libs frame the chorus."
+        },
+        {
+          "title": "Gnarly",
+          "year": 2025,
+          "note": "Title where Manon's rap break drives the choreography pivot."
+        }
+      ],
+      "distinction": "Unlike other KATSEYE members, Manon brings Swiss-Ghanaian heritage and multilingual rap delivery — her bars carry European phrasing rhythms not typical to K-pop, which is why her parts tend to over-index in European charting markets.",
+      "fandomChant": "EYEKONS chant 'Manon Bannerman!' through her rap section and tend to throw heart-finger signs during her French ad-libs on tour."
     },
     {
       "id": "megan",
@@ -67,16 +144,41 @@
       "nameEn": "Megan",
       "realName": "Megan Skiendiel",
       "gender": "female",
-      "position": ["Main Dancer"],
+      "position": [
+        "Main Dancer"
+      ],
       "emoji": "🔥",
-      "nicknames": ["Megan-ie", "Dance Machine", "Stage Queen"],
+      "nicknames": [
+        "Megan-ie",
+        "Dance Machine",
+        "Stage Queen"
+      ],
       "funFacts": [
         "From Hawaii, USA — Thai and Chinese descent",
         "Strong technical dance background",
         "Loves choreography videos and dance challenges",
         "Famous for her stage charisma"
       ],
-      "bio": "Megan is KATSEYE's main dancer from Hawaii. Her technical precision and explosive stage charisma anchor the group's choreography."
+      "bio": "Megan is KATSEYE's main dancer from Hawaii. Her technical precision and explosive stage charisma anchor the group's choreography.",
+      "popularSongs": [
+        {
+          "title": "Debut Single",
+          "year": 2024,
+          "note": "Group debut where Megan's dance break became the most-clipped moment."
+        },
+        {
+          "title": "Touch",
+          "year": 2024,
+          "note": "Pre-debut release where Megan's main-dancer position frames the choreography."
+        },
+        {
+          "title": "Gnarly",
+          "year": 2025,
+          "note": "Title where Megan's choreography break carries the song's identity."
+        }
+      ],
+      "distinction": "Unlike other KATSEYE members, Megan executes main-dancer center duties with explicitly technical timing — her Thai-Chinese-Hawaiian background reads as crisp counts and fully extended lines, which is why her dance practice clips outperform some title-track MVs.",
+      "fandomChant": "EYEKONS chant 'Megan Skiendiel!' through her dance breaks and tend to clap on her count drops live."
     },
     {
       "id": "daniela",
@@ -84,16 +186,42 @@
       "nameEn": "Daniela",
       "realName": "Daniela Avanzini",
       "gender": "female",
-      "position": ["Dancer", "Visual"],
+      "position": [
+        "Dancer",
+        "Visual"
+      ],
       "emoji": "💖",
-      "nicknames": ["Dani", "Latin Princess", "Visual Sweetie"],
+      "nicknames": [
+        "Dani",
+        "Latin Princess",
+        "Visual Sweetie"
+      ],
       "funFacts": [
         "Cuban-Venezuelan American",
         "Trained dancer with Latin flair",
         "Speaks fluent English and Spanish",
         "Strong Latin American fan base"
       ],
-      "bio": "Daniela brings Latin American flair to KATSEYE. Her bilingual charm and dance training have built a passionate Latin fandom presence."
+      "bio": "Daniela brings Latin American flair to KATSEYE. Her bilingual charm and dance training have built a passionate Latin fandom presence.",
+      "popularSongs": [
+        {
+          "title": "Debut Single",
+          "year": 2024,
+          "note": "Group debut where Daniela's hook section pulled Latin chart attention."
+        },
+        {
+          "title": "Touch",
+          "year": 2024,
+          "note": "Pre-debut release where Daniela's Spanish ad-libs anchor the bridge."
+        },
+        {
+          "title": "Gnarly",
+          "year": 2025,
+          "note": "Title where Daniela's visual frame carries the chorus camera holds."
+        }
+      ],
+      "distinction": "Unlike other KATSEYE members, Daniela channels Cuban-Venezuelan dance vocabulary into K-pop choreography — her hip motion translates as warmth rather than aggression, which is why her parts route fan interest from Latin America back to the group page.",
+      "fandomChant": "EYEKONS chant 'Daniela Avanzini!' through her dance breaks and switch to Spanish 'mi reina' calls on Latin American tour stops."
     },
     {
       "id": "yoonchae",
@@ -101,19 +229,49 @@
       "nameEn": "Yoonchae",
       "realName": "Yoonchae Jeung",
       "gender": "female",
-      "position": ["Maknae", "Vocalist"],
+      "position": [
+        "Maknae",
+        "Vocalist"
+      ],
       "emoji": "🌸",
-      "nicknames": ["Maknae", "Yoonchae-ya", "Korea Bridge"],
+      "nicknames": [
+        "Maknae",
+        "Yoonchae-ya",
+        "Korea Bridge"
+      ],
       "funFacts": [
         "The only Korean member",
         "Youngest of the group",
         "Trained at HYBE before joining Dream Academy",
         "Bridges Korean K-Pop industry knowledge to the global group"
       ],
-      "bio": "Yoonchae is KATSEYE's Korean maknae and the group's bridge to traditional K-Pop. Her training inside HYBE gives her industry savviness."
+      "bio": "Yoonchae is KATSEYE's Korean maknae and the group's bridge to traditional K-Pop. Her training inside HYBE gives her industry savviness.",
+      "popularSongs": [
+        {
+          "title": "Debut Single",
+          "year": 2024,
+          "note": "Group debut where Yoonchae's Korean ad-libs anchor the K-pop frame."
+        },
+        {
+          "title": "Touch",
+          "year": 2024,
+          "note": "Pre-debut release where Yoonchae's vocal tone bridges the global lineup."
+        },
+        {
+          "title": "Gnarly",
+          "year": 2025,
+          "note": "Title where Yoonchae's maknae center moments carry the camera holds."
+        }
+      ],
+      "distinction": "Unlike other KATSEYE members, Yoonchae brings inside-HYBE K-pop training as the only Korean member — her Korean delivery anchors the group's Korean-language verses, which is why her parts function as the group's K-pop bona fides.",
+      "fandomChant": "EYEKONS chant 'Jeung Yoonchae!' through her solo lines and tend to switch to 'maknae jjang' calls during her variety-show moments."
     }
   ],
-  "pageTypes": ["name", "stage-name", "aesthetic"],
+  "pageTypes": [
+    "name",
+    "stage-name",
+    "aesthetic"
+  ],
   "badge": "HOT",
   "seo": {
     "title": "KATSEYE Name Generator | Get Your Korean Name with the EYEKONS Global Girls",
@@ -127,5 +285,6 @@
       "katseye lara chemistry",
       "global kpop name generator"
     ]
-  }
+  },
+  "heroImage": "/images/groups/katseye-hero.webp"
 }

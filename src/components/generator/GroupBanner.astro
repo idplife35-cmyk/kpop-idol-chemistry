@@ -6,9 +6,10 @@ interface Props {
   description?: string;
   color?: string;
   logo?: string;
+  heroImage?: string;
 }
 
-const { name, nameKr, fandom, description, color, logo } = Astro.props;
+const { name, nameKr, fandom, description, color, logo, heroImage } = Astro.props;
 
 // Get initials for fallback (e.g., "BTS", "LE" from "LE SSERAFIM", "RV" from "Red Velvet")
 function getInitials(groupName: string): string {
@@ -23,6 +24,16 @@ const initials = getInitials(name);
 ---
 
 <div class="group-banner" style={color ? `--group-color: ${color}` : ''}>
+  {heroImage && (
+    <img
+      class="banner-hero-bg"
+      src={heroImage}
+      alt=""
+      aria-hidden="true"
+      loading="eager"
+      decoding="async"
+    />
+  )}
   <div class="banner-content">
     <div class="banner-logo">
       {logo ? (
@@ -72,8 +83,19 @@ const initials = getInitials(name);
     left: 0;
     right: 0;
     bottom: 0;
-    background: linear-gradient(135deg, rgba(0,0,0,0.15) 0%, rgba(0,0,0,0.4) 100%);
+    background: linear-gradient(135deg, rgba(0,0,0,0.35) 0%, rgba(0,0,0,0.55) 100%);
     pointer-events: none;
+    z-index: 1;
+  }
+
+  .banner-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.85;
   }
   
   .banner-content {
